@@ -12,8 +12,10 @@
 
 set -x
 
-BINDIR="$1"
-echo BINDIR $BINDIR
+CURDIR="$1"
+DEBDIR=$CURDIR/debian
+BINDIR=$CURDIR/debian/apcica-tools/usr/bin
+TSTDIR=$CURDIR/tests/misc
 
 # create files to compare against
 $BINDIR/iasl --help
@@ -28,21 +30,21 @@ esac
 WHEN=`date +"%b %d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
-    ../badcode.asl.result > misc/badcode.asl.result
+    $DEBDIR/badcode.asl.result > $TSTDIR/badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
-    ../grammar.asl.result > misc/grammar.asl.result
+    $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
 
 cd misc
 
 # see if badcode.asl failed as expected
-$BINDIR/iasl badcode.asl > badcode 2>&1
-diff badcode badcode.asl.result >/dev/null 2>&1
+$BINDIR/iasl $TSTDIR/badcode.asl > $TSTDIR/badcode 2>&1
+diff $TSTDIR/badcode $TSTDIR/badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
-$BINDIR/iasl -f -of grammar.asl > grammar 2>&1
-diff grammar grammar.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f -of $TSTDIR/grammar.asl > $TSTDIR/grammar 2>&1
+diff $TSTDIR/grammar $TSTDIR/grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 exit 0
