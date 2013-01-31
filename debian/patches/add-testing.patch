@@ -1,7 +1,7 @@
 Index: acpica-unix/Makefile
 ===================================================================
---- acpica-unix.orig/Makefile	2013-01-28 09:39:44.000000000 -0700
-+++ acpica-unix/Makefile	2013-01-28 11:38:29.000000000 -0700
+--- acpica-unix.orig/Makefile	2013-01-31 15:25:49.000000000 -0700
++++ acpica-unix/Makefile	2013-01-31 15:25:49.000000000 -0700
 @@ -14,3 +14,35 @@
  
  include generate/unix/Makefile.config

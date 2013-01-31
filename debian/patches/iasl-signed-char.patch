@@ -1,5 +1,7 @@
---- a/source/compiler/dtio.c.schar	2012-10-17 07:25:42.050504291 -0400
-+++ b/source/compiler/dtio.c	2012-10-17 07:27:14.530504054 -0400
+Index: acpica-unix/source/compiler/dtio.c
+===================================================================
+--- acpica-unix.orig/source/compiler/dtio.c	2013-01-31 15:25:44.000000000 -0700
++++ acpica-unix/source/compiler/dtio.c	2013-01-31 15:25:44.000000000 -0700
 @@ -426,7 +426,7 @@
      UINT32                  State = DT_NORMAL_TEXT;
      UINT32                  CurrentLineOffset;
