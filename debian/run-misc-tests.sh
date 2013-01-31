@@ -14,11 +14,7 @@ set -x
 
 CURDIR="$1"
 DEBDIR=$CURDIR/debian
-BINDIR=$CURDIR/debian/apcica-tools/usr/bin
 TSTDIR=$CURDIR/tests/misc
-
-# create files to compare against
-$BINDIR/iasl --help
 
 m=`uname -m`
 case $m in
@@ -27,6 +23,11 @@ case $m in
     *)   BITS=32
          ;;
 esac
+
+BINDIR=$CURDIR/generate/unix${BITS}
+
+# create files to compare against
+$BINDIR/iasl --help
 WHEN=`date +"%b %d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
