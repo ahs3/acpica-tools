@@ -24,24 +24,12 @@ endif
 %:
 	dh $@ --with-quilt
 
-override_dh_quilt_patch:
-	dh_testdir
-	dh_testroot
-	tar x --strip-components=1 -f acpica-unix2-$(VERSION).tar.gz
-	tar x --strip-components=1 -f acpitests-unix-$(VERSION).tar.gz
-	dh_quilt_patch
-
 override_dh_clean:
 	dh_testdir
 	dh_testroot
 
 	# Commands to clean up after the build process.
-	if [ -f Makefile ] ; \
-	then \
-	    $(MAKE) clean ; \
-	fi
-	rm -rf documents generate Makefile source tests libraries
-	rm -rf .cygwin .setup
+	$(MAKE) clean
 
 	dh_clean 
 
