@@ -22,7 +22,7 @@ endif
 
 
 %:
-	dh $@ --with-quilt
+	dh $@
 
 override_dh_clean:
 	dh_testdir
@@ -30,6 +30,7 @@ override_dh_clean:
 
 	# Commands to clean up after the build process.
 	$(MAKE) clean
+	rm -rf generate/unix/bin*
 
 	dh_clean 
 
