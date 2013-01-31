@@ -1,0 +1,20 @@
+--- a/source/compiler/dtio.c.schar	2012-10-17 07:25:42.050504291 -0400
++++ b/source/compiler/dtio.c	2012-10-17 07:27:14.530504054 -0400
+@@ -426,7 +426,7 @@
+     UINT32                  State = DT_NORMAL_TEXT;
+     UINT32                  CurrentLineOffset;
+     UINT32                  i;
+-    char                    c;
++    int                     c;
+ 
+ 
+     for (i = 0; ;)
+@@ -440,7 +440,7 @@
+             UtExpandLineBuffers ();
+         }
+ 
+-        c = (char) getc (Handle);
++        c = getc (Handle);
+         if (c == EOF)
+         {
+             switch (State)
