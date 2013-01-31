@@ -1,4 +1,3 @@
-fix_ftbfs_debian-kfreebsd.patch
 debian-big_endian.patch
 big_endian_segfault.patch
 debian-unaligned.patch
