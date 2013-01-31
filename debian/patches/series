@@ -1,0 +1,7 @@
+fix_ftbfs_debian-kfreebsd.patch
+debian-big_endian.patch
+big_endian_segfault.patch
+debian-unaligned.patch
+fix_ftbfs_debian-hurd.patch
+iasl-signed-char.patch
+add-testing.patch

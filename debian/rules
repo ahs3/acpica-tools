@@ -1,0 +1,74 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+CFLAGS = -Wall -g
+DESTDIR ?= debian/acpica-tools
+
+VERSION = 20130117
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2 -fno-strict-aliasing
+endif
+
+
+%:
+	dh $@ --with-quilt
+
+override_dh_quilt_patch:
+	dh_testdir
+	dh_testroot
+	tar x --strip-components=1 -f acpica-unix2-$(VERSION).tar.gz
+	tar x --strip-components=1 -f acpitests-unix-$(VERSION).tar.gz
+	dh_quilt_patch
+
+override_dh_clean:
+	dh_testdir
+	dh_testroot
+
+	# Commands to clean up after the build process.
+	if [ -f Makefile ] ; \
+	then \
+	    $(MAKE) clean ; \
+	fi
+	rm -rf documents generate Makefile source tests libraries
+	rm -rf .cygwin .setup
+
+	dh_clean 
+
+override_dh_install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Commands to install the package into debian/acpica-tools
+	install -m 755 generate/unix/bin*/iasl $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpibin $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpiexec $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpihelp $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpinames $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpisrc $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin*/acpixtract \
+	               $(DESTDIR)/usr/bin/acpixtract-acpica
+
+	install -m 0644 debian/iasl.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpibin.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpiexec.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpihelp.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpinames.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpisrc.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpixtract.1 \
+	                $(DESTDIR)/usr/share/man/man1/acpixtract-acpica.1
+
+override_dh_auto_test:
+	$(MAKE) -C $(CURDIR) check
