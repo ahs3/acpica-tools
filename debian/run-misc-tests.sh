@@ -24,7 +24,7 @@ case $m in
          ;;
 esac
 
-BINDIR=$CURDIR/generate/unix${BITS}
+BINDIR=$CURDIR/generate/unix/bin${BITS}
 
 # create files to compare against
 $BINDIR/iasl --help
@@ -35,8 +35,6 @@ sed -e "s/XXXXXXXXXXX/$WHEN/" \
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
-
-cd misc
 
 # see if badcode.asl failed as expected
 $BINDIR/iasl $TSTDIR/badcode.asl > $TSTDIR/badcode 2>&1
