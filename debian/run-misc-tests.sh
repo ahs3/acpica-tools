@@ -36,16 +36,17 @@ sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
 
+# run the tests
+cd $TSTDIR
+
 # see if badcode.asl failed as expected
-$BINDIR/iasl $TSTDIR/badcode.asl 2>&1 | sed -e "s+$TSTDIR/++" \
-                                        > $TSTDIR/badcode 2>&1
-diff $TSTDIR/badcode $TSTDIR/badcode.asl.result >/dev/null 2>&1
+$BINDIR/iasl badcode.asl > badcode 2>&1
+diff badcode badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
-$BINDIR/iasl -f -of $TSTDIR/grammar.asl 2>&1 | sed -e "s+$TSTDIR/++" \
-                                               > $TSTDIR/grammar 2>&1
-diff $TSTDIR/grammar $TSTDIR/grammar.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f -of grammar.asl > grammar 2>&1
+diff grammar grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 exit 0
