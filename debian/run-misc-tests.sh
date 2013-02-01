@@ -37,12 +37,14 @@ sed -e "s/XXXXXXXXXXX/$WHEN/" \
     $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
 
 # see if badcode.asl failed as expected
-$BINDIR/iasl $TSTDIR/badcode.asl > $TSTDIR/badcode 2>&1
+$BINDIR/iasl $TSTDIR/badcode.asl 2>&1 | sed -e "s+$TSTDIR/++" \
+                                        > $TSTDIR/badcode 2>&1
 diff $TSTDIR/badcode $TSTDIR/badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
-$BINDIR/iasl -f -of $TSTDIR/grammar.asl > $TSTDIR/grammar 2>&1
+$BINDIR/iasl -f -of $TSTDIR/grammar.asl 2>&1 | sed -e "s+$TSTDIR/++" \
+                                               > $TSTDIR/grammar 2>&1
 diff $TSTDIR/grammar $TSTDIR/grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
