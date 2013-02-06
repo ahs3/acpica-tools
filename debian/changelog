@@ -1,22 +1,18 @@
-acpica-unix (20130117-2) unstable; urgency=low
+acpica-unix (20130117-0.1) unstable; urgency=low
 
+  * Non-maintainer upload.
   * Instead of using the git clone from a particular day, stick to
     using just the official released versions and patch as needed.
     This should simplify maintenance quite a bit.
-
- -- Al Stone <ahs3@debian.org>  Thu, 31 Jan 2013 09:50:37 -0700
-
-acpica-unix (20130117-1) unstable; urgency=low
-
-  * Non-maintainer upload.
-  * Update to latest upstream version of ACPICA tools.
-  * Build all of the tools provided, not just iasl, and package into a
-    single package of executables.
+  * Closes: bug#653227 -- new upstream release of ACPICA tools
+  * Closes: bug#588388 -- build all of the tools provided, not just iasl,
+    and package into a single package of executables.  This will replace
+    the previous iasl package.
   * Add basic man pages for everything.
   * Enable some basic testing.
   * Update patches as needed.
 
- -- Al Stone <ahs3@debian.org>  Sun, 27 Jan 2013 14:22:18 -0700
+ -- Al Stone <ahs3@debian.org>  Wed, 06 Feb 2013 13:03:19 -0700
 
 acpica-unix (20100528-3) unstable; urgency=low
 

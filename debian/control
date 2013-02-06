@@ -10,6 +10,7 @@ Homepage: http://www.acpica.org
 
 Package: acpica-tools
 Architecture: any
+Replaces: iasl (>> 20100528-3)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ACPICA tools for the development and debug of ACPI tables
  The ACPI Component Architecture (ACPICA) project provides an OS-independent
