@@ -28,7 +28,7 @@ BINDIR=$CURDIR/generate/unix/bin${BITS}
 
 # create files to compare against
 $BINDIR/iasl --help
-WHEN=`date +"%b %d %Y"`
+WHEN=`date +"%b %0d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     $DEBDIR/badcode.asl.result > $TSTDIR/badcode.asl.result
