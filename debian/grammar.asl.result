@@ -1,5 +1,5 @@
 grammar.asl    199:     Name (_NPK, Package ()
-Warning  1131 -                 ^ Unknown reserved name (_NPK)
+Warning  1132 -                 ^ Unknown reserved name (_NPK)
 
 grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
 Warning  1055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
@@ -20,19 +20,19 @@ grammar.asl   1391:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  1038 -                                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
 
 grammar.asl   1471:         SizeOf (BUFO)
-Warning  1113 -                       ^ Result is not used, operator has no effect
+Warning  1114 -                       ^ Result is not used, operator has no effect
 
 grammar.asl   1497:         Acquire (MTX2, 1)
-Warning  1128 -                           ^ Result is not used, possible operator timeout will be missed
+Warning  1129 -                           ^ Result is not used, possible operator timeout will be missed
 
 grammar.asl   1645:         Add (Local0, Local1)
-Warning  1113 -                      ^ Result is not used, operator has no effect
+Warning  1114 -                      ^ Result is not used, operator has no effect
 
 grammar.asl   1816:     Method (COND)
-Warning  1114 -                   ^ Not all control paths return a value (COND)
+Warning  1115 -                   ^ Not all control paths return a value (COND)
 
 grammar.asl   2990:             Name (_CRS,0)
-Error    4105 -                           ^ Invalid object type for reserved name (_CRS: found INTEGER, requires Buffer)
+Error    4105 -                           ^ Invalid object type for reserved name (_CRS: found Integer, Buffer required)
 
 grammar.asl   6024:             Name (_HID, "*PNP0A06")
 Error    4061 -            Invalid leading asterisk ^  (*PNP0A06)
@@ -54,7 +54,7 @@ Remark   5063 -                                     ^ Initializer list shorter t
 
 
 Intel ACPI Component Architecture
-ASL Optimizing Compiler version 20130117-YYYY [XXXXXXXXXXX]
+ASL Optimizing Compiler version VVVVVVVV-YYYY [XXXXXXXXXXX]
 Copyright (c) 2000 - 2013 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
