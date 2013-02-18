@@ -12,9 +12,11 @@
 
 set -x
 
-CURDIR="$1"
-DEBDIR=$CURDIR/debian
-TSTDIR=$CURDIR/tests/misc
+BINDIR="$1"
+VERSION="$2"
+
+# create files to compare against
+$BINDIR/iasl -h
 
 m=`uname -m`
 case $m in
@@ -23,21 +25,17 @@ case $m in
     *)   BITS=32
          ;;
 esac
-
-BINDIR=$CURDIR/generate/unix/bin${BITS}
-
-# create files to compare against
-$BINDIR/iasl --help
 WHEN=`date +"%b %_d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
-    $DEBDIR/badcode.asl.result > $TSTDIR/badcode.asl.result
+    -e "s/VVVVVVVV/$VERSION/" \
+    ../badcode.asl.result > misc/badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
-    $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
+    -e "s/VVVVVVVV/$VERSION/" \
+    ../grammar.asl.result > misc/grammar.asl.result
 
-# run the tests
-cd $TSTDIR
+cd misc
 
 # see if badcode.asl failed as expected
 $BINDIR/iasl badcode.asl > badcode 2>&1

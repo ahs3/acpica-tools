@@ -49,3 +49,9 @@ The aapits tests do not currently build properly.  They will be added to
 this package once they do.  In the meantime, ASL, template and misc tests
 will be run as part of make check
 
+
+Licensing
+=========
+The source for this package has been dual-licensed under the Intel
+ACPI license or the GPLv2.  Per that dual-licensing, this source package
+is being redistributed under the terms of the GPLv2.
