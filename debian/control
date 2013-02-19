@@ -10,8 +10,8 @@ Homepage: http://www.acpica.org
 
 Package: acpica-tools
 Architecture: any
-Replaces: iasl (<< 20130117-1)
-Breaks: iasl (<< 20130117-1)
+Replaces: iasl (<< 20130214-0.1)
+Breaks: iasl (<< 20130214-0.1)
 Provides: iasl
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ACPICA tools for the development and debug of ACPI tables
