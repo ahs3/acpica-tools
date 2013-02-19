@@ -1,3 +1,12 @@
+acpica-unix (20130214-0.1) unstable; urgency=low
+
+  * New maintainer upload.
+  * New upstream (since the last attempt at NMU). 
+  * Clarify the licensing: this is being released under GPLv2 as allowed
+    under the original dual-licensing from Intel.
+
+ -- Al Stone <ahs3@debian.org>  Mon, 18 Feb 2013 14:44:41 -0700
+
 acpica-unix (20130117-0.1) unstable; urgency=low
 
   * Non-maintainer upload.
