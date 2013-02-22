@@ -4,7 +4,6 @@ fix callsites where wrong assumptions where made in terms of aligment.
 Signed-off-by: Mattia Dongili <malattia@linux.it>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- source/compiler/asltree.c             | 15 ++++++++++-----
  source/components/executer/exoparg2.c | 12 +++++++++---
  source/include/actypes.h              | 26 +++++++++++++-------------
  3 file modificati, 32 inserzioni(+), 21 rimozioni(-)
