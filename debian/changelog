@@ -1,9 +1,13 @@
 acpica-unix (20130214-0.2) unstable; urgency=low
 
   * Corrected integer to pointer conversion resulting from an incorrect
-    patch (caused FTBFS on ARM).
+    patch (caused FTBFS on ARM, other 32-bit arches).
+  * Closes: bug#653227 -- new upstream release of ACPICA tools
+  * Closes: bug#588388 -- build all of the tools provided, not just iasl,
+    and package into a single package of executables.  This will replace
+    the previous iasl package.
 
- -- Al Stone <ahs3@debian.org>  Fri, 22 Feb 2013 00:31:53 +0000
+ -- Al Stone <ahs3@debian.org>  Fri, 22 Feb 2013 15:42:48 +0000
 
 acpica-unix (20130214-0.1) unstable; urgency=low
 
@@ -20,10 +24,6 @@ acpica-unix (20130117-0.1) unstable; urgency=low
   * Instead of using the git clone from a particular day, stick to
     using just the official released versions and patch as needed.
     This should simplify maintenance quite a bit.
-  * Closes: bug#653227 -- new upstream release of ACPICA tools
-  * Closes: bug#588388 -- build all of the tools provided, not just iasl,
-    and package into a single package of executables.  This will replace
-    the previous iasl package.
   * Add basic man pages for everything.
   * Enable some basic testing.
   * Update patches as needed.
