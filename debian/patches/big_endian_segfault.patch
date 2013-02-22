@@ -17,25 +17,25 @@ Index: acpica-unix/source/compiler/asltree.c
      {
      case PARSEOP_STRING_LITERAL:
 -        DbgPrint (ASL_PARSE_OUTPUT, "STRING->%s", Value);
-+        Op->Asl.Value.String = (ACPI_STRING) Value;
++        Op->Asl.Value.String = (ACPI_STRING) (ACPI_SIZE) Value;
 +        DbgPrint (ASL_PARSE_OUTPUT, "STRING->%s", (ACPI_STRING) Value);
          break;
  
      case PARSEOP_NAMESEG:
 -        DbgPrint (ASL_PARSE_OUTPUT, "NAMESEG->%s", Value);
-+        Op->Asl.Value.String = (ACPI_STRING) Value;
++        Op->Asl.Value.String = (ACPI_STRING) (ACPI_SIZE) Value;
 +        DbgPrint (ASL_PARSE_OUTPUT, "NAMESEG->%s", (ACPI_STRING) Value);
          break;
  
      case PARSEOP_NAMESTRING:
 -        DbgPrint (ASL_PARSE_OUTPUT, "NAMESTRING->%s", Value);
-+        Op->Asl.Value.String = (ACPI_STRING) Value;
++        Op->Asl.Value.String = (ACPI_STRING) (ACPI_SIZE) Value;
 +        DbgPrint (ASL_PARSE_OUTPUT, "NAMESTRING->%s", (ACPI_STRING) Value);
          break;
  
      case PARSEOP_EISAID:
 -        DbgPrint (ASL_PARSE_OUTPUT, "EISAID->%s", Value);
-+        Op->Asl.Value.String = (ACPI_STRING) Value;
++        Op->Asl.Value.String = (ACPI_STRING) (ACPI_SIZE) Value;
 +        DbgPrint (ASL_PARSE_OUTPUT, "EISAID->%s", (ACPI_STRING) Value);
          break;
  
