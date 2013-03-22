@@ -1,20 +1,24 @@
-acpica-unix (20130214-0.2) unstable; urgency=low
+acpica-unix (20130214-0.3) unstable; urgency=low
 
-  * Corrected integer to pointer conversion resulting from an incorrect
-    patch (caused FTBFS on ARM, other 32-bit arches).
+  * Non-maintainer upload.
+  * Update changelog properly.
   * Closes: bug#653227 -- new upstream release of ACPICA tools
   * Closes: bug#588388 -- build all of the tools provided, not just iasl,
     and package into a single package of executables.  This will replace
     the previous iasl package.
+  * Add patch to fix a test failure in name comparison on big-endian
+    machines.
 
- -- Al Stone <ahs3@debian.org>  Fri, 22 Feb 2013 15:42:48 +0000
+ -- Al Stone <ahs3@debian.org>  Fri, 22 Mar 2013 09:13:25 -0600
 
-acpica-unix (20130214-0.1) unstable; urgency=low
+acpica-unix (20130214-0.2) unstable; urgency=low
 
-  * New maintainer upload.
+  * Non-maintainer upload.
   * New upstream (since the last attempt at NMU). 
   * Clarify the licensing: this is being released under GPLv2 as allowed
     under the original dual-licensing from Intel.
+  * Corrected integer to pointer conversion resulting from an incorrect
+    patch (caused FTBFS on ARM, other 32-bit arches).
 
  -- Al Stone <ahs3@debian.org>  Mon, 18 Feb 2013 14:44:41 -0700
 
