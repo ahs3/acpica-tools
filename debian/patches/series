@@ -6,3 +6,4 @@ debian-unaligned.patch
 fix_ftbfs_debian-hurd.patch
 iasl-signed-char.patch
 add-testing.patch
+name-miscompare.patch
