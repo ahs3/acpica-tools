@@ -9,6 +9,7 @@ acpica-unix (20130328-0.1) unstable; urgency=low
     provided, and all source files contain the proper license info
     in them from upstream (obviating a need for a separate license file)
   * Add in provided watch file.
+  * Closes: bug#704822 -- properly clean up alternatives after purge
 
  -- Al Stone <ahs3@debian.org>  Mon, 15 Apr 2013 16:32:40 -0600
 

@@ -3,7 +3,8 @@ set -e
 
 BINDIR=/usr/bin
 case $1 in
-remove) if [ ! -e $BINDIR/acpixtract-acpica ]
+remove|disappear)
+	if [ ! -e $BINDIR/acpixtract-acpica ]
 	then
     	    update-alternatives --remove acpixtract $BINDIR/acpixtract-acpica
 	fi
