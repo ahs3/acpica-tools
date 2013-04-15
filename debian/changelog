@@ -3,6 +3,8 @@ acpica-unix (20130328-0.1) unstable; urgency=low
   * Non-maintainer upload.
   * New upstream version.
   * Clean up lintian problems where possible.
+  * Closes: bug#696211 -- now using dh with compat=9, which will
+    include the proper build flag support by default
 
  -- Al Stone <ahs3@debian.org>  Mon, 15 Apr 2013 16:32:40 -0600
 
