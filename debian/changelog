@@ -24,6 +24,8 @@ acpica-unix (20130214-0.2) unstable; urgency=low
   * New upstream (since the last attempt at NMU). 
   * Clarify the licensing: this is being released under GPLv2 as allowed
     under the original dual-licensing from Intel.
+  * Corrected integer to pointer conversion resulting from an incorrect
+    patch (caused FTBFS on ARM, other 32-bit arches).
 
  -- Al Stone <ahs3@debian.org>  Mon, 18 Feb 2013 14:44:41 -0700
 

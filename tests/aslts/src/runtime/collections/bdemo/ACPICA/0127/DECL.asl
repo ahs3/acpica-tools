@@ -40,22 +40,22 @@
 		Store(Index(pd11, 0, Local0), Local1)
 
 		CH03("", 0, 0x000, 0, 0)
-		Add(Local0, 0)
-		CH04("", 0, 47, 0, 0x001, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local0, 0), Local2)
+		CH04("", 1, 47, 0, 0x001, 0, 0) // AE_AML_OPERAND_TYPE
 
 		CH03("", 0, 0x002, 0, 0)
-		Add(Local1, 0)
-		CH04("", 0, 47, 0, 0x003, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local1, 0), Local2)
+		CH04("", 1, 47, 0, 0x003, 0, 0) // AE_AML_OPERAND_TYPE
 
 		Store(Index(pd11, 1, Local0), Local1)
 
 		CH03("", 0, 0x004, 0, 0)
-		Add(Local0, 0)
-		CH04("", 0, 47, 0, 0x005, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local0, 0), Local2)
+		CH04("", 1, 47, 0, 0x005, 0, 0) // AE_AML_OPERAND_TYPE
 
 		CH03("", 0, 0x006, 0, 0)
-		Add(Local1, 0)
-		CH04("", 0, 47, 0, 0x007, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local1, 0), Local2)
+		CH04("", 1, 47, 0, 0x007, 0, 0) // AE_AML_OPERAND_TYPE
 	}
 
 	// CopyObject
@@ -65,12 +65,12 @@
 		CopyObject(Index(pd11, 0, Local0), Local1)
 
 		CH03("", 0, 0x008, 0, 0)
-		Add(Local0, 0)
-		CH04("", 0, 47, 0, 0x009, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local0, 0), Local2)
+		CH04("", 1, 47, 0, 0x009, 0, 0) // AE_AML_OPERAND_TYPE
 
 		CH03("", 0, 0x00a, 0, 0)
-		Add(Local1, 0)
-		CH04("", 0, 47, 0, 0x00b, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local1, 0), Local2)
+		CH04("", 1, 47, 0, 0x00b, 0, 0) // AE_AML_OPERAND_TYPE
 	}
 
 	Method(mf15)
@@ -80,12 +80,12 @@
 		CopyObject(Index(pd11, 1, Local0), Local1)
 
 		CH03("", 0, 0x00d, 0, 0)
-		Add(Local0, 0)
-		CH04("", 0, 47, 0, 0x00e, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local0, 0), Local2)
+		CH04("", 1, 47, 0, 0x00e, 0, 0) // AE_AML_OPERAND_TYPE
 
 		CH03("", 0, 0x00f, 0, 0)
-		Add(Local1, 0)
-		CH04("", 0, 47, 0, 0x010, 0, 0) // AE_AML_OPERAND_TYPE
+		Store(Add(Local1, 0), Local2)
+		CH04("", 1, 47, 0, 0x010, 0, 0) // AE_AML_OPERAND_TYPE
 	}
 
 	Method(mf16)
