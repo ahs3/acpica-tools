@@ -5,6 +5,9 @@ acpica-unix (20130328-0.1) unstable; urgency=low
   * Clean up lintian problems where possible.
   * Closes: bug#696211 -- now using dh with compat=9, which will
     include the proper build flag support by default
+  * Closes: bug#700169 -- correct copyright file contents have been
+    provided, and all source files contain the proper license info
+    in them from upstream (obviating a need for a separate license file)
 
  -- Al Stone <ahs3@debian.org>  Mon, 15 Apr 2013 16:32:40 -0600
 
