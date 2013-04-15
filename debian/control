@@ -3,9 +3,9 @@ Section: devel
 Priority: optional
 Maintainer: Mattia Dongili <malattia@debian.org>
 Build-Depends: debhelper (>= 5.0.0), flex, bison
-Standards-Version: 3.9.3
-Vcs-Git: git://git.kamineko.org/acpica-unix.git
-Vcs-Browser: http://git.kamineko.org/cgi-bin/gitweb.cgi?p=acpica-unix.git
+Standards-Version: 3.9.4
+Vcs-Git: git://github.com/acpica-unix.git
+Vcs-Browser: https://github.com/acpica/acpica.git
 Homepage: http://www.acpica.org
 
 Package: acpica-tools

@@ -8,3 +8,6 @@ update-alternatives --install $BINDIR/acpixtract acpixtract \
                     --slave $MANDIR/man1/acpixtract.1.gz acpixtract.1.gz \
                             $MANDIR/man1/acpixtract-acpica.1
 
+#DEBHELPER#
+
+exit 0

@@ -6,3 +6,7 @@ if [ ! -e $BINDIR/acpixtract-acpica ]
 then
     update-alternatives --remove acpixtract $BINDIR/acpixtract-acpica
 fi
+
+#DEBHELPER#
+
+exit 0
