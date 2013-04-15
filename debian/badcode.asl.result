@@ -47,7 +47,7 @@ badcode.asl     85:         Wait (EVT1, 1)
 Warning  1129 -                        ^ Result is not used, possible operator timeout will be missed
 
 badcode.asl     89:         Add (INT1, 8)
-Warning  1114 -                    ^ Result is not used, operator has no effect
+Error    4114 -                    ^ Result is not used, operator has no effect
 
 badcode.asl     94:         Store (5, INT1)
 Warning  1133 -                   ^ Statement is unreachable
@@ -215,4 +215,4 @@ Copyright (c) 2000 - 2013 Intel Corporation
 
 ASL Input:     badcode.asl - 401 lines, 6935 bytes, 79 keywords
 
-Compilation complete. 45 Errors, 22 Warnings, 3 Remarks, 16 Optimizations
+Compilation complete. 46 Errors, 21 Warnings, 3 Remarks, 16 Optimizations
