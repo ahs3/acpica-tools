@@ -20,10 +20,10 @@ documents above are recommended reading.
 
 Preparing the Source Tarball
 ============================
-ACPICA upstream splits the git tree into two separate source tarballs.  We
-put them back together to make it easier to track changes in the upstream
-git tree.  For example, to create the orig.tar.gz for this version, the 
-author did the following:
+ACPICA upstream splits the git tree into two separate source tarballs for
+Unix flavored use.  We put them back together to make it easier to track 
+changes againt the upstream git tree.  For example, to create the 
+orig.tar.gz for this version, the author did the following:
 
    $ cd workdir
    $ wget https://www.acpica.org/download/acpica-unix2-20130117.tar.gz
@@ -33,8 +33,8 @@ NB: note the use of "unix2" and "unix".
 
    $ mkdir acpica-unix-20130117
    $ cd acpica-unix-20130117
-   $ tar x --strip-components=1 ../acpica-unix2-20130117.tar.gz
-   $ tar x --strip-components=1 ../acpitests-unix-20130117.tar.gz
+   $ tar --strip-components=1 -xzf ../acpica-unix2-20130117.tar.gz
+   $ tar --strip-components=1 -xzf ../acpitests-unix-20130117.tar.gz
 
 The source is now unpacked into the same directory structure used in
 the upstream git tree.  Now create the .orig.tar.gz:
