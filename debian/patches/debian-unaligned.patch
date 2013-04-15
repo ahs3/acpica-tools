@@ -40,7 +40,7 @@ Index: acpica-unix/source/components/executer/exoparg2.c
      UINT64                  Index;
 +    UINT64                  ReturnValue = 0;
      ACPI_STATUS             Status = AE_OK;
-     ACPI_SIZE               Length;
+     ACPI_SIZE               Length = 0;
  
 @@ -328,7 +333,8 @@
          Status = AcpiUtDivide (Operand[0]->Integer.Value,

@@ -10,6 +10,9 @@ Warning  1055 -                                ^ Invalid Hex/Octal Escape - Non-
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   5098 -               ^ Recursive method call (RCIV)
 
+grammar.asl    733:             Method(_SRS)
+Warning  1102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
+
 grammar.asl    949:     Method (_ERR, 2)
 Warning  1102 -                   ^ Reserved method has too few arguments (_ERR requires 3)
 
@@ -20,13 +23,13 @@ grammar.asl   1391:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  1038 -                                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
 
 grammar.asl   1471:         SizeOf (BUFO)
-Warning  1114 -                       ^ Result is not used, operator has no effect
+Error    4114 -                       ^ Result is not used, operator has no effect
 
 grammar.asl   1497:         Acquire (MTX2, 1)
 Warning  1129 -                           ^ Result is not used, possible operator timeout will be missed
 
 grammar.asl   1645:         Add (Local0, Local1)
-Warning  1114 -                      ^ Result is not used, operator has no effect
+Error    4114 -                      ^ Result is not used, operator has no effect
 
 grammar.asl   1816:     Method (COND)
 Warning  1115 -                   ^ Not all control paths return a value (COND)
@@ -62,4 +65,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10281 lines, 227615 bytes, 4818 keywords
 AML Output:    grammar.aml - 43476 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 4 Errors, 11 Warnings, 3 Remarks, 1105 Optimizations
+Compilation complete. 6 Errors, 10 Warnings, 3 Remarks, 1105 Optimizations
