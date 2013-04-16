@@ -25,7 +25,7 @@ Index: acpica-unix/Makefile
 +	#cd ../..
 +
 +	# misc tests
-+	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20130214
++	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20130328
 +
 +	# Template tests
 +	cd $(CURDIR)/tests/templates
