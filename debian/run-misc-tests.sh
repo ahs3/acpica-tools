@@ -17,7 +17,6 @@ VERSION="$2"
 DEBDIR=$CURDIR/debian
 TSTDIR=$CURDIR/tests/misc
 
-m=`uname -m`
 case $m in
     *64) BITS=64
          ;;
@@ -25,7 +24,7 @@ case $m in
          ;;
 esac
 
-BINDIR=$CURDIR/generate/unix/bin${BITS}
+BINDIR=$CURDIR/generate/unix/bin
 
 # create files to compare against
 $BINDIR/iasl --help
