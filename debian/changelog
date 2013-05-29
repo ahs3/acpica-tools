@@ -1,3 +1,11 @@
+acpica-unix (20130517-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream version.
+  * Add Uploaders.
+
+ -- Al Stone <ahs3@debian.org>  Tue, 28 May 2013 20:35:18 -0600
+
 acpica-unix (20130328-0.1) unstable; urgency=low
 
   * Non-maintainer upload.
