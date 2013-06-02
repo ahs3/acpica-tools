@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Mattia Dongili <malattia@debian.org>
 Uploaders: Al Stone <ahs3@debian.org>
-Build-Depends: debhelper (>= 7.0.50~), flex, bison
+Build-Depends: debhelper (>= 9.0), flex, bison
 Standards-Version: 3.9.4
 Vcs-Git: git://github.com/acpica-unix.git
 Vcs-Browser: https://github.com/acpica/acpica.git
@@ -11,9 +11,9 @@ Homepage: http://www.acpica.org
 
 Package: acpica-tools
 Architecture: any
-Replaces: iasl (<< 20130214-0.1)
-Breaks: iasl (<< 20130214-0.1)
-Provides: iasl
+Replaces: iasl (<< 20130214-0.1), acpidump (<< 20100513-4)
+Breaks: iasl (<< 20130214-0.1) acpidump (<< 20100513-4)
+Provides: iasl, acpidump
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ACPICA tools for the development and debug of ACPI tables
  The ACPI Component Architecture (ACPICA) project provides an OS-independent
@@ -30,6 +30,7 @@ Description: ACPICA tools for the development and debug of ACPI tables
        It also can disassemble AML, for debugging purposes.
     -- acpibin: performs basic operations on binary AML files (e.g.,
        comparison, data extraction)
+    -- acpidump: write out the current contents of ACPI tables
     -- acpiexec: simulate AML execution in order to debug method definitions
     -- acpihelp: display help messages describing ASL keywords and op-codes
     -- acpinames: display complete ACPI name space from input AML
@@ -39,6 +40,13 @@ Description: ACPICA tools for the development and debug of ACPI tables
        also the pmtools package)
 
 Package: iasl
+Depends: acpica-tools, ${misc:Depends}
+Architecture: all
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package.  It can safely be removed.
+
+Package: acpidump
 Depends: acpica-tools, ${misc:Depends}
 Architecture: all
 Section: oldlibs
