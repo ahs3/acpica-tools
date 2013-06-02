@@ -12,7 +12,7 @@ export DH_VERBOSE=1
 CFLAGS = -Wall -g
 DESTDIR ?= debian/acpica-tools
 
-VERSION = 20130328
+VERSION = 20130517
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
@@ -30,7 +30,7 @@ override_dh_clean:
 
 	# Commands to clean up after the build process.
 	$(MAKE) clean
-	rm -rf generate/unix/bin*
+	rm -rf generate/unix/bin
 
 	dh_clean 
 
@@ -41,13 +41,14 @@ override_dh_install:
 	dh_installdirs
 
 	# Commands to install the package into debian/acpica-tools
-	install -m 755 generate/unix/bin*/iasl $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpibin $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpiexec $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpihelp $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpinames $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpisrc $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin*/acpixtract \
+	install -m 755 generate/unix/bin/iasl $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpibin $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpidump $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpiexec $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpihelp $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpinames $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpisrc $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpixtract \
 	               $(DESTDIR)/usr/bin/acpixtract-acpica
 
 	install -m 0644 debian/iasl.1 $(DESTDIR)/usr/share/man/man1
