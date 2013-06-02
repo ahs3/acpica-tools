@@ -9,6 +9,10 @@ configure) update-alternatives --install $BINDIR/acpixtract acpixtract \
                                          $BINDIR/acpixtract-acpica 100 \
                     --slave $MANDIR/man1/acpixtract.1.gz acpixtract.1.gz \
                             $MANDIR/man1/acpixtract-acpica.1
+	   update-alternatives --install $BINDIR/acpidump acpidump \
+                                         $BINDIR/acpidump-acpica 100 \
+                    --slave $MANDIR/man1/acpidump.1.gz acpidump.1.gz \
+                            $MANDIR/man1/acpidump-acpica.1
 	   ;;
 
 *)	   ;;

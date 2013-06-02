@@ -43,7 +43,8 @@ override_dh_install:
 	# Commands to install the package into debian/acpica-tools
 	install -m 755 generate/unix/bin/iasl $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpibin $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin/acpidump $(DESTDIR)/usr/bin
+	install -m 755 generate/unix/bin/acpidump
+		       $(DESTDIR)/usr/bin/acpidump-acpica
 	install -m 755 generate/unix/bin/acpiexec $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpihelp $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpinames $(DESTDIR)/usr/bin
@@ -53,6 +54,8 @@ override_dh_install:
 
 	install -m 0644 debian/iasl.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpibin.1 $(DESTDIR)/usr/share/man/man1
+	install -m 0644 debian/acpidump.1 \
+			$(DESTDIR)/usr/share/man/man1/acpidump-acpica.1
 	install -m 0644 debian/acpiexec.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpihelp.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpinames.1 $(DESTDIR)/usr/share/man/man1

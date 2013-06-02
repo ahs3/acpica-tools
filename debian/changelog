@@ -1,7 +1,7 @@
 acpica-unix (20130517-1) unstable; urgency=low
 
   * New upstream version.
-  * Add Uploaders.
+  * Add myself to Uploaders per maintainer.
   * Update patches (some no longer needed, some combined)
 
  -- Al Stone <ahs3@debian.org>  Tue, 28 May 2013 20:35:18 -0600
