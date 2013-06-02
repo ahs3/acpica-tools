@@ -1,6 +1,5 @@
-acpica-unix (20130517-0.1) unstable; urgency=low
+acpica-unix (20130517-1) unstable; urgency=low
 
-  * Non-maintainer upload.
   * New upstream version.
   * Add Uploaders.
   * Update patches (some no longer needed, some combined)

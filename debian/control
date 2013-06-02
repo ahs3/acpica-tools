@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Mattia Dongili <malattia@debian.org>
 Uploaders: Al Stone <ahs3@debian.org>
-Build-Depends: debhelper (>= 5.0.0), flex, bison
+Build-Depends: debhelper (>= 7.0.50~), flex, bison
 Standards-Version: 3.9.4
 Vcs-Git: git://github.com/acpica-unix.git
 Vcs-Browser: https://github.com/acpica/acpica.git
