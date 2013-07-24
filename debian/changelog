@@ -3,7 +3,7 @@ acpica-unix (20130626-1) unstable; urgency=low
   * Update to latest upstream. 
   * Closes: bug#704822 -- properly clean up alternatives after purge;
     all the suggestions made in the bug have been applied
-  * Add in basic man page for acpidump
+  * Closes: bug#714426 -- acpidump has been implemented for Linux
 
  -- Al Stone <ahs3@debian.org>  Wed, 24 Jul 2013 16:25:46 -0600
 
@@ -49,6 +49,8 @@ acpica-unix (20130214-0.2) unstable; urgency=low
   * New upstream (since the last attempt at NMU). 
   * Clarify the licensing: this is being released under GPLv2 as allowed
     under the original dual-licensing from Intel.
+  * Corrected integer to pointer conversion resulting from an incorrect
+    patch (caused FTBFS on ARM, other 32-bit arches).
 
  -- Al Stone <ahs3@debian.org>  Mon, 18 Feb 2013 14:44:41 -0700
 
