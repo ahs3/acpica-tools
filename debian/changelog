@@ -1,3 +1,9 @@
+acpica-unix (20130626-1) unstable; urgency=low
+
+  * Update to latest upstream. 
+
+ -- Al Stone <ahs3@debian.org>  Wed, 24 Jul 2013 16:25:46 -0600
+
 acpica-unix (20130517-1) unstable; urgency=low
 
   * New upstream version.
