@@ -22,7 +22,8 @@ cd asl
 ASL=$BINDIR/iasl make
 
 # run the rests
-cd ../bin
+cd $TSTDIR
+cd bin
 ./aapitsrun
 [ $? -eq 0 ] || exit 1
 
