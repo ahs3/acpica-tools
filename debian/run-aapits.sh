@@ -8,12 +8,8 @@
 
 set -x
 
-CURDIR="$1"
-VERSION="$2"
-DEBDIR=$CURDIR/debian
-TSTDIR=$CURDIR/tests/aapits
-
-BINDIR=$CURDIR/generate/unix/bin
+TSTDIR="$1"
+BINDIR="$2"
 
 # set up the tests
 cd $TSTDIR
