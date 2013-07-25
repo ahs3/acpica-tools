@@ -5,6 +5,8 @@ acpica-unix (20130626-1) unstable; urgency=low
     all the suggestions made in the bug have been applied
   * Closes: bug#714426 -- acpidump has been implemented for Linux
   * Closes: bug#703711 -- acpidump/acpixtract both use alternatives
+  * Add in basic man page for acpidump
+  * Enable running of the AAPITS tests
 
  -- Al Stone <ahs3@debian.org>  Wed, 24 Jul 2013 16:25:46 -0600
 
