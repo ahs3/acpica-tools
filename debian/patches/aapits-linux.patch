@@ -9,25 +9,16 @@ diff -urN acpica-unix2-20130626/tests/aapits/atexec.c acpica-unix2-20130626-aapi
  /*******************************************************************************
   *
   * FUNCTION:    AtBuildLocalRSDT
-@@ -648,8 +649,10 @@
+@@ -648,8 +649,9 @@
          LocalRSDT->Header.Checksum = (UINT8)~LocalRSDT->Header.Checksum;
      }
  }
 +#endif
  
  
-+#if ACPI_MACHINE_WIDTH == 64
  /*******************************************************************************
   *
   * FUNCTION:    AtBuildLocalXSDT
-@@ -778,6 +781,7 @@
- 
-     return (AE_OK);
- }
-+#endif
- 
- 
- /******************************************************************************
 @@ -1315,7 +1319,7 @@
          ACPI_WARNING ((AE_INFO,
              "Request on [%4.4s] is beyond region limit Req-%X+%X, Base=%X, Len-%X\n",
