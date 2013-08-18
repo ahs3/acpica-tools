@@ -617,7 +617,11 @@ Method(m151)
 	 * Updated according to Bug 85 fix: no exception is expected
 	 * since the value is not processed.
 	 */
-	CH04(ts, 0, 62, z058, 89, 0, 0)
+	/*
+	 * OBSOLETE July 2013. DerefOf on an empty package element now causes error
+	 * CH04(ts, 0, 62, z058, 89, 0, 0)
+	 */
+	CH04(ts, 1, 51, z058, 89, 0, 0)	// AE_AML_UNINITIALIZED_ELEMENT
 
 	Add(DeRefOf(Index(p000, 3)), 1, Local5)
 
@@ -1265,7 +1269,16 @@ Method(m708)
 			// Read
 			Store(DeRefof(Local2), Local4)
 
-			CH04(ts, 0, 53, z058, Add(183, Local1), 0, 0)	// AE_AML_REGION_LIMIT
+			/* July 2013
+			 *
+			 * The Store above should actually cause two errors
+			 * 1) AE_AML_REGION_LIMIT
+			 * 2) AE_AML_NO_RETURN_VALUE
+			 *
+			 * Indicate we only care about the first by placing a 1
+			 * in the second argument
+			 */
+			CH04(ts, 1, 53, z058, Add(183, Local1), 0, 0)	// AE_AML_REGION_LIMIT
 
 			Decrement(Local0)
 			Increment(Local1)
