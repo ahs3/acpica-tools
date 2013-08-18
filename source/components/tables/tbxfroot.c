@@ -51,6 +51,12 @@
 #define _COMPONENT          ACPI_TABLES
         ACPI_MODULE_NAME    ("tbxfroot")
 
+/* Local prototypes */
+
+static ACPI_STATUS
+AcpiTbValidateRsdp (
+    ACPI_TABLE_RSDP         *Rsdp);
+
 
 /*******************************************************************************
  *
