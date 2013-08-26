@@ -29,24 +29,22 @@ WHEN=`date +"%b %_d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../badcode.asl.result > misc/badcode.asl.result
+    ../debian/badcode.asl.result > misc/badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../grammar.asl.result > misc/grammar.asl.result
-
-cd misc
+    ../debian/grammar.asl.result > misc/grammar.asl.result
 
 # see if badcode.asl failed as expected
 # NB: the -f option is required so we can see all of the errors
-$BINDIR/iasl -f badcode.asl 2>&1 | tee badcode
-diff badcode badcode.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f misc/badcode.asl 2>&1 | tee misc/badcode
+diff misc/badcode misc/badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
 # NB: the -f option is required so we can see all of the errors
-$BINDIR/iasl -f -of grammar.asl 2>&1 | tee grammar
-diff grammar grammar.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f -of misc/grammar.asl 2>&1 | tee misc/grammar
+diff misc/grammar misc/grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 exit 0
