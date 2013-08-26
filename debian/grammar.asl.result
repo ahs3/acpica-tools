@@ -1,15 +1,6 @@
 grammar.asl    199:     Name (_NPK, Package ()
 Warning  3133 -                 ^ Unknown reserved name (_NPK)
 
-grammar.asl    245:         Method (_CRS, 0, NotSerialized)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl    404:         Method (_PRS, 0, NotSerialized)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl    511:     Method (TCOP)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
 
@@ -19,32 +10,17 @@ Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
 
-grammar.asl    710:             Method(_CRS)
-Remark   2120 -                          ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
 
-grammar.asl    873:             Method(_BST) {
-Remark   2120 -                          ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl    949:     Method (_ERR, 2)
 Warning  3102 -                   ^ Reserved method has too few arguments (_ERR requires 3)
-
-grammar.asl   1313:     Method (FLDS)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
 
 grammar.asl   1389:         Store (0x1234567887654321, QWD2)
 Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
 
 grammar.asl   1391:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  3038 -                                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
-
-grammar.asl   1404:     Method (FLDX)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   1437:     Method (OBJ2, 1)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
 
 grammar.asl   1471:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
@@ -58,38 +34,8 @@ Error    6114 -                      ^ Result is not used, operator has no effec
 grammar.asl   1816:     Method (COND)
 Warning  3115 -                   ^ Not all control paths return a value (COND)
 
-grammar.asl   1909:     Method (REFS)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   1985:     Method (INDX, 0)
-Remark   2120 -                   ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   2161:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   2662:         Method (RBUF)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl   2990:             Name (_CRS,0)
 Error    6105 -                           ^ Invalid object type for reserved name (_CRS: found Integer, Buffer required)
-
-grammar.asl   3336:         Method(TEST)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   3428:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   3521:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   4128:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   4685:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   5111:         Method (MADM, 1)    
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
 
 grammar.asl   6024:             Name (_HID, "*PNP0A06")
 Error    6061 -            Invalid leading asterisk ^  (*PNP0A06)
@@ -97,89 +43,17 @@ Error    6061 -            Invalid leading asterisk ^  (*PNP0A06)
 grammar.asl   6163:         Name (C18C, Package (2)
 Remark   2063 -                                 ^ Initializer list shorter than declared package length
 
-grammar.asl   6399:         Method (MCTH, 2)    
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl   6475:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
 Warning  3046 -        Invalid or unknown escape sequence ^ 
-
-grammar.asl   6549:             Method (_BIF)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   6573:             Method (_BST)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   6584:             Method (TEST)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
 
 grammar.asl   6814:                 And (Local0, 1, Local0) 
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
 
-grammar.asl   6841:         Method (C17B, 1)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl   6900:             Name (_HID, "*PNP0C0A")     
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
 
-grammar.asl   6911:             Method (LCLB)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   6963:             Method (LCLP)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7069:         Method(TST1)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7088:         Method(TST2)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7105:         Method(TST3)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7296:         Method (TSTF)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7321:         Method (TSTG)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7406:         Method (TSTH)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7442:         Method (TSTI)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7478:         Method(TSTJ)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7514:         Method(TSTK)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7550:         Method(TSTL)
-Remark   2120 -                      ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   7736:         Method (TEST)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   8270:             Method (_BIF)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   8294:             Method (B2IB)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   8488:             Method (FB2P)
-Remark   2120 -                           ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   8703:         Method (SARG)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
 grammar.asl   8717:             Name (PKG2, Package (4)
 Remark   2063 -                                     ^ Initializer list shorter than declared package length
-
-grammar.asl   8968:         Method (SBUF)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
-
-grammar.asl   9029:         Method (SLOC)
-Remark   2120 -                       ^ Control Method should be made Serialized (due to creation of named objects within)
 
 
 Intel ACPI Component Architecture
@@ -188,7 +62,7 @@ Copyright (c) 2000 - 2013 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     grammar.asl - 10281 lines, 227615 bytes, 4818 keywords
+ASL Input:     grammar.asl - 10281 lines, 228124 bytes, 4818 keywords
 AML Output:    grammar.aml - 43476 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 6 Errors, 10 Warnings, 45 Remarks, 1105 Optimizations
+Compilation complete. 6 Errors, 10 Warnings, 3 Remarks, 1105 Optimizations
