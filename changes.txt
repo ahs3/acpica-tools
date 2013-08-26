@@ -155,7 +155,6 @@ optional. If not specified, the default table is a DSDT, typically the
 most common case.
 
 ----------------------------------------
->>>>>>> Temporary merge branch 2
 26 June 2013. Summary of changes for version 20130626:
 
 1) ACPICA kernel-resident subsystem:
