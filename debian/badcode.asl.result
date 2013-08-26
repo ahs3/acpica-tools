@@ -213,6 +213,9 @@ Intel ACPI Component Architecture
 ASL Optimizing Compiler version VVVVVVVV-YYYY [XXXXXXXXXXX]
 Copyright (c) 2000 - 2013 Intel Corporation
 
+Ignoring all errors, forcing AML file generation
+
 ASL Input:     badcode.asl - 401 lines, 6935 bytes, 79 keywords
+AML Output:    badcode.aml - 1184 bytes, 60 named objects, 19 executable opcodes
 
 Compilation complete. 46 Errors, 21 Warnings, 3 Remarks, 16 Optimizations
