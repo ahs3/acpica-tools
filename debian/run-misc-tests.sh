@@ -6,14 +6,21 @@
 #       iasl precisely because we expect it to stop when presented with
 #       faulty ASL.
 #
-#       this script assumes it is in the source 'tests' directory at
+#       this script assumes it is in the root of the  source directory at
 #       start.
 #
 
 set -x
 
-BINDIR="$1"
+CURDIR="$1"
+BINDIR="$1/generate/unix/bin"
+DEBDIR="$1/debian"
 VERSION="$2"
+
+cd $CURDIR/tests/misc
+echo "=====>"
+echo `pwd`
+echo "======"
 
 # create files to compare against
 $BINDIR/iasl -h
@@ -29,13 +36,11 @@ WHEN=`date +"%b %_d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../badcode.asl.result > misc/badcode.asl.result
+    $DEBDIR/badcode.asl.result > badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../grammar.asl.result > misc/grammar.asl.result
-
-cd misc
+    $DEBDIR/grammar.asl.result > grammar.asl.result
 
 # see if badcode.asl failed as expected
 # NB: the -f option is required so we can see all of the errors
