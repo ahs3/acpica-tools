@@ -2,7 +2,7 @@ Index: acpica-unix/Makefile
 ===================================================================
 --- acpica-unix.orig/Makefile	2013-01-31 15:25:49.000000000 -0700
 +++ acpica-unix/Makefile	2013-01-31 15:25:49.000000000 -0700
-@@ -14,3 +14,27 @@
+@@ -14,3 +14,28 @@
  
  include generate/unix/Makefile.config
  include generate/unix/Makefile.common
@@ -17,6 +17,7 @@ Index: acpica-unix/Makefile
 +	$(CURDIR)/debian/run-aapits.sh $(CURDIR)/tests/aapits $(CURDIR)/generate/unix/bin
 +
 +	# misc tests
++	cd $(CURDIR)/tests
 +	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR)/generate/unix/bin 20130823
 +
 +	# Template tests
