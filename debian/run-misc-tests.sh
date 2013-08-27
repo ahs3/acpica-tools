@@ -16,6 +16,10 @@ BINDIR="$1/generate/unix/bin"
 DEBDIR="$1/debian"
 VERSION="$2"
 
+echo "=====>"
+echo `pwd`
+echo "======"
+
 # create files to compare against
 $BINDIR/iasl -h
 
