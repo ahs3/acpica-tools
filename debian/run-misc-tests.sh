@@ -6,16 +6,18 @@
 #       iasl precisely because we expect it to stop when presented with
 #       faulty ASL.
 #
-#       this script assumes it is in the source 'tests/misc' directory at
+#       this script assumes it is in the root of the  source directory at
 #       start.
 #
 
 set -x
 
+CURDIR="$1"
 BINDIR="$1/generate/unix/bin"
 DEBDIR="$1/debian"
 VERSION="$2"
 
+cd $CURDIR/tests/misc
 echo "=====>"
 echo `pwd`
 echo "======"
