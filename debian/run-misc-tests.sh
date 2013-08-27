@@ -6,16 +6,21 @@
 #       iasl precisely because we expect it to stop when presented with
 #       faulty ASL.
 #
-#       this script assumes it is in the source 'tests' directory at
+#       this script assumes it is in the root of the  source directory at
 #       start.
 #
 
 set -x
 
 CURDIR="$1"
+BINDIR="$1/generate/unix/bin"
+DEBDIR="$1/debian"
 VERSION="$2"
-DEBDIR=$CURDIR/debian
-TSTDIR=$CURDIR/tests/misc
+
+cd $CURDIR/tests/misc
+
+# create files to compare against
+$BINDIR/iasl -h
 
 m=`uname -m`
 case $m in
@@ -24,31 +29,25 @@ case $m in
     *)   BITS=32
          ;;
 esac
-
-BINDIR=$CURDIR/generate/unix/bin
-
-# create files to compare against
-$BINDIR/iasl --help
 WHEN=`date +"%b %_d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    $DEBDIR/badcode.asl.result > $TSTDIR/badcode.asl.result
+    $DEBDIR/badcode.asl.result > badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    $DEBDIR/grammar.asl.result > $TSTDIR/grammar.asl.result
-
-# run the tests
-cd $TSTDIR
+    $DEBDIR/grammar.asl.result > grammar.asl.result
 
 # see if badcode.asl failed as expected
-$BINDIR/iasl badcode.asl > badcode 2>&1
+# NB: the -f option is required so we can see all of the errors
+$BINDIR/iasl -f badcode.asl 2>&1 | tee badcode
 diff badcode badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
-$BINDIR/iasl -f -of grammar.asl > grammar 2>&1
+# NB: the -f option is required so we can see all of the errors
+$BINDIR/iasl -f -of grammar.asl 2>&1 | tee grammar
 diff grammar grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
