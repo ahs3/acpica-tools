@@ -8,14 +8,14 @@ Index: acpica-unix/Makefile
  include generate/unix/Makefile.common
 +
 +check:
-+	# misc tests
-+	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20130823
-+
 +	# ASL tests
 +	$(CURDIR)/tests/aslts.sh $(CURDIR)/tests/aslts $(CURDIR)/generate/unix
 +
 +	# API Tests
 +	$(CURDIR)/debian/run-aapits.sh $(CURDIR)/tests/aapits $(CURDIR)/generate/unix/bin
++
++	# misc tests
++	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20130823
 +
 +	# Template tests
 +	cd $(CURDIR)/tests/templates
