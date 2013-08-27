@@ -12,7 +12,9 @@
 
 set -x
 
-BINDIR="$1"
+BINDIR="$1/generate/unix/bin"
+DEBDIR="$1/debian"
+MISCDIR="$1/tests/misc"
 VERSION="$2"
 
 # create files to compare against
@@ -29,22 +31,22 @@ WHEN=`date +"%b %_d %Y"`
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../debian/badcode.asl.result > misc/badcode.asl.result
+    $DEBDIR/badcode.asl.result > $MISCDIR/badcode.asl.result
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
-    ../debian/grammar.asl.result > misc/grammar.asl.result
+    $DEBDIR/grammar.asl.result > $MISCDIR/grammar.asl.result
 
 # see if badcode.asl failed as expected
 # NB: the -f option is required so we can see all of the errors
-$BINDIR/iasl -f misc/badcode.asl 2>&1 | tee misc/badcode
-diff misc/badcode misc/badcode.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f $MISCDIR/badcode.asl 2>&1 | tee $MISCDIR/badcode
+diff $MISCDIR/badcode $MISCDIR/badcode.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 # see if grammar.asl failed as expected
 # NB: the -f option is required so we can see all of the errors
-$BINDIR/iasl -f -of misc/grammar.asl 2>&1 | tee misc/grammar
-diff misc/grammar misc/grammar.asl.result >/dev/null 2>&1
+$BINDIR/iasl -f -of $MISCDIR/grammar.asl 2>&1 | tee $MISCDIR/grammar
+diff $MISCDIR/grammar $MISCDIR/grammar.asl.result >/dev/null 2>&1
 [ $? -eq 0 ] || exit 1
 
 exit 0
