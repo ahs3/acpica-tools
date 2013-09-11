@@ -24,6 +24,7 @@ $BINDIR/iasl -h
 
 m=`uname -m`
 case $m in
+    s390x | \
     *64) BITS=64
          ;;
     *)   BITS=32

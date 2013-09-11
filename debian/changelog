@@ -1,3 +1,9 @@
+acpica-unix (20130823-2) unstable; urgency=low
+
+  * Fix the run-misc-tests.sh script to enable running on s390x. 
+
+ -- Al Stone <ahs3@debian.org>  Tue, 10 Sep 2013 20:41:19 -0600
+
 acpica-unix (20130823-1) unstable; urgency=low
 
   * Update to latest upstream. 
