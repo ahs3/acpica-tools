@@ -24,6 +24,9 @@ endif
 %:
 	dh $@
 
+override_dh_auto_clean:
+	dh_testdir
+
 override_dh_clean:
 	dh_testdir
 	dh_testroot
