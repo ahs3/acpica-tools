@@ -12,7 +12,7 @@ export DH_VERBOSE=1
 CFLAGS = -Wall -g
 DESTDIR ?= debian/acpica-tools
 
-VERSION = 20130517
+VERSION = 20130927
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
@@ -24,9 +24,6 @@ endif
 %:
 	dh $@
 
-override_dh_auto_clean:
-	dh_testdir
-
 override_dh_clean:
 	dh_testdir
 	dh_testroot
@@ -34,8 +31,6 @@ override_dh_clean:
 	# Commands to clean up after the build process.
 	$(MAKE) clean
 	rm -rf generate/unix/bin
-
-	dh_clean 
 
 override_dh_install:
 	dh_testdir
