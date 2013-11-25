@@ -12,7 +12,7 @@ export DH_VERBOSE=1
 CFLAGS = -Wall -g
 DESTDIR ?= debian/acpica-tools
 
-VERSION = 20130927
+VERSION = 20131115
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
