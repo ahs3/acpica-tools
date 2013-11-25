@@ -2458,7 +2458,7 @@ Index: foo/source/include/platform/aclinux.h
 ===================================================================
 --- foo.orig/source/include/platform/aclinux.h	2013-08-26 13:45:58.000000000 -0600
 +++ foo/source/include/platform/aclinux.h	2013-08-26 13:45:58.000000000 -0600
-@@ -81,13 +81,14 @@
+@@ -83,13 +83,14 @@
  #include <stdlib.h>
  #include <ctype.h>
  #include <unistd.h>
@@ -2467,14 +2467,14 @@ Index: foo/source/include/platform/aclinux.h
  /* Host-dependent types and defines for user-space ACPICA */
  
  #define ACPI_FLUSH_CPU_CACHE()
- #define ACPI_CAST_PTHREAD_T(pthread) ((ACPI_THREAD_ID) (pthread))
+ #define ACPI_CAST_PTHREAD_T(Pthread) ((ACPI_THREAD_ID) (Pthread))
  
 -#if defined(__ia64__) || defined(__x86_64__) || defined(__aarch64__)
 +#if __SIZEOF_LONG__ == 8
  #define ACPI_MACHINE_WIDTH          64
  #define COMPILER_DEPENDENT_INT64    long
  #define COMPILER_DEPENDENT_UINT64   unsigned long
-@@ -98,6 +99,10 @@
+@@ -100,6 +100,10 @@
  #define ACPI_USE_NATIVE_DIVIDE
  #endif
  
