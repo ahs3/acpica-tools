@@ -24,9 +24,9 @@ endif
 %:
 	dh $@
 
-override_dh_build:
+override_dh_binary-arch:
 	date +"%b %_d %Y" > .build_date
-	dh_build
+	dh_binary-arch
 
 override_dh_clean:
 	dh_testdir
