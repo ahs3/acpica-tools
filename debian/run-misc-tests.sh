@@ -30,7 +30,19 @@ case $m in
     *)   BITS=32
          ;;
 esac
-WHEN=`date +"%b %_d %Y"`
+
+# if the build happens to start before midnight, the date gets
+# confused in the comparison later on if the build goes past
+# midnight.  if available, grab the date value stashed during 
+# the build step for this package to minimize the probability
+# of this occuring.
+if [ -f .build_date ]
+then
+    WHEN=`cat .build_date`
+else
+    WHEN=`date +"%b %_d %Y"`
+fi
+
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
     -e "s/VVVVVVVV/$VERSION/" \
