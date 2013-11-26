@@ -33,15 +33,10 @@ esac
 
 # if the build happens to start before midnight, the date gets
 # confused in the comparison later on if the build goes past
-# midnight.  if available, grab the date value stashed during 
-# the build step for this package to minimize the probability
-# of this occuring.
-if [ -f /tmp/.build_date ]
-then
-    WHEN=`cat .build_date`
-else
-    WHEN=`date +"%b %_d %Y"`
-fi
+# midnight.  grab the date from the iasl file we just built so
+# they match regardless.
+FDATE=`stat --format="%Y" $BINDIR/iasl | cut -d" " -f1`
+WHEN=`date --date="@$FDATE" +"%b %_d %Y"
 
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
