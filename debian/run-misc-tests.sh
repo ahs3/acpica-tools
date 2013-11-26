@@ -36,7 +36,7 @@ esac
 # midnight.  grab the date from the iasl file we just built so
 # they match regardless.
 FDATE=`stat --format="%Y" $BINDIR/iasl | cut -d" " -f1`
-WHEN=`date --date="@$FDATE" +"%b %_d %Y"
+WHEN=`date --date="@$FDATE" +"%b %_d %Y"`
 
 sed -e "s/XXXXXXXXXXX/$WHEN/" \
     -e "s/YYYY/$BITS/" \
