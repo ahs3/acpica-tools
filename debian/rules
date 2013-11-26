@@ -25,7 +25,7 @@ endif
 	dh $@
 
 override_dh_binary-arch:
-	date +"%b %_d %Y" > .build_date
+	date +"%b %_d %Y" > /tmp/.build_date
 	dh_binary-arch
 
 override_dh_clean:
@@ -33,7 +33,7 @@ override_dh_clean:
 	dh_testroot
 
 	# Commands to clean up after the build process.
-	rm -f .build_date
+	rm -f /tmp/.build_date
 	$(MAKE) clean
 	rm -rf generate/unix/bin
 

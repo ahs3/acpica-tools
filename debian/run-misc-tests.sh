@@ -36,7 +36,7 @@ esac
 # midnight.  if available, grab the date value stashed during 
 # the build step for this package to minimize the probability
 # of this occuring.
-if [ -f .build_date ]
+if [ -f /tmp/.build_date ]
 then
     WHEN=`cat .build_date`
 else
