@@ -1,3 +1,17 @@
+acpica-unix (20131218-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream.
+  * Update Standards-Version.
+  * Ack of NMU.
+  * Closes: #714425 -- new acpidump is as compatible as upstream can be
+  * Closes: #731760 -- remove extraneous "/man1" from postinst script
+  * Closes: #700169 -- include proper license in upstream tarball (I
+    believe this has been fixed for awhile but please reopen if needed)
+  * Closes: #707584 -- iasl output format changes will be handled on
+    the seabios side, not in iasl
+
+ -- Al Stone <ahs3@debian.org>  Mon, 06 Jan 2014 19:16:09 -0700
+
 acpica-unix (20131115-1.1) unstable; urgency=medium
 
   * Non-maintainer upload.  Closes: #696211.
