@@ -1,6 +1,24 @@
 grammar.asl    199:     Name (_NPK, Package ()
 Warning  3133 -                 ^ Unknown reserved name (_NPK)
 
+grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
+Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
+Remark   2089 -                  Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
+Remark   2089 -                        Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
+Remark   2089 -                                            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    399:             CreateByteField (PRT0, R000._ASZ, RSIZ)
+Remark   2089 -                            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    513:         Name (_STR, Unicode ("test"))
+Remark   2089 -                     ^ Object is not referenced (Name is within method [TCOP])
+
 grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
 
@@ -10,11 +28,44 @@ Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
 
+grammar.asl    701:             CreateField (\_SB_.SBUF, 148, 96, FLDV)
+Remark   2089 -                            Object is not referenced ^  (Name is within method [_INI])
+
+grammar.asl    715:                             MinFixed,                       
+Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    716:                             MaxFixed,                       
+Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    717:                             SubDecode,                      
+Remark   2089 -               Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    718:                             0x0000,                           
+Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    720:                             0xfff2,                           
+Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    721:                             0x0032,                           
+Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+
+grammar.asl    722:                             0x0002,,,                         
+Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
 
 grammar.asl    949:     Method (_ERR, 2)
 Warning  3102 -                   ^ Reserved method has too few arguments (_ERR requires 3)
+
+grammar.asl   1295:         Name(BUFR, Buffer (Local0) {})
+Remark   2089 -                    ^ Object is not referenced (Name is within method [OBJ1])
+
+grammar.asl   1302:         Alias (MTX1, MTX2)
+Remark   2089 -   Object is not referenced ^  (Name is within method [OBJ1])
+
+grammar.asl   1324:         CreateField (BUF2, 148, 96, FLD3)
+Remark   2089 -                  Object is not referenced ^  (Name is within method [FLDS])
 
 grammar.asl   1389:         Store (0x1234567887654321, QWD2)
 Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
@@ -24,6 +75,9 @@ Warning  3038 -                                                    ^ 64-bit inte
 
 grammar.asl   1471:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
+
+grammar.asl   1491:         Alias (MTX2, MTXA)
+Remark   2089 -   Object is not referenced ^  (Name is within method [OBJ2])
 
 grammar.asl   1497:         Acquire (MTX2, 1)
 Warning  3130 -                           ^ Result is not used, possible operator timeout will be missed
@@ -52,6 +106,18 @@ Error    6066 -                              ^ Method local variable is not init
 grammar.asl   6900:             Name (_HID, "*PNP0C0A")     
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
 
+grammar.asl   7754:             CreateDWordField (TMD0, 4, DMA0)
+Remark   2089 -                     Object is not referenced ^  (Name is within method [TEST])
+
+grammar.asl   7755:             CreateDWordField (TMD0, 8, PIO1)
+Remark   2089 -                     Object is not referenced ^  (Name is within method [TEST])
+
+grammar.asl   7756:             CreateDWordField (TMD0, 12, DMA1)
+Remark   2089 -                      Object is not referenced ^  (Name is within method [TEST])
+
+grammar.asl   7757:             CreateDWordField (TMD0, 16, CHNF)
+Remark   2089 -                      Object is not referenced ^  (Name is within method [TEST])
+
 grammar.asl   8717:             Name (PKG2, Package (4)
 Remark   2063 -                                     ^ Initializer list shorter than declared package length
 
@@ -65,4 +131,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10281 lines, 228124 bytes, 4818 keywords
 AML Output:    grammar.aml - 43476 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 6 Errors, 10 Warnings, 3 Remarks, 1105 Optimizations
+Compilation complete. 6 Errors, 10 Warnings, 25 Remarks, 1105 Optimizations
