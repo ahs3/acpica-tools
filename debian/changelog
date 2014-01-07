@@ -9,6 +9,7 @@ acpica-unix (20131218-1) unstable; urgency=medium
     believe this has been fixed for awhile but please reopen if needed)
   * Closes: #707584 -- iasl output format changes will be handled on
     the seabios side, not in iasl
+  * Add temporary patch since upstream forgot a Makefile in the tarball.
 
  -- Al Stone <ahs3@debian.org>  Mon, 06 Jan 2014 19:16:09 -0700
 
