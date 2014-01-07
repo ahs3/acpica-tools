@@ -1,3 +1,12 @@
+acpica-unix (20131115-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.  Closes: #696211.
+  * Add cross-compilation support.
+  * Use dpkg-buildflags for hardening support.
+  * Disable the test suite when DEB_BUILD_OPTIONS=nocheck is set.
+
+ -- Steve Langasek <vorlon@debian.org>  Tue, 10 Dec 2013 06:39:51 +0000
+
 acpica-unix (20131115-1) unstable; urgency=low
 
   * Update to latest upstream. 
