@@ -1,3 +1,9 @@
+acpica-unix (20140114-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+
+ -- Al Stone <ahs3@debian.org>  Tue, 21 Jan 2014 18:43:02 -0700
+
 acpica-unix (20131218-1) unstable; urgency=medium
 
   * Upgrade to latest upstream.
