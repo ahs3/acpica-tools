@@ -5,3 +5,4 @@ fix_ftbfs_debian-hurd.patch
 add-testing.patch
 name-miscompare.patch
 aapits-linux.patch
+aapits-ld.patch

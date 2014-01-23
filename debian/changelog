@@ -1,8 +1,10 @@
 acpica-unix (20140114-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
+  * Remove temporary patch for forgotten Makefile.
+  * Add patch to fix aapits test suite Makefile.
 
- -- Al Stone <ahs3@debian.org>  Tue, 21 Jan 2014 18:43:02 -0700
+ -- Al Stone <ahs3@debian.org>  Thu, 23 Jan 2014 16:10:00 -0700
 
 acpica-unix (20131218-1) unstable; urgency=medium
 
