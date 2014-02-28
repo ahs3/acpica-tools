@@ -2,6 +2,8 @@ acpica-unix (20140214-1) unstable; urgency=medium
 
   * Upgrade to latest upstream.
   * Remove temporary patch to fix aapits test suite Makefile.
+  * Closes: #737804 -- FTBS on big endian arches was caused by a faulty
+    warning message; added patch to fix.
 
  -- Al Stone <ahs3@debian.org>  Thu, 27 Feb 2014 20:12:53 -0700
 
