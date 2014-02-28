@@ -1,7 +1,6 @@
-Index: foo/tests/aapits/atexec.c
-===================================================================
---- foo.orig/tests/aapits/atexec.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atexec.c	2013-08-26 13:46:29.000000000 -0600
+diff -urN acpica-unix2-20130626/tests/aapits/atexec.c acpica-unix2-20130626-aapits/tests/aapits/atexec.c
+--- acpica-unix2-20130626/tests/aapits/atexec.c	2013-01-17 12:48:28.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atexec.c	2013-07-25 13:44:23.023894441 -0600
 @@ -639,6 +639,7 @@
  }
  
@@ -10,7 +9,7 @@ Index: foo/tests/aapits/atexec.c
  /*******************************************************************************
   *
   * FUNCTION:    AtBuildLocalRSDT
-@@ -757,6 +758,7 @@
+@@ -757,8 +758,9 @@
          LocalRSDT->Header.Checksum = (UINT8)~LocalRSDT->Header.Checksum;
      }
  }
@@ -18,6 +17,8 @@ Index: foo/tests/aapits/atexec.c
  
  
  /*******************************************************************************
+  *
+  * FUNCTION:    AtBuildLocalXSDT
 @@ -1424,7 +1426,7 @@
          ACPI_WARNING ((AE_INFO,
              "Request on [%4.4s] is beyond region limit Req-%X+%X, Base=%X, Len-%X\n",
@@ -27,7 +28,7 @@ Index: foo/tests/aapits/atexec.c
  
          return (AE_AML_REGION_LIMIT);
      }
-@@ -1792,7 +1794,9 @@
+@@ -1792,7 +1796,9 @@
              Path, Obj.Integer.Value, Value);
  #else
          printf ("API Error: Value of %s is 0x%llx instead of expected 0x%llx\n",
@@ -38,7 +39,7 @@ Index: foo/tests/aapits/atexec.c
  #endif
          Status = AE_ERROR;
      }
-@@ -1871,7 +1875,7 @@
+@@ -1871,7 +1877,7 @@
      {
          TestErrors++;
          printf ("Test Error: cannot allocate buffer of %d bytes\n",
@@ -57,7 +58,7 @@ Index: foo/tests/aapits/atexec.c
      }
  
      /* Initialize the return buffer structure */
-@@ -1961,7 +1966,7 @@
+@@ -1961,7 +1968,7 @@
      {
          TestErrors++;
          printf ("Test Error: cannot allocate buffer of %d bytes\n",
@@ -66,10 +67,9 @@ Index: foo/tests/aapits/atexec.c
          return (AE_NO_MEMORY);
      }
      Results.Pointer = Object;
-Index: foo/tests/aapits/atinit.c
-===================================================================
---- foo.orig/tests/aapits/atinit.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atinit.c	2013-08-26 13:46:29.000000000 -0600
+diff -urN acpica-unix2-20130626/tests/aapits/atinit.c acpica-unix2-20130626-aapits/tests/aapits/atinit.c
+--- acpica-unix2-20130626/tests/aapits/atinit.c	2013-01-17 12:48:28.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atinit.c	2013-07-25 13:20:19.706705960 -0600
 @@ -3024,7 +3024,7 @@
              AapiErrors++;
              printf ("API Error: AcpiGetSystemInfo() returned"
@@ -115,10 +115,9 @@ Index: foo/tests/aapits/atinit.c
              return (AE_ERROR);
          }
          else
-Index: foo/tests/aapits/atmain.c
-===================================================================
---- foo.orig/tests/aapits/atmain.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atmain.c	2013-08-26 13:46:29.000000000 -0600
+diff -urN acpica-unix2-20130626/tests/aapits/atmain.c acpica-unix2-20130626-aapits/tests/aapits/atmain.c
+--- acpica-unix2-20130626/tests/aapits/atmain.c	2013-01-17 12:48:28.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atmain.c	2013-07-25 13:18:22.083323948 -0600
 @@ -315,7 +315,7 @@
      {
          printf ("ACPICA API TS err: test num %ld of test case %ld"
@@ -128,7 +127,7 @@ Index: foo/tests/aapits/atmain.c
          return (AtRetNotImpl);
      }
  
-@@ -430,7 +430,7 @@
+@@ -430,7 +432,7 @@
      if (test_case < 1 || test_case > AT_TEST_CASE_NUM)
      {
          printf ("ACPICA API TS err: test case %ld is out of range 1 - %d\n",
@@ -137,7 +136,7 @@ Index: foo/tests/aapits/atmain.c
          return (AtRetBadParam);
      }
  
-@@ -438,7 +438,7 @@
+@@ -438,7 +440,7 @@
      if (test_num < 0 || test_num > AtTestCase[test_case].TestsNum)
      {
          printf ("ACPICA API TS err: test num %ld is out of range 0 - %d\n",
@@ -145,11 +144,10 @@ Index: foo/tests/aapits/atmain.c
 +            (long int) test_num, AtTestCase[test_case].TestsNum);
          return (AtRetBadParam);
      }
- 
-Index: foo/tests/aapits/atnamespace.c
-===================================================================
---- foo.orig/tests/aapits/atnamespace.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atnamespace.c	2013-08-26 13:46:29.000000000 -0600
+
+diff -urN acpica-unix2-20130626/tests/aapits/atnamespace.c acpica-unix2-20130626-aapits/tests/aapits/atnamespace.c
+--- acpica-unix2-20130626/tests/aapits/atnamespace.c	2013-01-17 12:48:28.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atnamespace.c	2013-07-25 13:24:15.366466707 -0600
 @@ -2535,7 +2535,8 @@
  #else
                  printf ("API Error: Address of %s (0x%llX) != (0x%llX)\n",
@@ -190,10 +188,9 @@ Index: foo/tests/aapits/atnamespace.c
                  return (AE_ERROR);
              }
          }
-Index: foo/tests/aapits/atosxfctrl.c
-===================================================================
---- foo.orig/tests/aapits/atosxfctrl.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atosxfctrl.c	2013-08-26 13:46:29.000000000 -0600
+diff -urN acpica-unix2-20130626/tests/aapits/atosxfctrl.c acpica-unix2-20130626-aapits/tests/aapits/atosxfctrl.c
+--- acpica-unix2-20130626/tests/aapits/atosxfctrl.c	2013-01-17 12:48:28.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atosxfctrl.c	2013-07-25 13:30:00.375492751 -0600
 @@ -737,13 +737,15 @@
  #if ACPI_MACHINE_WIDTH == 64
  #ifdef    _MSC_VER
@@ -270,10 +267,9 @@ Index: foo/tests/aapits/atosxfctrl.c
              Reg = Reg->Next;
              i++;
          }
-Index: foo/tests/aapits/atresource.c
-===================================================================
---- foo.orig/tests/aapits/atresource.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/atresource.c	2013-08-26 13:46:29.000000000 -0600
+diff -urN acpica-unix2-20130626/tests/aapits/atresource.c acpica-unix2-20130626-aapits/tests/aapits/atresource.c
+--- acpica-unix2-20130626/tests/aapits/atresource.c	2013-01-17 12:48:29.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/atresource.c	2013-07-25 13:25:49.423565947 -0600
 @@ -174,7 +174,7 @@
          AapiErrors++;
          printf ("API Error: AcpiGetCurrentResources(%s) returned Length %d,"
@@ -318,160 +314,11 @@ Index: foo/tests/aapits/atresource.c
 +            Pathname, (int) OutBuffer.Length, 0xA48);
          return (AE_ERROR);
      }
- 
-Index: foo/tests/aapits/Makefile
-===================================================================
---- foo.orig/tests/aapits/Makefile	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/Makefile	2013-08-26 13:46:29.000000000 -0600
-@@ -20,37 +20,52 @@
- 	../../source/components/hardware/hwxface.c \
- 	../../source/common/getopt.c \
- 	../../source/components/debugger/dbcmds.c \
-+	../../source/components/debugger/dbconvert.c \
- 	../../source/components/debugger/dbdisply.c \
- 	../../source/components/debugger/dbexec.c \
- 	../../source/components/debugger/dbfileio.c \
- 	../../source/components/debugger/dbhistry.c \
- 	../../source/components/debugger/dbinput.c \
-+	../../source/components/debugger/dbmethod.c \
-+	../../source/components/debugger/dbnames.c \
- 	../../source/components/debugger/dbstats.c \
- 	../../source/components/debugger/dbutils.c \
- 	../../source/components/debugger/dbxface.c \
- 	../../source/components/disassembler/dmbuffer.c \
-+	../../source/components/disassembler/dmdeferred.c \
- 	../../source/components/disassembler/dmnames.c \
- 	../../source/components/disassembler/dmobject.c \
- 	../../source/components/disassembler/dmopcode.c \
- 	../../source/components/disassembler/dmresrc.c \
- 	../../source/components/disassembler/dmresrcl.c \
-+	../../source/components/disassembler/dmresrcl2.c \
- 	../../source/components/disassembler/dmresrcs.c \
- 	../../source/components/disassembler/dmutils.c \
- 	../../source/components/disassembler/dmwalk.c \
- 	../../source/components/events/evevent.c \
-+	../../source/components/events/evglock.c \
- 	../../source/components/events/evgpeblk.c \
- 	../../source/components/events/evgpe.c \
-+	../../source/components/events/evgpeinit.c \
-+	../../source/components/events/evgpeutil.c \
-+	../../source/components/events/evhandler.c \
- 	../../source/components/events/evmisc.c \
- 	../../source/components/events/evregion.c \
- 	../../source/components/events/evrgnini.c \
- 	../../source/components/events/evsci.c \
- 	../../source/components/events/evxface.c \
- 	../../source/components/events/evxfevnt.c \
-+	../../source/components/events/evxfgpe.c \
- 	../../source/components/events/evxfregn.c \
- 	../../source/components/hardware/hwacpi.c \
-+	../../source/components/hardware/hwesleep.c \
- 	../../source/components/hardware/hwgpe.c \
-+	../../source/components/hardware/hwpci.c \
- 	../../source/components/hardware/hwregs.c \
- 	../../source/components/hardware/hwsleep.c \
-+	../../source/components/hardware/hwxfsleep.c \
-+	../../source/components/dispatcher/dsargs.c \
-+	../../source/components/dispatcher/dscontrol.c \
- 	../../source/components/dispatcher/dsfield.c \
- 	../../source/components/dispatcher/dsinit.c \
- 	../../source/components/dispatcher/dsmethod.c \
-@@ -60,11 +75,13 @@
- 	../../source/components/dispatcher/dsutils.c \
- 	../../source/components/dispatcher/dswexec.c \
- 	../../source/components/dispatcher/dswload.c \
-+	../../source/components/dispatcher/dswload2.c \
- 	../../source/components/dispatcher/dswscope.c \
- 	../../source/components/dispatcher/dswstate.c \
- 	../../source/components/executer/exconfig.c \
- 	../../source/components/executer/exconvrt.c \
- 	../../source/components/executer/excreate.c \
-+	../../source/components/executer/exdebug.c \
- 	../../source/components/executer/exdump.c \
- 	../../source/components/executer/exfield.c \
- 	../../source/components/executer/exfldio.c \
-@@ -87,7 +104,9 @@
- 	../../source/components/executer/exutils.c \
- 	../../source/components/parser/psargs.c \
- 	../../source/components/parser/psloop.c \
-+	../../source/components/parser/psobject.c \
- 	../../source/components/parser/psopcode.c \
-+	../../source/components/parser/psopinfo.c \
- 	../../source/components/parser/psparse.c \
- 	../../source/components/parser/psscope.c \
- 	../../source/components/parser/pstree.c \
-@@ -96,6 +115,8 @@
- 	../../source/components/parser/psxface.c \
- 	../../source/components/namespace/nsaccess.c \
- 	../../source/components/namespace/nsalloc.c \
-+	../../source/components/namespace/nsarguments.c \
-+	../../source/components/namespace/nsconvert.c \
- 	../../source/components/namespace/nsdump.c \
- 	../../source/components/namespace/nsdumpdv.c \
- 	../../source/components/namespace/nseval.c \
-@@ -105,6 +126,7 @@
- 	../../source/components/namespace/nsobject.c \
- 	../../source/components/namespace/nsparse.c \
- 	../../source/components/namespace/nspredef.c \
-+	../../source/components/namespace/nsprepkg.c \
- 	../../source/components/namespace/nsrepair.c \
- 	../../source/components/namespace/nsrepair2.c \
- 	../../source/components/namespace/nssearch.c \
-@@ -117,26 +139,35 @@
- 	../../source/components/resources/rscalc.c \
- 	../../source/components/resources/rscreate.c \
- 	../../source/components/resources/rsdump.c \
-+	../../source/components/resources/rsdumpinfo.c \
-+	../../source/components/resources/rsinfo.c \
- 	../../source/components/resources/rsio.c \
- 	../../source/components/resources/rsirq.c \
- 	../../source/components/resources/rslist.c \
- 	../../source/components/resources/rsmemory.c \
- 	../../source/components/resources/rsmisc.c \
-+	../../source/components/resources/rsserial.c \
- 	../../source/components/resources/rsutils.c \
- 	../../source/components/resources/rsxface.c \
--	../../source/components/resources/rsinfo.c \
- 	../../source/components/tables/tbfadt.c \
- 	../../source/components/tables/tbfind.c \
- 	../../source/components/tables/tbinstal.c \
-+	../../source/components/tables/tbprint.c \
- 	../../source/components/tables/tbutils.c \
- 	../../source/components/tables/tbxface.c \
-+	../../source/components/tables/tbxfload.c \
- 	../../source/components/tables/tbxfroot.c \
-+	../../source/components/utilities/utaddress.c \
- 	../../source/components/utilities/utalloc.c \
-+	../../source/components/utilities/utbuffer.c \
- 	../../source/components/utilities/utcache.c \
- 	../../source/components/utilities/utcopy.c \
- 	../../source/components/utilities/utdebug.c \
-+	../../source/components/utilities/utdecode.c \
- 	../../source/components/utilities/utdelete.c \
-+	../../source/components/utilities/uterror.c \
- 	../../source/components/utilities/uteval.c \
-+	../../source/components/utilities/utexcep.c \
- 	../../source/components/utilities/utglobal.c \
- 	../../source/components/utilities/utids.c \
- 	../../source/components/utilities/utinit.c \
-@@ -145,17 +176,23 @@
- 	../../source/components/utilities/utmisc.c \
- 	../../source/components/utilities/utmutex.c \
- 	../../source/components/utilities/utobject.c \
-+	../../source/components/utilities/utosi.c \
-+	../../source/components/utilities/utownerid.c \
-+	../../source/components/utilities/utpredef.c \
- 	../../source/components/utilities/utresrc.c \
- 	../../source/components/utilities/utstate.c \
-+	../../source/components/utilities/utstring.c \
- 	../../source/components/utilities/uttrack.c \
--	../../source/components/utilities/utxface.c
-+	../../source/components/utilities/utxface.c \
-+	../../source/components/utilities/utxferror.c \
-+	../../source/components/utilities/utxfinit.c
- #	../../source/components/osunixxf.c
- 
- 
+
+diff -urN acpica-unix2-20130626/tests/aapits/Makefile acpica-unix2-20130626-aapits/tests/aapits/Makefile
+--- acpica-unix2-20130626/tests/aapits/Makefile	2013-01-17 12:48:29.000000000 -0700
++++ acpica-unix2-20130626-aapits/tests/aapits/Makefile	2013-07-25 15:17:09.309236422 -0600
+@@ -193,7 +193,7 @@
  CFLAGS+= -Wall -g -D_LINUX -DNDEBUG -D_CONSOLE -DACPI_EXEC_APP -D_MULTI_THREADED -Wstrict-prototypes -I../../source/include 
  
  
@@ -480,57 +327,3 @@ Index: foo/tests/aapits/Makefile
  	$(CC) $(LDFLAGS) $(patsubst %.c,%.o, $(SRCS)) -o $(PROG)
  
  CLEANFILES= $(PROG)
-Index: foo/tests/aapits/osunixxf.c
-===================================================================
---- foo.orig/tests/aapits/osunixxf.c	2013-08-26 13:46:29.000000000 -0600
-+++ foo/tests/aapits/osunixxf.c	2013-08-26 13:46:29.000000000 -0600
-@@ -384,7 +384,6 @@
-     const char              *Fmt,
-     va_list                 Args)
- {
--    INT32                   Count = 0;
-     UINT8                   Flags;
- 
- 
-@@ -397,7 +396,7 @@
-         {
-             /* Output file is open, send the output there */
- 
--            Count = vfprintf (AcpiGbl_DebugFile, Fmt, Args);
-+            vfprintf (AcpiGbl_DebugFile, Fmt, Args);
-         }
-         else
-         {
-@@ -409,7 +408,7 @@
- 
-     if (Flags & ACPI_DB_CONSOLE_OUTPUT)
-     {
--        Count = vfprintf (AcpiGbl_OutputFile, Fmt, Args);
-+        vfprintf (AcpiGbl_OutputFile, Fmt, Args);
-     }
- 
-     return;
-@@ -1166,3 +1165,23 @@
- 
-     return (AE_OK);
- }
-+
-+/******************************************************************************
-+ *
-+ * FUNCTION:    AcpiOsWaitEventsComplete
-+ *
-+ * PARAMETERS:  None
-+ *
-+ * RETURN:      None
-+ *
-+ * DESCRIPTION: Wait for all asynchronous events to complete. This
-+ *              implementation does nothing.
-+ *
-+ *****************************************************************************/
-+
-+void
-+AcpiOsWaitEventsComplete (
-+    void)
-+{
-+    return;
-+}
