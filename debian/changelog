@@ -1,3 +1,11 @@
+acpica-unix (20140325-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+  * Closes: #743011 -- don't rely on uname to determine word size; just
+    used the patch supplied in the BTS
+
+ -- Al Stone <ahs3@debian.org>  Mon, 07 Apr 2014 11:38:35 -0600
+
 acpica-unix (20140214-1) unstable; urgency=medium
 
   * Upgrade to latest upstream.
