@@ -22,14 +22,7 @@ cd $CURDIR/tests/misc
 # create files to compare against
 $BINDIR/iasl -h
 
-m=`uname -m`
-case $m in
-    s390x | \
-    *64) BITS=64
-         ;;
-    *)   BITS=32
-         ;;
-esac
+BITS=$(dpkg-architecture -qDEB_HOST_ARCH_BITS)
 
 # if the build happens to start before midnight, the date gets
 # confused in the comparison later on if the build goes past
