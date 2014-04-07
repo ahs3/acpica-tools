@@ -6,3 +6,4 @@ add-testing.patch
 name-miscompare.patch
 aapits-linux.patch
 asllookup-miscompare.patch
+aapits-makefile.patch
