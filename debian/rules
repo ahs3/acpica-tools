@@ -13,7 +13,7 @@ CFLAGS = $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPP
 
 DESTDIR ?= debian/acpica-tools
 
-VERSION = 20140214
+VERSION = 20140325
 
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
