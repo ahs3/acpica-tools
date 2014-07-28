@@ -48,6 +48,7 @@ OBJECTS = \
 	$(OBJDIR)/adwalk.o\
 	$(OBJDIR)/ahids.o\
 	$(OBJDIR)/ahpredef.o\
+	$(OBJDIR)/ahuuids.o\
 	$(OBJDIR)/aslanalyze.o\
 	$(OBJDIR)/aslbtypes.o\
 	$(OBJDIR)/aslcodegen.o\
@@ -160,6 +161,7 @@ OBJECTS = \
 	$(OBJDIR)/nswalk.o\
 	$(OBJDIR)/nsxfobj.o\
 	$(OBJDIR)/osunixxf.o\
+	$(OBJDIR)/oslibcfs.o\
 	$(OBJDIR)/prexpress.o\
 	$(OBJDIR)/prmacros.o\
 	$(OBJDIR)/prscan.o\
@@ -190,7 +192,9 @@ OBJECTS = \
 	$(OBJDIR)/utdelete.o\
 	$(OBJDIR)/uterror.o\
 	$(OBJDIR)/utexcep.o\
+	$(OBJDIR)/utfileio.o\
 	$(OBJDIR)/utglobal.o\
+	$(OBJDIR)/uthex.o\
 	$(OBJDIR)/utinit.o\
 	$(OBJDIR)/utlock.o\
 	$(OBJDIR)/utmath.o\
@@ -199,9 +203,11 @@ OBJECTS = \
 	$(OBJDIR)/utobject.o\
 	$(OBJDIR)/utownerid.o\
 	$(OBJDIR)/utpredef.o\
+	$(OBJDIR)/utprint.o\
 	$(OBJDIR)/utresrc.o\
 	$(OBJDIR)/utstate.o\
 	$(OBJDIR)/utstring.o\
+	$(OBJDIR)/utuuid.o\
 	$(OBJDIR)/utxface.o\
 	$(OBJDIR)/utxferror.o
 

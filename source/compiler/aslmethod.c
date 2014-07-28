@@ -108,14 +108,14 @@ MtMethodAnalysisWalkBegin (
 
         WalkInfo->MethodStack = MethodInfo;
 
-        /* Special handling for _PRP, must have a _HID also */
+        /* Special handling for _DSD, must have a _HID also */
 
-        if (!ACPI_STRCMP (METHOD_NAME__PRP, Op->Asl.NameSeg))
+        if (!ACPI_STRCMP (METHOD_NAME__DSD, Op->Asl.NameSeg))
         {
             if (!ApFindNameInScope (METHOD_NAME__HID, Op))
             {
                 AslError (ASL_WARNING, ASL_MSG_MISSING_DEPENDENCY, Op,
-                    "_PRP requires _HID in same scope");
+                    "_DSD requires _HID in same scope");
             }
         }
 
@@ -424,12 +424,12 @@ MtMethodAnalysisWalkBegin (
             }
         }
 
-        else if (!ACPI_STRCMP (METHOD_NAME__PRP, Op->Asl.NameSeg))
+        else if (!ACPI_STRCMP (METHOD_NAME__DSD, Op->Asl.NameSeg))
         {
             if (!ApFindNameInScope (METHOD_NAME__HID, Op))
             {
                 AslError (ASL_WARNING, ASL_MSG_MISSING_DEPENDENCY, Op,
-                    "_PRP requires _HID in same scope");
+                    "_DSD requires _HID in same scope");
             }
         }
 
