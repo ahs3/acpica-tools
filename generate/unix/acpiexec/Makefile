@@ -45,6 +45,7 @@ OBJECTS = \
 	$(OBJDIR)/aemain.o\
 	$(OBJDIR)/aetables.o\
 	$(OBJDIR)/ahids.o\
+	$(OBJDIR)/ahuuids.o\
 	$(OBJDIR)/cmfsize.o\
 	$(OBJDIR)/dbcmds.o\
 	$(OBJDIR)/dbconvert.o\
@@ -155,6 +156,7 @@ OBJECTS = \
 	$(OBJDIR)/nsxfeval.o\
 	$(OBJDIR)/nsxfname.o\
 	$(OBJDIR)/nsxfobj.o\
+	$(OBJDIR)/oslibcfs.o\
 	$(OBJDIR)/osunixxf.o\
 	$(OBJDIR)/psargs.o\
 	$(OBJDIR)/psloop.o\
@@ -201,7 +203,9 @@ OBJECTS = \
 	$(OBJDIR)/uterror.o\
 	$(OBJDIR)/uteval.o\
 	$(OBJDIR)/utexcep.o\
+	$(OBJDIR)/utfileio.o\
 	$(OBJDIR)/utglobal.o\
+	$(OBJDIR)/uthex.o\
 	$(OBJDIR)/utids.o\
 	$(OBJDIR)/utinit.o\
 	$(OBJDIR)/utlock.o\
@@ -212,10 +216,12 @@ OBJECTS = \
 	$(OBJDIR)/utosi.o\
 	$(OBJDIR)/utownerid.o\
 	$(OBJDIR)/utpredef.o\
+	$(OBJDIR)/utprint.o\
 	$(OBJDIR)/utresrc.o\
 	$(OBJDIR)/utstate.o\
 	$(OBJDIR)/utstring.o\
 	$(OBJDIR)/uttrack.o\
+	$(OBJDIR)/utuuid.o\
 	$(OBJDIR)/utxface.o\
 	$(OBJDIR)/utxferror.o\
 	$(OBJDIR)/utxfinit.o\

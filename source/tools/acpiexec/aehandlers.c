@@ -1055,10 +1055,20 @@ AeInstallEarlyHandlers (
         Status = AcpiDetachData (Handle, AeAttachedDataHandler);
         AE_CHECK_OK (AcpiDetachData, Status);
 
-        Status = AcpiAttachData (Handle, AeAttachedDataHandler, Handle);
+        /* Test attach data at the root object */
+
+        Status = AcpiAttachData (ACPI_ROOT_OBJECT, AeAttachedDataHandler,
+            AcpiGbl_RootNode);
+        AE_CHECK_OK (AcpiAttachData, Status);
+
+        Status = AcpiAttachData (ACPI_ROOT_OBJECT, AeAttachedDataHandler2,
+            AcpiGbl_RootNode);
         AE_CHECK_OK (AcpiAttachData, Status);
 
         /* Test support for multiple attaches */
+
+        Status = AcpiAttachData (Handle, AeAttachedDataHandler, Handle);
+        AE_CHECK_OK (AcpiAttachData, Status);
 
         Status = AcpiAttachData (Handle, AeAttachedDataHandler2, Handle);
         AE_CHECK_OK (AcpiAttachData, Status);
@@ -1305,6 +1315,10 @@ AeRegionHandler (
             switch (Function >> 16)
             {
             case AML_FIELD_ATTRIB_QUICK:
+
+                Length = 0;
+                break;
+
             case AML_FIELD_ATTRIB_SEND_RCV:
             case AML_FIELD_ATTRIB_BYTE:
 
@@ -1327,8 +1341,7 @@ AeRegionHandler (
             case AML_FIELD_ATTRIB_RAW_BYTES:
             case AML_FIELD_ATTRIB_RAW_PROCESS:
 
-                /* (-2) for status/length */
-                Length = MyContext->AccessLength - 2;
+                Length = MyContext->AccessLength;
                 break;
 
             default:
@@ -1362,8 +1375,7 @@ AeRegionHandler (
             case AML_FIELD_ATTRIB_RAW_BYTES:
             case AML_FIELD_ATTRIB_RAW_PROCESS:
 
-                /* (-2) for status/length */
-                Length = MyContext->AccessLength - 2;
+                Length = MyContext->AccessLength;
                 break;
 
             default:
