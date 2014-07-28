@@ -3,11 +3,11 @@ Fix FTBFS on hurd-i386.
  source/include/platform/acenv.h |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Index: acpica-unix-20130517/source/include/platform/acenv.h
+Index: acpica-unix-20140724/source/include/platform/acenv.h
 ===================================================================
---- acpica-unix-20130517.orig/source/include/platform/acenv.h	2013-05-28 20:56:14.000000000 -0600
-+++ acpica-unix-20130517/source/include/platform/acenv.h	2013-05-28 20:56:14.000000000 -0600
-@@ -148,7 +148,7 @@
+--- acpica-unix-20140724.orig/source/include/platform/acenv.h
++++ acpica-unix-20140724/source/include/platform/acenv.h
+@@ -171,7 +171,7 @@
   *
   *****************************************************************************/
  
