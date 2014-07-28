@@ -1,3 +1,11 @@
+acpica-unix (20140724-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream.
+  * Closes: #752950 -- refreshed patches so they apply properly
+  * Refresh some of the patches.
+
+ -- Al Stone <ahs3@debian.org>  Mon, 28 Jul 2014 14:47:02 -0600
+
 acpica-unix (20140424-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
