@@ -1,11 +1,11 @@
-Index: acpica-unix/Makefile
+Index: acpica-unix-20140724/Makefile
 ===================================================================
---- acpica-unix.orig/Makefile	2013-01-31 15:25:49.000000000 -0700
-+++ acpica-unix/Makefile	2013-01-31 15:25:49.000000000 -0700
-@@ -14,3 +14,25 @@
- 
- include generate/unix/Makefile.config
- include generate/unix/Makefile.common
+--- acpica-unix-20140724.orig/Makefile
++++ acpica-unix-20140724/Makefile
+@@ -20,3 +20,25 @@ else
+ 	include generate/unix/Makefile.config
+ 	include generate/unix/Makefile.common
+ endif
 +
 +check:
 +	# ASL tests
