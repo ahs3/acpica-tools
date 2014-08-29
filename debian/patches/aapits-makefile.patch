@@ -1,8 +1,7 @@
-Index: acpica-unix-20140724/tests/aapits/Makefile
-===================================================================
---- acpica-unix-20140724.orig/tests/aapits/Makefile
-+++ acpica-unix-20140724/tests/aapits/Makefile
-@@ -16,6 +16,7 @@ SRCS=	atexec.c atmain.c \
+diff -Naur acpica-unix2-20140724.orig/tests/aapits/Makefile acpica-unix2-20140724/tests/aapits/Makefile
+--- acpica-unix2-20140724.orig/tests/aapits/Makefile	2014-07-28 14:32:23.884529332 -0600
++++ acpica-unix2-20140724/tests/aapits/Makefile	2014-07-28 14:50:27.367982860 -0600
+@@ -16,6 +16,7 @@
  	atosxfwrap.c \
  	osunixxf.c \
  	../../source/common/ahids.c \
@@ -10,7 +9,7 @@ Index: acpica-unix-20140724/tests/aapits/Makefile
  	../../source/common/cmfsize.c \
  	../../source/common/getopt.c \
  	../../source/components/hardware/hwtimer.c \
-@@ -174,6 +175,7 @@ SRCS=	atexec.c atmain.c \
+@@ -174,6 +175,7 @@
  	../../source/components/utilities/utexcep.c \
  	../../source/components/utilities/utfileio.c \
  	../../source/components/utilities/utglobal.c \
@@ -18,7 +17,7 @@ Index: acpica-unix-20140724/tests/aapits/Makefile
  	../../source/components/utilities/utids.c \
  	../../source/components/utilities/utinit.c \
  	../../source/components/utilities/utlock.c \
-@@ -189,6 +191,7 @@ SRCS=	atexec.c atmain.c \
+@@ -189,6 +191,7 @@
  	../../source/components/utilities/utstate.c \
  	../../source/components/utilities/utstring.c \
  	../../source/components/utilities/uttrack.c \

@@ -1,3 +1,12 @@
+acpica-unix (20140828-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream.
+  * Refresh patches as needed.
+  * Closes: #756838 -- re-enable build on big-endian systems (needed
+    to add a patch to do so)
+
+ -- Al Stone <ahs3@debian.org>  Fri, 29 Aug 2014 14:42:27 -0600
+
 acpica-unix (20140724-1) unstable; urgency=medium
 
   * Upgrade to latest upstream.
