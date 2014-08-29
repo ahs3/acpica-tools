@@ -1,5 +1,23 @@
+grammar.asl    120:     Device (A1)
+Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    135:     Device (A2)
+Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    145:     Device (A3)
+Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    155:     Device (A4)
+Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    171:     Device (IRES)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
 grammar.asl    199:     Name (_NPK, Package ()
 Warning  3133 -                 ^ Unknown reserved name (_NPK)
+
+grammar.asl    208:     Device (RES)
+Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
 Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
@@ -55,6 +73,12 @@ Remark   2089 -            Object is not referenced ^  (Name is within method [_
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
 
+grammar.asl    738:             Device(EIO)
+Warning  3141 -      Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    913:     Device (DEV1)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
 grammar.asl    949:     Method (_ERR, 2)
 Warning  3102 -                   ^ Reserved method has too few arguments (_ERR requires 3)
 
@@ -88,8 +112,92 @@ Error    6114 -                      ^ Result is not used, operator has no effec
 grammar.asl   1816:     Method (COND)
 Warning  3115 -                   ^ Not all control paths return a value (COND)
 
+grammar.asl   2002:     Device (IFEL)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2159:     Device (NOSV)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2580:     Device (IDXF)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2627:         Device (NSTL)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2655:     Device (RTBF)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2753:     Device (GPE2)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2768:     Device (PRW2)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2816:     Device (PRW1)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2886:         Device (RTLV)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
 grammar.asl   2990:             Name (_CRS,0)
 Error    6105 -                           ^ Invalid object type for reserved name (_CRS: found Integer, Buffer required)
+
+grammar.asl   3014:         Device (RETP)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3050:     Device (WHLR)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3106:     Device (ANDO)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3380:     Device (BRKP)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3417:     Device (ADSU)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3510:     Device (INDC)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3608:     Device (LOPS)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3953:     Device (FDSO)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   4117:     Device (MLDV)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   4250:     Device (NBIT)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   4486:     Device (SHFT)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   4682:     Device (XORD)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5019:     Device (CRBF)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5097:     Device (IDX4)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5636:     Device (EVNT)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5864:     Device (SZLV)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5957:         Device (BYTF)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5967:         Device (C005)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5969:             Device (C013)
+Warning  3141 -        Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   6024:             Name (_HID, "*PNP0A06")
 Error    6061 -            Invalid leading asterisk ^  (*PNP0A06)
@@ -97,14 +205,44 @@ Error    6061 -            Invalid leading asterisk ^  (*PNP0A06)
 grammar.asl   6163:         Name (C18C, Package (2)
 Remark   2063 -                                 ^ Initializer list shorter than declared package length
 
+grammar.asl   6187:         Device (C19B)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6241:     Device (DWDF)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6282:     Device (DVAX)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6325:     Device (IDX6)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6349:         Device (TST_)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6390:     Device (IDX5)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
 grammar.asl   6475:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
 Warning  3046 -        Invalid or unknown escape sequence ^ 
+
+grammar.asl   6706:         Device (BITI)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   6814:                 And (Local0, 1, Local0) 
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
 
 grammar.asl   6900:             Name (_HID, "*PNP0C0A")     
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
+
+grammar.asl   6909:         Device (IDX3)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   7054:     Device(IDX7)
+Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   7733:     Device (MTCH)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   7754:             CreateDWordField (TMD0, 4, DMA0)
 Remark   2089 -                     Object is not referenced ^  (Name is within method [TEST])
@@ -118,8 +256,32 @@ Remark   2089 -                      Object is not referenced ^  (Name is within
 grammar.asl   7757:             CreateDWordField (TMD0, 16, CHNF)
 Remark   2089 -                      Object is not referenced ^  (Name is within method [TEST])
 
+grammar.asl   7931:     Device (WHLB)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   8292:         Device (IDX2)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   8675:     Device (SIZO)
+Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
 grammar.asl   8717:             Name (PKG2, Package (4)
 Remark   2063 -                                     ^ Initializer list shorter than declared package length
+
+grammar.asl   9259:         Device (MBIT)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   9270:         Device (MWRD)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   9278:         Device (MBYT)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   9351:         Device (SMIS)
+Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   9405:         Device(CNDT)
+Warning  3141 -   Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
 
 Intel ACPI Component Architecture
@@ -131,4 +293,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10281 lines, 228124 bytes, 4818 keywords
 AML Output:    grammar.aml - 43476 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 6 Errors, 10 Warnings, 25 Remarks, 1105 Optimizations
+Compilation complete. 6 Errors, 64 Warnings, 25 Remarks, 1105 Optimizations

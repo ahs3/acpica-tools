@@ -130,6 +130,9 @@ Warning  3104 -                         ^ Reserved method should not return a va
 badcode.asl    197:         Return ("Unexpected Return Value")
 Warning  3104 -  Reserved method should not return a value ^  (_Q22)
 
+badcode.asl    203:     Device (EC)
+Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
 badcode.asl    205:         Method (_REG, 2)
 Warning  3079 -                       ^ _REG has no corresponding Operation Region
 
@@ -242,4 +245,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     badcode.asl - 401 lines, 6935 bytes, 79 keywords
 AML Output:    badcode.aml - 1184 bytes, 60 named objects, 19 executable opcodes
 
-Compilation complete. 46 Errors, 21 Warnings, 11 Remarks, 16 Optimizations
+Compilation complete. 46 Errors, 22 Warnings, 11 Remarks, 16 Optimizations
