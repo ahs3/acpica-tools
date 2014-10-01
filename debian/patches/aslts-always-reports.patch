@@ -3,10 +3,11 @@ From Dean Nelson <dnelson@redhat.com>
 Ensure that any errors found by iasl are actually reported by the
 ASLTS.  In the past, some were not and therefore just glossed over.
 
-diff --git a/tests/aslts/Makefile.def b/tests/aslts/Makefile.def
---- a/tests/aslts/Makefile.def
-+++ b/tests/aslts/Makefile.def
-@@ -72,7 +72,14 @@
+Index: acpica-unix-20140926/tests/aslts/Makefile.def
+===================================================================
+--- acpica-unix-20140926.orig/tests/aslts/Makefile.def
++++ acpica-unix-20140926/tests/aslts/Makefile.def
+@@ -72,7 +72,14 @@ install_all_modes_of_test_case:	${SETOF_
  				"$(ASL)" $$CUR_ASLFLAGS "$(COMMON_ASL_FLAGS)" $(ADD_ASLFLAGS) $$j.asl >> $(COMPILER_LOG) 2>> $(COMPILER_ERROR_LOG); \
  				ret=$$?; \
  				echo "" >> $(COMPILER_LOG); \

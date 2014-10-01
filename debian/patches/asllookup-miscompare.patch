@@ -1,7 +1,8 @@
-diff -urN acpica-unix2-20140214/source/compiler/asllookup.c acpica-unix2-20140214-patch/source/compiler/asllookup.c
---- acpica-unix2-20140214/source/compiler/asllookup.c	2014-02-14 16:23:33.000000000 -0700
-+++ acpica-unix2-20140214-patch/source/compiler/asllookup.c	2014-02-27 11:50:52.168659866 -0700
-@@ -119,6 +119,7 @@
+Index: acpica-unix-20140926/source/compiler/asllookup.c
+===================================================================
+--- acpica-unix-20140926.orig/source/compiler/asllookup.c
++++ acpica-unix-20140926/source/compiler/asllookup.c
+@@ -119,6 +119,7 @@ LkIsObjectUsed (
  {
      ACPI_NAMESPACE_NODE     *Node = ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, ObjHandle);
      ACPI_NAMESPACE_NODE     *Next;
@@ -9,7 +10,7 @@ diff -urN acpica-unix2-20140214/source/compiler/asllookup.c acpica-unix2-2014021
  
  
      /* Referenced flag is set during the namespace xref */
-@@ -162,8 +163,9 @@
+@@ -162,8 +163,9 @@ LkIsObjectUsed (
               * Issue a remark even if it is a reserved name (starts
               * with an underscore).
               */
