@@ -36,8 +36,6 @@ override_dh_clean:
 	$(MAKE) clean
 	rm -rf generate/unix/bin
 
-	dh_clean
-
 override_dh_install:
 	dh_testdir
 	dh_testroot
