@@ -5,7 +5,7 @@ Al Stone <ahs3@redhat.com>
 diff -Naur acpica-unix2-20140424/source/compiler/aslmain.c acpica-unix2-20140424-patch/source/compiler/aslmain.c
 --- acpica-unix2-20140424/source/compiler/aslmain.c	2014-04-24 09:48:59.000000000 -0600
 +++ acpica-unix2-20140424-patch/source/compiler/aslmain.c	2014-05-22 12:55:47.634904320 -0600
-@@ -330,18 +330,6 @@
+@@ -331,18 +319,6 @@
      int                     ReturnStatus = 0;
  
  
