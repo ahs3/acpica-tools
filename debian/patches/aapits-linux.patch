@@ -118,7 +118,7 @@ diff -urN acpica-unix2-20130626/tests/aapits/atinit.c acpica-unix2-20130626-aapi
 diff -urN acpica-unix2-20130626/tests/aapits/atmain.c acpica-unix2-20130626-aapits/tests/aapits/atmain.c
 --- acpica-unix2-20130626/tests/aapits/atmain.c	2013-01-17 12:48:28.000000000 -0700
 +++ acpica-unix2-20130626-aapits/tests/aapits/atmain.c	2013-07-25 13:18:22.083323948 -0600
-@@ -315,7 +315,7 @@
+@@ -336,7 +336,7 @@
      {
          printf ("ACPICA API TS err: test num %ld of test case %ld"
              " is not implemented\n",
@@ -127,7 +127,7 @@ diff -urN acpica-unix2-20130626/tests/aapits/atmain.c acpica-unix2-20130626-aapi
          return (AtRetNotImpl);
      }
  
-@@ -430,7 +432,7 @@
+@@ -451,7 +451,7 @@
      if (test_case < 1 || test_case > AT_TEST_CASE_NUM)
      {
          printf ("ACPICA API TS err: test case %ld is out of range 1 - %d\n",
@@ -136,7 +136,7 @@ diff -urN acpica-unix2-20130626/tests/aapits/atmain.c acpica-unix2-20130626-aapi
          return (AtRetBadParam);
      }
  
-@@ -438,7 +440,7 @@
+@@ -459,7 +459,7 @@
      if (test_num < 0 || test_num > AtTestCase[test_case].TestsNum)
      {
          printf ("ACPICA API TS err: test num %ld is out of range 0 - %d\n",

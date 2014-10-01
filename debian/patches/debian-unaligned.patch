@@ -19,7 +19,7 @@ diff --git a/source/compiler/asltree.c b/source/compiler/asltree.c
 index ebf87f3..fd859d7 100644
 --- a/source/compiler/asltree.c
 +++ b/source/compiler/asltree.c
-@@ -590,28 +590,31 @@ TrCreateValuedLeafNode (
+@@ -589,28 +592,31 @@ TrCreateValuedLeafNode (
          "\nCreateValuedLeafNode  Ln/Col %u/%u NewNode %p  Op %s  Value %8.8X%8.8X  ",
          Op->Asl.LineNumber, Op->Asl.Column, Op, UtGetOpName(ParseOpcode),
          ACPI_FORMAT_UINT64 (Value));
@@ -56,7 +56,7 @@ index ebf87f3..fd859d7 100644
          break;
  
      case PARSEOP_METHOD:
-@@ -621,11 +624,13 @@ TrCreateValuedLeafNode (
+@@ -620,11 +622,13 @@ TrCreateValuedLeafNode (
  
      case PARSEOP_INTEGER:
 
