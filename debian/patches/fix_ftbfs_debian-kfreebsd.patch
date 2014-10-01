@@ -22,10 +22,10 @@ Thanks in advance
  source/include/platform/acenv.h |    3 +++
  1 file changed, 3 insertions(+)
 
-Index: acpica-unix-20140724/source/include/platform/acenv.h
+Index: acpica-unix-20140926/source/include/platform/acenv.h
 ===================================================================
---- acpica-unix-20140724.orig/source/include/platform/acenv.h
-+++ acpica-unix-20140724/source/include/platform/acenv.h
+--- acpica-unix-20140926.orig/source/include/platform/acenv.h
++++ acpica-unix-20140926/source/include/platform/acenv.h
 @@ -160,6 +160,9 @@
  
  
