@@ -237,7 +237,7 @@ Remark   2089 -                        Object is not referenced ^  (Name is with
 
 
 Intel ACPI Component Architecture
-ASL Optimizing Compiler version VVVVVVVV-YYYY [XXXXXXXXXXX]
+ASL+ Optimizing Compiler version VVVVVVVV-YYYY [XXXXXXXXXXX]
 Copyright (c) 2000 - 2014 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
