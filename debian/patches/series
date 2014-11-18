@@ -8,5 +8,4 @@ aapits-linux.patch
 asllookup-miscompare.patch
 aapits-makefile.patch
 re-enable-big-endian.patch
-aslts-always-reports.patch
 OPT_LDFLAGS.patch
