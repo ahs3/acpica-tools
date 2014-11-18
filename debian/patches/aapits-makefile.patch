@@ -1,7 +1,7 @@
-Index: acpica-unix-20140926/tests/aapits/Makefile
+Index: acpica-unix-20141107/tests/aapits/Makefile
 ===================================================================
---- acpica-unix-20140926.orig/tests/aapits/Makefile
-+++ acpica-unix-20140926/tests/aapits/Makefile
+--- acpica-unix-20141107.orig/tests/aapits/Makefile
++++ acpica-unix-20141107/tests/aapits/Makefile
 @@ -16,6 +16,7 @@ SRCS=	atexec.c atmain.c \
  	atosxfwrap.c \
  	osunixxf.c \
