@@ -4,10 +4,10 @@ to be compared were being treated as 32-bit ints, and not strings.  Hence,
 the characters were re-ordered incorrectly, mismatching the assumptions
 made in the remainder of the function.
 
-Index: acpica-unix-20141107/source/compiler/aslanalyze.c
+Index: acpica-unix-20150408/source/compiler/aslanalyze.c
 ===================================================================
---- acpica-unix-20141107.orig/source/compiler/aslanalyze.c
-+++ acpica-unix-20141107/source/compiler/aslanalyze.c
+--- acpica-unix-20150408.orig/source/compiler/aslanalyze.c
++++ acpica-unix-20150408/source/compiler/aslanalyze.c
 @@ -445,7 +445,7 @@ ApCheckForGpeNameConflict (
  
      /* Need a null-terminated string version of NameSeg */

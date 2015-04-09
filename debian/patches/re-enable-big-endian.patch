@@ -2,11 +2,11 @@ Re-enable use of these tools on big-endian machines.
 
 Al Stone <ahs3@redhat.com>
 
-Index: acpica-unix-20141107/source/compiler/aslmain.c
+Index: acpica-unix-20150408/source/compiler/aslmain.c
 ===================================================================
---- acpica-unix-20141107.orig/source/compiler/aslmain.c
-+++ acpica-unix-20141107/source/compiler/aslmain.c
-@@ -335,18 +335,6 @@ main (
+--- acpica-unix-20150408.orig/source/compiler/aslmain.c
++++ acpica-unix-20150408/source/compiler/aslmain.c
+@@ -336,18 +336,6 @@ main (
      int                     ReturnStatus = 0;
  
  
