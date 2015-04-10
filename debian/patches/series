@@ -6,6 +6,5 @@ add-testing.patch
 name-miscompare.patch
 aapits-linux.patch
 asllookup-miscompare.patch
-aapits-makefile.patch
 re-enable-big-endian.patch
 OPT_LDFLAGS.patch
