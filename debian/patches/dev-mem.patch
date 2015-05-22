@@ -1,0 +1,135 @@
+Subject: [RFC PATCH] Avoid all Linux /dev/mem accesses when -c is specified
+From: Roy Franz <roy.franz@linaro.org>
+Date: 05/15/2015 12:50 PM
+To: linaro-uefi@lists.linaro.org, linaro-acpi@lists.linaro.org, graeme.gregory@linaro.org, al.stone@linaro.org
+CC: Roy Franz <roy.franz@linaro.org>
+
+Don't try to read the RSDP structure or RSDT/XSDT tables
+from memory with the -c option.  These are now provided
+as files in /sysfs, and this allows acpidump to function
+when /dev/mem is not available, which will be the case
+for Aarch64 servers.
+
+Signed-off-by: Roy Franz <roy.franz@linaro.org>
+---
+ source/os_specific/service_layers/oslinuxtbl.c | 87 +++++++++++++-------------
+ 1 file changed, 43 insertions(+), 44 deletions(-)
+
+Index: acpica-unix/source/os_specific/service_layers/oslinuxtbl.c
+===================================================================
+--- acpica-unix.orig/source/os_specific/service_layers/oslinuxtbl.c
++++ acpica-unix/source/os_specific/service_layers/oslinuxtbl.c
+@@ -686,70 +686,69 @@ OslTableInitialize (
+         return (AE_OK);
+     }
+ 
++    if (!Gbl_DumpCustomizedTables)
++    {
+     /* Get RSDP from memory */
+ 
+-    Status = OslLoadRsdp ();
+-    if (ACPI_FAILURE (Status))
+-    {
+-        return (Status);
+-    }
++        Status = OslLoadRsdp ();
++        if (ACPI_FAILURE (Status))
++        {
++            return (Status);
++        }
+ 
+-    /* Get XSDT from memory */
++        /* Get XSDT from memory */
+ 
+-    if (Gbl_Rsdp.Revision && !Gbl_DoNotDumpXsdt)
+-    {
+-        if (Gbl_Xsdt)
++        if (Gbl_Rsdp.Revision && !Gbl_DoNotDumpXsdt)
+         {
+-            free (Gbl_Xsdt);
+-            Gbl_Xsdt = NULL;
++            if (Gbl_Xsdt)
++            {
++                free (Gbl_Xsdt);
++                Gbl_Xsdt = NULL;
++            }
++
++            Gbl_Revision = 2;
++            Status = OslGetBiosTable (ACPI_SIG_XSDT, 0,
++                ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Xsdt), &Address);
++            if (ACPI_FAILURE (Status))
++            {
++                return (Status);
++            }
+         }
+ 
+-        Gbl_Revision = 2;
+-        Status = OslGetBiosTable (ACPI_SIG_XSDT, 0,
+-            ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Xsdt), &Address);
+-        if (ACPI_FAILURE (Status))
++        /* Get RSDT from memory */
++
++        if (Gbl_Rsdp.RsdtPhysicalAddress)
+         {
+-            return (Status);
++            if (Gbl_Rsdt)
++            {
++                free (Gbl_Rsdt);
++                Gbl_Rsdt = NULL;
++            }
++
++            Status = OslGetBiosTable (ACPI_SIG_RSDT, 0,
++                ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Rsdt), &Address);
++            if (ACPI_FAILURE (Status))
++            {
++                return (Status);
++            }
+         }
+-    }
+ 
+-    /* Get RSDT from memory */
++        /* Get FADT from memory */
+ 
+-    if (Gbl_Rsdp.RsdtPhysicalAddress)
+-    {
+-        if (Gbl_Rsdt)
++        if (Gbl_Fadt)
+         {
+-            free (Gbl_Rsdt);
+-            Gbl_Rsdt = NULL;
++            free (Gbl_Fadt);
++            Gbl_Fadt = NULL;
+         }
+ 
+-        Status = OslGetBiosTable (ACPI_SIG_RSDT, 0,
+-            ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Rsdt), &Address);
++        Status = OslGetBiosTable (ACPI_SIG_FADT, 0,
++            ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Fadt), &Gbl_FadtAddress);
+         if (ACPI_FAILURE (Status))
+         {
+             return (Status);
+         }
+-    }
+-
+-    /* Get FADT from memory */
+-
+-    if (Gbl_Fadt)
+-    {
+-        free (Gbl_Fadt);
+-        Gbl_Fadt = NULL;
+-    }
+ 
+-    Status = OslGetBiosTable (ACPI_SIG_FADT, 0,
+-        ACPI_CAST_PTR (ACPI_TABLE_HEADER *, &Gbl_Fadt), &Gbl_FadtAddress);
+-    if (ACPI_FAILURE (Status))
+-    {
+-        return (Status);
+-    }
+-
+-    if (!Gbl_DumpCustomizedTables)
+-    {
+         /* Add mandatory tables to global table list first */
+-
+         Status = OslAddTableToList (ACPI_RSDP_NAME, 0);
+         if (ACPI_FAILURE (Status))
+         {
