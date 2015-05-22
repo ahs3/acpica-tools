@@ -8,3 +8,4 @@ aapits-linux.patch
 asllookup-miscompare.patch
 re-enable-big-endian.patch
 OPT_LDFLAGS.patch
+acuuid.patch
