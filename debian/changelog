@@ -1,17 +1,13 @@
-acpica-unix (20150515-2) unstable; urgency=medium
-
-  * Add correction patch for NFIT UUIDs (from mailing list) 
-  * Update Standards-Version to 3.9.6
-  * Add patch to remove reliance on /dev/mem for some tables.
-
- -- ahs3 <ahs3@debian.org>  Fri, 22 May 2015 13:17:07 -0600
-
 acpica-unix (20150515-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
   * Refresh patches as needed.
+  * Add correction patch for NFIT UUIDs (from mailing list) 
+  * Update Standards-Version to 3.9.6
+  * Add patch from Linaro to remove reliance on /dev/mem for some tables.
+  * Add patch to correct ARM GICs in MADT (from mailing list)
 
- -- ahs3 <ahs3@debian.org>  Thu, 21 May 2015 18:00:48 -0600
+ -- ahs3 <ahs3@debian.org>  Fri, 22 May 2015 13:17:07 -0600
 
 acpica-unix (20150410-1) unstable; urgency=medium
 
