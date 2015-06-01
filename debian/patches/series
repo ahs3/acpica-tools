@@ -11,3 +11,4 @@ OPT_LDFLAGS.patch
 acuuid.patch
 dev-mem.patch
 arm-madt.patch
+segfault.patch

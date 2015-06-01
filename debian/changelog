@@ -6,6 +6,7 @@ acpica-unix (20150515-1) unstable; urgency=medium
   * Update Standards-Version to 3.9.6
   * Add patch from Linaro to remove reliance on /dev/mem for some tables.
   * Add patch to correct ARM GICs in MADT (from mailing list)
+  * Add patch to fix some segfaults in AcpiDmCheckForSymbolicOpcode.
 
  -- ahs3 <ahs3@debian.org>  Fri, 22 May 2015 13:17:07 -0600
 

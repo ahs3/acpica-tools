@@ -1,0 +1,33 @@
+diff -Naur acpica-unix2-20150515.orig/source/components/disassembler/dmcstyle.c acpica-unix2-20150515/source/components/disassembler/dmcstyle.c
+--- acpica-unix2-20150515.orig/source/components/disassembler/dmcstyle.c	2015-06-01 14:32:51.769218887 -0600
++++ acpica-unix2-20150515/source/components/disassembler/dmcstyle.c	2015-06-01 14:37:38.973898839 -0600
+@@ -407,7 +407,7 @@
+         {
+             AcpiDmPromoteTarget (Op, Target);
+ 
+-            if (!Target->Common.OperatorSymbol)
++            if (Target && !Target->Common.OperatorSymbol)
+             {
+                 Target->Common.OperatorSymbol = " = ";
+             }
+@@ -425,7 +425,7 @@
+         Target = Child1->Common.Next;
+         AcpiDmPromoteTarget (Op, Target);
+ 
+-        if (!Target->Common.OperatorSymbol)
++        if (Target && !Target->Common.OperatorSymbol)
+         {
+             Target->Common.OperatorSymbol = " = ";
+         }
+@@ -446,7 +446,10 @@
+             /* Valid target, not a placeholder */
+ 
+             AcpiDmPromoteTarget (Op, Target);
+-            Target->Common.OperatorSymbol = " = ~";
++	    if (Target)
++	    {
++            	Target->Common.OperatorSymbol = " = ~";
++	    }
+         }
+         else
+         {
