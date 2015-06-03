@@ -9,6 +9,6 @@ asllookup-miscompare.patch
 re-enable-big-endian.patch
 OPT_LDFLAGS.patch
 acuuid.patch
-dev-mem.patch
+nodevmem.patch
 arm-madt.patch
 segfault.patch

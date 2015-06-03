@@ -1,3 +1,10 @@
+acpica-unix (20150515-2) unstable; urgency=medium
+
+  * Replace the patch for systems with no /dev/mem with a more robust version;
+    for now this will only affect arm64 systems
+
+ -- ahs3 <ahs3@debian.org>  Wed, 03 Jun 2015 15:18:32 -0600
+
 acpica-unix (20150515-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 

@@ -1,0 +1,783 @@
+diff -Naur acpica-unix2-20150515/generate/unix/acpidump/Makefile acpica-unix2-20150515.devmem/generate/unix/acpidump/Makefile
+--- acpica-unix2-20150515/generate/unix/acpidump/Makefile	2015-05-15 17:49:17.000000000 -0600
++++ acpica-unix2-20150515.devmem/generate/unix/acpidump/Makefile	2015-06-02 15:00:31.813746336 -0600
+@@ -67,10 +67,17 @@
+ OBJECTS += \
+ 	$(OBJDIR)/osbsdtbl.o
+ else
++
++ifeq ($(NO_DEV_MEM), true)
++OBJECTS += \
++	$(OBJDIR)/oslinuxtbl_nodevmem.o
++else
+ OBJECTS += \
+ 	$(OBJDIR)/oslinuxtbl.o
+ endif
+ 
++endif
++
+ #
+ # Flags specific to acpidump
+ #
+diff -Naur acpica-unix2-20150515/generate/unix/Makefile.config acpica-unix2-20150515.devmem/generate/unix/Makefile.config
+--- acpica-unix2-20150515/generate/unix/Makefile.config	2015-06-03 14:57:30.328724317 -0600
++++ acpica-unix2-20150515.devmem/generate/unix/Makefile.config	2015-06-02 15:03:53.727560100 -0600
+@@ -49,6 +49,7 @@
+ LINKPROG =   $(CC) $(OBJECTS) -o $(PROG) $(LDFLAGS) $(OPT_LDFLAGS)
+ PREFIX ?=    /usr
+ INSTALLDIR = $(PREFIX)/bin
++UNAME_M := $(shell uname -m)
+ UNAME_S := $(shell uname -s)
+ 
+ #
+@@ -70,6 +71,12 @@
+ HOST =       _NetBSD
+ endif
+ 
++ifeq ($(UNAME_S), Linux)
++ifeq ($(UNAME_M), aarch64)
++NO_DEV_MEM ?= true
++endif
++endif
++
+ ifeq ($(HOST), _APPLE)
+ INSTALL  =   cp
+ INSTALLFLAGS ?= -f
+diff -Naur acpica-unix2-20150515/source/os_specific/service_layers/oslinuxtbl_nodevmem.c acpica-unix2-20150515.devmem/source/os_specific/service_layers/oslinuxtbl_nodevmem.c
+--- acpica-unix2-20150515/source/os_specific/service_layers/oslinuxtbl_nodevmem.c	1969-12-31 17:00:00.000000000 -0700
++++ acpica-unix2-20150515.devmem/source/os_specific/service_layers/oslinuxtbl_nodevmem.c	2015-06-02 16:14:38.088031027 -0600
+@@ -0,0 +1,734 @@
++/******************************************************************************
++ *
++ * Module Name: oslinuxtbl_nodevmem - Linux OSL for obtaining ACPI tables
++ *                                    that assumes you cannot use /dev/mem
++ *
++ *****************************************************************************/
++
++#include "acpidump.h"
++
++
++#define _COMPONENT          ACPI_OS_SERVICES
++        ACPI_MODULE_NAME    ("oslinuxtbl_nodevmem")
++
++
++#ifndef PATH_MAX
++#define PATH_MAX 256
++#endif
++
++
++/* List of information about obtained ACPI tables */
++
++typedef struct osl_table_info
++{
++    struct osl_table_info   *Next;
++    UINT32                  Instance;
++    char                    Signature[ACPI_NAME_SIZE];
++
++} OSL_TABLE_INFO;
++
++/* Local prototypes */
++
++static ACPI_STATUS
++OslTableInitialize (
++    void);
++
++static ACPI_STATUS
++OslTableNameFromFile (
++    char                    *Filename,
++    char                    *Signature,
++    UINT32                  *Instance);
++
++static ACPI_STATUS
++OslAddTableToList (
++    char                    *Signature,
++    UINT32                  Instance);
++
++static ACPI_STATUS
++OslReadTableFromFile (
++    char                    *Filename,
++    ACPI_SIZE               FileOffset,
++    char                    *Signature,
++    ACPI_TABLE_HEADER       **Table);
++
++static ACPI_STATUS
++OslListAcpiTables (
++    char                    *Directory);
++
++static ACPI_STATUS
++OslGetAcpiTable (
++    char                    *Pathname,
++    char                    *Signature,
++    UINT32                  Instance,
++    ACPI_TABLE_HEADER       **Table,
++    ACPI_PHYSICAL_ADDRESS   *Address);
++
++static ACPI_STATUS
++OslGetLastStatus (
++    ACPI_STATUS             DefaultStatus);
++
++
++/* File locations */
++
++#define DYNAMIC_TABLE_DIR   "/sys/firmware/acpi/tables/dynamic"
++#define STATIC_TABLE_DIR    "/sys/firmware/acpi/tables"
++
++/* Should we get dynamically loaded SSDTs from DYNAMIC_TABLE_DIR? */
++
++UINT8                   Gbl_DumpDynamicTables = TRUE;
++
++/* Initialization flags */
++
++UINT8                   Gbl_TableListInitialized = FALSE;
++
++/* Revision of RSD PTR */
++
++UINT8                   Gbl_Revision = 0;
++
++OSL_TABLE_INFO          *Gbl_TableListHead = NULL;
++UINT32                  Gbl_TableCount = 0;
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslGetLastStatus
++ *
++ * PARAMETERS:  DefaultStatus   - Default error status to return
++ *
++ * RETURN:      Status; Converted from errno.
++ *
++ * DESCRIPTION: Get last errno and conver it to ACPI_STATUS.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslGetLastStatus (
++    ACPI_STATUS             DefaultStatus)
++{
++
++    switch (errno)
++    {
++    case EACCES:
++    case EPERM:
++
++        return (AE_ACCESS);
++
++    case ENOENT:
++
++        return (AE_NOT_FOUND);
++
++    case ENOMEM:
++
++        return (AE_NO_MEMORY);
++
++    default:
++
++        return (DefaultStatus);
++    }
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    AcpiOsGetTableByAddress
++ *
++ * PARAMETERS:  Address         - Physical address of the ACPI table
++ *              Table           - Where a pointer to the table is returned
++ *
++ * RETURN:      Status; Table buffer is returned if AE_OK.
++ *              AE_NOT_FOUND: A valid table was not found at the address
++ *
++ * DESCRIPTION: Get an ACPI table via a physical memory address.
++ *
++ *****************************************************************************/
++
++ACPI_STATUS
++AcpiOsGetTableByAddress (
++    ACPI_PHYSICAL_ADDRESS   Address,
++    ACPI_TABLE_HEADER       **Table)
++{
++    /*
++     * If this source file is being used, there is no reliable access
++     * to /dev/mem on this system.  Hence, we cannot retrieve a table
++     * by address at all and will always return AE_NOT_FOUND.
++     */
++
++    return AE_NOT_FOUND;
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    AcpiOsGetTableByName
++ *
++ * PARAMETERS:  Signature       - ACPI Signature for desired table. Must be
++ *                                a null terminated 4-character string.
++ *              Instance        - Multiple table support for SSDT/UEFI (0...n)
++ *                                Must be 0 for other tables.
++ *              Table           - Where a pointer to the table is returned
++ *              Address         - Where the table physical address is returned
++ *
++ * RETURN:      Status; Table buffer and physical address returned if AE_OK.
++ *              AE_LIMIT: Instance is beyond valid limit
++ *              AE_NOT_FOUND: A table with the signature was not found
++ *
++ * NOTE:        Assumes the input signature is uppercase.
++ *
++ *****************************************************************************/
++
++ACPI_STATUS
++AcpiOsGetTableByName (
++    char                    *Signature,
++    UINT32                  Instance,
++    ACPI_TABLE_HEADER       **Table,
++    ACPI_PHYSICAL_ADDRESS   *Address)
++{
++    ACPI_STATUS             Status;
++
++
++    /* Get main ACPI tables from memory on first invocation of this function */
++
++    Status = OslTableInitialize ();
++    if (ACPI_FAILURE (Status))
++    {
++        return (Status);
++    }
++
++    /* Attempt to get the table from the static directory */
++
++    Status = OslGetAcpiTable (STATIC_TABLE_DIR, Signature,
++        Instance, Table, Address);
++
++    if (ACPI_FAILURE (Status) && Status == AE_LIMIT)
++    {
++        if (Gbl_DumpDynamicTables)
++        {
++            /* Attempt to get a dynamic table */
++
++            Status = OslGetAcpiTable (DYNAMIC_TABLE_DIR, Signature,
++                Instance, Table, Address);
++        }
++    }
++
++    return (Status);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslAddTableToList
++ *
++ * PARAMETERS:  Signature       - Table signature
++ *              Instance        - Table instance
++ *
++ * RETURN:      Status; Successfully added if AE_OK.
++ *              AE_NO_MEMORY: Memory allocation error
++ *
++ * DESCRIPTION: Insert a table structure into OSL table list.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslAddTableToList (
++    char                    *Signature,
++    UINT32                  Instance)
++{
++    OSL_TABLE_INFO          *NewInfo;
++    OSL_TABLE_INFO          *Next;
++    UINT32                  NextInstance = 0;
++    BOOLEAN                 Found = FALSE;
++
++
++    NewInfo = calloc (1, sizeof (OSL_TABLE_INFO));
++    if (!NewInfo)
++    {
++        return (AE_NO_MEMORY);
++    }
++
++    ACPI_MOVE_NAME (NewInfo->Signature, Signature);
++
++    if (!Gbl_TableListHead)
++    {
++        Gbl_TableListHead = NewInfo;
++    }
++    else
++    {
++        Next = Gbl_TableListHead;
++        while (1)
++        {
++            if (ACPI_COMPARE_NAME (Next->Signature, Signature))
++            {
++                if (Next->Instance == Instance)
++                {
++                    Found = TRUE;
++                }
++                if (Next->Instance >= NextInstance)
++                {
++                    NextInstance = Next->Instance + 1;
++                }
++            }
++
++            if (!Next->Next)
++            {
++                break;
++            }
++            Next = Next->Next;
++        }
++        Next->Next = NewInfo;
++    }
++
++    if (Found)
++    {
++        if (Instance)
++        {
++            fprintf (stderr,
++                "%4.4s: Warning unmatched table instance %d, expected %d\n",
++                Signature, Instance, NextInstance);
++        }
++        Instance = NextInstance;
++    }
++
++    NewInfo->Instance = Instance;
++    Gbl_TableCount++;
++
++    return (AE_OK);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    AcpiOsGetTableByIndex
++ *
++ * PARAMETERS:  Index           - Which table to get
++ *              Table           - Where a pointer to the table is returned
++ *              Instance        - Where a pointer to the table instance no. is
++ *                                returned
++ *              Address         - Where the table physical address is returned
++ *
++ * RETURN:      Status; Table buffer and physical address returned if AE_OK.
++ *              AE_LIMIT: Index is beyond valid limit
++ *
++ * DESCRIPTION: Get an ACPI table via an index value (0 through n). Returns
++ *              AE_LIMIT when an invalid index is reached. Index is not
++ *              necessarily an index into the RSDT/XSDT.
++ *
++ *****************************************************************************/
++
++ACPI_STATUS
++AcpiOsGetTableByIndex (
++    UINT32                  Index,
++    ACPI_TABLE_HEADER       **Table,
++    UINT32                  *Instance,
++    ACPI_PHYSICAL_ADDRESS   *Address)
++{
++    OSL_TABLE_INFO          *Info;
++    ACPI_STATUS             Status;
++    UINT32                  i;
++
++
++    /* Get main ACPI tables from memory on first invocation of this function */
++
++    Status = OslTableInitialize ();
++    if (ACPI_FAILURE (Status))
++    {
++        return (Status);
++    }
++
++    /* Validate Index */
++
++    if (Index >= Gbl_TableCount)
++    {
++        return (AE_LIMIT);
++    }
++
++    /* Point to the table list entry specified by the Index argument */
++
++    Info = Gbl_TableListHead;
++    for (i = 0; i < Index; i++)
++    {
++        Info = Info->Next;
++    }
++
++    /* Now we can just get the table via the signature */
++
++    Status = AcpiOsGetTableByName (Info->Signature, Info->Instance,
++        Table, Address);
++
++    if (ACPI_SUCCESS (Status))
++    {
++        *Instance = Info->Instance;
++    }
++    return (Status);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslTableInitialize
++ *
++ * PARAMETERS:  None
++ *
++ * RETURN:      Status
++ *
++ * DESCRIPTION: Initialize ACPI table data. Get and store main ACPI tables to
++ *              local variables. Main ACPI tables include RSDT, FADT, RSDT,
++ *              and/or XSDT.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslTableInitialize (
++    void)
++{
++    ACPI_STATUS             Status;
++
++    if (Gbl_TableListInitialized)
++    {
++        return (AE_OK);
++    }
++
++    /* Add all tables found in the static directory */
++
++    Status = OslListAcpiTables (STATIC_TABLE_DIR);
++    if (ACPI_FAILURE (Status))
++    {
++        return (Status);
++    }
++
++    if (Gbl_DumpDynamicTables)
++    {
++        /* Add all dynamically loaded tables in the dynamic directory */
++
++        Status = OslListAcpiTables (DYNAMIC_TABLE_DIR);
++        if (ACPI_FAILURE (Status))
++        {
++            return (Status);
++        }
++    }
++
++    Gbl_TableListInitialized = TRUE;
++    return (AE_OK);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslListAcpiTables
++ *
++ * PARAMETERS:  Directory           - Directory that contains the tables
++ *
++ * RETURN:      Status; Table list is initialized if AE_OK.
++ *
++ * DESCRIPTION: Add ACPI tables to the table list from a directory.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslListAcpiTables (
++    char                    *Directory)
++{
++    void                    *TableDir;
++    UINT32                  Instance;
++    char                    TempName[ACPI_NAME_SIZE];
++    char                    *Filename;
++    ACPI_STATUS             Status = AE_OK;
++
++
++    /* Open the requested directory */
++
++    TableDir = AcpiOsOpenDirectory (Directory, "*", REQUEST_FILE_ONLY);
++    if (!TableDir)
++    {
++        return (OslGetLastStatus (AE_NOT_FOUND));
++    }
++
++    /* Examine all entries in this directory */
++
++    while ((Filename = AcpiOsGetNextFilename (TableDir)))
++    {
++        /* Extract table name and instance number */
++
++        Status = OslTableNameFromFile (Filename, TempName, &Instance);
++
++        /* Ignore meaningless files */
++
++        if (ACPI_FAILURE (Status))
++        {
++            continue;
++        }
++
++        /* Add new info node to global table list */
++
++        Status = OslAddTableToList (TempName, Instance);
++        if (ACPI_FAILURE (Status))
++        {
++            break;
++        }
++    }
++
++    AcpiOsCloseDirectory (TableDir);
++    return (Status);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslTableNameFromFile
++ *
++ * PARAMETERS:  Filename            - File that contains the desired table
++ *              Signature           - Pointer to 4-character buffer to store
++ *                                    extracted table signature.
++ *              Instance            - Pointer to integer to store extracted
++ *                                    table instance number.
++ *
++ * RETURN:      Status; Table name is extracted if AE_OK.
++ *
++ * DESCRIPTION: Extract table signature and instance number from a table file
++ *              name.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslTableNameFromFile (
++    char                    *Filename,
++    char                    *Signature,
++    UINT32                  *Instance)
++{
++
++    /* Ignore meaningless files */
++
++    if (strlen (Filename) < ACPI_NAME_SIZE)
++    {
++        return (AE_BAD_SIGNATURE);
++    }
++
++    /* Extract instance number */
++
++    if (isdigit ((int) Filename[ACPI_NAME_SIZE]))
++    {
++        sscanf (&Filename[ACPI_NAME_SIZE], "%u", Instance);
++    }
++    else if (strlen (Filename) != ACPI_NAME_SIZE)
++    {
++        return (AE_BAD_SIGNATURE);
++    }
++    else
++    {
++        *Instance = 0;
++    }
++
++    /* Extract signature */
++
++    ACPI_MOVE_NAME (Signature, Filename);
++    return (AE_OK);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslReadTableFromFile
++ *
++ * PARAMETERS:  Filename            - File that contains the desired table
++ *              FileOffset          - Offset of the table in file
++ *              Signature           - Optional ACPI Signature for desired table.
++ *                                    A null terminated 4-character string.
++ *              Table               - Where a pointer to the table is returned
++ *
++ * RETURN:      Status; Table buffer is returned if AE_OK.
++ *
++ * DESCRIPTION: Read a ACPI table from a file.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslReadTableFromFile (
++    char                    *Filename,
++    ACPI_SIZE               FileOffset,
++    char                    *Signature,
++    ACPI_TABLE_HEADER       **Table)
++{
++    FILE                    *TableFile;
++    ACPI_TABLE_HEADER       Header;
++    ACPI_TABLE_HEADER       *LocalTable = NULL;
++    UINT32                  TableLength;
++    INT32                   Count;
++    ACPI_STATUS             Status = AE_OK;
++
++
++    /* Open the file */
++
++    TableFile = fopen (Filename, "rb");
++    if (TableFile == NULL)
++    {
++        fprintf (stderr, "Could not open table file: %s\n", Filename);
++        return (OslGetLastStatus (AE_NOT_FOUND));
++    }
++
++    fseek (TableFile, FileOffset, SEEK_SET);
++
++    /* Read the Table header to get the table length */
++
++    Count = fread (&Header, 1, sizeof (ACPI_TABLE_HEADER), TableFile);
++    if (Count != sizeof (ACPI_TABLE_HEADER))
++    {
++        fprintf (stderr, "Could not read table header: %s\n", Filename);
++        Status = AE_BAD_HEADER;
++        goto Exit;
++    }
++
++    /* If signature is specified, it must match the table */
++
++    if (Signature)
++    {
++        if (ACPI_VALIDATE_RSDP_SIG (Signature))
++        {
++            if (!ACPI_VALIDATE_RSDP_SIG (Header.Signature)) {
++                fprintf (stderr, "Incorrect RSDP signature: found %8.8s\n",
++                    Header.Signature);
++                Status = AE_BAD_SIGNATURE;
++                goto Exit;
++            }
++        }
++        else if (!ACPI_COMPARE_NAME (Signature, Header.Signature))
++        {
++            fprintf (stderr, "Incorrect signature: Expecting %4.4s, found %4.4s\n",
++                Signature, Header.Signature);
++            Status = AE_BAD_SIGNATURE;
++            goto Exit;
++        }
++    }
++
++    TableLength = ApGetTableLength (&Header);
++    if (TableLength == 0)
++    {
++        Status = AE_BAD_HEADER;
++        goto Exit;
++    }
++
++    /* Read the entire table into a local buffer */
++
++    LocalTable = calloc (1, TableLength);
++    if (!LocalTable)
++    {
++        fprintf (stderr,
++            "%4.4s: Could not allocate buffer for table of length %X\n",
++            Header.Signature, TableLength);
++        Status = AE_NO_MEMORY;
++        goto Exit;
++    }
++
++    fseek (TableFile, FileOffset, SEEK_SET);
++
++    Count = fread (LocalTable, 1, TableLength, TableFile);
++    if (Count != TableLength)
++    {
++        fprintf (stderr, "%4.4s: Could not read table content\n",
++            Header.Signature);
++        Status = AE_INVALID_TABLE_LENGTH;
++        goto Exit;
++    }
++
++    /* Validate checksum */
++
++    (void) ApIsValidChecksum (LocalTable);
++
++Exit:
++    fclose (TableFile);
++    *Table = LocalTable;
++    return (Status);
++}
++
++
++/******************************************************************************
++ *
++ * FUNCTION:    OslGetAcpiTable
++ *
++ * PARAMETERS:  Pathname        - Directory to find Linux ACPI table
++ *              Signature       - ACPI Signature for desired table. Must be
++ *                                a null terminated 4-character string.
++ *              Instance        - Multiple table support for SSDT/UEFI (0...n)
++ *                                Must be 0 for other tables.
++ *              Table           - Where a pointer to the table is returned
++ *              Address         - Where the table physical address is returned
++ *
++ * RETURN:      Status; Table buffer is returned if AE_OK.
++ *              AE_LIMIT: Instance is beyond valid limit
++ *              AE_NOT_FOUND: A table with the signature was not found
++ *
++ * DESCRIPTION: Get an OS ACPI table.
++ *
++ *****************************************************************************/
++
++static ACPI_STATUS
++OslGetAcpiTable (
++    char                    *Pathname,
++    char                    *Signature,
++    UINT32                  Instance,
++    ACPI_TABLE_HEADER       **Table,
++    ACPI_PHYSICAL_ADDRESS   *Address)
++{
++    void                    *TableDir;
++    UINT32                  CurrentInstance = 0;
++    char                    TempName[ACPI_NAME_SIZE];
++    char                    TableFilename[PATH_MAX];
++    char                    *Filename;
++    ACPI_STATUS             Status;
++
++
++    /* Open the directory for ACPI tables */
++
++    TableDir = AcpiOsOpenDirectory (Pathname, "*", REQUEST_FILE_ONLY);
++    if (!TableDir)
++    {
++        return (OslGetLastStatus (AE_NOT_FOUND));
++    }
++
++    /* Attempt to find the table in the directory */
++
++    while ((Filename = AcpiOsGetNextFilename (TableDir)))
++    {
++        /* Ignore meaningless files */
++
++        if (!ACPI_COMPARE_NAME (Filename, Signature))
++        {
++            continue;
++        }
++
++        /* Extract table name and instance number */
++
++        Status = OslTableNameFromFile (Filename, TempName, &CurrentInstance);
++
++        /* Ignore meaningless files */
++
++        if (ACPI_FAILURE (Status) || CurrentInstance != Instance)
++        {
++            continue;
++        }
++
++        /* Create the table pathname */
++
++        if (Instance != 0)
++        {
++            sprintf (TableFilename, "%s/%4.4s%d", Pathname, TempName, Instance);
++        }
++        else
++        {
++            sprintf (TableFilename, "%s/%4.4s", Pathname, TempName);
++        }
++        break;
++    }
++
++    AcpiOsCloseDirectory (TableDir);
++
++    if (!Filename)
++    {
++        return (AE_LIMIT);
++    }
++
++    /* There is no physical address saved for ACPI tables, use zero */
++
++    *Address = 0;
++    Status = OslReadTableFromFile (TableFilename, 0, NULL, Table);
++
++    return (Status);
++}
