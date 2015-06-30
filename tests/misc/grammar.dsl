@@ -1,22 +1,22 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20141107-32 [Nov 20 2014]
- * Copyright (c) 2000 - 2014 Intel Corporation
+ * AML/ASL+ Disassembler version 20150515-32
+ * Copyright (c) 2000 - 2015 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of grammar.aml, Thu Nov 20 13:45:09 2014
+ * Disassembly of grammar.aml, Thu Jun 04 10:01:34 2015
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000A8B3 (43187)
+ *     Length           0x0000A9D4 (43476)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0xFF
+ *     Checksum         0x62
  *     OEM ID           "Intel"
  *     OEM Table ID     "GRMTEST"
  *     OEM Revision     0x20090511 (537462033)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20141107 (538185991)
+ *     Compiler Version 0x20150515 (538248469)
  */
 DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 {
@@ -752,7 +752,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         {
             Local0 = (0xFFFF0000 | Arg0)
             Local0 |= (Arg1 << 0x08)
-            Local0 -= Zero
+            Local0 = (Zero - Local0)
         }
         Else
         {
@@ -1362,10 +1362,10 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Store (SizeOf (BUFO), Local0)"
         Local0 = SizeOf (BUFO)
         Debug = "++++++++ Concatenate (\"abd\", \"def\", Local0)"
-        Local0 = "abddef"
+        Concatenate ("abd", "def", Local0)
         Debug = Local0
         Debug = "++++++++ Concatenate (\"abd\", 0x7B, Local0)"
-        Local0 = "abd0000007B"
+        Concatenate ("abd", 0x7B, Local0)
         Debug = Local0
         Debug = "++++++++ Creating Event EVT2"
         Event (EVT2)
@@ -1400,9 +1400,9 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (NUM1, 0, NotSerialized)
     {
         Debug = "++++++++ Add (0x12345678, 0x11111111, Local0)"
-        Local0 = 0x23456789
+        Local0 = (0x12345678 + 0x11111111)
         Debug = "++++++++ Store (Add (0x12345678, 0x11111111), Local1)"
-        Local1 = 0x23456789
+        Local1 = (0x12345678 + 0x11111111)
         Debug = "++++++++ Checking result from ADD"
         If ((Local0 != Local1))
         {
@@ -1410,9 +1410,9 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ Subtract (0x87654321, 0x11111111, Local4)"
-        Local4 = 0x76543210
+        Local4 = (0x87654321 - 0x11111111)
         Debug = "++++++++ Store (Subtract (0x87654321, 0x11111111), Local5)"
-        Local5 = 0x76543210
+        Local5 = (0x87654321 - 0x11111111)
         Debug = "++++++++ Checking result from SUBTRACT"
         If ((Local4 != Local5))
         {
@@ -1420,9 +1420,9 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ Multiply (33, 10, Local6)"
-        Local6 = 0x014A
+        Local6 = (0x21 * 0x0A)
         Debug = "++++++++ Store (Multiply (33, 10), Local7)"
-        Local7 = 0x014A
+        Local7 = (0x21 * 0x0A)
         Debug = "++++++++ Checking result from MULTIPLY"
         If ((Local6 != Local7))
         {
@@ -1432,7 +1432,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Divide (100, 9, Local1, Local2)"
         Divide (0x64, 0x09, Local1, Local2)
         Debug = "++++++++ Store (Divide (100, 9), Local3)"
-        Local3 = 0x0B
+        Local3 = (0x64 / 0x09)
         Debug = "++++++++ Checking (quotient) result from DIVIDE"
         If ((Local2 != Local3))
         {
@@ -1460,7 +1460,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ ToBCD (0x1234, Local5)"
-        Local5 = 0x4660
+        ToBCD (0x1234, Local5)
         Debug = "++++++++ FromBCD (Local5, Local6)"
         FromBCD (Local5, Local6)
         Debug = "++++++++ Return (Local6)"
@@ -1515,56 +1515,56 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (BITZ, 0, NotSerialized)
     {
         Debug = "++++++++ FindSetLeftBit (0x00100100, Local0)"
-        Local0 = 0x15
+        FindSetLeftBit (0x00100100, Local0)
         If ((Local0 != 0x15))
         {
             ERR (One)
         }
 
         Debug = "++++++++ FindSetRightBit (0x00100100, Local1)"
-        Local1 = 0x09
+        FindSetRightBit (0x00100100, Local1)
         If ((Local1 != 0x09))
         {
             ERR (One)
         }
 
         Debug = "++++++++ And (0xF0F0F0F0, 0x11111111, Local2)"
-        Local2 = 0x10101010
+        Local2 = (0xF0F0F0F0 & 0x11111111)
         If ((Local2 != 0x10101010))
         {
             ERR (One)
         }
 
         Debug = "++++++++ NAnd (0xF0F0F0F0, 0x11111111, Local3)"
-        Local3 = 0xEFEFEFEF
+        NAnd (0xF0F0F0F0, 0x11111111, Local3)
         If ((Local3 != 0xEFEFEFEF))
         {
             ERR (One)
         }
 
         Debug = "++++++++ Or (0x11111111, 0x22222222, Local4)"
-        Local4 = 0x33333333
+        Local4 = (0x11111111 | 0x22222222)
         If ((Local4 != 0x33333333))
         {
             ERR (One)
         }
 
         Debug = "++++++++ NOr (0x11111111, 0x22222222, Local5)"
-        Local5 = 0xCCCCCCCC
+        NOr (0x11111111, 0x22222222, Local5)
         If ((Local5 != 0xCCCCCCCC))
         {
             ERR (One)
         }
 
         Debug = "++++++++ XOr (0x11113333, 0x22222222, Local6)"
-        Local6 = 0x33331111
+        Local6 = (0x11113333 ^ 0x22222222)
         If ((Local6 != 0x33331111))
         {
             ERR (One)
         }
 
         Debug = "++++++++ ShiftLeft (0x11112222, 2, Local7)"
-        Local7 = 0x44448888
+        Local7 = (0x11112222 << 0x02)
         If ((Local7 != 0x44448888))
         {
             ERR (One)
@@ -1596,17 +1596,17 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (LOGS, 0, NotSerialized)
     {
         Debug = "++++++++ Store (LAnd (0xFFFFFFFF, 0x11111111), Local0)"
-        Local0 = Ones
+        Local0 = (Ones && 0x11111111)
         Debug = "++++++++ Store (LEqual (0xFFFFFFFF, 0x11111111), Local)"
-        Local1 = Zero
+        Local1 = (Ones == 0x11111111)
         Debug = "++++++++ Store (LGreater (0xFFFFFFFF, 0x11111111), Local2)"
-        Local2 = Ones
+        Local2 = (Ones > 0x11111111)
         Debug = "++++++++ Store (LGreaterEqual (0xFFFFFFFF, 0x11111111), Local3)"
-        Local3 = Ones
+        Local3 = (Ones >= 0x11111111)
         Debug = "++++++++ Store (LLess (0xFFFFFFFF, 0x11111111), Local4)"
-        Local4 = Zero
+        Local4 = (Ones < 0x11111111)
         Debug = "++++++++ Store (LLessEqual (0xFFFFFFFF, 0x11111111), Local5)"
-        Local5 = Zero
+        Local5 = (Ones <= 0x11111111)
         Debug = "++++++++ Store (LNot (0x31313131), Local6)"
         Local6 = 0x1111
         Local7 = !Local6
@@ -1621,9 +1621,9 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ Store (LNotEqual (0xFFFFFFFF, 0x11111111), Local7)"
-        Local7 = Ones
+        Local7 = (Ones != 0x11111111)
         Debug = "++++++++ Lor (0x0, 0x1)"
-        If (Ones)
+        If ((Zero || One))
         {
             Debug = "+_+_+_+_+ Lor (0x0, 0x1) returned TRUE"
         }
@@ -1652,23 +1652,23 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ [LVL1] If (LGreater (0x2, 0x1))"
-        If (Ones)
+        If ((0x02 > One))
         {
             Debug = "++++++++ [LVL2] If (LEqual (0x11111111, 0x22222222))"
-            If (Zero)
+            If ((0x11111111 == 0x22222222))
             {
                 Debug = "++++++++ ERROR: If (LEqual (0x11111111, 0x22222222)) returned TRUE"
             }
             Else
             {
                 Debug = "++++++++ [LVL3] If (LNot (0x0))"
-                If (Ones)
+                If (!Zero)
                 {
                     Debug = "++++++++ [LVL4] If (LAnd (0xEEEEEEEE, 0x2))"
-                    If (Ones)
+                    If ((0xEEEEEEEE && 0x02))
                     {
                         Debug = "++++++++ [LVL5] If (LLess (0x44444444, 0x3))"
-                        If (Zero)
+                        If ((0x44444444 < 0x03))
                         {
                             Debug = "++++++++ ERROR: If (LLess (0x44444444, 0x3)) returned TRUE"
                         }
@@ -1682,23 +1682,23 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
 
         Debug = "++++++++ [LVL1] If (LGreater (0x2, 0x1))"
-        If (Ones)
+        If ((0x02 > One))
         {
             Debug = "++++++++ [LVL2] If (LEqual (0x11111111, 0x22222222))"
-            If (Zero)
+            If ((0x11111111 == 0x22222222))
             {
                 Debug = "++++++++ ERROR: If (LEqual (0x11111111, 0x22222222)) returned TRUE"
             }
             Else
             {
                 Debug = "++++++++ [LVL3] If (LNot (0x0))"
-                If (Ones)
+                If (!Zero)
                 {
                     Debug = "++++++++ [LVL4] If (LAnd (0xEEEEEEEE, 0x2))"
-                    If (Ones)
+                    If ((0xEEEEEEEE && 0x02))
                     {
                         Debug = "++++++++ [LVL5] If (LLess (0x44444444, 0x3))"
-                        If (Zero)
+                        If ((0x44444444 < 0x03))
                         {
                             Debug = "++++++++ ERROR: If (LLess (0x44444444, 0x3)) returned TRUE"
                         }
@@ -1916,7 +1916,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         {
             Debug = "++++++++ NoSave Test"
             Name (WRD, 0x1234)
-            If (One)
+            If ((0x03 & One))
             {
                 WRD = One
             }
@@ -1925,7 +1925,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (One)
             }
 
-            If (Zero)
+            If ((0x04 & One))
             {
                 Return (0x02)
             }
@@ -1934,7 +1934,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x02
             }
 
-            If (0xFFFFFFFE)
+            If (NAnd (0x03, One))
             {
                 WRD = 0x03
             }
@@ -1943,7 +1943,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x03)
             }
 
-            If (Zero)
+            If (NAnd (Ones, Ones))
             {
                 Return (0x04)
             }
@@ -1952,7 +1952,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x04
             }
 
-            If (0xFFFFFFFE)
+            If (NOr (Zero, One))
             {
                 WRD = 0x05
             }
@@ -1961,7 +1961,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x05)
             }
 
-            If (Zero)
+            If (NOr (0xFFFFFFFE, One))
             {
                 Return (0x06)
             }
@@ -1970,7 +1970,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x06
             }
 
-            If (0xFFFFFFFE)
+            If (~One)
             {
                 WRD = 0x07
             }
@@ -1979,7 +1979,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x07)
             }
 
-            If (Zero)
+            If (~Ones)
             {
                 Return (0x08)
             }
@@ -1988,7 +1988,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x08
             }
 
-            If (0x03)
+            If ((0x03 | One))
             {
                 WRD = 0x09
             }
@@ -1997,7 +1997,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x09)
             }
 
-            If (Zero)
+            If ((Zero | Zero))
             {
                 Return (0x0A)
             }
@@ -2006,7 +2006,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x0A
             }
 
-            If (0x02)
+            If ((0x03 ^ One))
             {
                 WRD = 0x0B
             }
@@ -2015,7 +2015,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x0B)
             }
 
-            If (Zero)
+            If ((0x03 ^ 0x03))
             {
                 Return (0x0C)
             }
@@ -2024,7 +2024,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x0C
             }
 
-            If (Ones)
+            If ((0x03 && 0x03))
             {
                 WRD = 0x15
             }
@@ -2033,7 +2033,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x15)
             }
 
-            If (Zero)
+            If ((0x03 && Zero))
             {
                 Return (0x16)
             }
@@ -2042,7 +2042,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x16
             }
 
-            If (Zero)
+            If ((Zero && 0x03))
             {
                 Return (0x17)
             }
@@ -2051,7 +2051,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x17
             }
 
-            If (Zero)
+            If ((Zero && Zero))
             {
                 Return (0x18)
             }
@@ -2060,7 +2060,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x18
             }
 
-            If (Ones)
+            If ((0x03 == 0x03))
             {
                 WRD = 0x1F
             }
@@ -2069,7 +2069,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x1F)
             }
 
-            If (Zero)
+            If ((One == 0x03))
             {
                 Return (0x20)
             }
@@ -2078,7 +2078,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x20
             }
 
-            If (Ones)
+            If ((0x03 > One))
             {
                 WRD = 0x29
             }
@@ -2087,7 +2087,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x29)
             }
 
-            If (Zero)
+            If ((0x04 > 0x04))
             {
                 Return (0x2A)
             }
@@ -2096,7 +2096,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x2A
             }
 
-            If (Zero)
+            If ((One > 0x04))
             {
                 Return (0x2B)
             }
@@ -2105,7 +2105,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x2B
             }
 
-            If (Ones)
+            If ((0x03 >= One))
             {
                 WRD = 0x2C
             }
@@ -2114,7 +2114,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x2C)
             }
 
-            If (Ones)
+            If ((0x03 >= 0x03))
             {
                 WRD = 0x2D
             }
@@ -2123,7 +2123,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x2D)
             }
 
-            If (Zero)
+            If ((0x03 >= 0x04))
             {
                 Return (0x2E)
             }
@@ -2132,7 +2132,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x2E
             }
 
-            If (Ones)
+            If ((One < 0x03))
             {
                 WRD = 0x33
             }
@@ -2141,7 +2141,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x33)
             }
 
-            If (Zero)
+            If ((0x02 < 0x02))
             {
                 Return (0x34)
             }
@@ -2150,7 +2150,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x34
             }
 
-            If (Zero)
+            If ((0x04 < 0x02))
             {
                 Return (0x35)
             }
@@ -2159,7 +2159,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x35
             }
 
-            If (Ones)
+            If ((One <= 0x03))
             {
                 WRD = 0x36
             }
@@ -2168,7 +2168,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x36)
             }
 
-            If (Ones)
+            If ((0x02 <= 0x02))
             {
                 WRD = 0x37
             }
@@ -2177,7 +2177,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x37)
             }
 
-            If (Zero)
+            If ((0x04 <= 0x02))
             {
                 Return (0x38)
             }
@@ -2186,7 +2186,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x38
             }
 
-            If (Ones)
+            If (!Zero)
             {
                 WRD = 0x3D
             }
@@ -2195,7 +2195,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x3D)
             }
 
-            If (Zero)
+            If (!One)
             {
                 Return (0x3E)
             }
@@ -2204,7 +2204,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x3E
             }
 
-            If (Zero)
+            If ((0x03 != 0x03))
             {
                 Return (0x3F)
             }
@@ -2213,7 +2213,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 WRD = 0x3F
             }
 
-            If (Ones)
+            If ((One != 0x03))
             {
                 WRD = 0x40
             }
@@ -2222,7 +2222,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x40)
             }
 
-            If (Ones)
+            If ((0x03 || One))
             {
                 WRD = 0x47
             }
@@ -2231,7 +2231,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x47)
             }
 
-            If (Ones)
+            If ((Zero || One))
             {
                 WRD = 0x48
             }
@@ -2240,7 +2240,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x48)
             }
 
-            If (Ones)
+            If ((0x03 || Zero))
             {
                 WRD = 0x49
             }
@@ -2249,7 +2249,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Return (0x49)
             }
 
-            If (Zero)
+            If ((Zero || Zero))
             {
                 Return (0x4A)
             }
@@ -5759,7 +5759,7 @@ DefinitionBlock ("grammar.aml", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             {
                 C19A = \_SB.C115 ()
                 ^^C19C._SCP (Zero)
-                Local1 = 0x0406
+                Local1 = (0x0EB2 - 0x0AAC)
                 Divide (Local1, 0x0A, Local0, Local2)
                 \_SB.C005.C013.C058.C0AA (0x0E, Local2, Zero, Zero)
                 C18D = DerefOf (Index (DerefOf (Index (C18C, C19A)), Zero))
