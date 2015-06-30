@@ -1,3 +1,11 @@
+acpica-unix (20150619-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+  * Refresh patches as needed.  Patches for NFIT UUIDs, ARM GICs,
+    and /dev/mem removed as no longer needed.
+
+ -- ahs3 <ahs3@debian.org>  Tue, 30 Jun 2015 15:57:26 -0600
+
 acpica-unix (20150515-2) unstable; urgency=medium
 
   * Replace the patch for systems with no /dev/mem with a more robust version;

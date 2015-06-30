@@ -1,7 +1,7 @@
-Index: acpica-unix-20150408/tests/aapits/atexec.c
+Index: acpica-unix-20150619/tests/aapits/atexec.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atexec.c
-+++ acpica-unix-20150408/tests/aapits/atexec.c
+--- acpica-unix-20150619.orig/tests/aapits/atexec.c
++++ acpica-unix-20150619/tests/aapits/atexec.c
 @@ -639,6 +639,7 @@ AtBuildLocalFADT2 (
  }
  
@@ -66,10 +66,10 @@ Index: acpica-unix-20150408/tests/aapits/atexec.c
          return (AE_NO_MEMORY);
      }
      Results.Pointer = Object;
-Index: acpica-unix-20150408/tests/aapits/atinit.c
+Index: acpica-unix-20150619/tests/aapits/atinit.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atinit.c
-+++ acpica-unix-20150408/tests/aapits/atinit.c
+--- acpica-unix-20150619.orig/tests/aapits/atinit.c
++++ acpica-unix-20150619/tests/aapits/atinit.c
 @@ -3024,7 +3024,7 @@ AtInitTest0041(void)
              AapiErrors++;
              printf ("API Error: AcpiGetSystemInfo() returned"
@@ -115,10 +115,10 @@ Index: acpica-unix-20150408/tests/aapits/atinit.c
              return (AE_ERROR);
          }
          else
-Index: acpica-unix-20150408/tests/aapits/atmain.c
+Index: acpica-unix-20150619/tests/aapits/atmain.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atmain.c
-+++ acpica-unix-20150408/tests/aapits/atmain.c
+--- acpica-unix-20150619.orig/tests/aapits/atmain.c
++++ acpica-unix-20150619/tests/aapits/atmain.c
 @@ -345,7 +345,7 @@ ExecuteTest (
      {
          printf ("ACPICA API TS err: test num %ld of test case %ld"
@@ -146,10 +146,10 @@ Index: acpica-unix-20150408/tests/aapits/atmain.c
          return (AtRetBadParam);
      }
  
-Index: acpica-unix-20150408/tests/aapits/atnamespace.c
+Index: acpica-unix-20150619/tests/aapits/atnamespace.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atnamespace.c
-+++ acpica-unix-20150408/tests/aapits/atnamespace.c
+--- acpica-unix-20150619.orig/tests/aapits/atnamespace.c
++++ acpica-unix-20150619/tests/aapits/atnamespace.c
 @@ -2535,7 +2535,8 @@ AtGetObjectInfoTypeCommon(
  #else
                  printf ("API Error: Address of %s (0x%llX) != (0x%llX)\n",
@@ -190,10 +190,10 @@ Index: acpica-unix-20150408/tests/aapits/atnamespace.c
                  return (AE_ERROR);
              }
          }
-Index: acpica-unix-20150408/tests/aapits/atosxfctrl.c
+Index: acpica-unix-20150619/tests/aapits/atosxfctrl.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atosxfctrl.c
-+++ acpica-unix-20150408/tests/aapits/atosxfctrl.c
+--- acpica-unix-20150619.orig/tests/aapits/atosxfctrl.c
++++ acpica-unix-20150619/tests/aapits/atosxfctrl.c
 @@ -737,13 +737,15 @@ ACPI_OSXF_EMUL_REG
  #if ACPI_MACHINE_WIDTH == 64
  #ifdef    _MSC_VER
@@ -270,10 +270,10 @@ Index: acpica-unix-20150408/tests/aapits/atosxfctrl.c
              Reg = Reg->Next;
              i++;
          }
-Index: acpica-unix-20150408/tests/aapits/atresource.c
+Index: acpica-unix-20150619/tests/aapits/atresource.c
 ===================================================================
---- acpica-unix-20150408.orig/tests/aapits/atresource.c
-+++ acpica-unix-20150408/tests/aapits/atresource.c
+--- acpica-unix-20150619.orig/tests/aapits/atresource.c
++++ acpica-unix-20150619/tests/aapits/atresource.c
 @@ -174,7 +174,7 @@ AtRsrcTest0000(void)
          AapiErrors++;
          printf ("API Error: AcpiGetCurrentResources(%s) returned Length %d,"

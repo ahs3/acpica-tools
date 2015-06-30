@@ -70,25 +70,25 @@ Warning  3122 -                      ^ Called method may not always return a val
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
 Error    6080 -  Called method returns no value ^ 
 
-badcode.asl    132:         Name (_HID, "*PNP0C0A")     
+badcode.asl    132:         Name (_HID, "*PNP0C0A")     // Illegal leading asterisk
 Error    6061 -        Invalid leading asterisk ^  (*PNP0C0A)
 
-badcode.asl    136:         Name (_HID, "PNP")          
+badcode.asl    136:         Name (_HID, "PNP")          // Too short, must be 7 or 8 chars
 Error    6033 -                            ^ _HID string must be exactly 7 or 8 characters (PNP)
 
-badcode.asl    140:         Name (_HID, "MYDEVICE01")   
+badcode.asl    140:         Name (_HID, "MYDEVICE01")   // Too long, must be 7 or 8 chars
 Error    6033 -                                   ^ _HID string must be exactly 7 or 8 characters (MYDEVICE01)
 
-badcode.asl    144:         Name (_HID, "acpi0001")     
+badcode.asl    144:         Name (_HID, "acpi0001")     // non-hex chars must be uppercase
 Error    6034 -                                 ^ _HID prefix must be all uppercase or decimal digits (acpi0001)
 
-badcode.asl    148:         Name (_HID, "PNP-123")      
+badcode.asl    148:         Name (_HID, "PNP-123")      // HID must be alphanumeric
 Error    6002 -                                ^ String must be entirely alphanumeric (PNP-123)
 
-badcode.asl    152:         Name (_HID, "")             
+badcode.asl    152:         Name (_HID, "")             // Illegal Null HID
 Error    6091 -                         ^ Invalid zero-length (null) string
 
-badcode.asl    153:         Name (_CID, "")             
+badcode.asl    153:         Name (_CID, "")             // Illegal Null CID
 Error    6091 -                         ^ Invalid zero-length (null) string
 
 badcode.asl    158:     Name (_PRW, 4)
@@ -142,49 +142,49 @@ Error    6019 -                                  ^ Dependent function macros can
 badcode.asl    225:     })
 Error    6070 -        ^ Missing EndDependentFn() macro in dependent resource list
 
-badcode.asl    242:             0x00002000,         
+badcode.asl    242:             0x00002000,         // Length
 Error    6049 -                         ^ Length is larger than Min/Max window
 
-badcode.asl    247:             0x00001001,         
+badcode.asl    247:             0x00001001,         // Range Minimum
 Error    6001 -                         ^ Must be a multiple of alignment/granularity value
 
-badcode.asl    248:             0x00002002,         
+badcode.asl    248:             0x00002002,         // Range Maximum
 Error    6001 -                         ^ Must be a multiple of alignment/granularity value
 
-badcode.asl    255:             0xFFFF,             
+badcode.asl    255:             0xFFFF,             // Address
 Warning  3060 -                     ^ Maximum 10-bit ISA address (0x3FF)
 
-badcode.asl    264:             0x05                
+badcode.asl    264:             0x05                // Access Size
 Error    6042 -                   ^ Invalid AccessSize (Maximum is 4 - QWord access)
 
 badcode.asl    268:         QWordSpace (0xB0, ResourceConsumer, PosDecode, MinFixed, MaxFixed, 0xA5,
 Error    6139 -     Constant out of range ^  (0xB0, allowable: 0xC0-0xFF)
 
-badcode.asl    279:             0x0200,             
+badcode.asl    279:             0x0200,             // Range Minimum
 Error    6051 -                     ^ Address Min is greater than Address Max
 
-badcode.asl    291:             0x00001002,         
+badcode.asl    291:             0x00001002,         // Length
 Error    6049 -                         ^ Length is larger than Min/Max window
 
 badcode.asl    296:             0x00000010,
 Error    6048 -                         ^ Granularity must be zero or a power of two minus one
 
-badcode.asl    305:             0x0000000000000B02, 
+badcode.asl    305:             0x0000000000000B02, // Range Minimum
 Error    6001 -                                 ^ Must be a multiple of alignment/granularity value
 
-badcode.asl    315:             0x00000000002FFFFE, 
+badcode.asl    315:             0x00000000002FFFFE, // Range Maximum
 Error    6001 -                                 ^ Must be a multiple of alignment/granularity value (-1)
 
-badcode.asl    326:             0x00000000,         
+badcode.asl    326:             0x00000000,         // Length
 Error    6043 -                         ^ Invalid combination of Length and Min/Max fixed flags
 
-badcode.asl    335:             0x00000100,         
+badcode.asl    335:             0x00000100,         // Length
 Error    6043 -                         ^ Invalid combination of Length and Min/Max fixed flags
 
-badcode.asl    344:             0x00000200,         
+badcode.asl    344:             0x00000200,         // Length
 Error    6043 -                         ^ Invalid combination of Length and Min/Max fixed flags
 
-badcode.asl    349:             0x0000000F,         
+badcode.asl    349:             0x0000000F,         // Granularity
 Error    6047 -                         ^ Granularity must be zero for fixed Min/Max
 
 badcode.asl    358:         DWordIO (ResourceProducer, MinFixed, MaxFixed, PosDecode, EntireRange,
@@ -242,7 +242,7 @@ Copyright (c) 2000 - 2015 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     badcode.asl - 401 lines, 6935 bytes, 79 keywords
+ASL Input:     badcode.asl - 402 lines, 11480 bytes, 79 keywords
 AML Output:    badcode.aml - 1184 bytes, 60 named objects, 19 executable opcodes
 
 Compilation complete. 46 Errors, 22 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded

@@ -49,25 +49,25 @@ Remark   2098 -               ^ Recursive method call (RCIV)
 grammar.asl    701:             CreateField (\_SB_.SBUF, 148, 96, FLDV)
 Remark   2089 -                            Object is not referenced ^  (Name is within method [_INI])
 
-grammar.asl    715:                             MinFixed,                       
+grammar.asl    715:                             MinFixed,                       // Range is notfixed
 Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    716:                             MaxFixed,                       
+grammar.asl    716:                             MaxFixed,                       // Range is not fixed
 Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    717:                             SubDecode,                      
+grammar.asl    717:                             SubDecode,                      // SubDecode
 Remark   2089 -               Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    718:                             0x0000,                           
+grammar.asl    718:                             0x0000,                           // Granularity
 Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    720:                             0xfff2,                           
+grammar.asl    720:                             0xfff2,                           // Max
 Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    721:                             0x0032,                           
+grammar.asl    721:                             0x0032,                           // Translation
 Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
 
-grammar.asl    722:                             0x0002,,,                         
+grammar.asl    722:                             0x0002,,,                         // Range Length
 Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
 
 grammar.asl    733:             Method(_SRS)
@@ -229,10 +229,10 @@ Warning  3046 -        Invalid or unknown escape sequence ^
 grammar.asl   6706:         Device (BITI)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
-grammar.asl   6814:                 And (Local0, 1, Local0) 
+grammar.asl   6814:                 And (Local0, 1, Local0) //  Local0 &= 1
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
 
-grammar.asl   6900:             Name (_HID, "*PNP0C0A")     
+grammar.asl   6900:             Name (_HID, "*PNP0C0A")     //  Control Method Battey ID
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
 
 grammar.asl   6909:         Device (IDX3)
@@ -290,7 +290,7 @@ Copyright (c) 2000 - 2015 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     grammar.asl - 10281 lines, 228124 bytes, 4818 keywords
+ASL Input:     grammar.asl - 10282 lines, 322891 bytes, 4818 keywords
 AML Output:    grammar.aml - 43476 bytes, 670 named objects, 4148 executable opcodes
 
 Compilation complete. 6 Errors, 64 Warnings, 25 Remarks, 1105 Optimizations
