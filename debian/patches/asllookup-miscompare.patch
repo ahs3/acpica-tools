@@ -1,16 +1,16 @@
-Index: acpica-unix-20150619/source/compiler/asllookup.c
+Index: src/source/compiler/asllookup.c
 ===================================================================
---- acpica-unix-20150619.orig/source/compiler/asllookup.c
-+++ acpica-unix-20150619/source/compiler/asllookup.c
+--- src.orig/source/compiler/asllookup.c
++++ src/source/compiler/asllookup.c
 @@ -119,6 +119,7 @@ LkIsObjectUsed (
  {
      ACPI_NAMESPACE_NODE     *Node = ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, ObjHandle);
      ACPI_NAMESPACE_NODE     *Next;
 +    ACPI_NAME_UNION         tmp;
- 
- 
-     /* Referenced flag is set during the namespace xref */
-@@ -162,8 +163,9 @@ LkIsObjectUsed (
+     ASL_METHOD_LOCAL        *MethodLocals;
+     ASL_METHOD_LOCAL        *MethodArgs;
+     UINT32                  i;
+@@ -227,8 +228,9 @@ LkIsObjectUsed (
               * Issue a remark even if it is a reserved name (starts
               * with an underscore).
               */
