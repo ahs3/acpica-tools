@@ -26,13 +26,22 @@ badcode.asl     67:     Method (MTH1, 0, NotSerialized, 32)
 Error    6125 -     SyncLevel must be in the range 0-15 ^ 
 
 badcode.asl     71:         Store (Arg3, Local0)
+Warning  3144 -                              ^ Method Local is set but never used (Local0)
+
+badcode.asl     71:         Store (Arg3, Local0)
 Error    6006 -                      ^ Method argument is not initialized (Arg3)
 
 badcode.asl     71:         Store (Arg3, Local0)
 Remark   2087 -                      ^ Not a parameter, used as local only (Arg3)
 
 badcode.asl     72:         Store (Local1, Local2)
+Warning  3144 -                                ^ Method Local is set but never used (Local2)
+
+badcode.asl     72:         Store (Local1, Local2)
 Error    6066 -                        ^ Method local variable is not initialized (Local1)
+
+badcode.asl     76:         Subtract (MTX1, 4, Local3)
+Warning  3144 - Method Local is set but never used ^  (Local3)
 
 badcode.asl     76:         Subtract (MTX1, 4, Local3)
 Error    6058 -            Invalid type ^  ([Mutex|Reference] found, Subtract operator requires [Integer|String|Buffer])
@@ -65,7 +74,13 @@ badcode.asl    101:         Switch (ToInteger (INT1))
 Error    6078 -                            ^ No Case statements under Switch
 
 badcode.asl    120:         Store (MTH2 (), Local0)
+Warning  3144 -                                 ^ Method Local is set but never used (Local0)
+
+badcode.asl    120:         Store (MTH2 (), Local0)
 Warning  3122 -                      ^ Called method may not always return a value
+
+badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
+Warning  3144 -        Method Local is set but never used ^  (Local0)
 
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
 Error    6080 -  Called method returns no value ^ 
@@ -235,6 +250,9 @@ Warning  3129 -         ResourceTag smaller than Field ^  (Size mismatch, Tag: 2
 badcode.asl    397:         CreateField (RSC3, \DWI1._RNG, 3, RNG2)
 Remark   2089 -                        Object is not referenced ^  (Name is within method [REM1])
 
+badcode.asl    404:         Store (40, Local0)
+Warning  3144 -                            ^ Method Local is set but never used (Local0)
+
 
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler version VVVVVVVV-YYYY
@@ -242,7 +260,7 @@ Copyright (c) 2000 - 2015 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     badcode.asl - 402 lines, 11480 bytes, 79 keywords
-AML Output:    badcode.aml - 1184 bytes, 60 named objects, 19 executable opcodes
+ASL Input:     badcode.asl - 409 lines, 11588 bytes, 81 keywords
+AML Output:    badcode.aml - 1195 bytes, 61 named objects, 20 executable opcodes
 
-Compilation complete. 46 Errors, 22 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
+Compilation complete. 46 Errors, 28 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
