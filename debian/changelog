@@ -3,10 +3,12 @@ acpica-unix (20150818-1) unstable; urgency=medium
   * Upgrade to latest upstream.
   * Refresh patches as needed.
   * Upstream has deprecated the AAPITS (ACPICA API Test Suite) and removed
-    it from the sources; this package follows suit.
+    it from the sources; this package follows suit.  While this does close
+    a bug, this maintainer is not convinced this is the right approach.
+    There should be no further segfaults in test cases.  Closes: #787708.
   * Add a patch to asllookup.c to remove a little-endian assumption.
 
- -- ahs3 <ahs3@debian.org>  Fri, 11 Sep 2015 12:47:39 -0600
+ -- Al Stone <ahs3@debian.org>  Fri, 11 Sep 2015 12:47:39 -0600
 
 acpica-unix (20150717-1) unstable; urgency=medium
 
