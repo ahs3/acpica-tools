@@ -2,7 +2,7 @@ Index: acpica-unix-20150818/Makefile
 ===================================================================
 --- acpica-unix-20150818.orig/Makefile
 +++ acpica-unix-20150818/Makefile
-@@ -20,3 +20,25 @@ else
+@@ -20,3 +20,22 @@ else
  	include generate/unix/Makefile.config
  	include generate/unix/Makefile.common
  endif
@@ -10,9 +10,6 @@ Index: acpica-unix-20150818/Makefile
 +check:
 +	# ASL tests
 +	$(CURDIR)/tests/aslts.sh $(CURDIR)/tests/aslts $(CURDIR)/generate/unix
-+
-+	# API Tests
-+	$(CURDIR)/debian/run-aapits.sh $(CURDIR)/tests/aapits $(CURDIR)/generate/unix/bin
 +
 +	# misc tests
 +	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20150818
