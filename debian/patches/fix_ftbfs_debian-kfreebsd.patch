@@ -22,12 +22,12 @@ Thanks in advance
  source/include/platform/acenv.h |    3 +++
  1 file changed, 3 insertions(+)
 
-Index: acpica-unix-20150619/source/include/platform/acenv.h
+Index: acpica-unix-20150818/source/include/platform/acenv.h
 ===================================================================
---- acpica-unix-20150619.orig/source/include/platform/acenv.h
-+++ acpica-unix-20150619/source/include/platform/acenv.h
-@@ -161,6 +161,9 @@
- 
+--- acpica-unix-20150818.orig/source/include/platform/acenv.h
++++ acpica-unix-20150818/source/include/platform/acenv.h
+@@ -162,6 +162,9 @@
+ #endif
  
  /*! [Begin] no source code translation */
 +#if defined(__GLIBC__)
