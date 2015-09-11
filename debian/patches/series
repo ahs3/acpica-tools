@@ -4,8 +4,7 @@ debian-unaligned.patch
 fix_ftbfs_debian-hurd.patch
 add-testing.patch
 name-miscompare.patch
-aapits-linux.patch
 asllookup-miscompare.patch
 re-enable-big-endian.patch
 OPT_LDFLAGS.patch
-aapits-make.patch
+asllookup-ppc64.patch
