@@ -6,6 +6,8 @@ acpica-unix (20150818-1) unstable; urgency=medium
     it from the sources; this package follows suit.  While this does close
     a bug, this maintainer is not convinced this is the right approach.
     There should be no further segfaults in test cases.  Closes: #787708.
+  * Add a patch to fix a file name that upstream inadvertently left in
+    camel case.
   * Add a patch to asllookup.c to remove a little-endian assumption.
 
  -- Al Stone <ahs3@debian.org>  Fri, 11 Sep 2015 12:47:39 -0600

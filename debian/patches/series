@@ -7,4 +7,5 @@ name-miscompare.patch
 asllookup-miscompare.patch
 re-enable-big-endian.patch
 OPT_LDFLAGS.patch
+rename-file.patch
 asllookup-ppc64.patch
