@@ -1,7 +1,7 @@
-Index: acpica-unix-20150818/source/compiler/asllookup.c
+Index: acpica-unix-20150930/source/compiler/asllookup.c
 ===================================================================
---- acpica-unix-20150818.orig/source/compiler/asllookup.c
-+++ acpica-unix-20150818/source/compiler/asllookup.c
+--- acpica-unix-20150930.orig/source/compiler/asllookup.c
++++ acpica-unix-20150930/source/compiler/asllookup.c
 @@ -176,7 +176,8 @@ LkIsObjectUsed (
                   * We ignore the predefined methods since often, not
                   * all arguments are needed or used.

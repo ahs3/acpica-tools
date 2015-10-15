@@ -1,0 +1,13 @@
+Index: acpica-unix-20150930/tests/templates/Makefile
+===================================================================
+--- acpica-unix-20150930.orig/tests/templates/Makefile
++++ acpica-unix-20150930/tests/templates/Makefile
+@@ -2,7 +2,7 @@
+ PROG= templates
+ 
+ templates :
+-	sh templates.sh
++	sh templates.sh 1
+ 
+ clean :
+ 	rm -f *.asl *.aml *.dsl *.hex diff.log
