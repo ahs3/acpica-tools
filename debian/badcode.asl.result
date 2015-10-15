@@ -44,7 +44,7 @@ badcode.asl     76:         Subtract (MTX1, 4, Local3)
 Warning  3144 - Method Local is set but never used ^  (Local3)
 
 badcode.asl     76:         Subtract (MTX1, 4, Local3)
-Error    6058 -            Invalid type ^  ([Mutex|Reference] found, Subtract operator requires [Integer|String|Buffer])
+Error    6058 -            Invalid type ^  ([Mutex] found, Subtract operator requires [Integer|String|Buffer])
 
 badcode.asl     80:         CreateField (BUF1, 0, Subtract (4, 4), FLD1)
 Remark   2089 -                             Object is not referenced ^  (Name is within method [MTH1])
