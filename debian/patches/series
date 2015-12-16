@@ -9,3 +9,4 @@ re-enable-big-endian.patch
 OPT_LDFLAGS.patch
 asllookup-ppc64.patch
 template.patch
+acpinames.patch

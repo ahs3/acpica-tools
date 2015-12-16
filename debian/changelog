@@ -1,3 +1,12 @@
+acpica-unix (20151124-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+  * Refresh patches as needed.
+  * Add back in a patch to fix a file name that upstream inadvertently left
+    in camel case.
+
+ -- ahs3 <ahs3@debian.org>  Tue, 08 Dec 2015 19:54:11 -0700
+
 acpica-unix (20150930-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 

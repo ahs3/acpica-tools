@@ -1,7 +1,7 @@
-Index: acpica-unix-20150930/source/compiler/asllookup.c
+Index: acpica-unix-20151124/source/compiler/asllookup.c
 ===================================================================
---- acpica-unix-20150930.orig/source/compiler/asllookup.c
-+++ acpica-unix-20150930/source/compiler/asllookup.c
+--- acpica-unix-20151124.orig/source/compiler/asllookup.c
++++ acpica-unix-20151124/source/compiler/asllookup.c
 @@ -119,6 +119,7 @@ LkIsObjectUsed (
  {
      ACPI_NAMESPACE_NODE     *Node = ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, ObjHandle);
