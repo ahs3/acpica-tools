@@ -41,7 +41,7 @@
  * POSSIBILITY OF SUCH DAMAGES.
  */
 
-#include "acpinames.h"
+#include "AcpiNames.h"
 #include "actables.h"
 #include "errno.h"
 
