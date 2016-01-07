@@ -1,3 +1,10 @@
+acpica-unix (20151218-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+  * Refresh patches as needed.
+
+ -- ahs3 <ahs3@debian.org>  Thu, 07 Jan 2016 13:00:33 -0700
+
 acpica-unix (20151124-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
