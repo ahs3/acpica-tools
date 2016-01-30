@@ -12,6 +12,10 @@ acpica-unix (20160108-2) unstable; urgency=medium
     source and provide identical functionality.  If there are differences,
     it is likely an upstream.  My apologies for not mentioning this sooner
     as part of the transition; hopefully this clarifies things.
+  * Closes: #679360 -- incorrect examples in the acpidump man page are no
+    longer pertinent since all of the man pages have since been updated,
+    and pointers provided to the upstream documentation that contains all
+    of the details needed.
 
  -- ahs3 <ahs3@debian.org>  Sat, 30 Jan 2016 15:57:59 -0700
 
