@@ -1,3 +1,20 @@
+acpica-unix (20160108-2) unstable; urgency=medium
+
+  * Closes: #757791 -- use proper Vcs-* lines in the control file. 
+  * Closes: #731761 -- add changelog info on turbostat: unfortunately,
+    during the transition to using only the ACPICA upstream source tree,
+    I forgot to mention that turbostat was not part of that source but
+    is in the Linux kernel source instead; if one wishes to use turbostat,
+    it can now be found in the collectd-core package instead.  Further,
+    the acpidump command now provided is different -- there are two sources
+    from the same upstream contributor, one in the kernel and one in the
+    ACPICA tree.  In theory, these are (or have) converged to a single
+    source and provide identical functionality.  If there are differences,
+    it is likely an upstream.  My apologies for not mentioning this sooner
+    as part of the transition; hopefully this clarifies things.
+
+ -- ahs3 <ahs3@debian.org>  Sat, 30 Jan 2016 15:57:59 -0700
+
 acpica-unix (20160108-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
