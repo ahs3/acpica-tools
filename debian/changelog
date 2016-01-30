@@ -16,6 +16,9 @@ acpica-unix (20160108-2) unstable; urgency=medium
     longer pertinent since all of the man pages have since been updated,
     and pointers provided to the upstream documentation that contains all
     of the details needed.
+  * Closes: #738527 -- acpidump has long since been replaced so this bug
+    should no longer be present; testing on some x86 systems show it
+    working just fine.
 
  -- ahs3 <ahs3@debian.org>  Sat, 30 Jan 2016 15:57:59 -0700
 
