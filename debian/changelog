@@ -20,6 +20,8 @@ acpica-unix (20160108-2) unstable; urgency=medium
     should no longer be present; testing on some x86 systems show it
     working just fine.
   * Closes: #419687 -- acpidump seems to report write errors okay
+  * Closes: #805990 -- dpkg-buildpackage -A seems to work fine, bug is
+    not reproducible
 
  -- ahs3 <ahs3@debian.org>  Sat, 30 Jan 2016 15:57:59 -0700
 
