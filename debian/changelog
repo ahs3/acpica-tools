@@ -22,6 +22,9 @@ acpica-unix (20160108-2) unstable; urgency=medium
   * Closes: #419687 -- acpidump seems to report write errors okay
   * Closes: #805990 -- dpkg-buildpackage -A seems to work fine, bug is
     not reproducible
+  * Closes: #407708 -- not a bug, this is expected iasl behavior, but iasl
+    is also much smarter about reporting what the user needs to do.  And,
+    the spec has changed to make it easier for iasl to work properly.
 
  -- ahs3 <ahs3@debian.org>  Sat, 30 Jan 2016 15:57:59 -0700
 
