@@ -1,3 +1,9 @@
+acpica-unix (20160108-3) UNRELEASED; urgency=medium
+
+  * Incredibly silly typo in Vcs-* entries in debian/control fixed. 
+
+ -- ahs3 <ahs3@debian.org>  Mon, 01 Feb 2016 16:02:57 -0700
+
 acpica-unix (20160108-2) unstable; urgency=medium
 
   * Closes: #757791 -- use proper Vcs-* lines in the control file. 
