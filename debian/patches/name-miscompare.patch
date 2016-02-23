@@ -4,11 +4,11 @@ to be compared were being treated as 32-bit ints, and not strings.  Hence,
 the characters were re-ordered incorrectly, mismatching the assumptions
 made in the remainder of the function.
 
-Index: acpica-unix-20151124/source/compiler/aslanalyze.c
+Index: acpica-unix-20160212/source/compiler/aslanalyze.c
 ===================================================================
---- acpica-unix-20151124.orig/source/compiler/aslanalyze.c
-+++ acpica-unix-20151124/source/compiler/aslanalyze.c
-@@ -446,7 +446,7 @@ ApCheckForGpeNameConflict (
+--- acpica-unix-20160212.orig/source/compiler/aslanalyze.c
++++ acpica-unix-20160212/source/compiler/aslanalyze.c
+@@ -452,7 +452,7 @@ ApCheckForGpeNameConflict (
  
      /* Need a null-terminated string version of NameSeg */
  
@@ -17,7 +17,7 @@ Index: acpica-unix-20151124/source/compiler/aslanalyze.c
      Name[ACPI_NAME_SIZE] = 0;
  
      /*
-@@ -473,7 +473,7 @@ ApCheckForGpeNameConflict (
+@@ -479,7 +479,7 @@ ApCheckForGpeNameConflict (
       * We are now sure we have an _Lxx or _Exx.
       * Create the target name that would cause collision (Flip E/L)
       */

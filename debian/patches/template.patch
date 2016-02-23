@@ -1,7 +1,7 @@
-Index: acpica-unix-20151124/tests/templates/Makefile
+Index: acpica-unix-20160212/tests/templates/Makefile
 ===================================================================
---- acpica-unix-20151124.orig/tests/templates/Makefile
-+++ acpica-unix-20151124/tests/templates/Makefile
+--- acpica-unix-20160212.orig/tests/templates/Makefile
++++ acpica-unix-20160212/tests/templates/Makefile
 @@ -2,7 +2,7 @@
  PROG= templates
  

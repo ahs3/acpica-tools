@@ -2,11 +2,11 @@ Re-enable use of these tools on big-endian machines.
 
 Al Stone <ahs3@redhat.com>
 
-Index: acpica-unix-20151218/source/compiler/aslmain.c
+Index: acpica-unix-20160212/source/compiler/aslmain.c
 ===================================================================
---- acpica-unix-20151218.orig/source/compiler/aslmain.c
-+++ acpica-unix-20151218/source/compiler/aslmain.c
-@@ -341,18 +341,6 @@ main (
+--- acpica-unix-20160212.orig/source/compiler/aslmain.c
++++ acpica-unix-20160212/source/compiler/aslmain.c
+@@ -318,18 +318,6 @@ main (
      int                     ReturnStatus = 0;
  
  
@@ -15,7 +15,7 @@ Index: acpica-unix-20151218/source/compiler/aslmain.c
 -     * be little-endian, and support for big-endian machines needs to
 -     * be implemented.
 -     */
--    if (AcpiIsBigEndianMachine ())
+-    if (UtIsBigEndianMachine ())
 -    {
 -        fprintf (stderr,
 -            "iASL is not currently supported on big-endian machines.\n");
