@@ -408,6 +408,6 @@ Copyright (c) 2000 - 2016 Intel Corporation
 Ignoring all errors, forcing AML file generation
 
 ASL Input:     grammar.asl - 10284 lines, 322888 bytes, 4819 keywords
-AML Output:    grammar.aml - 43480 bytes, 670 named objects, 4149 executable opcodes
+AML Output:    grammar.aml - 43490 bytes, 670 named objects, 4149 executable opcodes
 
-Compilation complete. 6 Errors, 89 Warnings, 39 Remarks, 1105 Optimizations
+Compilation complete. 6 Errors, 89 Warnings, 39 Remarks, 1106 Optimizations
