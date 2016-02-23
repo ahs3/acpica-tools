@@ -1,8 +1,10 @@
-acpica-unix (20160108-3) UNRELEASED; urgency=medium
+acpica-unix (20160212-1) unstable; urgency=medium
 
-  * Incredibly silly typo in Vcs-* entries in debian/control fixed. 
+  * Upgrade to latest upstream. 
+  * Refresh patches as needed.
+  * Fix silly typo in Vcs-* entries in debian/control
 
- -- ahs3 <ahs3@debian.org>  Mon, 01 Feb 2016 16:02:57 -0700
+ -- Al Stone <ahs3@debian.org>  Mon, 22 Feb 2016 17:00:18 -0700
 
 acpica-unix (20160108-2) unstable; urgency=medium
 
