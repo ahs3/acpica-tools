@@ -140,10 +140,10 @@ grammar.asl   1328:         CreateField (BUF2, 148, 96, FLD3)
 Remark   2089 -                  Object is not referenced ^  (Name is within method [FLDS])
 
 grammar.asl   1393:         Store (0x1234567887654321, QWD2)
-Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
+Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT or SSDT version < 2)
 
 grammar.asl   1395:         if (LNotEqual (Local0, 0x1234567887654321))
-Warning  3038 -                                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
+Warning  3038 -                                                    ^ 64-bit integer in 32-bit table, truncating (DSDT or SSDT version < 2)
 
 grammar.asl   1475:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
