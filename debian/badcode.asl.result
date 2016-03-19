@@ -2,7 +2,7 @@ badcode.asl     25:     Mutex (MTX1, 32)
 Error    6125 -                      ^ SyncLevel must be in the range 0-15
 
 badcode.asl     29:     Name (BIG, 0x1234567887654321)
-Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT version < 2)
+Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT or SSDT version < 2)
 
 badcode.asl     33:     Name (PKG1, Package(5) {0,1})
 Remark   2063 -                            ^ Initializer list shorter than declared package length
