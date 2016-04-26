@@ -47,7 +47,7 @@ badcode.asl     76:         Subtract (MTX1, 4, Local3)
 Error    6058 -            Invalid type ^  ([Mutex] found, Subtract operator requires [Integer|String|Buffer])
 
 badcode.asl     80:         CreateField (BUF1, 0, Subtract (4, 4), FLD1)
-Remark   2089 -                             Object is not referenced ^  (Name is within method [MTH1])
+Remark   2089 -                             Object is not referenced ^  (Name [FLD1] is within a method [MTH1])
 
 badcode.asl     80:         CreateField (BUF1, 0, Subtract (4, 4), FLD1)
 Error    6083 -                  Operand evaluates to zero ^ 
@@ -212,43 +212,43 @@ badcode.asl    388:         CreateWordField (RSC3, \DWI1._LEN, LEN)
 Warning  3128 -              ResourceTag larger than Field ^  (Size mismatch, Tag: 32 bits, Field: 16 bits)
 
 badcode.asl    388:         CreateWordField (RSC3, \DWI1._LEN, LEN)
-Remark   2089 -                        Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                        Object is not referenced ^  (Name [LEN_] is within a method [REM1])
 
 badcode.asl    389:         CreateByteField (RSC3, \DWI1._MIN, MIN)
 Warning  3128 -              ResourceTag larger than Field ^  (Size mismatch, Tag: 32 bits, Field: 8 bits)
 
 badcode.asl    389:         CreateByteField (RSC3, \DWI1._MIN, MIN)
-Remark   2089 -                        Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                        Object is not referenced ^  (Name [MIN_] is within a method [REM1])
 
 badcode.asl    390:         CreateBitField (RSC3, \DWI1._RNG, RNG1)
 Warning  3128 -             ResourceTag larger than Field ^  (Size mismatch, Tag: 2 bits, Field: 1 bit)
 
 badcode.asl    390:         CreateBitField (RSC3, \DWI1._RNG, RNG1)
-Remark   2089 -                        Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                        Object is not referenced ^  (Name [RNG1] is within a method [REM1])
 
 badcode.asl    394:         CreateQWordField (RSC3, \DWI1._MAX, MAX)
 Warning  3129 -              ResourceTag smaller than Field ^  (Size mismatch, Tag: 32 bits, Field: 64 bits)
 
 badcode.asl    394:         CreateQWordField (RSC3, \DWI1._MAX, MAX)
-Remark   2089 -                         Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                         Object is not referenced ^  (Name [MAX_] is within a method [REM1])
 
 badcode.asl    395:         CreateBitField (RSC3, \DWI1._GRA, GRA)
 Warning  3128 -             ResourceTag larger than Field ^  (Size mismatch, Tag: 32 bits, Field: 1 bit)
 
 badcode.asl    395:         CreateBitField (RSC3, \DWI1._GRA, GRA)
-Remark   2089 -                       Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                       Object is not referenced ^  (Name [GRA_] is within a method [REM1])
 
 badcode.asl    396:         CreateField (RSC3, \DWI1._MIF, 5, MIF)
 Warning  3129 -         ResourceTag smaller than Field ^  (Size mismatch, Tag: 1 bit, Field: 5 bits)
 
 badcode.asl    396:         CreateField (RSC3, \DWI1._MIF, 5, MIF)
-Remark   2089 -                       Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                       Object is not referenced ^  (Name [MIF_] is within a method [REM1])
 
 badcode.asl    397:         CreateField (RSC3, \DWI1._RNG, 3, RNG2)
 Warning  3129 -         ResourceTag smaller than Field ^  (Size mismatch, Tag: 2 bits, Field: 3 bits)
 
 badcode.asl    397:         CreateField (RSC3, \DWI1._RNG, 3, RNG2)
-Remark   2089 -                        Object is not referenced ^  (Name is within method [REM1])
+Remark   2089 -                        Object is not referenced ^  (Name [RNG2] is within a method [REM1])
 
 badcode.asl    404:         Store (40, Local0)
 Warning  3144 -                            ^ Method Local is set but never used (Local0)
