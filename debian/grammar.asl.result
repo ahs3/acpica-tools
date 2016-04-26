@@ -19,23 +19,11 @@ Warning  3133 -                 ^ Unknown reserved name (_NPK)
 grammar.asl    208:     Device (RES)
 Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
-grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
-Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
-Remark   2089 -                  Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
-Remark   2089 -                        Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    389:                 Register (SystemIO, 0x08, 0x00, 0x00000000000000B2, , R000)
-Remark   2089 -                                            Object is not referenced ^  (Name is within method [_CRS])
-
 grammar.asl    399:             CreateByteField (PRT0, R000._ASZ, RSIZ)
-Remark   2089 -                            Object is not referenced ^  (Name is within method [_CRS])
+Remark   2089 -                            Object is not referenced ^  (Name [RSIZ] is within a method [_CRS])
 
 grammar.asl    513:         Name (_STR, Unicode ("test"))
-Remark   2089 -                     ^ Object is not referenced (Name is within method [TCOP])
+Remark   2089 -                     ^ Object is not referenced (Name [_STR] is within a method [TCOP])
 
 grammar.asl    515:         Store (MFLD, Local0)
 Warning  3144 -                              ^ Method Local is set but never used (Local0)
@@ -74,28 +62,7 @@ grammar.asl    673:     Method(SMRE, 4)
 Remark   2146 -                  ^ Method Argument is never used (Arg3)
 
 grammar.asl    701:             CreateField (\_SB_.SBUF, 148, 96, FLDV)
-Remark   2089 -                            Object is not referenced ^  (Name is within method [_INI])
-
-grammar.asl    715:                             MinFixed,                       // Range is notfixed
-Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    716:                             MaxFixed,                       // Range is not fixed
-Remark   2089 -              Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    717:                             SubDecode,                      // SubDecode
-Remark   2089 -               Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    718:                             0x0000,                           // Granularity
-Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    720:                             0xfff2,                           // Max
-Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    721:                             0x0032,                           // Translation
-Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
-
-grammar.asl    722:                             0x0002,,,                         // Range Length
-Remark   2089 -            Object is not referenced ^  (Name is within method [_CRS])
+Remark   2089 -                            Object is not referenced ^  (Name [FLDV] is within a method [_INI])
 
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
@@ -131,13 +98,13 @@ grammar.asl   1295:     Method (OBJ1, 1, SERIALIZED)
 Remark   2146 -                   ^ Method Argument is never used (Arg0)
 
 grammar.asl   1299:         Name(BUFR, Buffer (Local0) {})
-Remark   2089 -                    ^ Object is not referenced (Name is within method [OBJ1])
+Remark   2089 -                    ^ Object is not referenced (Name [BUFR] is within a method [OBJ1])
 
 grammar.asl   1306:         Alias (MTX1, MTX2)
-Remark   2089 -   Object is not referenced ^  (Name is within method [OBJ1])
+Remark   2089 -   Object is not referenced ^  (Name [MTX2] is within a method [OBJ1])
 
 grammar.asl   1328:         CreateField (BUF2, 148, 96, FLD3)
-Remark   2089 -                  Object is not referenced ^  (Name is within method [FLDS])
+Remark   2089 -                  Object is not referenced ^  (Name [FLD3] is within a method [FLDS])
 
 grammar.asl   1393:         Store (0x1234567887654321, QWD2)
 Warning  3038 -                                    ^ 64-bit integer in 32-bit table, truncating (DSDT or SSDT version < 2)
@@ -149,7 +116,7 @@ grammar.asl   1475:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
 
 grammar.asl   1495:         Alias (MTX2, MTXA)
-Remark   2089 -   Object is not referenced ^  (Name is within method [OBJ2])
+Remark   2089 -   Object is not referenced ^  (Name [MTXA] is within a method [OBJ2])
 
 grammar.asl   1501:         Acquire (MTX2, 1)
 Warning  3130 -                           ^ Result is not used, possible operator timeout will be missed
@@ -359,16 +326,16 @@ grammar.asl   7735:     Device (MTCH)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   7756:             CreateDWordField (TMD0, 4, DMA0)
-Remark   2089 -                     Object is not referenced ^  (Name is within method [TEST])
+Remark   2089 -                     Object is not referenced ^  (Name [DMA0] is within a method [TEST])
 
 grammar.asl   7757:             CreateDWordField (TMD0, 8, PIO1)
-Remark   2089 -                     Object is not referenced ^  (Name is within method [TEST])
+Remark   2089 -                     Object is not referenced ^  (Name [PIO1] is within a method [TEST])
 
 grammar.asl   7758:             CreateDWordField (TMD0, 12, DMA1)
-Remark   2089 -                      Object is not referenced ^  (Name is within method [TEST])
+Remark   2089 -                      Object is not referenced ^  (Name [DMA1] is within a method [TEST])
 
 grammar.asl   7759:             CreateDWordField (TMD0, 16, CHNF)
-Remark   2089 -                      Object is not referenced ^  (Name is within method [TEST])
+Remark   2089 -                      Object is not referenced ^  (Name [CHNF] is within a method [TEST])
 
 grammar.asl   7933:     Device (WHLB)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -410,4 +377,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10284 lines, 322888 bytes, 4819 keywords
 AML Output:    grammar.aml - 43490 bytes, 670 named objects, 4149 executable opcodes
 
-Compilation complete. 6 Errors, 89 Warnings, 39 Remarks, 1106 Optimizations
+Compilation complete. 6 Errors, 89 Warnings, 28 Remarks, 1106 Optimizations
