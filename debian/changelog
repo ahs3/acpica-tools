@@ -2,6 +2,7 @@ acpica-unix (20160422-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
   * Refresh patches as needed.
+  * Update Standards-Version to most recent
 
  -- Al Stone <ahs3@debian.org>  Mon, 25 Apr 2016 19:35:49 -0600
 
