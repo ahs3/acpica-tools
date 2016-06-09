@@ -1,4 +1,4 @@
-acpica-unix (20160522-1) unstable; urgency=medium
+acpica-unix (20160527-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 
   * Refresh patches as needed.
