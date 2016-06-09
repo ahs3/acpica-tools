@@ -1,7 +1,7 @@
-Index: acpica-unix-20160422/Makefile
+Index: acpica-unix-20160527/Makefile
 ===================================================================
---- acpica-unix-20160422.orig/Makefile
-+++ acpica-unix-20160422/Makefile
+--- acpica-unix-20160527.orig/Makefile
++++ acpica-unix-20160527/Makefile
 @@ -20,3 +20,22 @@ else
  	include generate/unix/Makefile.config
  	include generate/unix/Makefile.common
@@ -12,7 +12,7 @@ Index: acpica-unix-20160422/Makefile
 +	$(CURDIR)/tests/aslts.sh $(CURDIR)/tests/aslts $(CURDIR)/generate/unix
 +
 +	# misc tests
-+	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20160422
++	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20160527
 +
 +	# Template tests
 +	cd $(CURDIR)/tests/templates
