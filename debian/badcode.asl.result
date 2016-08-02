@@ -110,7 +110,7 @@ badcode.asl    158:     Name (_PRW, 4)
 Error    6105 -                    ^ Invalid object type for reserved name (_PRW: found Integer, Package required)
 
 badcode.asl    159:     Name (_FDI, Buffer () {0})
-Error    6105 -                            ^ Invalid object type for reserved name (_FDI: found Buffer, Package required)
+Error    6105 -                         ^ Invalid object type for reserved name (_FDI: found Buffer, Package required)
 
 badcode.asl    164:     Method (_OSC, 5)
 Warning  3101 -                   ^ Reserved method has too many arguments (_OSC requires 4)
