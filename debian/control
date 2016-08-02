@@ -39,17 +39,3 @@ Description: ACPICA tools for the development and debug of ACPI tables
     -- acpixtract: extract binary ACPI tables from acpidump output (see
        also the pmtools package)
 
-Package: iasl
-Depends: acpica-tools, ${misc:Depends}
-Architecture: all
-Section: oldlibs
-Description: transitional dummy package
- This is a transitional dummy package.  It can safely be removed.
-
-Package: acpidump
-Depends: acpica-tools, ${misc:Depends}
-Architecture: all
-Section: oldlibs
-Description: transitional dummy package
- This is a transitional dummy package.  It can safely be removed.
-
