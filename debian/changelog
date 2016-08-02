@@ -1,3 +1,10 @@
+acpica-unix (20160729-1) unstable; urgency=medium
+
+  * Upgrade to latest upstream. 
+  * Refresh patches as needed.
+
+ -- Al Stone <ahs3@debian.org>  Tue, 02 Aug 2016 17:08:49 -0600
+
 acpica-unix (20160527-2) unstable; urgency=medium
 
   * Remove obsolete dummy packages for iasl and acpidump. Courtesy of
