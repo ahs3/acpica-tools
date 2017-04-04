@@ -1,26 +1,26 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20160729-32
+ * AML/ASL+ Disassembler version 20160930-32
  * Copyright (c) 2000 - 2016 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of grammar.aml, Fri Aug 19 13:49:10 2016
+ * Disassembly of grammar.aml, Tue Oct 25 13:59:22 2016
  *
  * Original Table Header:
  *     Signature        "DSDT"
  *     Length           0x0000A9E2 (43490)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0xF0
+ *     Checksum         0xE7
  *     OEM ID           "Intel"
  *     OEM Table ID     "GRMTEST"
  *     OEM Revision     0x20090511 (537462033)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20160729 (538314537)
+ *     Compiler Version 0x20160930 (538315056)
  */
 DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 {
-    External (ABCD, UnknownObj)
+    External (\ABCD, UnknownObj)
 
     Device (A1)
     {
@@ -66,7 +66,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (IRES)
     {
-        Buffer PRT0 = ResourceTemplate ()
+        Name (PRT0, ResourceTemplate ()
         {
             IRQ (Edge, ActiveHigh, Exclusive, )
                 {3,4,5,6,7,9,10,11,14,15}
@@ -76,7 +76,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     {0,1,2}
             }
             EndDependentFn ()
-        }
+        })
         Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
         {
             Debug = "_CRS:"
@@ -92,16 +92,16 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Package _NPK (0x4) =
+    Name (_NPK, Package (0x04)
     {
         0x1111, 
         0x2222, 
         0x3333, 
         0x4444
-    }
+    })
     Device (RES)
     {
-        Package _PRT (0x4) =
+        Name (_PRT, Package (0x04)  // _PRT: PCI Routing Table
         {
             Package (0x04)
             {
@@ -134,10 +134,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Zero, 
                 Zero
             }
-        }  // _PRT: PCI Routing Table
+        })
         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
         {
-            Buffer PRT0 = ResourceTemplate ()
+            Name (PRT0, ResourceTemplate ()
             {
                 WordBusNumber (ResourceConsumer, MinFixed, MaxFixed, SubDecode,
                     0x0000,             // Granularity
@@ -172,21 +172,21 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x0CF7,             // Range Maximum
                     0x0000,             // Translation Offset
                     0x0CF8,             // Length
-                    ,, , TypeStatic)
+                    ,, , TypeStatic, DenseTranslation)
                 WordIO (ResourceProducer, MinFixed, MaxFixed, PosDecode, EntireRange,
                     0x0000,             // Granularity
                     0x0D00,             // Range Minimum
                     0xFFFF,             // Range Maximum
                     0x0000,             // Translation Offset
                     0xF300,             // Length
-                    ,, , TypeStatic)
+                    ,, , TypeStatic, DenseTranslation)
                 DWordIO (ResourceProducer, MinFixed, MaxFixed, PosDecode, EntireRange,
                     0x00000000,         // Granularity
                     0x00000000,         // Range Minimum
                     0x00000CF7,         // Range Maximum
                     0x00000000,         // Translation Offset
                     0x00000CF8,         // Length
-                    ,, , TypeStatic)
+                    ,, , TypeStatic, DenseTranslation)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
                     0x000C8000,         // Range Minimum
@@ -207,14 +207,14 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x0000000000000CF7, // Range Maximum
                     0x0000000000000000, // Translation Offset
                     0x0000000000000CF8, // Length
-                    0x44, "This is a ResouceSource string", , TypeStatic)
+                    0x44, "This is a ResouceSource string", , TypeStatic, DenseTranslation)
                 QWordIO (ResourceProducer, MinFixed, MaxFixed, PosDecode, EntireRange,
                     0x0000000000000000, // Granularity
                     0x0000000000000000, // Range Minimum
                     0x0000000000000CF7, // Range Maximum
                     0x0000000000000000, // Translation Offset
                     0x0000000000000CF8, // Length
-                    ,, , TypeStatic)
+                    ,, , TypeStatic, DenseTranslation)
                 QWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x0000000000000000, // Granularity
                     0x0000000000100000, // Range Minimum
@@ -236,7 +236,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x0000000000000000, // Translation Offset
                     0x0000000000000CF8, // Length
                     0x0000000000000000, // Type-Specific Attributes
-                    , TypeStatic)
+                    , TypeStatic, DenseTranslation)
                 ExtendedMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x0000000000000000, // Granularity
                     0x0000000000100000, // Range Minimum
@@ -343,7 +343,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                         {3,4,5,6,7,9,10,11,14,15}
                 }
                 EndDependentFn ()
-            }
+            })
             CreateWordField (PRT0, \RES._CRS._Y00._MIN, BMIN)  // _MIN: Minimum Base Address
             CreateByteField (PRT0, \RES._CRS._Y01._ASZ, RSIZ)  // _ASZ: Access Size
             BMIN = 0x03
@@ -352,7 +352,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
         {
-            Buffer BUF0 = ResourceTemplate ()
+            Name (BUF0, ResourceTemplate ()
             {
                 StartDependentFn (0x01, 0x02)
                 {
@@ -410,7 +410,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                         {1,3,4,5,6,7,8,10,11,12,13,14,15}
                 }
                 EndDependentFn ()
-            }
+            })
             Return (BUF0) /* \RES_._PRS.BUF0 */
         }
 
@@ -420,35 +420,35 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Package _S0 (0x4) =
+    Name (_S0, Package (0x04)  // _S0_: S0 System State
     {
         Zero, 
         Zero, 
         Zero, 
         Zero
-    }  // _S0_: S0 System State
-    Package _S3 (0x4) =
+    })
+    Name (_S3, Package (0x04)  // _S3_: S3 System State
     {
         0x05, 
         0x05, 
         Zero, 
         Zero
-    }  // _S3_: S3 System State
-    Package _S4 (0x4) =
+    })
+    Name (_S4, Package (0x04)  // _S4_: S4 System State
     {
         0x06, 
         0x06, 
         Zero, 
         Zero
-    }  // _S4_: S4 System State
-    Package _S5 (0x4) =
+    })
+    Name (_S5, Package (0x04)  // _S5_: S5 System State
     {
         0x07, 
         0x07, 
         Zero, 
         Zero
-    }  // _S5_: S5 System State
-    Integer SIZE = Zero
+    })
+    Name (SIZE, Zero)
     OperationRegion (MYOP, 0x80, 0xFD60, 0x06)
     Field (MYOP, ByteAcc, NoLock, Preserve)
     {
@@ -457,20 +457,16 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Method (TCOP, 0, Serialized)
     {
-        Buffer _STR(0xA) =
-        {
-            /* 0000 */  0x74, 0x00, 0x65, 0x00, 0x73, 0x00, 0x74, 0x00,  /* t.e.s.t. */
-            /* 0008 */  0x00, 0x00                                       /* .. */
-        }  // _STR: Description String
+        Name (_STR, Unicode ("test"))  // _STR: Description String
         MFLD = 0x04
         Local0 = MFLD /* \MFLD */
     }
 
-    Integer ERRS = Zero
-    String ESC1 = "abcdefghijklmn"
-    String ESC2 = "abcdefghijklmn"
-    String ESC3 = "abc\a\bdef\f\n\r\t\v\x03ffff\x1A"
-    Buffer CRSA = ResourceTemplate ()
+    Name (ERRS, Zero)
+    Name (ESC1, "abcdefghijklmn")
+    Name (ESC2, "abcdefghijklmn")
+    Name (ESC3, "abc\a\bdef\f\n\r\t\v\x03ffff\x1A")
+    Name (CRSA, ResourceTemplate ()
     {
         WordBusNumber (ResourceProducer, MinFixed, MaxFixed, PosDecode,
             0x0000,             // Granularity
@@ -485,7 +481,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             0xCFFF,             // Range Maximum
             0x0000,             // Translation Offset
             0x1000,             // Length
-            ,, , TypeStatic)
+            ,, , TypeStatic, DenseTranslation)
         DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, NonCacheable, ReadWrite,
             0x00000000,         // Granularity
             0xD8000000,         // Range Minimum
@@ -493,8 +489,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             0x00000000,         // Translation Offset
             0x04000000,         // Length
             ,, , AddressRangeMemory, TypeStatic)
-    }
-    Buffer CRSB = ResourceTemplate ()
+    })
+    Name (CRSB, ResourceTemplate ()
     {
         DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, NonCacheable, ReadWrite,
             0x00000000,         // Granularity
@@ -503,32 +499,30 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             0x00000000,         // Translation Offset
             0x04000000,         // Length
             ,, , AddressRangeMemory, TypeStatic)
-    }
-    Buffer CRSC = ResourceTemplate ()
+    })
+    Name (CRSC, ResourceTemplate ()
     {
         VendorShort ()      // Length = 0x03
         {
              0x01, 0x02, 0x03                                 /* ... */
         }
-    }
-    Buffer CRSD = ResourceTemplate ()
+    })
+    Name (CRSD, ResourceTemplate ()
     {
         VendorLong  ()      // Length = 0x09
         {
             /* 0000 */  0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,  /* ........ */
             /* 0008 */  0x09                                             /* . */
         }
-    }
-    Buffer CRSE = ResourceTemplate ()
+    })
+    Name (CRSE, ResourceTemplate ()
     {
         IRQNoFlags ()
             {3,4,10,11}
         IRQNoFlags ()
             {3,4,10,11}
-    }
-    Buffer CRSR(0x63AC80) =
-    {
-    }
+    })
+    Name (CRSR, Buffer (SizeOf (CRSA) + SizeOf (CRSB)) {})
     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
     {
         Return (CRSR) /* \CRSR */
@@ -536,10 +530,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Scope (\)
     {
-        Integer BXXX = Ones
+        Name (BXXX, Ones)
     }
 
-    Integer LANS = Zero
+    Name (LANS, Zero)
     PowerResource (LANP, 0x01, 0x0000)
     {
         Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -592,22 +586,22 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Processor (CPU0, 0x00, 0xFFFFFFFF, 0x00) {}
     }
 
-    Integer B1TP = Ones
-    Integer B2TP = Ones
-    Integer ADPS = Ones
-    Integer B1PS = Ones
-    Integer B1RS = Ones
-    Integer B1CS = Ones
-    Integer B2PS = Ones
-    Integer B2RS = Ones
-    Integer B2CS = Ones
-    Integer B1DC = 0x0BB8
-    Integer B2DC = 0x0A28
-    Integer B1LF = 0x0BB8
-    Integer B2LF = 0x0A28
-    Integer BPIF = Zero
-    Integer PBLL = Zero
-    Package RBIF (0xD) =
+    Name (B1TP, Ones)
+    Name (B2TP, Ones)
+    Name (ADPS, Ones)
+    Name (B1PS, Ones)
+    Name (B1RS, Ones)
+    Name (B1CS, Ones)
+    Name (B2PS, Ones)
+    Name (B2RS, Ones)
+    Name (B2CS, Ones)
+    Name (B1DC, 0x0BB8)
+    Name (B2DC, 0x0A28)
+    Name (B1LF, 0x0BB8)
+    Name (B2LF, 0x0A28)
+    Name (BPIF, Zero)
+    Name (PBLL, Zero)
+    Name (RBIF, Package (0x0D)
     {
         One, 
         0x0898, 
@@ -622,7 +616,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         "1", 
         "LION", 
         "Fujitsu"
-    }
+    })
     Method (SMWE, 4, NotSerialized)
     {
         Return (Ones)
@@ -635,9 +629,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Scope (_SB)
     {
-        Buffer SBUF(0x80) =
-        {
-        }
+        Name (SBUF, Buffer (0x80) {})
         CreateBitField (SBUF, 0x03, BITY)
         CreateByteField (SBUF, One, BYTY)
         CreateWordField (SBUF, 0x02, WRDZ)
@@ -653,11 +645,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Device (PCI0)
         {
-            Integer _HID = EisaId ("PNP0A03") /* PCI Bus */  // _HID: Hardware ID
-            Integer _ADR = Zero  // _ADR: Address
+            Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
+            Name (_ADR, Zero)  // _ADR: Address
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Buffer PRT0 = ResourceTemplate ()
+                Name (PRT0, ResourceTemplate ()
                 {
                     WordBusNumber (ResourceConsumer, MinFixed, MaxFixed, SubDecode,
                         0x0000,             // Granularity
@@ -666,7 +658,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                         0x0032,             // Translation Offset
                         0x0002,             // Length
                         ,, _Y02)
-                }
+                })
                 CreateWordField (PRT0, \_SB.PCI0._CRS._Y02._MIN, BMIN)  // _MIN: Minimum Base Address
                 BMIN = 0x03
                 Return (PRT0) /* \_SB_.PCI0._CRS.PRT0 */
@@ -775,8 +767,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (CMB1)
     {
-        Integer _HID = EisaId ("PNP0C0A") /* Control Method Battery */  // _HID: Hardware ID
-        Integer _UID = One  // _UID: Unique ID
+        Name (_HID, EisaId ("PNP0C0A") /* Control Method Battery */)  // _HID: Hardware ID
+        Name (_UID, One)  // _UID: Unique ID
         Alias (\_SB.PCI0.EIO.B1P, \_SB.PCI0.XXXX)
         Alias (\_SB.PCI0.EIO.B1P, B1P)
         Alias (\_SB.PCI0.EIO.B1C, B1C)
@@ -823,11 +815,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             }
 
             Local1 = MKWD (B1CL, B1CH)
-            Local2 = (((B1CP * B1LF) + 0x63) / 0x64)
+            Store (Divide (Add (Multiply (B1CP, B1LF), 0x63), 0x64, ), 
+                Local2)
             Local3 = MKWD (B1VL, B1VH)
-            Package STAT (0x4) =
-            {
-            }
+            Name (STAT, Package (0x04) {})
             STAT [Zero] = Local0
             STAT [One] = Local1
             STAT [0x02] = Local2
@@ -849,19 +840,19 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     {
         ThermalZone (TZ1)
         {
-            Package _PSL (0x1) =
+            Name (_PSL, Package (0x01)  // _PSL: Passive List
             {
                 \_PR.CPU0
-            }  // _PSL: Passive List
+            })
         }
     }
 
     Method (TZ2, 0, Serialized)
     {
-        Package _PSL (0x1) =
+        Name (_PSL, Package (0x01)  // _PSL: Passive List
         {
             \_PR.CPU0
-        }  // _PSL: Passive List
+        })
         Return (_PSL) /* \TZ2_._PSL */
     }
 
@@ -1216,16 +1207,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (OBJ1, 1, Serialized)
     {
         Local0 = 0x03
-        Buffer BUFR(0x0) =
-        {
-        }
-        Buffer BUF1(0x4) =
+        Name (BUFR, Buffer (Local0) {})
+        Name (BUF1, Buffer (0x04)
         {
              0x01, 0x02, 0x03, 0x04                           /* .... */
-        }
-        Buffer BUF2(0x4) =
-        {
-        }
+        })
+        Name (BUF2, Buffer (0x04) {})
         BUF2 = BUF1 /* \OBJ1.BUF1 */
         Mutex (MTX1, 0x04)
         Alias (MTX1, MTX2)
@@ -1236,9 +1223,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (FLDS, 0, Serialized)
     {
         Debug = "++++++++ Creating BufferFields"
-        Buffer BUF2(0x80) =
-        {
-        }
+        Name (BUF2, Buffer (0x80) {})
         CreateBitField (BUF2, 0x03, BIT2)
         CreateByteField (BUF2, One, BYT2)
         CreateWordField (BUF2, 0x02, WRD2)
@@ -1351,9 +1336,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     Method (OBJ2, 1, Serialized)
     {
         Debug = "++++++++ Creating Buffer BUFO"
-        Buffer BUFO(0x20) =
-        {
-        }
+        Name (BUFO, Buffer (0x20) {})
         Debug = "++++++++ Creating OpRegion OPR2"
         OperationRegion (OPR2, SystemMemory, Arg0, 0x0100)
         Debug = "++++++++ Creating Field(s) in OpRegion OPR2"
@@ -1423,7 +1406,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Add (0x12345678, 0x11111111, Local0)"
         Local0 = (0x12345678 + 0x11111111)
         Debug = "++++++++ Store (Add (0x12345678, 0x11111111), Local1)"
-        Local1 = (0x12345678 + 0x11111111)
+        Store (Add (0x12345678, 0x11111111), Local1)
         Debug = "++++++++ Checking result from ADD"
         If (Local0 != Local1)
         {
@@ -1433,7 +1416,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Subtract (0x87654321, 0x11111111, Local4)"
         Local4 = (0x87654321 - 0x11111111)
         Debug = "++++++++ Store (Subtract (0x87654321, 0x11111111), Local5)"
-        Local5 = (0x87654321 - 0x11111111)
+        Store (Subtract (0x87654321, 0x11111111), Local5)
         Debug = "++++++++ Checking result from SUBTRACT"
         If (Local4 != Local5)
         {
@@ -1443,7 +1426,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Multiply (33, 10, Local6)"
         Local6 = (0x21 * 0x0A)
         Debug = "++++++++ Store (Multiply (33, 10), Local7)"
-        Local7 = (0x21 * 0x0A)
+        Store (Multiply (0x21, 0x0A), Local7)
         Debug = "++++++++ Checking result from MULTIPLY"
         If (Local6 != Local7)
         {
@@ -1453,7 +1436,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Divide (100, 9, Local1, Local2)"
         Divide (0x64, 0x09, Local1, Local2)
         Debug = "++++++++ Store (Divide (100, 9), Local3)"
-        Local3 = (0x64 / 0x09)
+        Store (Divide (0x64, 0x09, ), Local3)
         Debug = "++++++++ Checking (quotient) result from DIVIDE"
         If (Local2 != Local3)
         {
@@ -1736,11 +1719,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Method (REFS, 0, Serialized)
     {
-        Buffer BBUF(0x8) =
+        Name (BBUF, Buffer (0x08)
         {
              0xB0, 0xB1, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7   /* ........ */
-        }
-        Package NEST (0x2) =
+        })
+        Name (NEST, Package (0x02)
         {
             Package (0x06)
             {
@@ -1761,7 +1744,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 0x15, 
                 0x16
             }
-        }
+        })
         Local5 = RefOf (MAIN)
         Local1 = CondRefOf (ABCD, Local0)
         If (Local1 != Zero)
@@ -1798,16 +1781,14 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Method (INDX, 0, Serialized)
     {
-        Package STAT (0x4) =
-        {
-        }
+        Name (STAT, Package (0x04) {})
         STAT [Zero] = 0x44443333
     }
 
     Device (IFEL)
     {
-        Integer DWRD = One
-        Integer RSLT = Zero
+        Name (DWRD, One)
+        Name (RSLT, Zero)
         Method (IFNR, 0, NotSerialized)
         {
             RSLT = DWRD /* \IFEL.DWRD */
@@ -1938,7 +1919,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ NoSave Test"
-            Integer WRD = 0x1234
+            Name (WRD, 0x1234)
             If (0x03 & One)
             {
                 WRD = One
@@ -2321,10 +2302,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Scope (_SB)
     {
-        Integer ZER0 = Zero
-        Integer ZER1 = Zero
-        Integer ZER2 = Zero
-        Integer ONE0 = One
+        Name (ZER0, Zero)
+        Name (ZER1, Zero)
+        Name (ZER2, Zero)
+        Name (ONE0, One)
         Device (NSTL)
         {
             Method (TEST, 0, NotSerialized)
@@ -2353,10 +2334,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (RBUF, 0, Serialized)
         {
-            Buffer ABUF(0x11) =
+            Name (ABUF, Buffer (0x11)
             {
                 "ARBITRARY_BUFFER"
-            }
+            })
             Local0 = ABUF /* \RTBF.RBUF.ABUF */
             Local1 = ObjectType (Local0)
             If (Local1 != 0x03)
@@ -2372,9 +2353,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             }
 
             Local1 = 0x05
-            Buffer BUFR(0x0) =
-            {
-            }
+            Name (BUFR, Buffer (Local1) {})
             Local0 = SUBR (BUFR)
             Local1 = ObjectType (Local0)
             If (Local1 != 0x03)
@@ -2425,7 +2404,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (PRW2)
     {
-        Package _PRW (0x2) =
+        Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
         {
             Package (0x02)
             {
@@ -2434,12 +2413,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             }, 
 
             0x03
-        }  // _PRW: Power Resources for Wake
+        })
     }
 
     Scope (_GPE)
     {
-        Integer ACST = 0xFF
+        Name (ACST, 0xFF)
         Method (_L08, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Debug = "Method _GPE._L08 invoked"
@@ -2479,32 +2458,32 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (PRW1)
     {
-        Package _PRW (0x2) =
+        Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
         {
             0x11, 
             0x03
-        }  // _PRW: Power Resources for Wake
+        })
     }
 
     Device (PWRB)
     {
-        Integer _HID = EisaId ("PNP0C0C") /* Power Button Device */  // _HID: Hardware ID
-        Package _PRW (0x2) =
+        Name (_HID, EisaId ("PNP0C0C") /* Power Button Device */)  // _HID: Hardware ID
+        Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
         {
             0x33, 
             0x03
-        }  // _PRW: Power Resources for Wake
+        })
     }
 
     Scope (_SB)
     {
         Device (ACAD)
         {
-            String _HID = "ACPI0003" /* Power Source Device */  // _HID: Hardware ID
-            Package _PCL (0x1) =
+            Name (_HID, "ACPI0003" /* Power Source Device */)  // _HID: Hardware ID
+            Name (_PCL, Package (0x01)  // _PCL: Power Consumer List
             {
                 _SB
-            }  // _PCL: Power Consumer List
+            })
             OperationRegion (AREG, SystemIO, 0x0372, 0x02)
             Field (AREG, ByteAcc, NoLock, Preserve)
             {
@@ -2610,34 +2589,34 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     {
         Device (LNKA)
         {
-            Integer _HID = EisaId ("PNP0C0F") /* PCI Interrupt Link Device */  // _HID: Hardware ID
-            Integer _UID = One  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
+            Name (_UID, One)  // _UID: Unique ID
         }
 
         Device (LNKB)
         {
-            Integer _HID = EisaId ("PNP0C0F") /* PCI Interrupt Link Device */  // _HID: Hardware ID
-            Integer _UID = 0x02  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
+            Name (_UID, 0x02)  // _UID: Unique ID
         }
 
         Device (LNKC)
         {
-            Integer _HID = EisaId ("PNP0C0F") /* PCI Interrupt Link Device */  // _HID: Hardware ID
-            Integer _UID = 0x03  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
+            Name (_UID, 0x03)  // _UID: Unique ID
         }
 
         Device (LNKD)
         {
-            Integer _HID = EisaId ("PNP0C0F") /* PCI Interrupt Link Device */  // _HID: Hardware ID
-            Integer _UID = 0x04  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
+            Name (_UID, 0x04)  // _UID: Unique ID
         }
 
         Device (PCI1)
         {
-            String _HID = "PNP0A03" /* PCI Bus */  // _HID: Hardware ID
-            Integer _ADR = Zero  // _ADR: Address
-            Integer _CRS = Zero  // _CRS: Current Resource Settings
-            Package _PRT (0xC) =
+            Name (_HID, "PNP0A03" /* PCI Bus */)  // _HID: Hardware ID
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_CRS, Zero)  // _CRS: Current Resource Settings
+            Name (_PRT, Package (0x0C)  // _PRT: PCI Routing Table
             {
                 Package (0x04)
                 {
@@ -2734,10 +2713,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     LNKB, 
                     Zero
                 }
-            }  // _PRT: PCI Routing Table
+            })
             Device (PX40)
             {
-                Integer _ADR = 0x00070000  // _ADR: Address
+                Name (_ADR, 0x00070000)  // _ADR: Address
             }
         }
 
@@ -2768,7 +2747,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (WHLR)
     {
-        Integer LCNT = Zero
+        Name (LCNT, Zero)
         Method (WIR, 0, NotSerialized)
         {
             While (LCNT < 0x04)
@@ -2809,15 +2788,15 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             SMBY,   8
         }
 
-        Integer BYT1 = 0xFF
-        Integer BYT2 = 0xFF
-        Integer BRSL = Zero
-        Integer WRD1 = 0xFFFF
-        Integer WRD2 = 0xFFFF
-        Integer WRSL = Zero
-        Integer DWD1 = Ones
-        Integer DWD2 = Ones
-        Integer DRSL = Zero
+        Name (BYT1, 0xFF)
+        Name (BYT2, 0xFF)
+        Name (BRSL, Zero)
+        Name (WRD1, 0xFFFF)
+        Name (WRD2, 0xFFFF)
+        Name (WRSL, Zero)
+        Name (DWD1, Ones)
+        Name (DWD2, Ones)
+        Name (DRSL, Zero)
         Method (ANDP, 0, NotSerialized)
         {
             BRSL = (BYT1 & BYT2) /* \ANDO.BYT2 */
@@ -2991,7 +2970,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ AndOrOp Test"
-            Integer RSLT = One
+            Name (RSLT, One)
             RSLT = ANDP ()
             If (RSLT == One)
             {
@@ -3019,7 +2998,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (BRKP)
     {
-        Integer CNT0 = Zero
+        Name (CNT0, Zero)
         Method (BK1, 0, NotSerialized)
         {
             BreakPoint
@@ -3057,9 +3036,9 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ AddSubOp Test"
-            Integer DWRD = 0x12345678
-            Integer WRD = 0x1234
-            Integer BYT = 0x12
+            Name (DWRD, 0x12345678)
+            Name (WRD, 0x1234)
+            Name (BYT, 0x12)
             DWRD = 0x12345678
             DWRD += 0x07
             If (DWRD != 0x1234567F)
@@ -3153,9 +3132,9 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ IncDecOp Test"
-            Integer DWRD = 0x12345678
-            Integer WRD = 0x1234
-            Integer BYT = 0x12
+            Name (DWRD, 0x12345678)
+            Name (WRD, 0x1234)
+            Name (BYT, 0x12)
             DWRD = 0x12345678
             DWRD++
             If (DWRD != 0x12345679)
@@ -3246,16 +3225,16 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             SMBY,   8
         }
 
-        Integer BYT1 = 0xFF
-        Integer BYT2 = 0xFF
-        Integer BRSL = Zero
-        Integer WRD1 = 0xFFFF
-        Integer WRD2 = 0xFFFF
-        Integer WRSL = Zero
-        Integer DWD1 = Ones
-        Integer DWD2 = Ones
-        Integer DRSL = Zero
-        Integer RSLT = One
+        Name (BYT1, 0xFF)
+        Name (BYT2, 0xFF)
+        Name (BRSL, Zero)
+        Name (WRD1, 0xFFFF)
+        Name (WRD2, 0xFFFF)
+        Name (WRSL, Zero)
+        Name (DWD1, Ones)
+        Name (DWD2, Ones)
+        Name (DRSL, Zero)
+        Name (RSLT, One)
         Method (ANDL, 2, NotSerialized)
         {
             If (Arg0 == Arg1)
@@ -3575,14 +3554,14 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             SMBY,   8
         }
 
-        Integer BYT1 = One
-        Integer BRSL = Zero
-        Integer WRD1 = 0x0100
-        Integer WRSL = Zero
-        Integer DWD1 = 0x00010000
-        Integer DRSL = Zero
-        Integer RSLT = One
-        Integer CNTR = One
+        Name (BYT1, One)
+        Name (BRSL, Zero)
+        Name (WRD1, 0x0100)
+        Name (WRSL, Zero)
+        Name (DWD1, 0x00010000)
+        Name (DRSL, Zero)
+        Name (RSLT, One)
+        Name (CNTR, One)
         Method (SHFT, 2, NotSerialized)
         {
             Local0 = Arg0
@@ -3746,10 +3725,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ MulDivOp Test"
-            Integer RMDR = Zero
-            Integer DWRD = 0x12345678
-            Integer WRD = 0x1234
-            Integer BYT = 0x12
+            Name (RMDR, Zero)
+            Name (DWRD, 0x12345678)
+            Name (WRD, 0x1234)
+            Name (BYT, 0x12)
             DWRD = 0x12345678
             DWRD *= 0x03
             If (DWRD != 0x369D0368)
@@ -3870,18 +3849,18 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             SMBY,   8
         }
 
-        Integer BYT1 = 0xFF
-        Integer BYT2 = 0xFF
-        Integer BRSL = Zero
-        Integer WRD1 = 0xFFFF
-        Integer WRD2 = 0xFFFF
-        Integer WRSL = Zero
-        Integer DWD1 = Ones
-        Integer DWD2 = Ones
-        Integer DRSL = Zero
-        Integer RSLT = One
-        Integer ARSL = Zero
-        Integer LRSL = Zero
+        Name (BYT1, 0xFF)
+        Name (BYT2, 0xFF)
+        Name (BRSL, Zero)
+        Name (WRD1, 0xFFFF)
+        Name (WRD2, 0xFFFF)
+        Name (WRSL, Zero)
+        Name (DWD1, Ones)
+        Name (DWD2, Ones)
+        Name (DRSL, Zero)
+        Name (RSLT, One)
+        Name (ARSL, Zero)
+        Name (LRSL, Zero)
         Method (NNDB, 2, NotSerialized)
         {
             SMDW = Ones
@@ -4093,16 +4072,16 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             SMBY,   8
         }
 
-        Integer SHFC = Zero
-        Integer BYT1 = 0xFF
-        Integer BRSL = Zero
-        Integer WRD1 = 0xFFFF
-        Integer WRSL = Zero
-        Integer DWD1 = Ones
-        Integer DRSL = Zero
-        Integer RSLT = One
-        Integer ARSL = Zero
-        Integer LRSL = Zero
+        Name (SHFC, Zero)
+        Name (BYT1, 0xFF)
+        Name (BRSL, Zero)
+        Name (WRD1, 0xFFFF)
+        Name (WRSL, Zero)
+        Name (DWD1, Ones)
+        Name (DRSL, Zero)
+        Name (RSLT, One)
+        Name (ARSL, Zero)
+        Name (LRSL, Zero)
         Method (SLFT, 2, NotSerialized)
         {
             SMDW = Ones
@@ -4582,8 +4561,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, NotSerialized)
         {
             Debug = "++++++++ CrBytFld Test"
-            Local0 =                     0x04
-                }
+            Local0 = Buffer (0x04) {}
             CreateByteField (Local0, Zero, BF0)
             Local1 = ObjectType (Local0)
             If (Local1 != 0x03)
@@ -5394,13 +5372,13 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Package PKG0 (0x3) =
+    Name (PKG0, Package (0x03)
     {
         0x0123, 
         0x4567, 
         0x89AB
-    }
-    Package PKG1 (0x3) =
+    })
+    Name (PKG1, Package (0x03)
     {
         Package (0x03)
         {
@@ -5422,38 +5400,30 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             0x3210, 
             0x1234
         }
-    }
-    Package PKG2 (0x4) =
+    })
+    Name (PKG2, Package (0x04)
     {
         0x0123, 
         0x4567, 
         0x89AB, 
         0x8888
-    }
-    Package PKG3 (0x5) =
+    })
+    Name (PKG3, Package (0x05)
     {
         0x0123, 
         0x4567, 
         0x89AB, 
         0x8888, 
         0x7777
-    }
-    String STR0 = "ACPI permits very flexible methods of expressing a system"
-    String STR1 = "MIKE permits very flexible methods of expressing a system"
-    String STR2 = "Needless to say, Mike and ACPI are frequently at odds"
-    String STR3 = "12345"
-    Buffer BUF0(0xA) =
-    {
-    }
-    Buffer BUF1(0xA) =
-    {
-    }
-    Buffer BUF2(0x8) =
-    {
-    }
-    Buffer BUF3(0x5) =
-    {
-    }
+    })
+    Name (STR0, "ACPI permits very flexible methods of expressing a system")
+    Name (STR1, "MIKE permits very flexible methods of expressing a system")
+    Name (STR2, "Needless to say, Mike and ACPI are frequently at odds")
+    Name (STR3, "12345")
+    Name (BUF0, Buffer (0x0A) {})
+    Name (BUF1, Buffer (0x0A) {})
+    Name (BUF2, Buffer (0x08) {})
+    Name (BUF3, Buffer (0x05) {})
     Device (SZLV)
     {
         Method (CMPR, 2, NotSerialized)
@@ -5531,7 +5501,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             Local0 = ^C005.C013.C058.C07E /* \_SB_.C005.C013.C058.C07E */
             Release (_GL)
             Local0 &= 0x10
-            Local1 = (Local0 >> 0x04)
+            Store (ShiftRight (Local0, 0x04), Local1)
             If (Local1 == Zero)
             {
                 Return (One)
@@ -5559,8 +5529,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     }
 
     Mutex (C01F, 0x00)
-    Integer C020 = Zero
-    Integer C021 = Zero
+    Name (C020, Zero)
+    Name (C021, Zero)
     Method (C022, 0, NotSerialized)
     {
         Acquire (C01F, 0xFFFF)
@@ -5579,7 +5549,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     {
         Device (C058)
         {
-            String _HID = "*PNP0A06"  // _HID: Hardware ID
+            Name (_HID, "*PNP0A06")  // _HID: Hardware ID
             OperationRegion (C059, SystemIO, 0xE0, 0x02)
             Field (C059, ByteAcc, NoLock, Preserve)
             {
@@ -5663,12 +5633,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             Mutex (C08B, 0x00)
             Mutex (C08C, 0x00)
             Mutex (C08D, 0x00)
-            Integer C08E = 0xFFFFFFFD
-            Integer C08F = Zero
+            Name (C08E, 0xFFFFFFFD)
+            Name (C08F, Zero)
             Method (C0AA, 4, NotSerialized)
             {
-                Local7 =                         0x04
-                    }
+                Local7 = Buffer (0x04) {}
                 CreateByteField (Local7, Zero, C0AB)
                 CreateByteField (Local7, One, C0AC)
                 CreateByteField (Local7, 0x02, C0AD)
@@ -5710,7 +5679,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Scope (_TZ)
     {
-        Package C18B (0x2) =
+        Name (C18B, Package (0x02)
         {
             Package (0x02)
             {
@@ -5753,8 +5722,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x0FA2
                 }
             }
-        }
-        Package C18C (0x2) =
+        })
+        Name (C18C, Package (0x02)
         {
             Package (0x02)
             {
@@ -5772,24 +5741,24 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x32
                 }
             }
-        }
-        Integer C18D = Zero
-        Integer C18E = Zero
-        Integer C18F = Zero
-        Integer C190 = Zero
-        Integer C191 = 0x03
-        Integer C192 = Zero
-        Integer C193 = One
-        Integer C194 = 0x02
+        })
+        Name (C18D, Zero)
+        Name (C18E, Zero)
+        Name (C18F, Zero)
+        Name (C190, Zero)
+        Name (C191, 0x03)
+        Name (C192, Zero)
+        Name (C193, One)
+        Name (C194, 0x02)
         Mutex (C195, 0x00)
-        Integer C196 = One
-        Integer C197 = 0x0B9C
-        Integer C198 = 0x0B9C
-        Integer C199 = 0xFFFFFFFD
-        Integer C19A = Zero
+        Name (C196, One)
+        Name (C197, 0x0B9C)
+        Name (C198, 0x0B9C)
+        Name (C199, 0xFFFFFFFD)
+        Name (C19A, Zero)
         Device (C19B)
         {
-            Integer RSLT = Zero
+            Name (RSLT, Zero)
             Method (XINI, 0, NotSerialized)
             {
                 C19A = \_SB.C115 ()
@@ -5827,11 +5796,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Buffer BUFR(0xA) =
+    Name (BUFR, Buffer (0x0A)
     {
         /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  /* ........ */
         /* 0008 */  0x00, 0x00                                       /* .. */
-    }
+    })
     Device (DWDF)
     {
         Method (TEST, 0, NotSerialized)
@@ -5851,8 +5820,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Integer B1LO = 0xAA
-    Integer B1HI = 0xBB
+    Name (B1LO, 0xAA)
+    Name (B1HI, 0xBB)
     Method (MKW, 2, NotSerialized)
     {
         Local0 = (B1HI * 0x0100)
@@ -5867,7 +5836,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             Debug = "++++++++ DivAddx Test"
             B1LO = 0x19
             B1HI = Zero
-            Divide (((0x03 * MKW (B1LO, B1HI)) + 0x63), 0x64, Local4, 
+            Divide (Add (Multiply (0x03, MKW (B1LO, B1HI)), 0x63), 0x64, Local4, 
                 Local2)
             If ((0x4A == Local4) && (One == Local2))
             {
@@ -5938,7 +5907,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (IDX5)
     {
-        Integer OSFL = Zero
+        Name (OSFL, Zero)
         Method (MCTH, 2, Serialized)
         {
             If (SizeOf (Arg0) < SizeOf (Arg1))
@@ -5947,12 +5916,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             }
 
             Local0 = (SizeOf (Arg0) + One)
-            Buffer BUF0(0x0) =
-            {
-            }
-            Buffer BUF1(0x0) =
-            {
-            }
+            Name (BUF0, Buffer (Local0) {})
+            Name (BUF1, Buffer (Local0) {})
             BUF0 = Arg0
             BUF1 = Arg1
             Local1 = ObjectType (BUF0)
@@ -6007,12 +5972,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Device (PCI2)
         {
-            Integer _HID = EisaId ("PNP0A03") /* PCI Bus */  // _HID: Hardware ID
-            Integer _ADR = Zero  // _ADR: Address
-            Buffer _CRS(0x1A) =
+            Name (_HID, EisaId ("PNP0A03") /* PCI Bus */)  // _HID: Hardware ID
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_CRS, Buffer (0x1A)  // _CRS: Current Resource Settings
             {
                 "_SB_.PCI2._CRS..........."
-            }  // _CRS: Current Resource Settings
+            })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (0x0F)
@@ -6020,17 +5985,17 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Device (ISA)
             {
-                Integer _ADR = 0x00030000  // _ADR: Address
+                Name (_ADR, 0x00030000)  // _ADR: Address
                 Device (EC0)
                 {
-                    Integer _GPE = Zero  // _GPE: General Purpose Events
-                    Integer _ADR = 0x00030000  // _ADR: Address
+                    Name (_GPE, Zero)  // _GPE: General Purpose Events
+                    Name (_ADR, 0x00030000)  // _ADR: Address
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
                         Return (0x0F)
                     }
 
-                    Buffer _CRS = ResourceTemplate ()
+                    Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
                             0x0062,             // Range Minimum
@@ -6044,7 +6009,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                             0x01,               // Alignment
                             0x01,               // Length
                             )
-                    }  // _CRS: Current Resource Settings
+                    })
                     OperationRegion (RAM, SystemMemory, 0x00400000, 0x0100)
                     Field (RAM, AnyAcc, NoLock, Preserve)
                     {
@@ -6079,11 +6044,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Device (IDX0)
         {
-            Integer _HID = EisaId ("PNP0C0A") /* Control Method Battery */  // _HID: Hardware ID
-            Package _PCL (0x1) =
+            Name (_HID, EisaId ("PNP0C0A") /* Control Method Battery */)  // _HID: Hardware ID
+            Name (_PCL, Package (0x01)  // _PCL: Power Consumer List
             {
                 _SB
-            }  // _PCL: Power Consumer List
+            })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (^^PCI2.ISA.EC0.BAT0)
@@ -6098,9 +6063,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Method (_BIF, 0, Serialized)  // _BIF: Battery Information
             {
-                Package BUFR (0xD) =
-                {
-                }
+                Name (BUFR, Package (0x0D) {})
                 BUFR [Zero] = ^^PCI2.ISA.EC0.BPU0 /* \_SB_.PCI2.ISA_.EC0_.BPU0 */
                 BUFR [One] = ^^PCI2.ISA.EC0.BDC0 /* \_SB_.PCI2.ISA_.EC0_.BDC0 */
                 BUFR [0x02] = ^^PCI2.ISA.EC0.BFC0 /* \_SB_.PCI2.ISA_.EC0_.BFC0 */
@@ -6119,13 +6082,13 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Method (_BST, 0, Serialized)  // _BST: Battery Status
             {
-                Package BUFR (0x4) =
+                Name (BUFR, Package (0x04)
                 {
                     One, 
                     0x0100, 
                     0x76543210, 
                     0x0180
-                }
+                })
                 Return (BUFR) /* \_SB_.IDX0._BST.BUFR */
             }
 
@@ -6137,9 +6100,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             Method (TEST, 0, Serialized)
             {
                 Debug = "++++++++ IndexOp Test"
-                Package PBUF (0x4) =
-                {
-                }
+                Name (PBUF, Package (0x04) {})
                 PBUF [Zero] = 0x01234567
                 PBUF [One] = 0x89ABCDEF
                 PBUF [0x02] = 0xFEDCBA98
@@ -6171,11 +6132,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     Return (0x21)
                 }
 
-                Buffer BUFR(0x10) =
+                Name (BUFR, Buffer (0x10)
                 {
                     /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  /* ........ */
                     /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   /* ........ */
-                }
+                })
                 BUFR [Zero] = 0x01234567
                 BUFR [0x04] = 0x89ABCDEF
                 BUFR [0x08] = 0xFEDCBA98
@@ -6320,15 +6281,15 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Scope (_SB)
     {
-        Integer C174 = 0x0D
-        Integer C175 = 0x08
+        Name (C174, 0x0D)
+        Name (C175, 0x08)
         Device (C158)
         {
-            String _HID = "ACPI0003" /* Power Source Device */  // _HID: Hardware ID
-            Package _PCL (0x1) =
+            Name (_HID, "ACPI0003" /* Power Source Device */)  // _HID: Hardware ID
+            Name (_PCL, Package (0x01)  // _PCL: Power Consumer List
             {
                 _SB
-            }  // _PCL: Power Consumer List
+            })
             Method (_PSR, 0, NotSerialized)  // _PSR: Power Source
             {
                 Acquire (_GL, 0xFFFF)
@@ -6338,21 +6299,21 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             }
         }
 
-        Package C176 (0x4) =
+        Name (C176, Package (0x04)
         {
             "Primary", 
             "MultiBay", 
             "DockRight", 
             "DockLeft"
-        }
-        Package C177 (0x4) =
+        })
+        Name (C177, Package (0x04)
         {
             0x99F5, 
             0x99F5, 
             0x995F, 
             0x995F
-        }
-        Package C178 (0x4) =
+        })
+        Name (C178, Package (0x04)
         {
             Package (0x04)
             {
@@ -6385,15 +6346,15 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 0x966B, 
                 0x4190
             }
-        }
-        Package C179 (0x4) =
+        })
+        Name (C179, Package (0x04)
         {
             Zero, 
             Zero, 
             0x966B, 
             0x4190
-        }
-        Package C17A (0x4) =
+        })
+        Name (C17A, Package (0x04)
         {
             Package (0x03)
             {
@@ -6422,10 +6383,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 Zero, 
                 Zero
             }
-        }
+        })
         Method (C17B, 1, Serialized)
         {
-            Package C17C (0xD) =
+            Name (C17C, Package (0x0D)
             {
                 Zero, 
                 0x99F5, 
@@ -6440,7 +6401,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 "(-Unknown-)", 
                 "LIon", 
                 Zero
-            }
+            })
             Local0 = (Arg0 & 0x07)
             Local4 = (Local0 >> One)
             C178 [Local4] = C179 /* \_SB_.C179 */
@@ -6477,8 +6438,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Device (C154)
         {
-            String _HID = "*PNP0C0A"  // _HID: Hardware ID
-            Integer _UID = Zero  // _UID: Unique ID
+            Name (_HID, "*PNP0C0A")  // _HID: Hardware ID
+            Name (_UID, Zero)  // _UID: Unique ID
             Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
             {
                 Return (C17B (0x30))
@@ -6489,11 +6450,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         {
             Method (LCLB, 0, Serialized)
             {
-                Buffer BUFR(0xA) =
+                Name (BUFR, Buffer (0x0A)
                 {
                     /* 0000 */  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,  /* ........ */
                     /* 0008 */  0x08, 0x09                                       /* .. */
-                }
+                })
                 Local1 = BUFR /* \_SB_.IDX3.LCLB.BUFR */
                 Local3 = ObjectType (Local1)
                 If (Local3 != 0x03)
@@ -6526,7 +6487,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Method (LCLP, 0, Serialized)
             {
-                Package PKG (0xA) =
+                Name (PKG, Package (0x0A)
                 {
                     Zero, 
                     One, 
@@ -6538,7 +6499,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     0x07, 
                     0x08, 
                     0x09
-                }
+                })
                 Local1 = PKG /* \_SB_.IDX3.LCLP.PKG_ */
                 Local3 = ObjectType (Local1)
                 If (Local3 != 0x04)
@@ -6605,11 +6566,13 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (IDX7)
     {
-        Package PKG4 (0x5) =
+        Name (PKG4, Package (0x05)
         {
             0x02, 
             "A short string", 
-                            0x04,                  0x0A, 0x0B, 0x0C, 0x0D                           /* .... */
+            Buffer (0x04)
+            {
+                 0x0A, 0x0B, 0x0C, 0x0D                           /* .... */
             }, 
 
             0x1234, 
@@ -6618,14 +6581,14 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                 IDX7, 
                 0x03
             }
-        }
+        })
         Method (TST1, 0, Serialized)
         {
-            Buffer DEST(0x3F) =
+            Name (DEST, Buffer (0x3F)
             {
                 "Destination buffer that is longer than the short source buffer"
-            }
-            Local1 = DEST [0x02]
+            })
+            Store (Index (DEST, 0x02), Local1)
             Local2 = ObjectType (Local1)
             If (Local2 == 0x0E)
             {
@@ -6639,10 +6602,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST2, 0, Serialized)
         {
-            Buffer BUF0(0x5) =
+            Name (BUF0, Buffer (0x05)
             {
                  0x01, 0x02, 0x03, 0x04, 0x05                     /* ..... */
-            }
+            })
             BUF0 [0x02] = 0x55
             Local0 = DerefOf (BUF0 [0x02])
             If (Local0 == 0x55)
@@ -6657,11 +6620,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST3, 0, Serialized)
         {
-            Buffer BUF1(0x5) =
+            Name (BUF1, Buffer (0x05)
             {
                  0x01, 0x02, 0x03, 0x04, 0x05                     /* ..... */
-            }
-            Local0 = BUF1 [One]
+            })
+            Store (Index (BUF1, One), Local0)
             Local1 = DerefOf (Local0)
             If (Local1 == 0x02)
             {
@@ -6675,7 +6638,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST4, 0, NotSerialized)
         {
-            Local0 = PKG4 [Zero]
+            Store (Index (PKG4, Zero), Local0)
             Local1 = ObjectType (Local0)
             If (Local1 == One)
             {
@@ -6689,7 +6652,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST5, 0, NotSerialized)
         {
-            Local0 = PKG4 [One]
+            Store (Index (PKG4, One), Local0)
             Local1 = ObjectType (Local0)
             If (Local1 == 0x02)
             {
@@ -6703,7 +6666,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST6, 0, NotSerialized)
         {
-            Local0 = PKG4 [0x02]
+            Store (Index (PKG4, 0x02), Local0)
             Local1 = ObjectType (Local0)
             If (Local1 == 0x03)
             {
@@ -6717,7 +6680,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST7, 0, NotSerialized)
         {
-            Local0 = PKG4 [0x03]
+            Store (Index (PKG4, 0x03), Local0)
             Local1 = ObjectType (Local0)
             If (Local1 == One)
             {
@@ -6731,7 +6694,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TST8, 0, NotSerialized)
         {
-            Local0 = PKG4 [0x04]
+            Store (Index (PKG4, 0x04), Local0)
             Local1 = ObjectType (Local0)
             If (Local1 == 0x04)
             {
@@ -6827,14 +6790,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTF, 0, Serialized)
         {
-            Buffer SRCB(0xC) =
-            {
-            }
+            Name (SRCB, Buffer (0x0C) {})
             SRCB = "Short Buffer"
-            Buffer DEST(0x3F) =
+            Name (DEST, Buffer (0x3F)
             {
                 "Destination buffer that is longer than the short source buffer"
-            }
+            })
             DEST [0x02] = SRCB /* \IDX7.TSTF.SRCB */
             Local0 = DerefOf (DEST [0x02])
             If (Local0 != 0x72)
@@ -6847,14 +6808,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTG, 0, Serialized)
         {
-            Buffer SRCB(0xC) =
-            {
-            }
+            Name (SRCB, Buffer (0x0C) {})
             SRCB = "Short Buffer"
-            Buffer DEST(0x3F) =
+            Name (DEST, Buffer (0x3F)
             {
                 "Destination buffer that is longer than the short source buffer"
-            }
+            })
             DEST [0x02] = SRCB /* \IDX7.TSTG.SRCB */
             Local0 = DerefOf (DEST [0x03])
             If (Local0 != 0x74)
@@ -6897,10 +6856,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTH, 0, Serialized)
         {
-            Buffer DBUF(0x1B) =
+            Name (DBUF, Buffer (0x1B)
             {
                 "abcdefghijklmnopqrstuvwxyz"
-            }
+            })
             DBUF [0x02] = 0x12345678
             Local0 = DerefOf (DBUF [0x02])
             If (Local0 != 0x78)
@@ -6931,10 +6890,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTI, 0, Serialized)
         {
-            Buffer DBUF(0x1B) =
+            Name (DBUF, Buffer (0x1B)
             {
                 "abcdefghijklmnopqrstuvwxyz"
-            }
+            })
             DBUF [0x02] = "ABCDEFGH"
             Local0 = DerefOf (DBUF [0x02])
             If (Local0 != 0x48)
@@ -6965,10 +6924,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTJ, 0, Serialized)
         {
-            Buffer DBUF(0x1B) =
+            Name (DBUF, Buffer (0x1B)
             {
                 "abcdefghijklmnopqrstuvwxyz"
-            }
+            })
             DBUF [0x02] = 0x1234
             Local0 = DerefOf (DBUF [0x02])
             If (Local0 != 0x34)
@@ -6999,10 +6958,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTK, 0, Serialized)
         {
-            Buffer DBUF(0x1B) =
+            Name (DBUF, Buffer (0x1B)
             {
                 "abcdefghijklmnopqrstuvwxyz"
-            }
+            })
             DBUF [0x02] = 0x00123456
             Local0 = DerefOf (DBUF [0x02])
             If (Local0 != 0x56)
@@ -7033,10 +6992,10 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (TSTL, 0, Serialized)
         {
-            Buffer DBUF(0x1B) =
+            Name (DBUF, Buffer (0x1B)
             {
                 "abcdefghijklmnopqrstuvwxyz"
-            }
+            })
             DBUF [0x02] = 0x12
             Local0 = DerefOf (DBUF [0x02])
             If (Local0 != 0x12)
@@ -7191,7 +7150,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Method (TEST, 0, Serialized)
         {
             Debug = "++++++++ MatchOp Test"
-            Package TIM0 (0x8) =
+            Name (TIM0, Package (0x08)
             {
                 Package (0x04)
                 {
@@ -7259,11 +7218,11 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
                     Zero, 
                     Zero
                 }
-            }
-            Buffer TMD0(0x14) =
+            })
+            Name (TMD0, Buffer (0x14)
             {
                  0xFF, 0xFF, 0xFF, 0xFF                           /* .... */
-            }
+            })
             CreateDWordField (TMD0, Zero, PIO0)
             CreateDWordField (TMD0, 0x04, DMA0)
             CreateDWordField (TMD0, 0x08, PIO1)
@@ -7378,8 +7337,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
     Device (WHLB)
     {
-        Integer CNT0 = Zero
-        Integer CNT1 = Zero
+        Name (CNT0, Zero)
+        Name (CNT1, Zero)
         Method (TEST, 0, NotSerialized)
         {
             CNT0 = Zero
@@ -7476,8 +7435,8 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
     {
         Device (MEM)
         {
-            Integer _HID = EisaId ("PNP0C01") /* System Board */  // _HID: Hardware ID
-            Integer _STA = 0x0F  // _STA: Status
+            Name (_HID, EisaId ("PNP0C01") /* System Board */)  // _HID: Hardware ID
+            Name (_STA, 0x0F)  // _STA: Status
             OperationRegion (SMEM, SystemMemory, 0x00800000, 0x0100)
             Field (SMEM, AnyAcc, NoLock, Preserve)
             {
@@ -7657,12 +7616,12 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Device (BAT1)
         {
-            Integer _HID = EisaId ("PNP0C0A") /* Control Method Battery */  // _HID: Hardware ID
-            Integer _UID = One  // _UID: Unique ID
-            Package _PCL (0x1) =
+            Name (_HID, EisaId ("PNP0C0A") /* Control Method Battery */)  // _HID: Hardware ID
+            Name (_UID, One)  // _UID: Unique ID
+            Name (_PCL, Package (0x01)  // _PCL: Power Consumer List
             {
                 _SB
-            }  // _PCL: Power Consumer List
+            })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (^^MEM.BES1)
@@ -7677,9 +7636,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Method (_BIF, 0, Serialized)  // _BIF: Battery Information
             {
-                Package BUFR (0xD) =
-                {
-                }
+                Name (BUFR, Package (0x0D) {})
                 BUFR [Zero] = ^^MEM.BPU1 /* \_SB_.MEM_.BPU1 */
                 BUFR [One] = ^^MEM.BDC1 /* \_SB_.MEM_.BDC1 */
                 BUFR [0x02] = ^^MEM.BLF1 /* \_SB_.MEM_.BLF1 */
@@ -7701,15 +7658,15 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         {
             Method (B2IB, 0, Serialized)
             {
-                Buffer SRCB(0xD) =
+                Name (SRCB, Buffer (0x0D)
                 {
                     "Short Buffer"
-                }
-                Buffer DEST(0x3F) =
+                })
+                Name (DEST, Buffer (0x3F)
                 {
                     "Destination buffer that is longer than the short source buffer"
-                }
-                Local1 = DEST [0x02]
+                })
+                Store (Index (DEST, 0x02), Local1)
                 Local2 = ObjectType (Local1)
                 If (Local2 != 0x0E)
                 {
@@ -7822,9 +7779,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
             Method (FB2P, 0, Serialized)
             {
-                Package DEST (0x2) =
-                {
-                }
+                Name (DEST, Package (0x02) {})
                 ^^MEM.SMD0 = 0x01234567
                 ^^MEM.SMD1 = 0x89ABCDEF
                 ^^MEM.SMD2 = 0xFEDCBA98
@@ -7960,32 +7915,26 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (SARG, 0, Serialized)
         {
-            Buffer BUFR(0xC) =
-            {
-            }
-            Buffer BUF1(0x5) =
+            Name (BUFR, Buffer (0x0C) {})
+            Name (BUF1, Buffer (0x05)
             {
                  0x01, 0x02, 0x03, 0x04, 0x05                     /* ..... */
-            }
-            Package PKG0 (0x4) =
-            {
-            }
-            String STR0 = "String"
-            Package PKG1 (0x4) =
+            })
+            Name (PKG0, Package (0x04) {})
+            Name (STR0, "String")
+            Name (PKG1, Package (0x04)
             {
                 BUFR, 
                 "String2", 
                 STR0, 
                 PKG0
-            }
-            Package PKG2 (0x4) =
+            })
+            Name (PKG2, Package (0x04)
             {
-                                    0x0F
-                }, 
-
+                Buffer (0x0F) {}, 
                 "String 1", 
                 Package (0x02) {}
-            }
+            })
             Local0 = SAR0 (BUFR, 0x0C)
             Local1 = ObjectType (Local0)
             If (Local1 != One)
@@ -8136,9 +8085,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (SBUF, 0, Serialized)
         {
-            Buffer BUFR(0xC) =
-            {
-            }
+            Name (BUFR, Buffer (0x0C) {})
             Local0 = SizeOf (BUFR)
             Local1 = ObjectType (Local0)
             If (Local1 != One)
@@ -8157,13 +8104,9 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 
         Method (SLOC, 0, Serialized)
         {
-            Buffer BUFR(0xC) =
-            {
-            }
-            String STR0 = "String"
-            Package PKG0 (0x4) =
-            {
-            }
+            Name (BUFR, Buffer (0x0C) {})
+            Name (STR0, "String")
+            Name (PKG0, Package (0x04) {})
             Local2 = BUFR /* \SIZO.SLOC.BUFR */
             Local0 = SizeOf (Local2)
             Local1 = ObjectType (Local0)
@@ -8442,7 +8385,7 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         }
     }
 
-    Buffer WQAB(0x1A64) =
+    Name (WQAB, Buffer (0x1A64)
     {
         /* 0000 */  0x46, 0x4F, 0x4D, 0x42, 0x01, 0x00, 0x00, 0x00,  /* FOMB.... */
         /* 0008 */  0x54, 0x1A, 0x00, 0x00, 0xBA, 0xAD, 0x00, 0x00,  /* T....... */
@@ -9289,6 +9232,6 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         /* 1A50 */  0x06, 0x40, 0x40, 0x68, 0x4E, 0x30, 0xAA, 0xA8,  /* .@@hN0.. */
         /* 1A58 */  0xD1, 0xD1, 0x84, 0x82, 0x50, 0xDD, 0x2F, 0x4E,  /* ....P./N */
         /* 1A60 */  0x81, 0xF8, 0xFF, 0x0F                           /* .... */
-    }
+    })
 }
 
