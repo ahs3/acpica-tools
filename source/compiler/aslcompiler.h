@@ -305,12 +305,20 @@ AslError (
     ACPI_PARSE_OBJECT       *Op,
     char                    *ExtraMessage);
 
+void
+AslCheckExpectedExceptions (
+    void);
+
+ACPI_STATUS
+AslExpectException (
+    char                    *MessageIdString);
+
 ACPI_STATUS
 AslDisableException (
     char                    *MessageIdString);
 
 BOOLEAN
-AslIsExceptionDisabled (
+AslIsExceptionIgnored (
     UINT8                   Level,
     UINT16                  MessageId);
 
