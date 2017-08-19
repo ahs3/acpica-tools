@@ -76,9 +76,6 @@ Warning  3144 -                              Method Local is set but never used 
 grammar.asl    913:     Device (DEV1)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
-grammar.asl    949:     Method (_ERR, 2)
-Warning  3102 -                   ^ Reserved method has too few arguments (_ERR requires 3)
-
 grammar.asl    963:         Divide (Local0, Local1, Local3)
 Warning  3144 -      Method Local is set but never used ^  (Local3)
 
@@ -256,7 +253,7 @@ Remark   2063 -                                 ^ Initializer list shorter than 
 grammar.asl   6190:         Device (C19B)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
-grammar.asl   6199:                 Divide (Local1, 10, Local0, Local2) /*  Local0 = Local1 / 10
+grammar.asl   6199:                 Divide (Local1, 10, Local0, Local2) //  Local0 = Local1 / 10
 Warning  3144 -          Method Local is set but never used ^  (Local0)
 
 grammar.asl   6244:     Device (DWDF)
@@ -307,10 +304,10 @@ Warning  3046 -        Invalid or unknown escape sequence ^
 grammar.asl   6709:         Device (BITI)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
-grammar.asl   6817:                 And (Local0, 1, Local0) /*  Local0 &= 1
+grammar.asl   6817:                 And (Local0, 1, Local0) //  Local0 &= 1
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
 
-grammar.asl   6903:             Name (_HID, "*PNP0C0A")     /*  Control Method Battey ID
+grammar.asl   6903:             Name (_HID, "*PNP0C0A")     //  Control Method Battey ID
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
 
 grammar.asl   6912:         Device (IDX3)
@@ -374,4 +371,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10285 lines, 323667 bytes, 4818 keywords
 AML Output:    grammar.aml - 43758 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 6 Errors, 89 Warnings, 27 Remarks, 1106 Optimizations
+Compilation complete. 6 Errors, 88 Warnings, 27 Remarks, 1106 Optimizations

@@ -1,3 +1,12 @@
+acpica-unix (20170728-1) unstable; urgency=medium
+
+  * Upgrade to 20170728 upstream.
+  * Repair all the big-endian issues (hopefully)
+  * Consolidate and clean-up the patch set (reorganized, simplified,
+    and got rid of some leftovers)
+
+ -- Al Stone <ahs3@debian.org>  Fri, 18 Aug 2017 18:51:23 -0600
+
 acpica-unix (20170303-1) unstable; urgency=medium
 
   * Upgrade to latest upstream. 

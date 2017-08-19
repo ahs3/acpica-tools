@@ -12,15 +12,6 @@ Index: acpica-unix-20170303/generate/unix/Makefile.config
  # Notes:
  #   gcc should be version 4 or greater, otherwise some of the options
  #     used will not be recognized.
-@@ -43,7 +46,7 @@ CC =    gcc
- OBJDIR =     obj
- BINDIR =     bin
- COMPILEOBJ = $(CC) -c $(CFLAGS) $(OPT_CFLAGS) -o $@ $<
--LINKPROG =   $(CC) $(OBJECTS) -o $(PROG) $(LDFLAGS)
-+LINKPROG =   $(CC) $(OBJECTS) -o $(PROG) $(LDFLAGS) $(OPT_LDFLAGS)
- PREFIX ?=    /usr
- INSTALLDIR = $(PREFIX)/bin
- UNAME_S := $(shell uname -s)
 @@ -157,6 +160,11 @@ LDFLAGS +=-m32
  endif
  

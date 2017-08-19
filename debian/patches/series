@@ -1,12 +1,9 @@
 fix_ftbfs_debian-kfreebsd.patch
-debian-big_endian.patch
-debian-unaligned.patch
+big-endian.patch
+unaligned.patch
 fix_ftbfs_debian-hurd.patch
 add-testing.patch
-name-miscompare.patch
-asllookup-miscompare.patch
-re-enable-big-endian.patch
 OPT_LDFLAGS.patch
-asllookup-ppc64.patch
 template.patch
-update-big-endian.patch
+ppc64le.patch
+arm7hl.patch
