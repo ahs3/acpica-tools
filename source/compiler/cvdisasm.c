@@ -48,6 +48,8 @@
 #include "acconvert.h"
 
 
+/* Local prototypes */
+
 static void
 CvPrintInclude(
     ACPI_FILE_NODE          *FNode,
@@ -90,6 +92,7 @@ CvPrintOneCommentList (
             AcpiOsPrintf("%s\n", Current->Comment);
             Current->Comment = NULL;
         }
+
         Current = Current->Next;
         AcpiOsReleaseObject(AcpiGbl_RegCommentCache, Previous);
     }
@@ -100,7 +103,7 @@ CvPrintOneCommentList (
  *
  * FUNCTION:    CvListIsSingleton
  *
- * PARAMETERS:  CommentList -- check to see if this is a single item list.
+ * PARAMETERS:  CommentList     - check to see if this is a single item list.
  *
  * RETURN:      BOOLEAN
  *
@@ -113,16 +116,17 @@ CvListIsSingleton (
     ACPI_COMMENT_NODE       *CommentList)
 
 {
+
     if (!CommentList)
     {
-        return FALSE;
+        return (FALSE);
     }
     else if (CommentList->Next)
     {
-        return FALSE;
+        return (FALSE);
     }
 
-    return TRUE;
+    return (TRUE);
 }
 
 
@@ -167,6 +171,7 @@ CvPrintOneCommentType (
         {
             CvPrintOneCommentList (Op->Common.CommentList, Level);
         }
+
         Op->Common.CommentList = NULL;
         return;
 
@@ -225,7 +230,7 @@ CvPrintOneCommentType (
  * PARAMETERS:  Op
  *              Level
  *
- * RETURN:      none
+ * RETURN:      None
  *
  * DESCRIPTION: Print a close brace } and any open brace comments associated
  *              with this parse object.
@@ -238,6 +243,7 @@ CvCloseBraceWriteComment(
     ACPI_PARSE_OBJECT       *Op,
     UINT32                  Level)
 {
+
     if (!Gbl_CaptureComments)
     {
         AcpiOsPrintf ("}");
@@ -257,7 +263,7 @@ CvCloseBraceWriteComment(
  * PARAMETERS:  Op
  *              Level
  *
- * RETURN:      none
+ * RETURN:      None
  *
  * DESCRIPTION: Print a closing paren ) and any end node comments associated
  *              with this parse object.
@@ -270,6 +276,7 @@ CvCloseParenWriteComment(
     ACPI_PARSE_OBJECT       *Op,
     UINT32                  Level)
 {
+
     if (!Gbl_CaptureComments)
     {
         AcpiOsPrintf (")");
@@ -319,13 +326,15 @@ BOOLEAN
 CvFileHasSwitched(
     ACPI_PARSE_OBJECT       *Op)
 {
+
     if (Op->Common.CvFilename   &&
         AcpiGbl_CurrentFilename &&
         AcpiUtStricmp(Op->Common.CvFilename, AcpiGbl_CurrentFilename))
     {
-        return TRUE;
+        return (TRUE);
     }
-    return FALSE;
+
+    return (FALSE);
 }
 
 
@@ -351,17 +360,21 @@ CvPrintInclude(
     ACPI_FILE_NODE          *FNode,
     UINT32                  Level)
 {
+
     if (!FNode || FNode->IncludeWritten)
     {
         return;
     }
 
-    CvDbgPrint ("Writing include for %s within %s\n", FNode->Filename, FNode->Parent->Filename);
+    CvDbgPrint ("Writing include for %s within %s\n",
+        FNode->Filename, FNode->Parent->Filename);
     AcpiOsRedirectOutput (FNode->Parent->File);
     CvPrintOneCommentList (FNode->IncludeComment, Level);
+
     AcpiDmIndent (Level);
     AcpiOsPrintf ("Include (\"%s\")\n", FNode->Filename);
-    CvDbgPrint ("emitted the following: Include (\"%s\")\n", FNode->Filename);
+    CvDbgPrint ("emitted the following: Include (\"%s\")\n",
+        FNode->Filename);
     FNode->IncludeWritten = TRUE;
 }
 
@@ -370,7 +383,7 @@ CvPrintInclude(
  *
  * FUNCTION:    CvSwitchFiles
  *
- * PARAMETERS:  Level - indentation level
+ * PARAMETERS:  Level                   - indentation level
  *              Op
  *
  * RETURN:      None
@@ -390,7 +403,9 @@ CvSwitchFiles(
     ACPI_FILE_NODE          *FNode;
     ACPI_FILE_NODE          *Current;
 
-    CvDbgPrint ("Switching from %s to %s\n", AcpiGbl_CurrentFilename, Filename);
+
+    CvDbgPrint ("Switching from %s to %s\n", AcpiGbl_CurrentFilename,
+        Filename);
     FNode = CvFilenameExists (Filename, AcpiGbl_FileTreeRoot);
     if (!FNode)
     {
@@ -399,10 +414,13 @@ CvSwitchFiles(
          * if it does not exist, then abort.
          */
         FlDeleteFile (ASL_FILE_AML_OUTPUT);
-        sprintf (MsgBuffer, "\"Cannot find %s\" - %s", Filename, strerror (errno));
-        AslCommonError (ASL_ERROR, ASL_MSG_OPEN, 0, 0, 0, 0, NULL, MsgBuffer);
+        sprintf (MsgBuffer, "\"Cannot find %s\" - %s",
+            Filename, strerror (errno));
+        AslCommonError (ASL_ERROR, ASL_MSG_OPEN, 0, 0, 0, 0,
+            NULL, MsgBuffer);
         AslAbort ();
     }
+
     Current = FNode;
 
     /*
