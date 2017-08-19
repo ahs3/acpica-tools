@@ -161,11 +161,9 @@ TermArg
     : SimpleName                    {$$ = TrSetNodeFlags ($1, NODE_IS_TERM_ARG);}
     | Type2Opcode                   {$$ = TrSetNodeFlags ($1, NODE_IS_TERM_ARG);}
     | DataObject                    {$$ = TrSetNodeFlags ($1, NODE_IS_TERM_ARG);}
-/*
     | PARSEOP_OPEN_PAREN
         TermArg
-        PARSEOP_CLOSE_PAREN         {}
-*/
+        PARSEOP_CLOSE_PAREN         {$$ = TrSetNodeFlags ($2, NODE_IS_TERM_ARG);}
     ;
 
 /*
@@ -287,7 +285,7 @@ Object
     : CompilerDirective             {}
     | NamedObject                   {}
     | NameSpaceModifier             {}
-//    | StructureTerm                 {}
+/*    | StructureTerm                 {} */
     ;
 
 PackageList
@@ -536,7 +534,7 @@ NamedObject
 NameSpaceModifier
     : AliasTerm                     {}
     | NameTerm                      {}
-//    | NameTermAslPlus               {}
+/*    | NameTermAslPlus               {} */
     | ScopeTerm                     {}
     ;
 
@@ -643,8 +641,8 @@ Type2IntegerOpcode                  /* "Type3" opcodes */
     | FromBCDTerm                   {}
     | IncTerm                       {}
     | IndexTerm                     {}
-//    | StructureIndexTerm            {}
-//    | StructurePointerTerm          {}
+/*    | StructureIndexTerm            {} */
+/*    | StructurePointerTerm          {} */
     | LAndTerm                      {}
     | LEqualTerm                    {}
     | LGreaterTerm                  {}
@@ -719,8 +717,8 @@ Type6Opcode
     | DerefOfTerm                   {}
     | IndexTerm                     {}
     | IndexExpTerm                  {}
-//    | StructureIndexTerm            {}
-//    | StructurePointerTerm          {}
+/*    | StructureIndexTerm            {} */
+/*    | StructurePointerTerm          {} */
     | MethodInvocationTerm          {}
     ;
 

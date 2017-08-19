@@ -467,7 +467,9 @@ main (
 
 
     ACPI_DEBUG_INITIALIZE (); /* For debug version only */
-    signal (SIGINT, AeCtrlCHandler);
+
+    signal (SIGINT, AeSignalHandler);
+    signal (SIGSEGV, AeSignalHandler);
 
     /* Init debug globals */
 

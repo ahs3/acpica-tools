@@ -429,7 +429,7 @@ AdDisassembleOneTable (
      * the entire tree with the new information (namely, the
      * number of arguments per method)
      */
-    if (AcpiDmGetExternalMethodCount ())
+    if (AcpiDmGetUnresolvedExternalMethodCount ())
     {
         Status = AdReparseOneTable (Table, File, OwnerId);
         if (ACPI_FAILURE (Status))
@@ -445,7 +445,7 @@ AdDisassembleOneTable (
      * 1) Convert fixed-offset references to resource descriptors
      *    to symbolic references (Note: modifies namespace)
      */
-    AcpiDmConvertResourceIndexes (AcpiGbl_ParseOpRoot, AcpiGbl_RootNode);
+    AcpiDmConvertParseObjects (AcpiGbl_ParseOpRoot, AcpiGbl_RootNode);
 
     /* Optional displays */
 
@@ -508,7 +508,7 @@ AdReparseOneTable (
     fprintf (stderr,
         "\nFound %u external control methods, "
         "reparsing with new information\n",
-        AcpiDmGetExternalMethodCount ());
+        AcpiDmGetUnresolvedExternalMethodCount ());
 
     /* Reparse, rebuild namespace */
 
@@ -534,7 +534,7 @@ AdReparseOneTable (
 
     /* New namespace, add the external definitions first */
 
-    AcpiDmAddExternalsToNamespace ();
+    AcpiDmAddExternalListToNamespace ();
 
     /* For -ca option: clear the list of comment addresses. */
 
