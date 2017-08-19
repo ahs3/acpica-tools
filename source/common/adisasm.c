@@ -300,6 +300,8 @@ Cleanup:
         ACPI_FREE (Table);
     }
 
+    AcDeleteTableList (ListHead);
+
     if (File)
     {
         fclose (File);
@@ -640,6 +642,7 @@ AdDoExternalFileList (
                 continue;
             }
 
+            AcDeleteTableList (ExternalListHead);
             return (Status);
         }
 
@@ -653,6 +656,7 @@ AdDoExternalFileList (
             {
                 AcpiOsPrintf ("Could not parse external ACPI tables, %s\n",
                     AcpiFormatException (Status));
+                AcDeleteTableList (ExternalListHead);
                 return (Status);
             }
 
@@ -671,6 +675,8 @@ AdDoExternalFileList (
 
         ExternalFileList = ExternalFileList->Next;
     }
+
+    AcDeleteTableList (ExternalListHead);
 
     if (ACPI_FAILURE (GlobalStatus))
     {
