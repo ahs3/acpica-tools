@@ -1,22 +1,22 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20170726 (32-bit version)
+ * AML/ASL+ Disassembler version 20170728 (32-bit version)
  * Copyright (c) 2000 - 2017 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of grammar.aml, Thu Jul 27 12:12:05 2017
+ * Disassembly of grammar.aml, Wed Aug 23 14:34:44 2017
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000AAEE (43758)
+ *     Length           0x0000AAE6 (43750)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x8D
+ *     Checksum         0x43
  *     OEM ID           "Intel"
  *     OEM Table ID     "GRMTEST"
  *     OEM Revision     0x20090511 (537462033)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20170726 (538380070)
+ *     Compiler Version 0x20170728 (538380072)
  */
 DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 {
@@ -1294,9 +1294,9 @@ DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
             Debug = "++++++++ Dword BufferField I/O PASS"
         }
 
-        QWD2 = 0x1234567887654321
+        QWD2 = 0x12345678
         Local0 = QWD2 /* \FLDS.QWD2 */
-        If ((Local0 != 0x1234567887654321))
+        If ((Local0 != 0x12345678))
         {
             ERR (One, 0x0576)
         }

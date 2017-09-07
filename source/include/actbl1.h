@@ -71,6 +71,7 @@
 #define ACPI_SIG_HEST           "HEST"      /* Hardware Error Source Table */
 #define ACPI_SIG_MADT           "APIC"      /* Multiple APIC Description Table */
 #define ACPI_SIG_MSCT           "MSCT"      /* Maximum System Characteristics Table */
+#define ACPI_SIG_PDTT           "PDTT"      /* Processor Debug Trigger Table */
 #define ACPI_SIG_PPTT           "PPTT"      /* Processor Properties Topology Table */
 #define ACPI_SIG_SBST           "SBST"      /* Smart Battery Specification Table */
 #define ACPI_SIG_SLIT           "SLIT"      /* System Locality Distance Information Table */
@@ -1494,6 +1495,42 @@ typedef struct acpi_nfit_flush_address
 
 /*******************************************************************************
  *
+ * PDTT - Processor Debug Trigger Table (ACPI 6.2)
+ *        Version 0
+ *
+ ******************************************************************************/
+
+typedef struct acpi_table_pdtt
+{
+    ACPI_TABLE_HEADER       Header;             /* Common ACPI table header */
+    UINT8                   TriggerCount;
+    UINT8                   Reserved[3];
+    UINT32                  ArrayOffset;
+
+} ACPI_TABLE_PDTT;
+
+
+/*
+ * PDTT Communication Channel Identifier Structure.
+ * The number of these structures is defined by TriggerCount above,
+ * starting at ArrayOffset.
+ */
+typedef struct acpi_pdtt_channel
+{
+    UINT16                  SubChannelId;
+
+} ACPI_PDTT_CHANNEL;
+
+
+/* Mask and Flags for above */
+
+#define ACPI_PDTT_SUBCHANNEL_ID_MASK        0x00FF
+#define ACPI_PDTT_RUNTIME_TRIGGER           (1<<8)
+#define ACPI_PPTT_WAIT_COMPLETION           (1<<9)
+
+
+/*******************************************************************************
+ *
  * PPTT - Processor Properties Topology Table (ACPI 6.2)
  *        Version 1
  *
@@ -1518,7 +1555,8 @@ enum AcpiPpttType
 
 /* 0: Processor Hierarchy Node Structure */
 
-typedef struct acpi_pptt_processor {
+typedef struct acpi_pptt_processor
+{
     ACPI_SUBTABLE_HEADER    Header;
     UINT16                  Reserved;
     UINT32                  Flags;
@@ -1536,7 +1574,8 @@ typedef struct acpi_pptt_processor {
 
 /* 1: Cache Type Structure */
 
-typedef struct acpi_pptt_cache {
+typedef struct acpi_pptt_cache
+{
     ACPI_SUBTABLE_HEADER    Header;
     UINT16                  Reserved;
     UINT32                  Flags;
@@ -1568,7 +1607,8 @@ typedef struct acpi_pptt_cache {
 
 /* 2: ID Structure */
 
-typedef struct acpi_pptt_id {
+typedef struct acpi_pptt_id
+{
     ACPI_SUBTABLE_HEADER    Header;
     UINT16                  Reserved;
     UINT32                  VendorId;
