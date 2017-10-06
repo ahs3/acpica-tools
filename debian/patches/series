@@ -1,9 +1,0 @@
-fix_ftbfs_debian-kfreebsd.patch
-big-endian.patch
-unaligned.patch
-fix_ftbfs_debian-hurd.patch
-add-testing.patch
-OPT_LDFLAGS.patch
-template.patch
-ppc64le.patch
-arm7hl.patch

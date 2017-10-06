@@ -20,12 +20,13 @@
 #
 #     ASL      - iASL compiler
 #     acpiexec - AcpiExec utility
+#     acpibin  - AcpiBin utility
 #     ASLTSDIR - pathname of root directory of aslts test suite
 #
 # External definitions required for particular command:
 #
 #     0 - ASLTSDIR, ASL
-#     1 - ASLTSDIR, acpiexec
+#     1 - ASLTSDIR, acpiexec, acpibin
 #     2 - ASLTSDIR
 #     3 - none
 #     4 - ASLTSDIR
@@ -328,22 +329,30 @@ binary_compare()
 	disasm_compile_dir="$ASLTSDIR/tmp/aml/$aslversion/$mode"
 	normal_compile_dir="$ASLTSDIR/tmp/aml/$aslversion/nopt/64"
 
+	echo "Performing binary comparison of AML files within"
+	echo "    $normal_compile_dir"
+	echo "    $disasm_compile_dir"
+
 	if [ ! -d $disasm_compile_dir ]; then
-		echo "$dism_compile_dir does not exist. Aborting binary compare"
+		echo "  $dism_compile_dir does not exist. Aborting binary compare"
 		return;
 	fi
 	if [ ! -d $normal_compile_dir ]; then
-		echo "$normal_compile_dir does not exist. Aborting binary compare"
+		echo "  $normal_compile_dir does not exist. Aborting binary compare"
 		return;
 	fi
 	for f in $disasm_compile_dir/*
 	do
 		filename=`basename $f`
-		acpibin -a "$f" "$normal_compile_dir/$filename" > /dev/null
-		if [ $? -ne 0 ]; then
-			echo "[[ Error: $mode Binary compare for $filename failed ]]"
+                if [ ! -f "$normal_compile_dir/$filename" ]; then
+			echo "  binary compare $mode the following file does not exist: $normal_compile_dir/$filename"
 		else
-			echo "$mode Binary compare for $filename passed"
+			$acpibin -a "$f" "$normal_compile_dir/$filename" > /dev/null
+			if [ $? -ne 0 ]; then
+				echo " [[ Error: $mode Binary compare for $filename failed ]]"
+			else
+				echo "  $mode Binary compare for $filename passed"
+			fi
 		fi
 	done
 }
@@ -397,6 +406,16 @@ make_install()
 				res=$nres
 			fi
 		fi
+		echo "Make ASL convert"
+		make_target install "$1" "aslconvert"
+		find . -type f -name *.dsl -delete
+		nres=$?
+		binary_compare "aslconvert"
+		nres=$(($nres+ $?))
+		if [ $nres -ne 0 ]; then
+			res=$(($res + $nres))
+		fi
+
 		echo "Make ASL plus"
 		make_target install "$1" "aslplus"
 		nres=$?
@@ -408,7 +427,7 @@ make_install()
 		echo "Make ASL minus"
 		make_target install "$1" "aslminus"
 		nres=$?
-		binary_compare "aslplus"
+		binary_compare "aslminus"
 		nres=$(($nres+ $?))
 		if [ $nres -ne 0 ]; then
 			res=$(($res + $nres))
@@ -789,6 +808,12 @@ elif [ $CMD == $RUNTESTS ]; then
 
 	if [ ! -f "$acpiexec" ]; then
 		do_exit 1 "Undefined acpiexec variable! Set it to pathname of AcpiExec utility."
+	fi
+
+	# Check access to AcpiBin utility
+
+	if [ ! -f "$acpibin" ]; then
+		do_exit 1 "Undefined acpibin variable! Set it to pathname of AcpiBin utility."
 	fi
 
 	shift 1
