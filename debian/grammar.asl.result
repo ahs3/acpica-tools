@@ -22,6 +22,12 @@ Warning  3141 -                  ^ Missing dependency (Device object requires a 
 grammar.asl    399:             CreateByteField (PRT0, R000._ASZ, RSIZ)
 Remark   2089 -                            Object is not referenced ^  (Name [RSIZ] is within a method [_CRS])
 
+grammar.asl    501:     Name (SIZE, 0)
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl    511:     Method (TCOP,, Serialized)
+Warning  4089 -                   ^ Object is not referenced
+
 grammar.asl    513:         Name (_STR, Unicode ("test"))
 Remark   2089 -                     ^ Object is not referenced (Name [_STR] is within a method [TCOP])
 
@@ -31,12 +37,63 @@ Warning  3144 -                              ^ Method Local is set but never use
 grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
 
+grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
+Warning  4089 -                 ^ Object is not referenced
+
 grammar.asl    523:     NAME (ESC2, "abcdefg\000hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
+
+grammar.asl    523:     NAME (ESC2, "abcdefg\000hijklmn")
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl    524:     Name (ESC3, "abc\a\bdef\f\n\r\t\v\x03ffff\432")
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl    540:     Name(CRSC,ResourceTemplate()
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    544:     Name(CRSD,ResourceTemplate()
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    549:     Name(CRSE,ResourceTemplate()
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    566:         Name(Bxxx,0xFFFFFFFF)
+Warning  4089 -                    ^ Object is not referenced
 
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
 
+grammar.asl    623:     Method (RTOP)
+Warning  4089 -                   ^ Object is not referenced
+
+grammar.asl    634:     Name(B1TP,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    636:     Name(B2TP,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    637:     Name(ADPS,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    641:     Name(B2PS,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    642:     Name(B2RS,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    643:     Name(B2CS,0xFFFFFFFF)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    645:     Name(B2DC,2600)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    647:     Name(B2LF,2600)
+Warning  4089 -                ^ Object is not referenced
+
+grammar.asl    649:     Name(PBLL,0)
+Warning  4089 -                ^ Object is not referenced
+
 grammar.asl    668:     Method(SMWE, 4)
 Remark   2146 -                  ^ Method Argument is never used (Arg0)
 
@@ -60,6 +117,30 @@ Remark   2146 -                  ^ Method Argument is never used (Arg2)
 
 grammar.asl    673:     Method(SMRE, 4)
 Remark   2146 -                  ^ Method Argument is never used (Arg3)
+
+grammar.asl    690:         CreateBitField (SBUF, 3, BITY)
+Warning  4089 -               Object is not referenced ^ 
+
+grammar.asl    691:         CreateByteField (SBUF, 1, BYTY)
+Warning  4089 -                Object is not referenced ^ 
+
+grammar.asl    692:         CreateWordField (SBUF, 2, WRDZ)
+Warning  4089 -                Object is not referenced ^ 
+
+grammar.asl    693:         CreateDwordField (SBUF, 4, DWDZ)
+Warning  4089 -                 Object is not referenced ^ 
+
+grammar.asl    694:         CreateQwordField (SBUF, 8, QWDZ)
+Warning  4089 -                 Object is not referenced ^ 
+
+grammar.asl    695:         CreateField (SBUF, 128, 12, FLDZ)
+Warning  4089 -                  Object is not referenced ^ 
+
+grammar.asl    696:         CreateField (SBUF, 148, 96, FLDY)
+Warning  4089 -                  Object is not referenced ^ 
+
+grammar.asl    697:         CreateField (SBUF, 148, 96, \_SB_.FLDW)
+Warning  4089 -                        Object is not referenced ^ 
 
 grammar.asl    701:             CreateField (\_SB_.SBUF, 148, 96, FLDV)
 Remark   2089 -                            Object is not referenced ^  (Name [FLDV] is within a method [_INI])
@@ -73,8 +154,17 @@ Warning  3141 -      Missing dependency ^  (Device object requires a _HID or _AD
 grammar.asl    822:                     If(LNot(SMRE(0x09,0x17,Local2,RefOf(Local3)))){
 Warning  3144 -                              Method Local is set but never used ^  (Local3)
 
+grammar.asl    847:             Alias(\_SB.PCI0.EIO.B1P,\_SB_.PCI0.XXXX)
+Warning  4089 -                             Object is not referenced ^ 
+
 grammar.asl    913:     Device (DEV1)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl    942:     Method (NOTI)
+Warning  4089 -                   ^ Object is not referenced
+
+grammar.asl    959:     Method (DIV0)
+Warning  4089 -                   ^ Object is not referenced
 
 grammar.asl    963:         Divide (Local0, Local1, Local3)
 Warning  3144 -      Method Local is set but never used ^  (Local3)
@@ -84,6 +174,9 @@ Remark   2146 -                   ^ Method Argument is never used (Arg0)
 
 grammar.asl    988:     Method (R226, 2)
 Remark   2146 -                   ^ Method Argument is never used (Arg1)
+
+grammar.asl   1007:     Method (R111)
+Warning  4089 -                   ^ Object is not referenced
 
 grammar.asl   1011:         Store (Local0, Local1)
 Warning  3144 -                                ^ Method Local is set but never used (Local1)
@@ -97,6 +190,9 @@ Remark   2089 -                    ^ Object is not referenced (Name [BUFR] is wi
 grammar.asl   1307:         Alias (MTX1, MTX2)
 Remark   2089 -   Object is not referenced ^  (Name [MTX2] is within a method [OBJ1])
 
+grammar.asl   1318:     Method (FLDS,, Serialized)
+Warning  4089 -                   ^ Object is not referenced
+
 grammar.asl   1329:         CreateField (BUF2, 148, 96, FLD3)
 Remark   2089 -                  Object is not referenced ^  (Name [FLD3] is within a method [FLDS])
 
@@ -105,6 +201,12 @@ Warning  3038 -                                    ^ Truncating 64-bit constant 
 
 grammar.asl   1396:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  3038 -   Truncating 64-bit constant found in 32-bit table ^ 
+
+grammar.asl   1409:     Method (FLDX,, Serialized)
+Warning  4089 -                   ^ Object is not referenced
+
+grammar.asl   1426:     Method (MTX_, )
+Warning  4089 -                   ^ Object is not referenced
 
 grammar.asl   1476:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
@@ -144,6 +246,9 @@ Warning  3115 -                   ^ Not all control paths return a value (COND)
 
 grammar.asl   1930:         Store (RefOf (MAIN), Local5)
 Warning  3144 -   Method Local is set but never used ^  (Local5)
+
+grammar.asl   1988:     Method (INDX, 0, Serialized)
+Warning  4089 -                   ^ Object is not referenced
 
 grammar.asl   2005:     Device (IFEL)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -199,6 +304,9 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 grammar.asl   3383:     Device (BRKP)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   3387:         Method (BK1)
+Warning  4089 -                      ^ Object is not referenced
+
 grammar.asl   3420:     Device (ADSU)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
@@ -232,6 +340,24 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 grammar.asl   5639:     Device (EVNT)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   5816:     Name (PKG0,
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl   5821:     Name (PKG1,
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl   5830:     Name (PKG2,
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl   5861:     Name (BUF0, Buffer (10) {})
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl   5862:     Name (BUF1, Buffer (10) {})
+Warning  4089 -                 ^ Object is not referenced
+
+grammar.asl   5863:     Name (BUF2, Buffer (8)  {})
+Warning  4089 -                 ^ Object is not referenced
+
 grammar.asl   5867:     Device (SZLV)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
@@ -244,14 +370,62 @@ Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR 
 grammar.asl   5972:             Device (C013)
 Warning  3141 -        Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6007:     Name (\C020, 0)
+Warning  4089 -                  ^ Object is not referenced
+
 grammar.asl   6027:             Name (_HID, "*PNP0A06")
 Error    6061 -            Invalid leading asterisk ^  (*PNP0A06)
+
+grammar.asl   6105:             Mutex (C088, 0)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   6106:             Mutex (C089, 0)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   6107:             Mutex (C08A, 0)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   6109:             Mutex (C08C, 0)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   6110:             Mutex (C08D, 0)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   6112:             Name (C08E, 0xFFFFFFFD)
+Warning  4089 -                         ^ Object is not referenced
+
+grammar.asl   6113:             Name (C08F, 0)
+Warning  4089 -                         ^ Object is not referenced
+
+grammar.asl   6152:         Name (C18B, Package (2)
+Warning  4089 -                     ^ Object is not referenced
 
 grammar.asl   6166:         Name (C18C, Package (2)
 Remark   2063 -                                 ^ Initializer list shorter than declared package length
 
+grammar.asl   6178:         Name (C190, 0)
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6183:         Mutex (C195, 0)
+Warning  4089 -                      ^ Object is not referenced
+
+grammar.asl   6184:         Name (C196, 1)
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6185:         Name (C197, 0x0B9C)
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6186:         Name (C198, 0x0B9C)
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6187:         Name (C199, 0xFFFFFFFD)
+Warning  4089 -                     ^ Object is not referenced
+
 grammar.asl   6190:         Device (C19B)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6194:             Method (XINI)
+Warning  4089 -  Object is not referenced ^ 
 
 grammar.asl   6199:                 Divide (Local1, 10, Local0, Local2) //  Local0 = Local1 / 10
 Warning  3144 -          Method Local is set but never used ^  (Local0)
@@ -298,14 +472,35 @@ Warning  3144 -          Method Local is set but never used ^  (Local6)
 grammar.asl   6393:     Device (IDX5)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6471:         Method (C097)
+Warning  4089 -                       ^ Object is not referenced
+
 grammar.asl   6478:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
 Warning  3046 -        Invalid or unknown escape sequence ^ 
 
 grammar.asl   6709:         Device (BITI)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6777:             Method (TEST)
+Warning  4089 -  Object is not referenced ^ 
+
+grammar.asl   6805:         Name (C174, 13)
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6806:         Name (C175, 8)
+Warning  4089 -                     ^ Object is not referenced
+
 grammar.asl   6817:                 And (Local0, 1, Local0) //  Local0 &= 1
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
+
+grammar.asl   6822:         Name (C176, Package (4) {"Primary", "MultiBay", "DockRight", "DockLeft"})
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6824:         Name (C177, Package (4) {0x99F5, 0x99F5, 0x995F, 0x995F})
+Warning  4089 -                     ^ Object is not referenced
+
+grammar.asl   6836:         Name (C17A, Package (4)
+Warning  4089 -                     ^ Object is not referenced
 
 grammar.asl   6903:             Name (_HID, "*PNP0C0A")     //  Control Method Battey ID
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
@@ -315,6 +510,12 @@ Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR 
 
 grammar.asl   7057:     Device(IDX7)
 Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   7299:         Method (TSTF,, Serialized)
+Warning  4089 -                       ^ Object is not referenced
+
+grammar.asl   7445:         Method (TSTI,, Serialized)
+Warning  4089 -                       ^ Object is not referenced
 
 grammar.asl   7736:     Device (MTCH)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -358,8 +559,17 @@ Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR 
 grammar.asl   9354:         Device (SMIS)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   9356:             Method (BINK)
+Warning  4089 -  Object is not referenced ^ 
+
 grammar.asl   9408:         Device(CNDT)
 Warning  3141 -   Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   9410:             Method(TEST)
+Warning  4089 - Object is not referenced ^ 
+
+grammar.asl   9433:     Name(WQAB, Buffer(6756)
+Warning  4089 -                ^ Object is not referenced
 
 
 Intel ACPI Component Architecture
@@ -371,4 +581,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl - 10285 lines, 323667 bytes, 4818 keywords
 AML Output:    grammar.aml - 43758 bytes, 670 named objects, 4148 executable opcodes
 
-Compilation complete. 6 Errors, 88 Warnings, 27 Remarks, 1106 Optimizations
+Compilation complete. 6 Errors, 158 Warnings, 27 Remarks, 1106 Optimizations
