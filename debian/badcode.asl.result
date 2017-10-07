@@ -4,14 +4,26 @@ Error    6125 -                      ^ SyncLevel must be in the range 0-15
 badcode.asl     29:     Name (BIG, 0x1234567887654321)
 Warning  3038 -                                    ^ Truncating 64-bit constant found in 32-bit table
 
+badcode.asl     29:     Name (BIG, 0x1234567887654321)
+Warning  4089 -                ^ Object is not referenced
+
 badcode.asl     33:     Name (PKG1, Package(5) {0,1})
 Remark   2063 -                            ^ Initializer list shorter than declared package length
+
+badcode.asl     33:     Name (PKG1, Package(5) {0,1})
+Warning  4089 -                 ^ Object is not referenced
 
 badcode.asl     37:     Name (PATH, Buffer() {"\_SB_.PCI2._CRS"})
 Warning  3046 -                                ^ Invalid or unknown escape sequence
 
+badcode.asl     37:     Name (PATH, Buffer() {"\_SB_.PCI2._CRS"})
+Warning  4089 -                 ^ Object is not referenced
+
 badcode.asl     41:     Name (ESC1, "abcdefg\x00hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
+
+badcode.asl     41:     Name (ESC1, "abcdefg\x00hijklmn")
+Warning  4089 -                 ^ Object is not referenced
 
 badcode.asl     49:         FLD1, 8
 Error    6030 -               ^ Access width of Field Unit extends beyond region limit
@@ -24,6 +36,9 @@ Error    6099 -                  ^ Host Operation Region requires BufferAcc acce
 
 badcode.asl     67:     Method (MTH1, 0, NotSerialized, 32)
 Error    6125 -     SyncLevel must be in the range 0-15 ^ 
+
+badcode.asl     67:     Method (MTH1, 0, NotSerialized, 32)
+Warning  4089 -                   ^ Object is not referenced
 
 badcode.asl     71:         Store (Arg3, Local0)
 Warning  3144 -                              ^ Method Local is set but never used (Local0)
@@ -73,6 +88,9 @@ Warning  3115 -                   ^ Not all control paths return a value (MTH2)
 badcode.asl    101:         Switch (ToInteger (INT1))
 Error    6078 -                            ^ No Case statements under Switch
 
+badcode.asl    116:     Method (MTH3)
+Warning  4089 -                   ^ Object is not referenced
+
 badcode.asl    120:         Store (MTH2 (), Local0)
 Warning  3144 -                                 ^ Method Local is set but never used (Local0)
 
@@ -81,6 +99,9 @@ Warning  3122 -                      ^ Called method may not always return a val
 
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
 Warning  3144 -        Method Local is set but never used ^  (Local0)
+
+badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
+Warning  4089 -                   ^ Object is not referenced
 
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
 Error    6080 -  Called method returns no value ^ 
@@ -151,11 +172,17 @@ Warning  3141 -                 ^ Missing dependency (Device object requires a _
 badcode.asl    205:         Method (_REG, 2)
 Warning  3079 -                       ^ _REG has no corresponding Operation Region
 
+badcode.asl    213:     Name (RSC1, ResourceTemplate ()
+Warning  4089 -                 ^ Object is not referenced
+
 badcode.asl    219:             StartDependentFn (0, 0)
 Error    6019 -                                  ^ Dependent function macros cannot be nested
 
 badcode.asl    225:     })
 Error    6070 -        ^ Missing EndDependentFn() macro in dependent resource list
+
+badcode.asl    227:     Name (RSC2, ResourceTemplate ()
+Warning  4089 -                 ^ Object is not referenced
 
 badcode.asl    242:             0x00002000,         // Length
 Error    6049 -                         ^ Length is larger than Min/Max window
@@ -208,6 +235,9 @@ Error    6090 -                                    ^ Min/Max/Length/Gran are all
 badcode.asl    368:         EndDependentFn ()
 Error    6071 -                            ^ Missing StartDependentFn() macro in dependent resource list
 
+badcode.asl    384:     Method (REM1)
+Warning  4089 -                   ^ Object is not referenced
+
 badcode.asl    388:         CreateWordField (RSC3, \DWI1._LEN, LEN)
 Warning  3128 -              ResourceTag larger than Field ^  (Size mismatch, Tag: 32 bits, Field: 16 bits)
 
@@ -250,6 +280,9 @@ Warning  3129 -         ResourceTag smaller than Field ^  (Size mismatch, Tag: 2
 badcode.asl    397:         CreateField (RSC3, \DWI1._RNG, 3, RNG2)
 Remark   2089 -                        Object is not referenced ^  (Name [RNG2] is within a method [REM1])
 
+badcode.asl    400:     Method (L100)
+Warning  4089 -                   ^ Object is not referenced
+
 badcode.asl    404:         Store (40, Local0)
 Warning  3144 -                            ^ Method Local is set but never used (Local0)
 
@@ -263,4 +296,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     badcode.asl - 409 lines, 11588 bytes, 81 keywords
 AML Output:    badcode.aml - 1195 bytes, 61 named objects, 20 executable opcodes
 
-Compilation complete. 46 Errors, 28 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
+Compilation complete. 46 Errors, 39 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
