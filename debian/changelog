@@ -1,3 +1,9 @@
+acpica-unix (20170929-2) unstable; urgency=medium
+
+  * Added correction patch for big-endian systems only
+
+ -- Al Stone <ahs3@debian.org>  Tue, 17 Oct 2017 15:37:30 -0600
+
 acpica-unix (20170929-1) unstable; urgency=medium
 
   * Upgrade to 20170929 upstream.
