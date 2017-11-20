@@ -93,6 +93,7 @@ AxIsFileAscii (
     FILE                    *Handle)
 {
     UINT8                   Byte;
+    UINT32                  Offset = 0;
 
 
     /* Read the entire file */
@@ -115,15 +116,27 @@ AxIsFileAscii (
 
         if (!ACPI_IS_ASCII (Byte))
         {
-            goto ErrorExit;
+            printf ("Found non-ascii char: %2.2X at file offset %u (0x%X)\n",
+                Byte, Offset, Offset);
+            if (!Gbl_ForceExtraction)
+            {
+                goto ErrorExit;
+            }
         }
 
         /* Ensure character is either printable or a "space" char */
 
         else if (!isprint (Byte) && !isspace (Byte))
         {
-            goto ErrorExit;
+            printf ("Found non-printable char: %2.2X at file offset %u (0x%X)\n",
+                Byte, Offset, Offset);
+            if (!Gbl_ForceExtraction)
+            {
+                goto ErrorExit;
+            }
         }
+
+        Offset++;
     }
 
     /* File is OK (100% ASCII) */
