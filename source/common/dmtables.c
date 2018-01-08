@@ -206,7 +206,7 @@ AdCreateTableHeader (
     /*
      * Print comments that come before this definition block.
      */
-    if (Gbl_CaptureComments)
+    if (AcpiGbl_CaptureComments)
     {
         ASL_CV_PRINT_ONE_COMMENT(AcpiGbl_ParseOpRoot,AML_COMMENT_STANDARD, NULL, 0);
     }
@@ -409,7 +409,7 @@ AdParseTable (
     }
 
 #ifdef ACPI_ASL_COMPILER
-    if (Gbl_CaptureComments)
+    if (AcpiGbl_CaptureComments)
     {
         AcpiGbl_ParseOpRoot->Common.CvFilename = AcpiGbl_FileTreeRoot->Filename;
     }

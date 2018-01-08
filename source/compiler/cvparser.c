@@ -146,7 +146,7 @@ CvInitFileTree (
     char                    *ChildFilename = NULL;
 
 
-    if (!Gbl_CaptureComments)
+    if (!AcpiGbl_CaptureComments)
     {
         return;
     }
@@ -612,7 +612,7 @@ CvCaptureCommentsOnly (
     ACPI_FILE_NODE          *FileNode;
 
 
-    if (!Gbl_CaptureComments ||
+    if (!AcpiGbl_CaptureComments ||
         Opcode != AML_COMMENT_OP)
     {
        return;
@@ -865,7 +865,7 @@ CvCaptureComments (
     const ACPI_OPCODE_INFO  *OpInfo;
 
 
-    if (!Gbl_CaptureComments)
+    if (!AcpiGbl_CaptureComments)
     {
         return;
     }
