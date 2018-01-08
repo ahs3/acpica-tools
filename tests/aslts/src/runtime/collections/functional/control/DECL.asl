@@ -1,5 +1,5 @@
 /*
- * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -46,5 +46,3 @@ Include("../../../../runtime/collections/functional/control/ImplicitReturn/stand
 
 Include("../../../../runtime/collections/functional/control/Recursion/recursion.asl")
 Include("../../../../runtime/collections/functional/control/Recursion/stack_overflow.asl")
-
-

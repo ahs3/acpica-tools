@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -33,26 +33,25 @@
      */
     Method (M203, 1, Serialized)
     {
-        Name (TS, "m203")
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         Device (D000)
         {
             Name (PP00, Package (0x03)
             {
-                0x11111111, 
-                0x01, 
+                0x11111111,
+                0x01,
                 0x22223333
             })
         }
 
-        CH03 (TS, Z156, 0x06, 0x2E, 0x00)
+        CH03 (__METHOD__, Z156, 0x06, 0x2E, 0x00)
         I001 = Arg0
         Method (M001, 0, NotSerialized)
         {
@@ -109,16 +108,16 @@
         Store ((DerefOf (D000.PP00 [0x01]) + M001 ()), Local0)
         If ((Local0 != 0x87654321))
         {
-            ERR (TS, Z156, 0x60, 0x00, 0x00, Local0, 0x87654321)
+            ERR (__METHOD__, Z156, 0x60, 0x00, 0x00, Local0, 0x87654321)
         }
 
         Local0 = DerefOf (D000.PP00 [0x01])
         If ((Local0 != 0x80000000))
         {
-            ERR (TS, Z156, 0x66, 0x00, 0x00, Local0, 0x80000000)
+            ERR (__METHOD__, Z156, 0x66, 0x00, 0x00, Local0, 0x80000000)
         }
 
-        CH03 (TS, Z156, 0x09, 0x69, 0x00)
+        CH03 (__METHOD__, Z156, 0x09, 0x69, 0x00)
     }
 
     /*
@@ -126,23 +125,22 @@
      */
     Method (M205, 1, Serialized)
     {
-        Name (TS, "m205")
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
-        CH03 (TS, Z156, 0x0D, 0x75, 0x00)
+        CH03 (__METHOD__, Z156, 0x0D, 0x75, 0x00)
         Device (D000)
         {
             Name (B000, Buffer (0x10){})
             CreateField (B000, 0x05, 0x20, BF00)
         }
 
-        CH03 (TS, Z156, 0x0E, 0x7D, 0x00)
+        CH03 (__METHOD__, Z156, 0x0E, 0x7D, 0x00)
         If (0x00)
         {
             CreateField (D000.B000, 0x05, 0x20, BF00)
@@ -204,16 +202,16 @@
         Store ((DerefOf (D000.BF00 [0x01]) + M001 ()), Local0)
         If ((Local0 != 0x87654321))
         {
-            ERR (TS, Z156, 0xB3, 0x00, 0x00, Local0, 0x87654321)
+            ERR (__METHOD__, Z156, 0xB3, 0x00, 0x00, Local0, 0x87654321)
         }
 
         Local0 = DerefOf (D000.BF00 [0x01])
         If ((Local0 != 0x80000000))
         {
-            ERR (TS, Z156, 0xB9, 0x00, 0x00, Local0, 0x80000000)
+            ERR (__METHOD__, Z156, 0xB9, 0x00, 0x00, Local0, 0x80000000)
         }
 
-        CH03 (TS, Z156, 0x11, 0xBC, 0x00)
+        CH03 (__METHOD__, Z156, 0x11, 0xBC, 0x00)
     }
 
     Method (N102, 0, NotSerialized)
@@ -258,4 +256,3 @@
             M205 (0x00)
         }
     }
-

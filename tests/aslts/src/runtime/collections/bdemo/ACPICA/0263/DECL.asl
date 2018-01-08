@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -61,9 +61,9 @@
             Name (I001, 0x00)
             Name (P000, Package (0x04)
             {
-                0x01, 
-                0x02, 
-                0x03, 
+                0x01,
+                0x02,
+                0x03,
                 0x04
             })
             I001 = Arg0
@@ -134,4 +134,3 @@
         MM00 ()
         MM01 (0x00)
     }
-

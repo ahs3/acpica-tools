@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -66,4 +66,3 @@
         Name (I9Z8, 0xABCD0001)
         CH04 ("", 0x00, 0xFF, 0x00, 0x47, 0x00, 0x00)
     }
-

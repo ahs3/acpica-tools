@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -32,13 +32,12 @@
      */
     Method (M200, 0, Serialized)
     {
-        Name (TS, "m200")
         Device (D000)
         {
             Name (P000, Package (0x03)
             {
-                0xABCD0000, 
-                0xABCD0001, 
+                0xABCD0000,
+                0xABCD0001,
                 0xABCD0002
             })
         }
@@ -52,15 +51,14 @@
         Local0 = DerefOf (D000.P000 [0x00])
         If ((Local0 != 0x11112222))
         {
-            ERR (TS, Z156, 0x36, 0x00, 0x00, Local0, 0x11112222)
+            ERR (__METHOD__, Z156, 0x36, 0x00, 0x00, Local0, 0x11112222)
         }
 
-        CH03 (TS, Z156, 0x01, 0x39, 0x00)
+        CH03 (__METHOD__, Z156, 0x01, 0x39, 0x00)
     }
 
     Method (M201, 0, Serialized)
     {
-        Name (TS, "m201")
         Device (D000)
         {
             Name (B000, Buffer (0x03)
@@ -78,15 +76,14 @@
         Local0 = DerefOf (D000.B000 [0x00])
         If ((Local0 != 0x67))
         {
-            ERR (TS, Z156, 0x4D, 0x00, 0x00, Local0, 0x67)
+            ERR (__METHOD__, Z156, 0x4D, 0x00, 0x00, Local0, 0x67)
         }
 
-        CH03 (TS, Z156, 0x03, 0x50, 0x00)
+        CH03 (__METHOD__, Z156, 0x03, 0x50, 0x00)
     }
 
     Method (M202, 0, Serialized)
     {
-        Name (TS, "m202")
         Device (D000)
         {
             Name (S000, "qqqqqqqqqqqqqq")
@@ -101,10 +98,10 @@
         Local0 = DerefOf (D000.S000 [0x00])
         If ((Local0 != 0x38))
         {
-            ERR (TS, Z156, 0x64, 0x00, 0x00, Local0, 0x38)
+            ERR (__METHOD__, Z156, 0x64, 0x00, 0x00, Local0, 0x38)
         }
 
-        CH03 (TS, Z156, 0x05, 0x67, 0x00)
+        CH03 (__METHOD__, Z156, 0x05, 0x67, 0x00)
     }
 
     /*
@@ -112,14 +109,13 @@
      */
     Method (M204, 0, Serialized)
     {
-        Name (TS, "m204")
         Name (I001, 0x00)
         Device (D000)
         {
             Name (PP00, Package (0x03)
             {
-                0x11111111, 
-                0x00100000, 
+                0x11111111,
+                0x00100000,
                 0x22223333
             })
         }
@@ -142,16 +138,16 @@
         Store ((DerefOf (D000.PP00 [0x01]) + M001 ()), Local0)
         If ((Local0 != 0x065013BA))
         {
-            ERR (TS, Z156, 0x86, 0x00, 0x00, Local0, 0x065013BA)
+            ERR (__METHOD__, Z156, 0x86, 0x00, 0x00, Local0, 0x065013BA)
         }
 
         Local0 = DerefOf (D000.PP00 [0x01])
         If ((Local0 != 0x00100064))
         {
-            ERR (TS, Z156, 0x8C, 0x00, 0x00, Local0, 0x00100064)
+            ERR (__METHOD__, Z156, 0x8C, 0x00, 0x00, Local0, 0x00100064)
         }
 
-        CH03 (TS, Z156, 0x0C, 0x8F, 0x00)
+        CH03 (__METHOD__, Z156, 0x0C, 0x8F, 0x00)
     }
 
     Method (N002, 0, NotSerialized)
@@ -173,4 +169,3 @@
             M200 ()
         }
     }
-

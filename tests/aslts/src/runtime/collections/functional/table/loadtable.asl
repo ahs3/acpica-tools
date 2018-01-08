@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -139,8 +139,8 @@
         Name (STID, "Many")
         Name (POEM, Package (0x03)
         {
-            "OEM1", 
-            "Intel", 
+            "OEM1",
+            "Intel",
             "Many"
         })
         Name (RPST, "\\DTM2")
@@ -613,8 +613,8 @@
             Name (STID, "")
             Name (POEM, Package (0x03)
             {
-                "OEM1", 
-                "", 
+                "OEM1",
+                "",
                 ""
             })
             Method (M000, 1, NotSerialized)
@@ -792,8 +792,8 @@
             Name (NVAL, 0x01)
             Name (POPT, Package (0x03)
             {
-                "\\DTM2", 
-                "\\DTM2.PLDT", 
+                "\\DTM2",
+                "\\DTM2.PLDT",
                 0x01
             })
             Method (M000, 1, NotSerialized)
@@ -952,7 +952,7 @@
             Local2 = ToBuffer (Local2)
             Local3 = ToBuffer (PPST)
             Local4 = 0x03
-            DDB6 = LoadTable ("OEM1", "", "", Mid (ToString (Local2, Ones), 0x04, 
+            DDB6 = LoadTable ("OEM1", "", "", Mid (ToString (Local2, Ones), 0x04,
                 0x05), ToString (M000 (Local3), Ones),                     /* Bug 288: iASL unexpectedly forbids ParameterData of Loadtable to be LocalX or UserTerm */
                     /*				Subtract(m000(Local4), 2)), */
 (0x03 - 0x02))
@@ -1330,7 +1330,7 @@
             /* 0020 */  0x15, 0x12, 0x06, 0x20, 0x10, 0x1F, 0x5C, 0x00,  // ... ..\.
             /* 0028 */  0x08, 0x5F, 0x58, 0x54, 0x32, 0x0D, 0x61, 0x62,  // ._XT2.ab
             /* 0030 */  0x73, 0x6F, 0x6C, 0x75, 0x74, 0x65, 0x20, 0x6C,  // solute l
-            /* 0038 */  0x6F, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20,  // ocation 
+            /* 0038 */  0x6F, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20,  // ocation
             /* 0040 */  0x6F, 0x62, 0x6A, 0x00                           // obj.
         })
         OperationRegion (IST4, SystemMemory, 0x0600, 0x44)
@@ -2402,105 +2402,103 @@
 
     Method (TLT0, 0, Serialized)
     {
-        Name (TS, "TLT0")
-        CH03 (TS, Z176, 0x0200, 0x0890, 0x00)
+        CH03 (__METHOD__, Z176, 0x0200, 0x0890, 0x00)
         /* Simple Loadtable test */
 
         SRMT ("TLT0.tst0")
-        \DTM2.TST0 (TS)
-        CH03 (TS, Z176, 0x0201, 0x0896, 0x00)
+        \DTM2.TST0 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0201, 0x0896, 0x00)
         /* All comparisons of Loadtable parameters are case sensitive, */
         /* if no table matches the specified parameters, then 0 is returned */
         SRMT ("TLT0.tst1")
-        \DTM2.TST1 (TS)
-        CH03 (TS, Z176, 0x0202, 0x089D, 0x00)
+        \DTM2.TST1 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0202, 0x089D, 0x00)
         /* Any of the RootPathString, ParameterPathString, and ParameterData */
         /* parameters in LoadTable expression can be omitted */
         SRMT ("TLT0.tst2")
-        \DTM2.TST2 (TS)
-        CH03 (TS, Z176, 0x0203, 0x08A4, 0x00)
+        \DTM2.TST2 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0203, 0x08A4, 0x00)
         /* Different sources of the String parameters: Named Objects, LocalX, */
         /* ArgX, elements of Packages, results of functions, any TermArg */
         SRMT ("TLT0.tst3")
-        \DTM2.TST3 (TS)
-        CH03 (TS, Z176, 0x0204, 0x08AB, 0x00)
+        \DTM2.TST3 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0204, 0x08AB, 0x00)
         /* Different sources of the optional parameters (RootPathString, */
         /* ParameterPathString, and ParameterData): Named Objects, LocalX, */
         /* ArgX, elements of Packages, results of functions, any TermArg */
         SRMT ("TLT0.tst4")
-        \DTM2.TST4 (TS)
-        CH03 (TS, Z176, 0x0205, 0x08B3, 0x00)
+        \DTM2.TST4 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0205, 0x08B3, 0x00)
         /* Namespace location to load the Definition Block is determined */
         /* by the RootPathString parameter of Loadtable */
         SRMT ("TLT0.tst5.0")
-        \DTM2.TST5 (TS, "\\DTM2.DEVR")
-        CH03 (TS, Z176, 0x0206, 0x08BA, 0x00)
+        \DTM2.TST5 (__METHOD__, "\\DTM2.DEVR")
+        CH03 (__METHOD__, Z176, 0x0206, 0x08BA, 0x00)
         /* The RootPathString value is evaluated using normal scoping rules, */
         /* assuming that the scope of the LoadTable operator is the current */
         /* scope */
         SRMT ("TLT0.tst5.1")
-        \DTM2.TST5 (TS, "^DEVR")
-        CH03 (TS, Z176, 0x0207, 0x08C2, 0x00)
+        \DTM2.TST5 (__METHOD__, "^DEVR")
+        CH03 (__METHOD__, Z176, 0x0207, 0x08C2, 0x00)
         /* "\" is assumed to be Namespace location to load the Definition */
         /* Block if RootPathString parameter is not specified */
         SRMT ("TLT0.tst6")
-        \DTM2.TST6 (TS)
-        CH03 (TS, Z176, 0x0208, 0x08C9, 0x00)
+        \DTM2.TST6 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0208, 0x08C9, 0x00)
         /* If the first character of ParameterPathString is a backslash */
         /* or caret character, then the path of the object set up on success */
         /* is ParameterPathString. It is RootPathString.ParameterPathString */
         /* in any case. */
         SRMT ("TLT0.tst7")
-        \DTM2.TST7 (TS)
-        CH03 (TS, Z176, 0x0209, 0x08D2, 0x00)
+        \DTM2.TST7 (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x0209, 0x08D2, 0x00)
         /* Implicit operand conversion of the parameters specified to be strings */
 
         SRMT ("TLT0.tste")
-        \DTM2.TSTE (TS)
-        CH03 (TS, Z176, 0x020A, 0x08D8, 0x00)
+        \DTM2.TSTE (__METHOD__)
+        CH03 (__METHOD__, Z176, 0x020A, 0x08D8, 0x00)
         /* LoadTable returns 0 if some SSDT matching the LoadTable */
         /* parameters is originally not listed in XSDT */
         /*SRMT("TLT0.tstf") */
         /*\DTM2.tstf(ts) */
-        CH03 (TS, Z176, 0x020B, 0x08DF, 0x00)
+        CH03 (__METHOD__, Z176, 0x020B, 0x08DF, 0x00)
     }
 
     /* Exceptional conditions */
 
     Method (TLT1, 0, Serialized)
     {
-        Name (TS, "TLT1")
         /* Exceptions when the SignatureString is greater than four characters, */
         /* the OEMIDString is greater than six characters, or the OEMTableID is */
         /* greater than eight characters */
         SRMT ("TLT1.tst8")
-        \DTM2.TST8 (TS)
+        \DTM2.TST8 (__METHOD__)
         /* Exceptions when some DSDT or SSDT matching the LoadTable parameters */
         /* is already loaded (actually on initial loading of tables listed in XSDT) */
         SRMT ("TLT1.tst9")
-        \DTM2.TST9 (TS)
+        \DTM2.TST9 (__METHOD__)
         /* Exceptions when the matched table is already loaded */
 
         SRMT ("TLT1.tsta")
-        \DTM2.TSTA (TS)
+        \DTM2.TSTA (__METHOD__)
         /* Exceptions when there already is an previously loaded Object */
         /* referred by the path in the Namespace */
         SRMT ("TLT1.tstb")
-        \DTM2.TSTB (TS)
+        \DTM2.TSTB (__METHOD__)
         /* Exceptions when the object specified by the ParameterPathString */
         /* does not exist */
         SRMT ("TLT1.tstc")
-        \DTM2.TSTC (TS)
+        \DTM2.TSTC (__METHOD__)
         /* Exceptions when storing of data of the ParameterData data type */
         /* to the specified object is not allowed. */
         SRMT ("TLT1.tstd")
-        \DTM2.TSTD (TS)
+        \DTM2.TSTD (__METHOD__)
         /* AE_OWNER_ID_LIMIT exception when too many Tables loaded */
 
         SRMT ("TLT1.tstg")
         If (Y294)
         {
-            \DTM2.TSTG (TS)
+            \DTM2.TSTG (__METHOD__)
         }
         Else
         {
@@ -2510,10 +2508,9 @@
         /* Exceptions when the parameter of the Loadtable operator */
         /* is of incorrect types */
         SRMT ("TLT1.tsth")
-        \DTM2.TSTH (TS)
+        \DTM2.TSTH (__METHOD__)
         /* Exceptions when the ParameterData parameter of the Loadtable operator */
         /* can not be saved into the Object referred by ParameterPathString */
         SRMT ("TLT1.tsti")
-        \DTM2.TSTI (TS)
+        \DTM2.TSTI (__METHOD__)
     }
-

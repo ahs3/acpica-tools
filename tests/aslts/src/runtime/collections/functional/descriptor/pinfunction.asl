@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -45,7 +45,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -60,7 +60,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -75,7 +75,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -90,7 +90,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -105,7 +105,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -120,7 +120,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -135,7 +135,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -150,7 +150,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -176,7 +176,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -191,7 +191,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -206,7 +206,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -221,7 +221,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -236,7 +236,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -251,7 +251,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -266,7 +266,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -281,7 +281,7 @@
                     0x0002,
                     0x0003
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -294,21 +294,20 @@
     })
     Method (RT26, 0, Serialized)
     {
-        Name (TS, "RT26")
         /* Emit test header, set the filename */
 
-        THDR (TS, "PinFunction Resource Descriptor Macro", "pinfunction.asl")
+        THDR (__METHOD__, "PinFunction Resource Descriptor Macro", "pinfunction.asl")
         /* The main test packages must have the same number of entries */
 
         If ((SizeOf (P45C) != SizeOf (P45D)))
         {
-            ERR (TS, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
+            ERR (__METHOD__, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
             Return (Zero)
         }
 
         /* Main test case for packages above */
 
-        M330 (TS, SizeOf (P45C), "P45C", P45C, P45D)
+        M330 (__METHOD__, SizeOf (P45C), "P45C", P45C, P45D)
                     /* Check resource descriptor tag offsets */
 
 Local0 = ResourceTemplate ()
@@ -336,9 +335,8 @@ Local0 = ResourceTemplate ()
                         0x0003
                     }
             }
-        M331 (TS, 0x01, 0x20, 0x20, 0x0150, 0x0150, "_SHR")
-        M331 (TS, 0x02, 0x30, 0x30, 0x0160, 0x0160, "_PPI")
-        M331 (TS, 0x03, 0x38, 0x38, 0x0168, 0x0168, "_FUN")
-        M331 (TS, 0x04, 0x0110, 0x0110, 0x0240, 0x0240, "_VEN")
+        M331 (__METHOD__, 0x01, 0x20, 0x20, 0x0150, 0x0150, "_SHR")
+        M331 (__METHOD__, 0x02, 0x30, 0x30, 0x0160, 0x0160, "_PPI")
+        M331 (__METHOD__, 0x03, 0x38, 0x38, 0x0168, 0x0168, "_FUN")
+        M331 (__METHOD__, 0x04, 0x0110, 0x0110, 0x0240, 0x0240, "_VEN")
     }
-

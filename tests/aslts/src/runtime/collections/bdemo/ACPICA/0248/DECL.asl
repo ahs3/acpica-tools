@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -151,7 +151,7 @@
         Name (I001, 0x00)
         Name (P000, Package (0x02)
         {
-            0x77, 
+            0x77,
             0x88
         })
         Name (SW00, 0x01)
@@ -221,4 +221,3 @@
         Debug = Local0
         Debug = "<-------- 1111>"
     }
-

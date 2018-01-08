@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -35,37 +35,37 @@
         ResourceTemplate ()
         {
             FixedDMA (0xF1F2, 0x1234, Width8bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xE1E2, 0x000F, Width16bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xD1D2, 0x00F0, Width32bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xC1C2, 0x0F00, Width64bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xB1B2, 0xF000, Width128bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xA1A2, 0xFFFF, Width256bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0x9192, 0x11D7, Width32bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -77,37 +77,37 @@
         ResourceTemplate ()
         {
             FixedDMA (0xF1F2, 0x1234, Width8bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xE1E2, 0x000F, Width16bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xD1D2, 0x00F0, Width32bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xC1C2, 0x0F00, Width64bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xB1B2, 0xF000, Width128bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0xA1A2, 0xFFFF, Width256bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
             FixedDMA (0x9192, 0x11D7, Width32bit, )
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -116,21 +116,20 @@
     })
     Method (RT20, 0, Serialized)
     {
-        Name (TS, "RT20")
         /* Emit test header, set the filename */
 
-        THDR (TS, "FixedDMA Resource Descriptor Macro", "fixeddma.asl")
+        THDR (__METHOD__, "FixedDMA Resource Descriptor Macro", "fixeddma.asl")
         /* The main test packages must have the same number of entries */
 
         If ((SizeOf (P450) != SizeOf (P451)))
         {
-            ERR (TS, 0xB1, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
+            ERR (__METHOD__, 0xB1, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
             Return (Zero)
         }
 
         /* Main test case for packages above */
 
-        M330 (TS, SizeOf (P450), "p450", P450, P451)
+        M330 (__METHOD__, SizeOf (P450), "p450", P450, P451)
         /* Check resource descriptor tag offsets */
 
         Local0 = ResourceTemplate ()
@@ -138,8 +137,7 @@
                 FixedDMA (0xE1E2, 0x000F, Width16bit, )
                 FixedDMA (0xD1D2, 0x00F0, Width32bit, )
             }
-        M331 (TS, 0x01, 0x08, 0x08, 0x38, 0x38, "_DMA")
-        M331 (TS, 0x02, 0x18, 0x18, 0x48, 0x48, "_TYP")
-        M331 (TS, 0x03, 0x28, 0x28, 0x58, 0x58, "_SIZ")
+        M331 (__METHOD__, 0x01, 0x08, 0x08, 0x38, 0x38, "_DMA")
+        M331 (__METHOD__, 0x02, 0x18, 0x18, 0x48, 0x48, "_TYP")
+        M331 (__METHOD__, 0x03, 0x28, 0x28, 0x58, 0x58, "_SIZ")
     }
-

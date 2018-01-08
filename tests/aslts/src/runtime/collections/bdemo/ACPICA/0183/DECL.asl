@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -57,4 +57,3 @@
         Debug = MF79 (0xF8)
         CH03 ("", 0x00, 0x03, 0x3D, 0x00)
     }
-

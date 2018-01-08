@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -34,7 +34,7 @@
     {
         Name (P000, Package (0x02)
         {
-            0x00, 
+            0x00,
             0x01
         })
         /* a) StartIndex > 0xffffffff */
@@ -43,4 +43,3 @@
         Local0 = Match (P000, MEQ, 0x01, MEQ, 0x01, 0x0000000100000001)
         CH04 ("", 0x00, 0xFF, 0x00, 0x2C, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
     }
-

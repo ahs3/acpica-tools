@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -40,7 +40,7 @@
                 /* 0008 */  0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE,  // ........
                 /* 0010 */  0xFF                                             // .
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -50,7 +50,7 @@
                 /* 0008 */  0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE,  // ........
                 /* 0010 */  0xFF, 0x00, 0x01, 0x02, 0x03                     // .....
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -92,14 +92,14 @@
                 /* 0108 */  0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF,  // ........
                 /* 0110 */  0x00, 0x01                                       // ..
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
             VendorLong  ()      // Length = 0x00
             {
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -107,7 +107,7 @@
             {
                  0xBF                                             // .
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -115,7 +115,7 @@
             {
                  0xCF, 0xF0                                       // ..
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -147,7 +147,7 @@
                 /* 0008 */  0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE,  // ........
                 /* 0010 */  0xFF                                             // .
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -157,7 +157,7 @@
                 /* 0008 */  0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE,  // ........
                 /* 0010 */  0xFF, 0x00, 0x01, 0x02, 0x03                     // .....
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -199,14 +199,14 @@
                 /* 0108 */  0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF,  // ........
                 /* 0110 */  0x00, 0x01                                       // ..
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
             VendorLong  ()      // Length = 0x00
             {
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -214,7 +214,7 @@
             {
                  0xBF                                             // .
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -222,7 +222,7 @@
             {
                  0xCF, 0xF0                                       // ..
             }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -235,13 +235,12 @@
     })
     Method (RT09, 0, Serialized)
     {
-        Name (TS, "RT09")
         /* Emit test header, set the filename */
 
-        THDR (TS, "Long Vendor Resource Descriptor Macro", "vendorlong.asl")
+        THDR (__METHOD__, "Long Vendor Resource Descriptor Macro", "vendorlong.asl")
         /* Main test case for packages above */
 
-        M330 (TS, 0x07, "p410", P410, P411)
+        M330 (__METHOD__, 0x07, "p410", P410, P411)
         /* VendorLong has DescriptorName */
         /* but has not fields in it. */
         Local0 = ResourceTemplate ()
@@ -254,4 +253,3 @@
                 }
             }
     }
-

@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -35,7 +35,7 @@
         {
             /* 0000 */  0x3D, 0x2C, 0x1B, 0x0A, 0x5F, 0x4E, 0x71, 0x60,  // =,.._Nq`
             /* 0008 */  0x82, 0x93, 0xA4, 0xB5, 0xC6, 0xD7, 0xE8, 0xF9   // ........
-        }, 
+        },
 
         Buffer (0x10)
         {
@@ -49,7 +49,7 @@
         {
             /* 0000 */  0x3D, 0x2C, 0x1B, 0x0A, 0x5F, 0x4E, 0x71, 0x60,  // =,.._Nq`
             /* 0008 */  0x82, 0x93, 0xA4, 0xB5, 0xC6, 0xD7, 0xE8, 0xF9   // ........
-        }, 
+        },
 
         Buffer (0x10)
         {
@@ -61,8 +61,6 @@
 
     Method (TOU0, 0, Serialized)
     {
-        Name (TS, "TOU0")
         Debug = "TEST: TOU0, Convert String to UUID Macro"
-        M302 (TS, 0x02, "p356", P356, P357, 0x07)
+        M302 (__METHOD__, 0x02, "p356", P356, P357, 0x07)
     }
-

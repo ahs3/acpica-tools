@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -34,7 +34,6 @@
 
     Method (M690, 0, Serialized)
     {
-        Name (TS, "m690")
         Name (TERR, "test error")
         Name (I000, 0x00)
         /* Common testing control */
@@ -75,13 +74,13 @@
                             {
                                 /* Constant (like Store(Src0, Zero)) */
 
-                                M010 (Concatenate (TS, "-m010"), LPC0, LPC1)
+                                M010 (Concatenate (__METHOD__, "-m010"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x01))
                             {
                                 /* Named Object */
 
-                                M011 (Concatenate (TS, "-m011"), LPC0, LPC1)
+                                M011 (Concatenate (__METHOD__, "-m011"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x02))
                             {
@@ -95,7 +94,7 @@
                             {
                                 /* LocalX Object */
 
-                                M013 (Concatenate (TS, "-m013"), LPC0, LPC1)
+                                M013 (Concatenate (__METHOD__, "-m013"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x04))
                             {
@@ -136,7 +135,7 @@
                             {
                                 /* Named Object */
 
-                                M021 (Concatenate (TS, "-m021"), LPC0, LPC1)
+                                M021 (Concatenate (__METHOD__, "-m021"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x02))
                             {
@@ -150,7 +149,7 @@
                             {
                                 /* LocalX Object */
 
-                                M023 (Concatenate (TS, "-m023"), LPC0, LPC1)
+                                M023 (Concatenate (__METHOD__, "-m023"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x04))
                             {
@@ -191,7 +190,7 @@
                             {
                                 /* Named Object */
 
-                                M031 (Concatenate (TS, "-m031"), LPC0, LPC1)
+                                M031 (Concatenate (__METHOD__, "-m031"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x02))
                             {
@@ -256,9 +255,9 @@
                             {
                                 /* Named Object */
 
-                                M0E0 (Concatenate (TS, "-m0e0"), LPC0, LPC1)
-                                M0E1 (Concatenate (TS, "-m0e1"), LPC0, LPC1)
-                                M0E2 (Concatenate (TS, "-m0e2"), LPC0, LPC1)
+                                M0E0 (Concatenate (__METHOD__, "-m0e0"), LPC0, LPC1)
+                                M0E1 (Concatenate (__METHOD__, "-m0e1"), LPC0, LPC1)
+                                M0E2 (Concatenate (__METHOD__, "-m0e2"), LPC0, LPC1)
                             }
                             ElseIf ((Arg2 == 0x02))
                             {
@@ -325,9 +324,9 @@
         {
             Name (P000, Package (0x04)
             {
-                Zero, 
-                One, 
-                Ones, 
+                Zero,
+                One,
+                Ones,
                 0xFE7CB391D650A284
             })
             /* Return Indexed reference to ASL constant specified */
@@ -339,9 +338,9 @@
                 {
                     Return (Index (Package (0x04)
                         {
-                            Zero, 
-                            One, 
-                            Ones, 
+                            Zero,
+                            One,
+                            Ones,
                             0xFE7CB391D650A284
                         }, Arg0))
                 }
@@ -6956,13 +6955,13 @@
             Return (0x00)
         }
 
-        M100 (Concatenate (TS, "-m100-S-IntC"), 0x01, 0x00)
-        M100 (Concatenate (TS, "-m100-S-IntN"), 0x01, 0x01)
-        M100 (Concatenate (TS, "-m100-S-IntL"), 0x01, 0x03)
-        M100 (Concatenate (TS, "-m100-S-StrN"), 0x02, 0x01)
-        M100 (Concatenate (TS, "-m100-S-StrL"), 0x02, 0x03)
-        M100 (Concatenate (TS, "-m100-S-BufN"), 0x03, 0x01)
-        M100 (Concatenate (TS, "-m100-S-BFldN"), 0x0E, 0x01)
+        M100 (Concatenate (__METHOD__, "-m100-S-IntC"), 0x01, 0x00)
+        M100 (Concatenate (__METHOD__, "-m100-S-IntN"), 0x01, 0x01)
+        M100 (Concatenate (__METHOD__, "-m100-S-IntL"), 0x01, 0x03)
+        M100 (Concatenate (__METHOD__, "-m100-S-StrN"), 0x02, 0x01)
+        M100 (Concatenate (__METHOD__, "-m100-S-StrL"), 0x02, 0x03)
+        M100 (Concatenate (__METHOD__, "-m100-S-BufN"), 0x03, 0x01)
+        M100 (Concatenate (__METHOD__, "-m100-S-BFldN"), 0x0E, 0x01)
     }
 
     /* Run-method */
@@ -6977,4 +6976,3 @@
 
         M690 ()
     }
-

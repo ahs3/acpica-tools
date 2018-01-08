@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -404,4 +404,3 @@
         Debug = "Check the error manually and remove call to m02a() when the bug is fixed."
         ERR ("", ZFFF, 0x0178, 0x00, 0x00, 0x00, 0x00)
     }
-

@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -47,10 +47,10 @@
     {
         Name (P000, Package (0x20)
         {
-            0x01, 
-            0x02, 
-            ME4C, 
-            0x03, 
+            0x01,
+            0x02,
+            ME4C,
+            0x03,
             0x04
         })
         Debug = "============= Test me4e started:"
@@ -63,10 +63,10 @@
     {
         Name (P000, Package (0x20)
         {
-            0x01, 
-            0x02, 
-            ME4C, 
-            0x03, 
+            0x01,
+            0x02,
+            ME4C,
+            0x03,
             0x04
         })
         Debug = "============= Test me4f started:"
@@ -80,4 +80,3 @@
         ME4E ()
         ME4F ()
     }
-
