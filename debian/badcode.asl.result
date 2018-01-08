@@ -289,11 +289,11 @@ Warning  3144 -                            ^ Method Local is set but never used 
 
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler/Disassembler version VVVVVVVV
-Copyright (c) 2000 - 2017 Intel Corporation
+Copyright (c) 2000 - 2018 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     badcode.asl - 409 lines, 11588 bytes, 81 keywords
+ASL Input:     badcode.asl - 408 lines, 11587 bytes, 81 keywords
 AML Output:    badcode.aml - 1195 bytes, 61 named objects, 20 executable opcodes
 
 Compilation complete. 46 Errors, 39 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
