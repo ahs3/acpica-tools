@@ -1,9 +1,9 @@
-acpica-unix (20171215-1) UNRELEASED; urgency=medium
+acpica-unix (20180105-1) unstable; urgency=medium
 
-  * Upgrade to 20171215 upstream.
+  * Upgrade to 20180105 upstream.
   * Refresh patches as needed.
 
- -- Al Stone <ahs3@debian.org>  Mon, 08 Jan 2018 13:14:06 -0700
+ -- Al Stone <ahs3@debian.org>  Mon, 08 Jan 2018 13:48:36 -0700
 
 acpica-unix (20171110-1) unstable; urgency=medium
 
