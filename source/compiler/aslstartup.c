@@ -125,11 +125,11 @@ AslInitializeGlobals (
         Gbl_Files[i].Filename = NULL;
     }
 
-    if (Gbl_CaptureComments)
+    if (AcpiGbl_CaptureComments)
     {
         Gbl_CommentState.SpacesBefore          = 0;
         Gbl_CommentState.CommentType           = 1;
-        Gbl_CommentState.LatestParseOp          = NULL;
+        Gbl_CommentState.LatestParseOp         = NULL;
         Gbl_CommentState.ParsingParenBraceNode = NULL;
         Gbl_CommentState.CaptureComments       = TRUE;
     }

@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Module Name: osgendbg - Generic debugger command singalling
+ * Module Name: osgendbg - Generic debugger command signalling
  *
  *****************************************************************************/
 
@@ -61,6 +61,7 @@ static ACPI_MUTEX           AcpiGbl_DbCommandReady;
 static ACPI_MUTEX           AcpiGbl_DbCommandComplete;
 static BOOLEAN              AcpiGbl_DbCommandSignalsInitialized = FALSE;
 
+
 /******************************************************************************
  *
  * FUNCTION:    AcpiDbRunRemoteDebugger
@@ -105,7 +106,7 @@ AcpiDbRunRemoteDebugger (
                     Ptr++;
                 }
 
-                strncpy (AcpiGbl_DbLineBuf, Cmd, ACPI_DB_LINE_BUFFER_SIZE);
+                AcpiUtSafeStrncpy (AcpiGbl_DbLineBuf, Cmd, ACPI_DB_LINE_BUFFER_SIZE);
                 Ptr++;
                 Cmd = Ptr;
             }

@@ -425,7 +425,6 @@ AeDoOptions (
         {
         case '^':  /* -v: (Version): signon already emitted, just exit */
 
-            (void) AcpiOsTerminate ();
             return (1);
 
         case 'd':

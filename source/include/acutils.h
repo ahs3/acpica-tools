@@ -951,6 +951,12 @@ AcpiUtSafeStrcpy (
     ACPI_SIZE               DestSize,
     char                    *Source);
 
+void
+AcpiUtSafeStrncpy (
+    char                    *Dest,
+    char                    *Source,
+    ACPI_SIZE               DestSize);
+
 BOOLEAN
 AcpiUtSafeStrcat (
     char                    *Dest,
