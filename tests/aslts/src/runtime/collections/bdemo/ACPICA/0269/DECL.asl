@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -36,9 +36,9 @@
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = 0x00
@@ -118,4 +118,3 @@
         Debug = I000 /* \M022.I000 */
         CH03 ("", 0x00, 0x00, 0x6F, 0x00)
     }
-

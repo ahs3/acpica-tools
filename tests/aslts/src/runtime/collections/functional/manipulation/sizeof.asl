@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -35,7 +35,6 @@
 
     Method (M1EF, 0, Serialized)
     {
-        Name (TS, "m1ef")
         Name (I000, 0x00)
         Name (S000, "vcd")
         Name (B000, Buffer (0x05)
@@ -44,12 +43,12 @@
         })
         Name (P000, Package (0x07)
         {
-            0x0B, 
-            0x0C, 
-            0x0D, 
-            0x0E, 
-            0x0F, 
-            0x10, 
+            0x0B,
+            0x0C,
+            0x0D,
+            0x0E,
+            0x0F,
+            0x10,
             0x11
         })
         Local0 = SizeOf (I000)
@@ -57,30 +56,30 @@
         {
             If ((Local0 != 0x08))
             {
-                ERR (TS, Z041, 0x32, 0x00, 0x00, Local0, 0x08)
+                ERR (__METHOD__, Z041, 0x32, 0x00, 0x00, Local0, 0x08)
             }
         }
         ElseIf ((Local0 != 0x04))
         {
-            ERR (TS, Z041, 0x36, 0x00, 0x00, Local0, 0x04)
+            ERR (__METHOD__, Z041, 0x36, 0x00, 0x00, Local0, 0x04)
         }
 
         Local0 = SizeOf (S000)
         If ((Local0 != 0x03))
         {
-            ERR (TS, Z041, 0x3C, 0x00, 0x00, Local0, 0x03)
+            ERR (__METHOD__, Z041, 0x3C, 0x00, 0x00, Local0, 0x03)
         }
 
         Local0 = SizeOf (B000)
         If ((Local0 != 0x05))
         {
-            ERR (TS, Z041, 0x41, 0x00, 0x00, Local0, 0x05)
+            ERR (__METHOD__, Z041, 0x41, 0x00, 0x00, Local0, 0x05)
         }
 
         Local0 = SizeOf (P000)
         If ((Local0 != 0x07))
         {
-            ERR (TS, Z041, 0x46, 0x00, 0x00, Local0, 0x07)
+            ERR (__METHOD__, Z041, 0x46, 0x00, 0x00, Local0, 0x07)
         }
     }
 
@@ -91,4 +90,3 @@
         Debug = "TEST: SZO0, Get the size of Integer, Buffer, String or Package:"
         M1EF ()
     }
-

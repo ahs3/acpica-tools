@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -32,7 +32,6 @@
     Name (Z090, 0x5A)
     Method (M615, 0, Serialized)
     {
-        Name (TS, "m615")
         /* Integer to String implicit conversion Cases. */
         /* Integer to String conversion of the Integer second operand of */
         /* Logical operators when the first operand is evaluated as String. */
@@ -1944,10 +1943,10 @@
 
             If (Y500)
             {
-                Local0 = Mid (DerefOf (PI60 [0x04]), DerefOf (M601 (0x01, 0x05)), 
+                Local0 = Mid (DerefOf (PI60 [0x04]), DerefOf (M601 (0x01, 0x05)),
                     DerefOf (M601 (0x01, 0x0B)))
                 M600 (Arg0, 0x0A, Local0, BB1D)
-                Local0 = Mid (DerefOf (PI60 [0x0F]), DerefOf (M601 (0x01, 0x06)), 
+                Local0 = Mid (DerefOf (PI60 [0x0F]), DerefOf (M601 (0x01, 0x06)),
                     DerefOf (M601 (0x01, 0x0A)))
                 M600 (Arg0, 0x0B, Local0, BB30)
             }
@@ -1962,10 +1961,10 @@
             M600 (Arg0, 0x0F, Local0, BB30)
             If (Y078)
             {
-                Mid (DerefOf (PI60 [0x04]), DerefOf (RefOf (AUI5)), DerefOf (RefOf (AUIB)), 
+                Mid (DerefOf (PI60 [0x04]), DerefOf (RefOf (AUI5)), DerefOf (RefOf (AUIB)),
                     Local0)
                 M600 (Arg0, 0x10, Local0, BB1D)
-                Mid (DerefOf (PI60 [0x0F]), DerefOf (RefOf (AUI6)), DerefOf (RefOf (AUIA)), 
+                Mid (DerefOf (PI60 [0x0F]), DerefOf (RefOf (AUI6)), DerefOf (RefOf (AUIA)),
                     Local0)
                 M600 (Arg0, 0x11, Local0, BB30)
             }
@@ -1978,10 +1977,10 @@
             M600 (Arg0, 0x13, Local0, BB30)
             /* Method returns Index and Length parameters */
 
-            Mid (DerefOf (PI60 [0x04]), M601 (0x01, 0x05), M601 (0x01, 0x0B), 
+            Mid (DerefOf (PI60 [0x04]), M601 (0x01, 0x05), M601 (0x01, 0x0B),
                 Local0)
             M600 (Arg0, 0x14, Local0, BB1D)
-            Mid (DerefOf (PI60 [0x0F]), M601 (0x01, 0x06), M601 (0x01, 0x0A), 
+            Mid (DerefOf (PI60 [0x0F]), M601 (0x01, 0x06), M601 (0x01, 0x0A),
                 Local0)
             M600 (Arg0, 0x15, Local0, BB30)
             /* Method returns Reference to Index and Length parameters */
@@ -2035,10 +2034,10 @@
 
             If (Y500)
             {
-                Local0 = Mid (DerefOf (PI60 [0x03]), DerefOf (M601 (0x01, 0x05)), 
+                Local0 = Mid (DerefOf (PI60 [0x03]), DerefOf (M601 (0x01, 0x05)),
                     DerefOf (M601 (0x01, 0x09)))
                 M600 (Arg0, 0x0A, Local0, BB1C)
-                Local0 = Mid (DerefOf (PI60 [0x0F]), DerefOf (M601 (0x01, 0x06)), 
+                Local0 = Mid (DerefOf (PI60 [0x0F]), DerefOf (M601 (0x01, 0x06)),
                     DerefOf (M601 (0x01, 0x08)))
                 M600 (Arg0, 0x0B, Local0, BB31)
             }
@@ -2053,10 +2052,10 @@
             M600 (Arg0, 0x0F, Local0, BB31)
             If (Y078)
             {
-                Mid (DerefOf (PI60 [0x03]), DerefOf (RefOf (AUI5)), DerefOf (RefOf (AUI9)), 
+                Mid (DerefOf (PI60 [0x03]), DerefOf (RefOf (AUI5)), DerefOf (RefOf (AUI9)),
                     Local0)
                 M600 (Arg0, 0x10, Local0, BB1C)
-                Mid (DerefOf (PI60 [0x0F]), DerefOf (RefOf (AUI6)), DerefOf (RefOf (AUI8)), 
+                Mid (DerefOf (PI60 [0x0F]), DerefOf (RefOf (AUI6)), DerefOf (RefOf (AUI8)),
                     Local0)
                 M600 (Arg0, 0x11, Local0, BB31)
             }
@@ -2069,10 +2068,10 @@
             M600 (Arg0, 0x13, Local0, BB31)
             /* Method returns Index and Length parameters */
 
-            Mid (DerefOf (PI60 [0x03]), M601 (0x01, 0x05), M601 (0x01, 0x09), 
+            Mid (DerefOf (PI60 [0x03]), M601 (0x01, 0x05), M601 (0x01, 0x09),
                 Local0)
             M600 (Arg0, 0x14, Local0, BB1C)
-            Mid (DerefOf (PI60 [0x0F]), M601 (0x01, 0x06), M601 (0x01, 0x08), 
+            Mid (DerefOf (PI60 [0x0F]), M601 (0x01, 0x06), M601 (0x01, 0x08),
                 Local0)
             M600 (Arg0, 0x15, Local0, BB31)
             /* Method returns Reference to Index and Length parameters */
@@ -3335,10 +3334,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PS60 [0x01]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PS60 [0x01]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0x0321)
-            Divide (DerefOf (PS60 [0x01]), DerefOf (PAUI [0x01]), Local1, 
+            Divide (DerefOf (PS60 [0x01]), DerefOf (PAUI [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -3351,10 +3350,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0x0321)
-                Divide (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x01, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x01, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -3417,10 +3416,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x01]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x01]), DerefOf (PS60 [0x01]), Local1, 
+            Divide (DerefOf (PAUI [0x01]), DerefOf (PS60 [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -3433,10 +3432,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x01]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x01]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x01, 0x01)), DerefOf (PS60 [0x01]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x01, 0x01)), DerefOf (PS60 [0x01]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -3504,10 +3503,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PS60 [0x05]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PS60 [0x05]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0xFE7CB391D650A284)
-            Divide (DerefOf (PS60 [0x05]), DerefOf (PAUI [0x04]), Local1, 
+            Divide (DerefOf (PS60 [0x05]), DerefOf (PAUI [0x04]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -3520,10 +3519,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0xFE7CB391D650A284)
-                Divide (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x04, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x04, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -3586,10 +3585,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x05]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x05]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x04]), DerefOf (PS60 [0x05]), Local1, 
+            Divide (DerefOf (PAUI [0x04]), DerefOf (PS60 [0x05]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -3602,10 +3601,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x05]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x05]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x04, 0x01)), DerefOf (PS60 [0x05]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x04, 0x01)), DerefOf (PS60 [0x05]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -3618,10 +3617,10 @@
             Store ((DerefOf (PS60 [0x05]) / DerefOf (PS60 [0x01])
                 ), Local0)
             M600 (Arg0, 0x31, Local0, 0x0051558EB950F5A7)
-            Divide (DerefOf (PS60 [0x01]), DerefOf (PS60 [0x05]), Local1, 
+            Divide (DerefOf (PS60 [0x01]), DerefOf (PS60 [0x05]), Local1,
                 Local0)
             M600 (Arg0, 0x32, Local0, 0x00)
-            Divide (DerefOf (PS60 [0x05]), DerefOf (PS60 [0x01]), Local1, 
+            Divide (DerefOf (PS60 [0x05]), DerefOf (PS60 [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x33, Local0, 0x0051558EB950F5A7)
         }
@@ -3688,10 +3687,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PS60 [0x04]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PS60 [0x04]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0xC179B3FE)
-            Divide (DerefOf (PS60 [0x04]), DerefOf (PAUI [0x03]), Local1, 
+            Divide (DerefOf (PS60 [0x04]), DerefOf (PAUI [0x03]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -3704,10 +3703,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0xC179B3FE)
-                Divide (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x03, 0x01)), Local1, 
+                Divide (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x03, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -3770,10 +3769,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x04]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PS60 [0x04]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x03]), DerefOf (PS60 [0x04]), Local1, 
+            Divide (DerefOf (PAUI [0x03]), DerefOf (PS60 [0x04]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -3786,10 +3785,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x04]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PS60 [0x04]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x03, 0x01)), DerefOf (PS60 [0x04]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x03, 0x01)), DerefOf (PS60 [0x04]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -3802,10 +3801,10 @@
             Store ((DerefOf (PS60 [0x04]) / DerefOf (PS60 [0x01])
                 ), Local0)
             M600 (Arg0, 0x31, Local0, 0x003DD5B7)
-            Divide (DerefOf (PS60 [0x01]), DerefOf (PS60 [0x04]), Local1, 
+            Divide (DerefOf (PS60 [0x01]), DerefOf (PS60 [0x04]), Local1,
                 Local0)
             M600 (Arg0, 0x32, Local0, 0x00)
-            Divide (DerefOf (PS60 [0x04]), DerefOf (PS60 [0x01]), Local1, 
+            Divide (DerefOf (PS60 [0x04]), DerefOf (PS60 [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x33, Local0, 0x003DD5B7)
         }
@@ -4866,10 +4865,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFFFF)
-                Local0 = NAnd (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NAnd (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0xFFFFFFFFFFFFFCDE)
             }
@@ -5027,10 +5026,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFFFF)
-                Local0 = NAnd (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NAnd (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x01834C6E29AF5D7B)
             }
@@ -5201,10 +5200,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFF)
-                Local0 = NAnd (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x12, 
+                Local0 = NAnd (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x12,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x3E864C01)
             }
@@ -5375,10 +5374,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFCDE)
-                Local0 = NOr (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NOr (DerefOf (PS60 [0x01]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -5536,10 +5535,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0x01834C6E29AF5D7B)
-                Local0 = NOr (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NOr (DerefOf (PS60 [0x05]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -5710,10 +5709,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0x3E864C01)
-                Local0 = NOr (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x12, 
+                Local0 = NOr (DerefOf (PS60 [0x04]), DerefOf (M602 (0x01, 0x12,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -8672,10 +8671,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x01]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x01]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PS60 [0x01]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x01]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -8761,10 +8760,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x05]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x05]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PS60 [0x05]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x05]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -8859,10 +8858,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x04]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x04]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PS60 [0x04]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x04]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -8957,10 +8956,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x00]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x00]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PS60 [0x00]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x00]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -9046,10 +9045,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x05]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x05]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Ones)
-                Local0 = (DerefOf (PS60 [0x05]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x05]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -9144,10 +9143,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PS60 [0x04]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PS60 [0x04]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Ones)
-                Local0 = (DerefOf (PS60 [0x04]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PS60 [0x04]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -10912,10 +10911,10 @@
                 M600 (Arg0, 0x11, Local0, BB32)
             }
 
-            Mid (DerefOf (PAUS [0x06]), DerefOf (PS60 [0x14]), 0x0A, 
+            Mid (DerefOf (PAUS [0x06]), DerefOf (PS60 [0x14]), 0x0A,
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1D)
-            Mid (DerefOf (PAUB [0x06]), DerefOf (PS60 [0x14]), 0x0A, 
+            Mid (DerefOf (PAUB [0x06]), DerefOf (PS60 [0x14]), 0x0A,
                 Local0)
             M600 (Arg0, 0x13, Local0, BB32)
             /* Method returns Object */
@@ -10928,10 +10927,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), DerefOf (PS60 [0x14]), 0x0A, 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), DerefOf (PS60 [0x14]), 0x0A,
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1D)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), DerefOf (PS60 [0x14]), 0x0A, 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), DerefOf (PS60 [0x14]), 0x0A,
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB32)
             }
@@ -11005,10 +11004,10 @@
                 M600 (Arg0, 0x29, Local0, BB33)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x14]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x14]),
                 Local0)
             M600 (Arg0, 0x2A, Local0, BS1B)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x14]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x14]),
                 Local0)
             M600 (Arg0, 0x2B, Local0, BB33)
             /* Method returns Object */
@@ -11021,10 +11020,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x14]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x14]),
                     Local0)
                 M600 (Arg0, 0x2E, Local0, BS1B)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x14]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x14]),
                     Local0)
                 M600 (Arg0, 0x2F, Local0, BB33)
             }
@@ -11101,10 +11100,10 @@
                 M600 (Arg0, 0x11, Local0, BB34)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x05]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x05]),
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1E)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x05]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x05]),
                 Local0)
             M600 (Arg0, 0x13, Local0, BB34)
             /* Method returns Object */
@@ -11117,10 +11116,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x05]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x05]),
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1E)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x05]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x05]),
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB34)
             }
@@ -11178,7 +11177,7 @@
                 M600 (Arg0, 0x23, Local0, BB35)
             }
 
-            Mid ("This is auxiliary String", DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]), 
+            Mid ("This is auxiliary String", DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]),
                 Local0)
             M600 (Arg0, 0x24, Local0, BS1F)
             Mid (Buffer (0x19)
@@ -11187,10 +11186,10 @@
                 }, DerefOf (PS60 [0x14]), DerefOf (PS60 [
                 0x05]), Local0)
             M600 (Arg0, 0x25, Local0, BB35)
-            Mid (AUS6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]), 
+            Mid (AUS6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]),
                 Local0)
             M600 (Arg0, 0x26, Local0, BS1F)
-            Mid (AUB6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]), 
+            Mid (AUB6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x05]),
                 Local0)
             M600 (Arg0, 0x27, Local0, BB35)
             If (Y078)
@@ -11301,10 +11300,10 @@
                 M600 (Arg0, 0x11, Local0, BB34)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x04]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PS60 [0x04]),
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1E)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x04]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PS60 [0x04]),
                 Local0)
             M600 (Arg0, 0x13, Local0, BB34)
             /* Method returns Object */
@@ -11317,10 +11316,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x04]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x04]),
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1E)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x04]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PS60 [0x04]),
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB34)
             }
@@ -11378,7 +11377,7 @@
                 M600 (Arg0, 0x23, Local0, BB35)
             }
 
-            Mid ("This is auxiliary String", DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]), 
+            Mid ("This is auxiliary String", DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]),
                 Local0)
             M600 (Arg0, 0x24, Local0, BS1F)
             Mid (Buffer (0x19)
@@ -11387,10 +11386,10 @@
                 }, DerefOf (PS60 [0x14]), DerefOf (PS60 [
                 0x04]), Local0)
             M600 (Arg0, 0x25, Local0, BB35)
-            Mid (AUS6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]), 
+            Mid (AUS6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]),
                 Local0)
             M600 (Arg0, 0x26, Local0, BS1F)
-            Mid (AUB6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]), 
+            Mid (AUB6, DerefOf (PS60 [0x14]), DerefOf (PS60 [0x04]),
                 Local0)
             M600 (Arg0, 0x27, Local0, BB35)
             If (Y078)
@@ -11436,39 +11435,39 @@
         {
             Local0 = Match (Package (0x0F)
                     {
-                        0x0A50, 
-                        0x0A51, 
-                        0x0A52, 
-                        0x0A53, 
-                        0x0A54, 
-                        0x0A55, 
-                        0x0A56, 
-                        0x0A57, 
-                        0x0A58, 
-                        0x0A59, 
-                        0x0A5A, 
-                        0x0A5B, 
-                        0x0A5C, 
-                        0x0A5D, 
+                        0x0A50,
+                        0x0A51,
+                        0x0A52,
+                        0x0A53,
+                        0x0A54,
+                        0x0A55,
+                        0x0A56,
+                        0x0A57,
+                        0x0A58,
+                        0x0A59,
+                        0x0A5A,
+                        0x0A5B,
+                        0x0A5C,
+                        0x0A5D,
                         0x0A5E
                     }, MEQ, 0x0A5D, MTR, 0x00, DerefOf (PS60 [0x14]))
             M600 (Arg0, 0x00, Local0, 0x0D)
             Local0 = Match (Package (0x0F)
                     {
-                        0x0A50, 
-                        0x0A51, 
-                        0x0A52, 
-                        0x0A53, 
-                        0x0A54, 
-                        0x0A55, 
-                        0x0A56, 
-                        0x0A57, 
-                        0x0A58, 
-                        0x0A59, 
-                        0x0A5A, 
-                        0x0A5B, 
-                        0x0A5C, 
-                        0x0A5D, 
+                        0x0A50,
+                        0x0A51,
+                        0x0A52,
+                        0x0A53,
+                        0x0A54,
+                        0x0A55,
+                        0x0A56,
+                        0x0A57,
+                        0x0A58,
+                        0x0A59,
+                        0x0A5A,
+                        0x0A5B,
+                        0x0A5C,
+                        0x0A5D,
                         0x0A5E
                     }, MEQ, 0x0A5A, MTR, 0x00, DerefOf (PS60 [0x14]))
             M600 (Arg0, 0x01, Local0, Ones)
@@ -11488,10 +11487,10 @@
                 M600 (Arg0, 0x05, Local0, Ones)
             }
 
-            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5D, MTR, 0x00, 
+            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5D, MTR, 0x00,
                 DerefOf (PS60 [0x14]))
             M600 (Arg0, 0x06, Local0, 0x0D)
-            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5A, MTR, 0x00, 
+            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5A, MTR, 0x00,
                 DerefOf (PS60 [0x14]))
             M600 (Arg0, 0x07, Local0, Ones)
             /* Method returns Object */
@@ -11506,10 +11505,10 @@
 
             If (Y500)
             {
-                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5D, MTR, 0x00, 
+                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5D, MTR, 0x00,
                     DerefOf (PS60 [0x14]))
                 M600 (Arg0, 0x0A, Local0, 0x0D)
-                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5A, MTR, 0x00, 
+                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5A, MTR, 0x00,
                     DerefOf (PS60 [0x14]))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -13775,10 +13774,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PB60 [0x06]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PB60 [0x06]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0x0321)
-            Divide (DerefOf (PB60 [0x06]), DerefOf (PAUI [0x01]), Local1, 
+            Divide (DerefOf (PB60 [0x06]), DerefOf (PAUI [0x01]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -13791,10 +13790,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0x0321)
-                Divide (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x01, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x01, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -13857,10 +13856,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x06]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x01]), DerefOf (PB60 [0x06]), Local1, 
+            Divide (DerefOf (PAUI [0x01]), DerefOf (PB60 [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -13873,10 +13872,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x06]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x06]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x01, 0x01)), DerefOf (PB60 [0x06]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x01, 0x01)), DerefOf (PB60 [0x06]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -13944,10 +13943,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0xFE7CB391D650A284)
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x04]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x04]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -13960,10 +13959,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0xFE7CB391D650A284)
-                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x04, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x04, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -14026,10 +14025,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x04]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PAUI [0x04]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -14042,10 +14041,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x0A]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x0A]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x04, 0x01)), DerefOf (PB60 [0x0A]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x04, 0x01)), DerefOf (PB60 [0x0A]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -14058,10 +14057,10 @@
             Store ((DerefOf (PB60 [0x0A]) / DerefOf (PB60 [0x06])
                 ), Local0)
             M600 (Arg0, 0x31, Local0, 0x0051558EB950F5A7)
-            Divide (DerefOf (PB60 [0x06]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PB60 [0x06]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x32, Local0, 0x00)
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PB60 [0x06]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PB60 [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x33, Local0, 0x0051558EB950F5A7)
         }
@@ -14128,10 +14127,10 @@
                 M600 (Arg0, 0x11, Local0, 0x01)
             }
 
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x06]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x12, Local0, 0xD650A284)
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x14]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PAUI [0x14]), Local1,
                 Local0)
             M600 (Arg0, 0x13, Local0, 0x01)
             /* Method returns Integer */
@@ -14144,10 +14143,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x06, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x16, Local0, 0xD650A284)
-                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x14, 0x01)), Local1, 
+                Divide (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x14, 0x01)), Local1,
                     Local0)
                 M600 (Arg0, 0x17, Local0, 0x01)
             }
@@ -14210,10 +14209,10 @@
                 M600 (Arg0, 0x29, Local0, 0x01)
             }
 
-            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PAUI [0x06]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x2A, Local0, 0x00)
-            Divide (DerefOf (PAUI [0x14]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PAUI [0x14]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x2B, Local0, 0x01)
             /* Method returns Integer */
@@ -14226,10 +14225,10 @@
 
             If (Y500)
             {
-                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x0A]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x06, 0x01)), DerefOf (PB60 [0x0A]), Local1,
                     Local0)
                 M600 (Arg0, 0x2E, Local0, 0x00)
-                Divide (DerefOf (M602 (0x01, 0x14, 0x01)), DerefOf (PB60 [0x0A]), Local1, 
+                Divide (DerefOf (M602 (0x01, 0x14, 0x01)), DerefOf (PB60 [0x0A]), Local1,
                     Local0)
                 M600 (Arg0, 0x2F, Local0, 0x01)
             }
@@ -14242,10 +14241,10 @@
             Store ((DerefOf (PB60 [0x0A]) / DerefOf (PB60 [0x06])
                 ), Local0)
             M600 (Arg0, 0x31, Local0, 0x00447EC3)
-            Divide (DerefOf (PB60 [0x06]), DerefOf (PB60 [0x0A]), Local1, 
+            Divide (DerefOf (PB60 [0x06]), DerefOf (PB60 [0x0A]), Local1,
                 Local0)
             M600 (Arg0, 0x32, Local0, 0x00)
-            Divide (DerefOf (PB60 [0x0A]), DerefOf (PB60 [0x06]), Local1, 
+            Divide (DerefOf (PB60 [0x0A]), DerefOf (PB60 [0x06]), Local1,
                 Local0)
             M600 (Arg0, 0x33, Local0, 0x00447EC3)
         }
@@ -15306,10 +15305,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFFFF)
-                Local0 = NAnd (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NAnd (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0xFFFFFFFFFFFFFCDE)
             }
@@ -15467,10 +15466,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFFFF)
-                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x01834C6E29AF5D7B)
             }
@@ -15641,10 +15640,10 @@
 
             If (Y500)
             {
-                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFF)
-                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x12, 
+                Local0 = NAnd (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x12,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x29AF5D7B)
             }
@@ -15815,10 +15814,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0xFFFFFFFFFFFFFCDE)
-                Local0 = NOr (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NOr (DerefOf (PB60 [0x06]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -15976,10 +15975,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0x01834C6E29AF5D7B)
-                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x13, 
+                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x13,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -16150,10 +16149,10 @@
 
             If (Y500)
             {
-                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05, 
+                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, 0x29AF5D7B)
-                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x12, 
+                Local0 = NOr (DerefOf (PB60 [0x0A]), DerefOf (M602 (0x01, 0x12,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, 0x00)
             }
@@ -19112,10 +19111,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x06]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x06]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PB60 [0x06]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x06]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -19201,10 +19200,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -19299,10 +19298,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x0A]) && DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -19397,10 +19396,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x00]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x00]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Zero)
-                Local0 = (DerefOf (PB60 [0x00]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x00]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -19486,10 +19485,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Ones)
-                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -19584,10 +19583,10 @@
 
             If (Y500)
             {
-                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x05, 
+                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x05,
                     0x01)))
                 M600 (Arg0, 0x0A, Local0, Ones)
-                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x06, 
+                Local0 = (DerefOf (PB60 [0x0A]) || DerefOf (M602 (0x01, 0x06,
                     0x01)))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -21352,10 +21351,10 @@
                 M600 (Arg0, 0x11, Local0, BB32)
             }
 
-            Mid (DerefOf (PAUS [0x06]), DerefOf (PB60 [0x0E]), 0x0A, 
+            Mid (DerefOf (PAUS [0x06]), DerefOf (PB60 [0x0E]), 0x0A,
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1D)
-            Mid (DerefOf (PAUB [0x06]), DerefOf (PB60 [0x0E]), 0x0A, 
+            Mid (DerefOf (PAUB [0x06]), DerefOf (PB60 [0x0E]), 0x0A,
                 Local0)
             M600 (Arg0, 0x13, Local0, BB32)
             /* Method returns Object */
@@ -21368,10 +21367,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), DerefOf (PB60 [0x0E]), 0x0A, 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), DerefOf (PB60 [0x0E]), 0x0A,
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1D)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), DerefOf (PB60 [0x0E]), 0x0A, 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), DerefOf (PB60 [0x0E]), 0x0A,
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB32)
             }
@@ -21445,10 +21444,10 @@
                 M600 (Arg0, 0x29, Local0, BB33)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0E]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0E]),
                 Local0)
             M600 (Arg0, 0x2A, Local0, BS1B)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0E]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0E]),
                 Local0)
             M600 (Arg0, 0x2B, Local0, BB33)
             /* Method returns Object */
@@ -21461,10 +21460,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0E]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0E]),
                     Local0)
                 M600 (Arg0, 0x2E, Local0, BS1B)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0E]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0E]),
                     Local0)
                 M600 (Arg0, 0x2F, Local0, BB33)
             }
@@ -21541,10 +21540,10 @@
                 M600 (Arg0, 0x11, Local0, BB34)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0A]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1E)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0A]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x13, Local0, BB34)
             /* Method returns Object */
@@ -21557,10 +21556,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]),
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1E)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]),
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB34)
             }
@@ -21618,7 +21617,7 @@
                 M600 (Arg0, 0x23, Local0, BB35)
             }
 
-            Mid ("This is auxiliary String", DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid ("This is auxiliary String", DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x24, Local0, BS1F)
             Mid (Buffer (0x19)
@@ -21627,10 +21626,10 @@
                 }, DerefOf (PB60 [0x0E]), DerefOf (PB60 [
                 0x0A]), Local0)
             M600 (Arg0, 0x25, Local0, BB35)
-            Mid (AUS6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid (AUS6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x26, Local0, BS1F)
-            Mid (AUB6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid (AUB6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x27, Local0, BB35)
             If (Y078)
@@ -21741,10 +21740,10 @@
                 M600 (Arg0, 0x11, Local0, BB34)
             }
 
-            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0A]), 
+            Mid (DerefOf (PAUS [0x06]), 0x00, DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x12, Local0, BS1E)
-            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0A]), 
+            Mid (DerefOf (PAUB [0x06]), 0x00, DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x13, Local0, BB34)
             /* Method returns Object */
@@ -21757,10 +21756,10 @@
 
             If (Y500)
             {
-                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]), 
+                Mid (DerefOf (M602 (0x02, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]),
                     Local0)
                 M600 (Arg0, 0x16, Local0, BS1E)
-                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]), 
+                Mid (DerefOf (M602 (0x03, 0x06, 0x01)), 0x00, DerefOf (PB60 [0x0A]),
                     Local0)
                 M600 (Arg0, 0x17, Local0, BB34)
             }
@@ -21818,7 +21817,7 @@
                 M600 (Arg0, 0x23, Local0, BB35)
             }
 
-            Mid ("This is auxiliary String", DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid ("This is auxiliary String", DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x24, Local0, BS1F)
             Mid (Buffer (0x19)
@@ -21827,10 +21826,10 @@
                 }, DerefOf (PB60 [0x0E]), DerefOf (PB60 [
                 0x0A]), Local0)
             M600 (Arg0, 0x25, Local0, BB35)
-            Mid (AUS6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid (AUS6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x26, Local0, BS1F)
-            Mid (AUB6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]), 
+            Mid (AUB6, DerefOf (PB60 [0x0E]), DerefOf (PB60 [0x0A]),
                 Local0)
             M600 (Arg0, 0x27, Local0, BB35)
             If (Y078)
@@ -21876,39 +21875,39 @@
         {
             Local0 = Match (Package (0x0F)
                     {
-                        0x0A50, 
-                        0x0A51, 
-                        0x0A52, 
-                        0x0A53, 
-                        0x0A54, 
-                        0x0A55, 
-                        0x0A56, 
-                        0x0A57, 
-                        0x0A58, 
-                        0x0A59, 
-                        0x0A5A, 
-                        0x0A5B, 
-                        0x0A5C, 
-                        0x0A5D, 
+                        0x0A50,
+                        0x0A51,
+                        0x0A52,
+                        0x0A53,
+                        0x0A54,
+                        0x0A55,
+                        0x0A56,
+                        0x0A57,
+                        0x0A58,
+                        0x0A59,
+                        0x0A5A,
+                        0x0A5B,
+                        0x0A5C,
+                        0x0A5D,
                         0x0A5E
                     }, MEQ, 0x0A5D, MTR, 0x00, DerefOf (PB60 [0x0E]))
             M600 (Arg0, 0x00, Local0, 0x0D)
             Local0 = Match (Package (0x0F)
                     {
-                        0x0A50, 
-                        0x0A51, 
-                        0x0A52, 
-                        0x0A53, 
-                        0x0A54, 
-                        0x0A55, 
-                        0x0A56, 
-                        0x0A57, 
-                        0x0A58, 
-                        0x0A59, 
-                        0x0A5A, 
-                        0x0A5B, 
-                        0x0A5C, 
-                        0x0A5D, 
+                        0x0A50,
+                        0x0A51,
+                        0x0A52,
+                        0x0A53,
+                        0x0A54,
+                        0x0A55,
+                        0x0A56,
+                        0x0A57,
+                        0x0A58,
+                        0x0A59,
+                        0x0A5A,
+                        0x0A5B,
+                        0x0A5C,
+                        0x0A5D,
                         0x0A5E
                     }, MEQ, 0x0A5A, MTR, 0x00, DerefOf (PB60 [0x0E]))
             M600 (Arg0, 0x01, Local0, Ones)
@@ -21928,10 +21927,10 @@
                 M600 (Arg0, 0x05, Local0, Ones)
             }
 
-            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5D, MTR, 0x00, 
+            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5D, MTR, 0x00,
                 DerefOf (PB60 [0x0E]))
             M600 (Arg0, 0x06, Local0, 0x0D)
-            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5A, MTR, 0x00, 
+            Local0 = Match (DerefOf (PAUP [0x00]), MEQ, 0x0A5A, MTR, 0x00,
                 DerefOf (PB60 [0x0E]))
             M600 (Arg0, 0x07, Local0, Ones)
             /* Method returns Object */
@@ -21946,10 +21945,10 @@
 
             If (Y500)
             {
-                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5D, MTR, 0x00, 
+                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5D, MTR, 0x00,
                     DerefOf (PB60 [0x0E]))
                 M600 (Arg0, 0x0A, Local0, 0x0D)
-                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5A, MTR, 0x00, 
+                Local0 = Match (DerefOf (M602 (0x04, 0x00, 0x01)), MEQ, 0x0A5A, MTR, 0x00,
                     DerefOf (PB60 [0x0E]))
                 M600 (Arg0, 0x0B, Local0, Ones)
             }
@@ -22552,13 +22551,13 @@
         /* LEqual LGreater LGreaterEqual LLess LLessEqual LNotEqual */
         If (F64)
         {
-            Concatenate (TS, "-m640", Local0)
+            Concatenate (__METHOD__, "-m640", Local0)
             SRMT (Local0)
             M640 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m320", Local0)
+            Concatenate (__METHOD__, "-m320", Local0)
             SRMT (Local0)
             M320 (Local0)
         }
@@ -22567,13 +22566,13 @@
         /* Concatenate operator when the first operand is evaluated as String */
         If (F64)
         {
-            Concatenate (TS, "-m641", Local0)
+            Concatenate (__METHOD__, "-m641", Local0)
             SRMT (Local0)
             M641 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m321", Local0)
+            Concatenate (__METHOD__, "-m321", Local0)
             SRMT (Local0)
             M321 (Local0)
         }
@@ -22584,13 +22583,13 @@
         /* (LEqual, LGreater, LGreaterEqual, LLess, LLessEqual, LNotEqual) */
         If (F64)
         {
-            Concatenate (TS, "-m644", Local0)
+            Concatenate (__METHOD__, "-m644", Local0)
             SRMT (Local0)
             M644 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m324", Local0)
+            Concatenate (__METHOD__, "-m324", Local0)
             SRMT (Local0)
             M324 (Local0)
         }
@@ -22599,13 +22598,13 @@
         /* Concatenate operator */
         If (F64)
         {
-            Concatenate (TS, "-m645", Local0)
+            Concatenate (__METHOD__, "-m645", Local0)
             SRMT (Local0)
             M645 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m325", Local0)
+            Concatenate (__METHOD__, "-m325", Local0)
             SRMT (Local0)
             M325 (Local0)
         }
@@ -22614,13 +22613,13 @@
         /* Concatenate operator when the first operand is evaluated as Buffer */
         If (F64)
         {
-            Concatenate (TS, "-m646", Local0)
+            Concatenate (__METHOD__, "-m646", Local0)
             SRMT (Local0)
             M646 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m326", Local0)
+            Concatenate (__METHOD__, "-m326", Local0)
             SRMT (Local0)
             M326 (Local0)
         }
@@ -22629,13 +22628,13 @@
         /* ToString operator */
         If (F64)
         {
-            Concatenate (TS, "-m647", Local0)
+            Concatenate (__METHOD__, "-m647", Local0)
             SRMT (Local0)
             M647 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m327", Local0)
+            Concatenate (__METHOD__, "-m327", Local0)
             SRMT (Local0)
             M327 (Local0)
         }
@@ -22644,13 +22643,13 @@
         /* Mid operator */
         If (F64)
         {
-            Concatenate (TS, "-m648", Local0)
+            Concatenate (__METHOD__, "-m648", Local0)
             SRMT (Local0)
             M648 (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m328", Local0)
+            Concatenate (__METHOD__, "-m328", Local0)
             SRMT (Local0)
             M328 (Local0)
         }
@@ -22661,33 +22660,33 @@
         /* (Decrement, Increment, FindSetLeftBit, FindSetRightBit, Not) */
         If (F64)
         {
-            Concatenate (TS, "-m64b", Local0)
+            Concatenate (__METHOD__, "-m64b", Local0)
             SRMT (Local0)
             M64B (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32b", Local0)
+            Concatenate (__METHOD__, "-m32b", Local0)
             SRMT (Local0)
             M32B (Local0)
         }
 
         /* String to Integer conversion of the String sole operand */
         /* of the LNot Logical Integer operator */
-        Concatenate (TS, "-m000", Local0)
+        Concatenate (__METHOD__, "-m000", Local0)
         SRMT (Local0)
         M000 (Local0)
         /* String to Integer conversion of the String sole operand */
         /* of the FromBCD and ToBCD conversion operators */
         If (F64)
         {
-            Concatenate (TS, "-m64c", Local0)
+            Concatenate (__METHOD__, "-m64c", Local0)
             SRMT (Local0)
             M64C (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32c", Local0)
+            Concatenate (__METHOD__, "-m32c", Local0)
             SRMT (Local0)
             M32C (Local0)
         }
@@ -22698,39 +22697,39 @@
         /* ShiftLeft, ShiftRight, Subtract, Xor */
         If (F64)
         {
-            M64D (Concatenate (TS, "-m64d"))
+            M64D (Concatenate (__METHOD__, "-m64d"))
         }
         Else
         {
-            M32D (Concatenate (TS, "-m32d"))
+            M32D (Concatenate (__METHOD__, "-m32d"))
         }
 
         /* String to Integer conversion of each String operand */
         /* of the 2-parameter Logical Integer operators LAnd and LOr */
         If (F64)
         {
-            M64E (Concatenate (TS, "-m64e"))
+            M64E (Concatenate (__METHOD__, "-m64e"))
         }
         Else
         {
-            M32E (Concatenate (TS, "-m32e"))
+            M32E (Concatenate (__METHOD__, "-m32e"))
         }
 
         /* String to Integer conversion of the String second operand of */
         /* Logical operators when the first operand is evaluated as Integer */
         /* (LEqual, LGreater, LGreaterEqual, LLess, LLessEqual, LNotEqual) */
-        Concatenate (TS, "-m02b", Local0)
+        Concatenate (__METHOD__, "-m02b", Local0)
         SRMT (Local0)
         M02B (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64f", Local0)
+            Concatenate (__METHOD__, "-m64f", Local0)
             SRMT (Local0)
             M64F (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32f", Local0)
+            Concatenate (__METHOD__, "-m32f", Local0)
             SRMT (Local0)
             M32F (Local0)
         }
@@ -22739,72 +22738,72 @@
         /* operand of Concatenate operator in case the first one is Integer */
         If (F64)
         {
-            Concatenate (TS, "-m64g", Local0)
+            Concatenate (__METHOD__, "-m64g", Local0)
             SRMT (Local0)
             M64G (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32g", Local0)
+            Concatenate (__METHOD__, "-m32g", Local0)
             SRMT (Local0)
             M32G (Local0)
         }
 
         /* String to Integer conversion of the String Length (second) */
         /* operand of the ToString operator */
-        Concatenate (TS, "-m02c", Local0)
+        Concatenate (__METHOD__, "-m02c", Local0)
         SRMT (Local0)
         M02C (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64h", Local0)
+            Concatenate (__METHOD__, "-m64h", Local0)
             SRMT (Local0)
             M64H (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32h", Local0)
+            Concatenate (__METHOD__, "-m32h", Local0)
             SRMT (Local0)
             M32H (Local0)
         }
 
         /* String to Integer conversion of the String Index (second) */
         /* operand of the Index operator */
-        Concatenate (TS, "-m02d", Local0)
+        Concatenate (__METHOD__, "-m02d", Local0)
         SRMT (Local0)
         M02D (Local0)
         /* String to Integer conversion of the String Arg (third) */
         /* operand of the Fatal operator */
         /* (it can only be checked an exception does not occur) */
-        Concatenate (TS, "-m02e", Local0)
+        Concatenate (__METHOD__, "-m02e", Local0)
         SRMT (Local0)
         M02E (Local0)
         /* String to Integer conversion of the String Index and Length */
         /* operands of the Mid operator */
-        Concatenate (TS, "-m02f", Local0)
+        Concatenate (__METHOD__, "-m02f", Local0)
         SRMT (Local0)
         M02F (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64i", Local0)
+            Concatenate (__METHOD__, "-m64i", Local0)
             SRMT (Local0)
             M64I (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32i", Local0)
+            Concatenate (__METHOD__, "-m32i", Local0)
             SRMT (Local0)
             M32I (Local0)
         }
 
         /* String to Integer conversion of the String StartIndex */
         /* operand of the Match operator */
-        Concatenate (TS, "-m030", Local0)
+        Concatenate (__METHOD__, "-m030", Local0)
         SRMT (Local0)
         M030 (Local0)
         /* String to Integer conversion of the String sole operand */
         /* of the Method execution control operators (Sleep, Stall) */
-        Concatenate (TS, "-m031", Local0)
+        Concatenate (__METHOD__, "-m031", Local0)
         SRMT (Local0)
         M031 (Local0)
         /* String to Integer conversion of the String TimeoutValue */
@@ -22816,13 +22815,13 @@
          */
         /* String to Integer conversion of the String TimeoutValue */
         /* (second) operand of the Wait operator */
-        Concatenate (TS, "-m033", Local0)
+        Concatenate (__METHOD__, "-m033", Local0)
         SRMT (Local0)
         M033 (Local0)
         /* String to Integer conversion of the String value */
         /* of Predicate of the Method execution control statements */
         /* (If, ElseIf, While) */
-        Concatenate (TS, "-m034", Local0)
+        Concatenate (__METHOD__, "-m034", Local0)
         SRMT (Local0)
         If (Y111)
         {
@@ -22842,18 +22841,18 @@
         /* String to Buffer conversion of the String second operand of */
         /* Logical operators when the first operand is evaluated as Buffer */
         /* (LEqual, LGreater, LGreaterEqual, LLess, LLessEqual, LNotEqual) */
-        Concatenate (TS, "-m035", Local0)
+        Concatenate (__METHOD__, "-m035", Local0)
         SRMT (Local0)
         M035 (Local0)
         /* String to Buffer conversion of the String second operand of */
         /* Concatenate operator when the first operand is evaluated as Buffer */
-        Concatenate (TS, "-m036", Local0)
+        Concatenate (__METHOD__, "-m036", Local0)
         SRMT (Local0)
         M036 (Local0)
         /* String to Buffer conversion of the String Source operand of */
         /* ToString operator (has a visual effect in shortening of the */
         /* String taken the null character) */
-        Concatenate (TS, "-m037", Local0)
+        Concatenate (__METHOD__, "-m037", Local0)
         SRMT (Local0)
         M037 (Local0)
         /* Buffer to Integer implicit conversion Cases. */
@@ -22862,33 +22861,33 @@
         /* (Decrement, Increment, FindSetLeftBit, FindSetRightBit, Not) */
         If (F64)
         {
-            Concatenate (TS, "-m64l", Local0)
+            Concatenate (__METHOD__, "-m64l", Local0)
             SRMT (Local0)
             M64L (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32l", Local0)
+            Concatenate (__METHOD__, "-m32l", Local0)
             SRMT (Local0)
             M32L (Local0)
         }
 
         /* Buffer to Integer conversion of the Buffer sole operand */
         /* of the LNot Logical Integer operator */
-        Concatenate (TS, "-m03a", Local0)
+        Concatenate (__METHOD__, "-m03a", Local0)
         SRMT (Local0)
         M03A (Local0)
         /* Buffer to Integer conversion of the Buffer sole operand */
         /* of the FromBCD and ToBCD conversion operators */
         If (F64)
         {
-            Concatenate (TS, "-m64m", Local0)
+            Concatenate (__METHOD__, "-m64m", Local0)
             SRMT (Local0)
             M64M (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32m", Local0)
+            Concatenate (__METHOD__, "-m32m", Local0)
             SRMT (Local0)
             M32M (Local0)
         }
@@ -22899,39 +22898,39 @@
         /* ShiftLeft, ShiftRight, Subtract, Xor */
         If (F64)
         {
-            M64N (Concatenate (TS, "-m64n"))
+            M64N (Concatenate (__METHOD__, "-m64n"))
         }
         Else
         {
-            M32N (Concatenate (TS, "-m32n"))
+            M32N (Concatenate (__METHOD__, "-m32n"))
         }
 
         /* Buffer to Integer conversion of each Buffer operand */
         /* of the 2-parameter Logical Integer operators LAnd and LOr */
         If (F64)
         {
-            M64O (Concatenate (TS, "-m64o"))
+            M64O (Concatenate (__METHOD__, "-m64o"))
         }
         Else
         {
-            M32O (Concatenate (TS, "-m32o"))
+            M32O (Concatenate (__METHOD__, "-m32o"))
         }
 
         /* Buffer to Integer conversion of the Buffer second operand of */
         /* Logical operators when the first operand is evaluated as Integer */
         /* (LEqual, LGreater, LGreaterEqual, LLess, LLessEqual, LNotEqual) */
-        Concatenate (TS, "-m065", Local0)
+        Concatenate (__METHOD__, "-m065", Local0)
         SRMT (Local0)
         M065 (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64p", Local0)
+            Concatenate (__METHOD__, "-m64p", Local0)
             SRMT (Local0)
             M64P (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32p", Local0)
+            Concatenate (__METHOD__, "-m32p", Local0)
             SRMT (Local0)
             M32P (Local0)
         }
@@ -22940,72 +22939,72 @@
         /* operand of Concatenate operator in case the first one is Integer */
         If (F64)
         {
-            Concatenate (TS, "-m64q", Local0)
+            Concatenate (__METHOD__, "-m64q", Local0)
             SRMT (Local0)
             M64Q (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32q", Local0)
+            Concatenate (__METHOD__, "-m32q", Local0)
             SRMT (Local0)
             M32Q (Local0)
         }
 
         /* Buffer to Integer conversion of the Buffer Length (second) */
         /* operand of the ToString operator */
-        Concatenate (TS, "-m066", Local0)
+        Concatenate (__METHOD__, "-m066", Local0)
         SRMT (Local0)
         M066 (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64r", Local0)
+            Concatenate (__METHOD__, "-m64r", Local0)
             SRMT (Local0)
             M64R (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32r", Local0)
+            Concatenate (__METHOD__, "-m32r", Local0)
             SRMT (Local0)
             M32R (Local0)
         }
 
         /* Buffer to Integer conversion of the Buffer Index (second) */
         /* operand of the Index operator */
-        Concatenate (TS, "-m067", Local0)
+        Concatenate (__METHOD__, "-m067", Local0)
         SRMT (Local0)
         M067 (Local0)
         /* Buffer to Integer conversion of the String Arg (third) */
         /* operand of the Fatal operator */
         /* (it can only be checked an exception does not occur) */
-        Concatenate (TS, "-m068", Local0)
+        Concatenate (__METHOD__, "-m068", Local0)
         SRMT (Local0)
         M068 (Local0)
         /* Buffer to Integer conversion of the Buffer Index and Length */
         /* operands of the Mid operator */
-        Concatenate (TS, "-m069", Local0)
+        Concatenate (__METHOD__, "-m069", Local0)
         SRMT (Local0)
         M069 (Local0)
         If (F64)
         {
-            Concatenate (TS, "-m64s", Local0)
+            Concatenate (__METHOD__, "-m64s", Local0)
             SRMT (Local0)
             M64S (Local0)
         }
         Else
         {
-            Concatenate (TS, "-m32s", Local0)
+            Concatenate (__METHOD__, "-m32s", Local0)
             SRMT (Local0)
             M32S (Local0)
         }
 
         /* Buffer to Integer conversion of the Buffer StartIndex */
         /* operand of the Match operator */
-        Concatenate (TS, "-m06a", Local0)
+        Concatenate (__METHOD__, "-m06a", Local0)
         SRMT (Local0)
         M06A (Local0)
         /* Buffer to Integer conversion of the Buffer sole operand */
         /* of the Method execution control operators (Sleep, Stall) */
-        Concatenate (TS, "-m06b", Local0)
+        Concatenate (__METHOD__, "-m06b", Local0)
         SRMT (Local0)
         M06B (Local0)
         /* Buffer to Integer conversion of the Buffer TimeoutValue */
@@ -23017,13 +23016,13 @@
          */
         /* Buffer to Integer conversion of the Buffer TimeoutValue */
         /* (second) operand of the Wait operator */
-        Concatenate (TS, "-m06d", Local0)
+        Concatenate (__METHOD__, "-m06d", Local0)
         SRMT (Local0)
         M06D (Local0)
         /* Buffer to Integer conversion of the Buffer value */
         /* of Predicate of the Method execution control statements */
         /* (If, ElseIf, While) */
-        Concatenate (TS, "-m06e", Local0)
+        Concatenate (__METHOD__, "-m06e", Local0)
         SRMT (Local0)
         If (Y111)
         {
@@ -23043,17 +23042,17 @@
         /* Buffer to String conversion of the Buffer second operand of */
         /* Logical operators when the first operand is evaluated as String. */
         /* LEqual LGreater LGreaterEqual LLess LLessEqual LNotEqual */
-        Concatenate (TS, "-m06f", Local0)
+        Concatenate (__METHOD__, "-m06f", Local0)
         SRMT (Local0)
         M06F (Local0)
         /* Buffer to String conversion of the Buffer second operand of */
         /* Concatenate operator when the first operand is evaluated as String */
-        Concatenate (TS, "-m070", Local0)
+        Concatenate (__METHOD__, "-m070", Local0)
         SRMT (Local0)
         M070 (Local0)
         /* Check consistency of the test Named Objects */
         /* in the root Scope of the Global ACPI namespace */
-        Concatenate (TS, "-m606", Local0)
+        Concatenate (__METHOD__, "-m606", Local0)
         SRMT (Local0)
         M606 (Local0)
     }
@@ -23065,4 +23064,3 @@
         Debug = "TEST: OPR3, Source Operand"
         M615 ()
     }
-

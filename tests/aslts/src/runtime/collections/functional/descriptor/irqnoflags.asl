@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -36,103 +36,103 @@
         {
             IRQNoFlags ()
                 {0}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {1}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {2}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {3}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {4}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {5}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {6}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {7}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {8}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {9}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {10}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {11}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {12}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {13}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {14}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {15}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {}
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -154,103 +154,103 @@
         {
             IRQNoFlags ()
                 {0}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {1}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {2}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {3}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {4}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {5}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {6}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {7}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {8}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {9}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {10}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {11}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {12}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {13}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {14}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {15}
-        }, 
+        },
 
         ResourceTemplate ()
         {
             IRQNoFlags ()
                 {}
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -260,12 +260,10 @@
     })
     Method (RT02, 0, Serialized)
     {
-        Name (TS, "RT02")
         /* Emit test header, set the filename */
 
-        THDR (TS, "IRQNoFlags Resource Descriptor Macro", "irqnoflags.asl")
+        THDR (__METHOD__, "IRQNoFlags Resource Descriptor Macro", "irqnoflags.asl")
         /* Main test case for packages above */
 
-        M330 (TS, 0x12, "p402", P402, P403)
+        M330 (__METHOD__, 0x12, "p402", P402, P403)
     }
-

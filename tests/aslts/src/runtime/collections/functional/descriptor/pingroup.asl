@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -45,7 +45,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -56,7 +56,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -67,7 +67,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -78,7 +78,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -89,7 +89,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -104,7 +104,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -119,7 +119,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -147,7 +147,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -158,7 +158,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -169,7 +169,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -180,7 +180,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -191,7 +191,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -206,7 +206,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -221,7 +221,7 @@
                     0x0003,
                     0x0004
                 }
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -236,21 +236,20 @@
     })
     Method (RT28, 0, Serialized)
     {
-        Name (TS, "RT28")
         /* Emit test header, set the filename */
 
-        THDR (TS, "PinGroup Resource Descriptor Macro", "pingroup.asl")
+        THDR (__METHOD__, "PinGroup Resource Descriptor Macro", "pingroup.asl")
         /* The main test packages must have the same number of entries */
 
         If ((SizeOf (P460) != SizeOf (P461)))
         {
-            ERR (TS, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
+            ERR (__METHOD__, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
             Return (Zero)
         }
 
         /* Main test case for packages above */
 
-        M330 (TS, SizeOf (P460), "P460", P460, P461)
+        M330 (__METHOD__, SizeOf (P460), "P460", P460, P461)
                     /* Check resource descriptor tag offsets */
 
 Local0 = ResourceTemplate ()
@@ -278,7 +277,6 @@ Local0 = ResourceTemplate ()
                         0x0004
                     }
             }
-        M331 (TS, 0x01, 0xE8, 0xE8, 0x01E8, 0x01E8, "_VEN")
-        M331 (TS, 0x01, 0x70, 0x70, 0x0170, 0x0170, "_PIN")
+        M331 (__METHOD__, 0x01, 0xE8, 0xE8, 0x01E8, 0x01E8, "_VEN")
+        M331 (__METHOD__, 0x01, 0x70, 0x70, 0x0170, 0x0170, "_PIN")
     }
-

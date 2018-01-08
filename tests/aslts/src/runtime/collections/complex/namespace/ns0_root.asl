@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -33,7 +33,6 @@
      */
     Method (M006, 1, Serialized)
     {
-        Name (TS, "m006")
         Device (D000)
         {
             Name (I000, 0x01)
@@ -42,13 +41,13 @@
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
-        CH03 (TS, Z154, 0x14, 0x30, 0x00)
+        CH03 (__METHOD__, Z154, 0x14, 0x30, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -104,20 +103,20 @@
         Store ((D000.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (TS, Z154, 0x14, 0x61, 0x00)
+            CH03 (__METHOD__, Z154, 0x14, 0x61, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (TS, Z154, 0x63, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, 0x63, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((D000.I000 != 0x80000000))
             {
-                ERR (TS, Z154, 0x66, 0x00, 0x00, D000.I000, 0x80000000)
+                ERR (__METHOD__, Z154, 0x66, 0x00, 0x00, D000.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (TS, 0x01, 0x05, Z154, 0x69, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x69, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -126,7 +125,6 @@
      */
     Method (M007, 1, Serialized)
     {
-        Name (TS, "m007")
         ThermalZone (TZ00)
         {
             Name (I000, 0x01)
@@ -135,13 +133,13 @@
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
-        CH03 (TS, Z154, 0x14, 0x7C, 0x00)
+        CH03 (__METHOD__, Z154, 0x14, 0x7C, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -197,20 +195,20 @@
         Store ((TZ00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (TS, Z154, 0x14, 0xAC, 0x00)
+            CH03 (__METHOD__, Z154, 0x14, 0xAC, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (TS, Z154, 0xAE, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, 0xAE, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((TZ00.I000 != 0x80000000))
             {
-                ERR (TS, Z154, 0xB1, 0x00, 0x00, TZ00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, 0xB1, 0x00, 0x00, TZ00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (TS, 0x01, 0x05, Z154, 0xB4, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, 0xB4, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -219,7 +217,6 @@
      */
     Method (M008, 1, Serialized)
     {
-        Name (TS, "m008")
         Processor (PR00, 0x00, 0xFFFFFFFF, 0x00)
         {
             Name (I000, 0x01)
@@ -228,13 +225,13 @@
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
-        CH03 (TS, Z154, 0x14, 0xC7, 0x00)
+        CH03 (__METHOD__, Z154, 0x14, 0xC7, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -290,20 +287,20 @@
         Store ((PR00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (TS, Z154, 0x14, 0xF8, 0x00)
+            CH03 (__METHOD__, Z154, 0x14, 0xF8, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (TS, Z154, 0xFA, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, 0xFA, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((PR00.I000 != 0x80000000))
             {
-                ERR (TS, Z154, 0xFD, 0x00, 0x00, PR00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, 0xFD, 0x00, 0x00, PR00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (TS, 0x01, 0x05, Z154, 0x0100, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x0100, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -312,7 +309,6 @@
      */
     Method (M009, 1, Serialized)
     {
-        Name (TS, "m009")
         PowerResource (PW00, 0x01, 0x0000)
         {
             Name (I000, 0x01)
@@ -321,13 +317,13 @@
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
-        CH03 (TS, Z154, 0x1D, 0x0113, 0x00)
+        CH03 (__METHOD__, Z154, 0x1D, 0x0113, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -383,20 +379,20 @@
         Store ((PW00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (TS, Z154, 0x14, 0x0144, 0x00)
+            CH03 (__METHOD__, Z154, 0x14, 0x0144, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (TS, Z154, 0x0146, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, 0x0146, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((PW00.I000 != 0x80000000))
             {
-                ERR (TS, Z154, 0x0149, 0x00, 0x00, PW00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, 0x0149, 0x00, 0x00, PW00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (TS, 0x01, 0x05, Z154, 0x014C, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x014C, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -456,4 +452,3 @@
         {
         }
     }
-

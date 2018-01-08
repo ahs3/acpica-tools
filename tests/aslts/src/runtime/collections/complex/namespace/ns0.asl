@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -44,17 +44,16 @@
      */
     Method (M000, 1, Serialized)
     {
-        Name (TS, "m000")
         Name (I000, 0x01)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         Name (I001, 0x00)
-        CH03 (TS, Z154, 0x00, 0x38, 0x00)
+        CH03 (__METHOD__, Z154, 0x00, 0x38, 0x00)
         I001 = Arg0
         Method (M001, 0, NotSerialized)
         {
@@ -79,23 +78,22 @@
         Store ((I000 + M001 ()), Local0)
         If ((Local0 != 0xABCD0003))
         {
-            ERR (TS, Z154, 0x4D, 0x00, 0x00, Local0, 0xABCD0003)
+            ERR (__METHOD__, Z154, 0x4D, 0x00, 0x00, Local0, 0xABCD0003)
         }
 
         Debug = Local0
-        CH03 (TS, Z154, 0x02, 0x51, 0x00)
+        CH03 (__METHOD__, Z154, 0x02, 0x51, 0x00)
     }
 
     Method (M001, 1, Serialized)
     {
-        Name (TS, "m001")
         Name (I000, 0x01)
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
@@ -154,20 +152,19 @@
         Store ((I000 + M001 ()), Local0)
         If ((Local0 != 0x87654321))
         {
-            ERR (TS, Z154, 0x8B, 0x00, 0x00, Local0, 0x87654321)
+            ERR (__METHOD__, Z154, 0x8B, 0x00, 0x00, Local0, 0x87654321)
         }
 
         If ((I000 != 0x80000000))
         {
-            ERR (TS, Z154, 0x8F, 0x00, 0x00, I000, 0x80000000)
+            ERR (__METHOD__, Z154, 0x8F, 0x00, 0x00, I000, 0x80000000)
         }
 
-        CH03 (TS, Z154, 0x05, 0x92, 0x00)
+        CH03 (__METHOD__, Z154, 0x05, 0x92, 0x00)
     }
 
     Method (M002, 0, Serialized)
     {
-        Name (TS, "m002")
         Name (I000, 0x00100000)
         Name (I001, 0x00)
         Method (M001, 0, NotSerialized)
@@ -186,20 +183,19 @@
         Store ((I000 + M001 ()), Local0)
         If ((Local0 != 0x065013BA))
         {
-            ERR (TS, Z154, 0xA8, 0x00, 0x00, Local0, 0x065013BA)
+            ERR (__METHOD__, Z154, 0xA8, 0x00, 0x00, Local0, 0x065013BA)
         }
 
         If ((I000 != 0x00100064))
         {
-            ERR (TS, Z154, 0xAC, 0x00, 0x00, I000, 0x00100064)
+            ERR (__METHOD__, Z154, 0xAC, 0x00, 0x00, I000, 0x00100064)
         }
 
-        CH03 (TS, Z154, 0x08, 0xAF, 0x00)
+        CH03 (__METHOD__, Z154, 0x08, 0xAF, 0x00)
     }
 
     Method (M003, 0, Serialized)
     {
-        Name (TS, "m003")
         Name (I000, 0x00100000)
         Name (I001, 0x00)
         Method (M001, 0, NotSerialized)
@@ -217,15 +213,15 @@
         Store ((I000 + M001 ()), Local0)
         If ((Local0 != 0x065013BA))
         {
-            ERR (TS, Z154, 0xC4, 0x00, 0x00, Local0, 0x065013BA)
+            ERR (__METHOD__, Z154, 0xC4, 0x00, 0x00, Local0, 0x065013BA)
         }
 
         If ((I000 != 0x00100064))
         {
-            ERR (TS, Z154, 0xC8, 0x00, 0x00, I000, 0x00100064)
+            ERR (__METHOD__, Z154, 0xC8, 0x00, 0x00, I000, 0x00100064)
         }
 
-        CH03 (TS, Z154, 0x0B, 0xCB, 0x00)
+        CH03 (__METHOD__, Z154, 0x0B, 0xCB, 0x00)
     }
 
     /*
@@ -233,13 +229,12 @@
      */
     Method (M004, 1, Serialized)
     {
-        Name (TS, "m004")
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
@@ -299,15 +294,15 @@
         Store ((Local7 + M001 ()), Local0)
         If ((Local0 != 0x87654321))
         {
-            ERR (TS, Z154, 0x0109, 0x00, 0x00, Local0, 0x87654321)
+            ERR (__METHOD__, Z154, 0x0109, 0x00, 0x00, Local0, 0x87654321)
         }
 
         If ((Local7 != 0x01))
         {
-            ERR (TS, Z154, 0x010D, 0x00, 0x00, Local7, 0x01)
+            ERR (__METHOD__, Z154, 0x010D, 0x00, 0x00, Local7, 0x01)
         }
 
-        CH03 (TS, Z154, 0x0E, 0x0110, 0x00)
+        CH03 (__METHOD__, Z154, 0x0E, 0x0110, 0x00)
     }
 
     /*
@@ -315,13 +310,12 @@
      */
     Method (M005, 2, Serialized)
     {
-        Name (TS, "m005")
         Name (I001, 0x00)
         Name (P000, Package (0x04)
         {
-            0x01, 
-            0x02, 
-            0x03, 
+            0x01,
+            0x02,
+            0x03,
             0x04
         })
         I001 = Arg0
@@ -381,15 +375,15 @@
         Store ((Arg1 + M001 ()), Local0)
         If ((Local0 != 0x87654321))
         {
-            ERR (TS, Z154, 0x014E, 0x00, 0x00, Local0, 0x87654321)
+            ERR (__METHOD__, Z154, 0x014E, 0x00, 0x00, Local0, 0x87654321)
         }
 
         If ((Arg1 != 0x01))
         {
-            ERR (TS, Z154, 0x0152, 0x00, 0x00, Arg1, 0x01)
+            ERR (__METHOD__, Z154, 0x0152, 0x00, 0x00, Arg1, 0x01)
         }
 
-        CH03 (TS, Z154, 0x11, 0x0155, 0x00)
+        CH03 (__METHOD__, Z154, 0x11, 0x0155, 0x00)
     }
 
     Method (N000, 0, NotSerialized)
@@ -433,4 +427,3 @@
             M000 (0x01)
         }
     }
-

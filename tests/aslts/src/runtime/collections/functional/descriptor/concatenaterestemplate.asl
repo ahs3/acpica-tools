@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -36,7 +36,7 @@
         Buffer (0x02)
         {
              0x79, 0x00                                       // y.
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -382,7 +382,7 @@
                 0x000000FE,
                 0x000000FF,
             }
-            Register (FFixedHW, 
+            Register (FFixedHW,
                 0xF0,               // Bit Width
                 0xF1,               // Bit Offset
                 0xF2F3F4F5F6F7F8F9, // Address
@@ -774,7 +774,7 @@
                 0x000000FE,
                 0x000000FF,
             }
-            Register (FFixedHW, 
+            Register (FFixedHW,
                 0xF0,               // Bit Width
                 0xF1,               // Bit Offset
                 0xF2F3F4F5F6F7F8F9, // Address
@@ -824,7 +824,7 @@
                 0xFCFD,             // Translation Offset
                 0xFEFF,             // Length
                 0xFF, "PATHPATHPATH", )
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -1309,7 +1309,7 @@
                     0x000000FE,
                     0x000000FF,
                 }
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0xF0,               // Bit Width
                     0xF1,               // Bit Offset
                     0xF2F3F4F5F6F7F8F9, // Address
@@ -1932,7 +1932,7 @@
                     0x000000FE,
                     0x000000FF,
                 }
-                Register (FFixedHW, 
+                Register (FFixedHW,
                     0xF0,               // Bit Width
                     0xF1,               // Bit Offset
                     0xF2F3F4F5F6F7F8F9, // Address
@@ -2095,7 +2095,7 @@
         {
             IRQNoFlags ()
                 {1}
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -2120,7 +2120,7 @@
                 {4}
             IRQNoFlags ()
                 {1}
-        }, 
+        },
 
         /* Buffer () {0x00, 0x00, 0x00, 0x22, 0x02, 0x00, 0x79, 0}, */
         /* Buffer () {0x2a, 0x10, 0x05, 0x22, 0x02, 0x00, 0x79, 0}, */
@@ -2138,7 +2138,7 @@
                 {1}
             DMA (Compatibility, BusMaster, Transfer8_16, )
                 {4}
-        }, 
+        },
 
         /* Buffer () {0x22, 0x02, 0x00, 0x00, 0x00, 0x00, 0x79, 0}, */
         /* Buffer () {0x22, 0x02, 0x00, 0x2a, 0x10, 0x05, 0x79, 0}, */
@@ -2150,10 +2150,9 @@
     })
     Method (RT1B, 0, Serialized)
     {
-        Name (TS, "RT1b")
         /* Emit test header, set the filename */
 
-        THDR (TS, "Concatenate two resource templates", "concatenaterestemplate.asl")
+        THDR (__METHOD__, "Concatenate two resource templates", "concatenaterestemplate.asl")
         /* Calculate the checksum for the target first */
         /*	m334(p440, 3) */
         /*	m332(ts, 3, "p440", p438, p438, p440) */
@@ -2161,8 +2160,7 @@
         /*	Store(0, Local0) */
         /*	Store(Buffer(Local0){}, Local1) */
         /*	Store(Local1, Index(p441, 1)) */
-        M332 (TS, 0x01, "p443", P441, P442, P443)
-        M332 (TS, 0x01, "p444", P442, P441, P444)
-        CH03 (TS, Z007, 0x0123, 0x03EC, 0x00)
+        M332 (__METHOD__, 0x01, "p443", P441, P442, P443)
+        M332 (__METHOD__, 0x01, "p444", P442, P441, P444)
+        CH03 (__METHOD__, Z007, 0x0123, 0x03EC, 0x00)
     }
-

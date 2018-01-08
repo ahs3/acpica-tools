@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -34,89 +34,87 @@
     /* 32-bit */
     Name (P352, Package (0x0C)
     {
-        0x00, 
-        0x01, 
-        0x0C, 
-        0x0159, 
-        0x1A85, 
-        0x3039, 
-        0x000A5BF5, 
-        0x0023CACE, 
-        0x055F2CC0, 
-        0x05F5E0FF, 
-        0xFF, 
+        0x00,
+        0x01,
+        0x0C,
+        0x0159,
+        0x1A85,
+        0x3039,
+        0x000A5BF5,
+        0x0023CACE,
+        0x055F2CC0,
+        0x05F5E0FF,
+        0xFF,
         0xFFFF
     })
     Name (P353, Package (0x0C)
     {
-        0x00, 
-        0x01, 
-        0x12, 
-        0x0345, 
-        0x6789, 
-        0x00012345, 
-        0x00678901, 
-        0x02345678, 
-        0x90123456, 
-        0x99999999, 
-        0x0255, 
+        0x00,
+        0x01,
+        0x12,
+        0x0345,
+        0x6789,
+        0x00012345,
+        0x00678901,
+        0x02345678,
+        0x90123456,
+        0x99999999,
+        0x0255,
         0x00065535
     })
     /* 64-bit */
 
     Name (P354, Package (0x0A)
     {
-        0x1E89CAA5, 
-        0x00000002540BE3FF, 
-        0x00000002540BE400, 
-        0x00000007037F7916, 
-        0x0000001CBE991A14, 
-        0x00000324D8AE5F79, 
-        0x0000185D4D9097A5, 
-        0x00007048860DDF79, 
-        0x000D76162EE9EC35, 
+        0x1E89CAA5,
+        0x00000002540BE3FF,
+        0x00000002540BE400,
+        0x00000007037F7916,
+        0x0000001CBE991A14,
+        0x00000324D8AE5F79,
+        0x0000185D4D9097A5,
+        0x00007048860DDF79,
+        0x000D76162EE9EC35,
         0x002386F26FC0FFFF
     })
     Name (P355, Package (0x0A)
     {
-        0x0000000512346789, 
-        0x0000009999999999, 
-        0x0000010000000000, 
-        0x0000030123456790, 
-        0x0000123456789012, 
-        0x0003456789012345, 
-        0x0026789012346789, 
-        0x0123456789012345, 
-        0x3789012345678901, 
+        0x0000000512346789,
+        0x0000009999999999,
+        0x0000010000000000,
+        0x0000030123456790,
+        0x0000123456789012,
+        0x0003456789012345,
+        0x0026789012346789,
+        0x0123456789012345,
+        0x3789012345678901,
         0x9999999999999999
     })
     Method (BCD1, 0, Serialized)
     {
-        Name (TS, "BCD1")
         Debug = "TEST: BCD1, Convert Integer to BCD"
         If ((F64 == 0x01))
         {
-            M302 (TS, 0x0C, "p352", P352, P353, 0x05)
-            M302 (TS, 0x0A, "p354", P354, P355, 0x05)
+            M302 (__METHOD__, 0x0C, "p352", P352, P353, 0x05)
+            M302 (__METHOD__, 0x0A, "p354", P354, P355, 0x05)
         }
         Else
         {
-            M302 (TS, 0x0C, "p352", P352, P353, 0x05)
+            M302 (__METHOD__, 0x0C, "p352", P352, P353, 0x05)
         }
     }
 
     Method (BCD2, 0, Serialized)
     {
-        Name (TS, "BCD2")
         Debug = "TEST: BCD2, Convert BCD To Integer"
         If ((F64 == 0x01))
         {
-            M302 (TS, 0x0C, "p353", P353, P352, 0x06)
-            M302 (TS, 0x0A, "p355", P355, P354, 0x06)
+            M302 (__METHOD__, 0x0C, "p353", P353, P352, 0x06)
+            M302 (__METHOD__, 0x0A, "p355", P355, P354, 0x06)
         }
         Else
         {
-            M302 (TS, 0x0C, "p353", P353, P352, 0x06)
+            M302 (__METHOD__, 0x0C, "p353", P353, P352, 0x06)
         }
     }
 
@@ -127,4 +125,3 @@
         BCD1 ()
         BCD2 ()
     }
-

@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -122,16 +122,14 @@
 
     Method (PRV0, 0, Serialized)
     {
-        Name (TS, "PRV0")
         SRMT ("m130")
-        M130 (TS)
+        M130 (__METHOD__)
         SRMT ("m132")
-        M132 (TS)
+        M132 (__METHOD__)
         SRMT ("m133")
-        M133 (TS)
+        M133 (__METHOD__)
         SRMT ("m134")
-        M134 (TS)
+        M134 (__METHOD__)
         SRMT ("m136")
-        M136 (TS)
+        M136 (__METHOD__)
     }
-

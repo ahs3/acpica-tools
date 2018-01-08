@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -43,17 +43,17 @@
 
         Field (OPR0, WordAcc, NoLock, WriteAsZeros)
         {
-            IDX0,   16, 
+            IDX0,   16,
             DTA0,   16
         }
 
         IndexField (IDX0, DTA0, WordAcc, NoLock, WriteAsZeros)
         {
-            IDF0,   8, 
-                ,   4, 
-            IDF1,   8, 
-            IDF2,   8, 
-            Offset (0x04), 
+            IDF0,   8,
+                ,   4,
+            IDF1,   8,
+            IDF2,   8,
+            Offset (0x04),
             IDF3,   8
         }
 
@@ -80,4 +80,3 @@
         M000 (0x06, RefOf (IDF2), 0x56)
         M000 (0x07, RefOf (IDF3), 0x78)
     }
-

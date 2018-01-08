@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -40,7 +40,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -50,7 +50,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -60,7 +60,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -70,19 +70,19 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
             PinGroupFunction (Shared, 0x1000, "\\_SB.GPO1", 0x00,
                 "group0", ResourceConsumer, ,)
-        }, 
+        },
 
         ResourceTemplate ()
         {
             PinGroupFunction (Shared, 0x1234, "\\_SB.GPO1", 0x00,
                 "group1", ResourceConsumer, ,)
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -100,7 +100,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -110,7 +110,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -120,7 +120,7 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -130,19 +130,19 @@
                 {
                     0x0A, 0x0B, 0x0C, 0x0D
                 })
-        }, 
+        },
 
         ResourceTemplate ()
         {
             PinGroupFunction (Shared, 0x1000, "\\_SB.GPO1", 0x00,
                 "group0", ResourceConsumer, ,)
-        }, 
+        },
 
         ResourceTemplate ()
         {
             PinGroupFunction (Shared, 0x1234, "\\_SB.GPO1", 0x00,
                 "group1", ResourceConsumer, ,)
-        }, 
+        },
 
         ResourceTemplate ()
         {
@@ -152,21 +152,20 @@
     })
     Method (RT29, 0, Serialized)
     {
-        Name (TS, "RT29")
         /* Emit test header, set the filename */
 
-        THDR (TS, "PinGroupFunction Resource Descriptor Macro", "pingroupfunction.asl")
+        THDR (__METHOD__, "PinGroupFunction Resource Descriptor Macro", "pingroupfunction.asl")
         /* The main test packages must have the same number of entries */
 
         If ((SizeOf (P462) != SizeOf (P463)))
         {
-            ERR (TS, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
+            ERR (__METHOD__, 0xB3, 0x00, 0x00, 0x00, 0x00, "Incorrect package length")
             Return (Zero)
         }
 
         /* Main test case for packages above */
 
-        M330 (TS, SizeOf (P462), "P462", P462, P463)
+        M330 (__METHOD__, SizeOf (P462), "P462", P462, P463)
                     /* Check resource descriptor tag offsets */
 
 Local0 = ResourceTemplate ()
@@ -184,8 +183,7 @@ Local0 = ResourceTemplate ()
                         0x0A, 0x0B, 0x0C, 0x0D
                     })
             }
-        M331 (TS, 0x01, 0x20, 0x20, 0x0150, 0x0150, "_SHR")
-        M331 (TS, 0x01, 0x30, 0x30, 0x0160, 0x0160, "_FUN")
-        M331 (TS, 0x01, 0x0110, 0x0110, 0x0240, 0x0240, "_VEN")
+        M331 (__METHOD__, 0x01, 0x20, 0x20, 0x0150, 0x0150, "_SHR")
+        M331 (__METHOD__, 0x01, 0x30, 0x30, 0x0160, 0x0160, "_FUN")
+        M331 (__METHOD__, 0x01, 0x0110, 0x0110, 0x0240, 0x0240, "_VEN")
     }
-

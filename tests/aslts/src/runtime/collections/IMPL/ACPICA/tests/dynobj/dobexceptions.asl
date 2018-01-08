@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -33,7 +33,6 @@
 
     Method (M374, 0, Serialized)
     {
-        Name (TS, "m374")
         /* Package for _TCI-begin statistics */
         /* (use NamedX, dont use ArgX/LocalX). */
         Name (PP0A, Package (0x01){})
@@ -47,18 +46,17 @@
         Local1 = M3A0 (C200)   /* _TCI-end statistics */
         PP0A = M3A0 (C201)     /* _TCI-begin statistics */
         Local3 = M3A0 (0x00)      /* difference */
-        SET0 (Z132, TS, 0x00)
+        SET0 (Z132, __METHOD__, 0x00)
         If (RN00)
         {
-            CH03 (TS, Z132, 0x00, 0x3B, 0x00)
+            CH03 (__METHOD__, Z132, 0x00, 0x3B, 0x00)
             _TCI (C200, Local1)
             M000 (0x00)
             _TCI (C201, PP0A)
-            CH04 (TS, 0x00, 0xFF, Z132, 0x41, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, Z132, 0x41, 0x00, 0x00)
             M3A3 (Local1, PP0A, Local3)
             M3A4 (Local1, PP0A, Local3, 0x00, 0x00, 0x00, 0x00)
         }
 
         RST0 ()
     }
-

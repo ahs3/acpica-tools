@@ -1,5 +1,5 @@
     /*
-     * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+     * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
      * All rights reserved.
      *
      * Redistribution and use in source and binary forms, with or without modification,
@@ -301,4 +301,3 @@
         M075 (BF46, BF47, BF48, BF49, BF4A, BF4B)
         M076 (BF4C, BF4D)
     }
-
