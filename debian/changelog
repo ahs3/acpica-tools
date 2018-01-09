@@ -2,6 +2,7 @@ acpica-unix (20180105-1) unstable; urgency=medium
 
   * Upgrade to 20180105 upstream.
   * Refresh patches as needed.
+  * Closes: #877547 -- added LC_TIME=C to debian/rules
 
  -- Al Stone <ahs3@debian.org>  Mon, 08 Jan 2018 13:48:36 -0700
 
