@@ -9,3 +9,4 @@ ppc64le.patch
 arm7hl.patch
 big-endian-v2.patch
 simple-64bit.patch
+mips-be-fix.patch

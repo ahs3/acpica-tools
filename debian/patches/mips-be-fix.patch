@@ -1,0 +1,33 @@
+--- a/source/compiler/aslparseop.c
++++ b/source/compiler/aslparseop.c
+@@ -283,7 +283,16 @@ TrCreateValuedLeafOp (
+ 
+ 
+     Op = TrAllocateOp (ParseOpcode);
+-    Op->Asl.Value.Integer = Value;
++    if (ParseOpcode == PARSEOP_NAMESTRING ||
++        ParseOpcode == PARSEOP_NAMESEG ||
++        ParseOpcode == PARSEOP_STRING_LITERAL)
++    {
++        Op->Asl.Value.String = (char *) Value;
++    }
++    else
++    {
++        Op->Asl.Value.Integer = Value;
++    }
+ 
+     DbgPrint (ASL_PARSE_OUTPUT,
+         "\nCreateValuedLeafOp  Ln/Col %u/%u NewOp %p  "
+--- a/source/include/platform/aclinux.h
++++ b/source/include/platform/aclinux.h
+@@ -225,10 +225,8 @@
+ #endif
+ 
+ #if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+-#if defined(__PPC64__) || defined(__s390x__)
+ #define ACPI_BIG_ENDIAN
+ #endif
+-#endif
+ 
+ #endif /* __KERNEL__ */
+ 
