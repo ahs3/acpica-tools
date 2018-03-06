@@ -142,6 +142,7 @@ usage (
     ACPI_OPTION ("-da",                 "Disable method abort on error");
     ACPI_OPTION ("-di",                 "Disable execution of STA/INI methods during init");
     ACPI_OPTION ("-do",                 "Disable Operation Region address simulation");
+    ACPI_OPTION ("-dp",                 "Disable TermList parsing for scope objects");
     ACPI_OPTION ("-dr",                 "Disable repair of method return values");
     ACPI_OPTION ("-ds",                 "Disable method auto-serialization");
     ACPI_OPTION ("-dt",                 "Disable allocation tracking (performance)");
@@ -151,8 +152,7 @@ usage (
     ACPI_OPTION ("-ef",                 "Enable display of final memory statistics");
     ACPI_OPTION ("-ei",                 "Enable additional tests for ACPICA interfaces");
     ACPI_OPTION ("-el",                 "Enable loading of additional test tables");
-    ACPI_OPTION ("-em",                 "Enable grouping of module-level code");
-    ACPI_OPTION ("-ep",                 "Enable TermList parsing for scope objects");
+    ACPI_OPTION ("-em",                 "Enable (legacy) grouping of module-level code");
     ACPI_OPTION ("-es",                 "Enable Interpreter Slack Mode");
     ACPI_OPTION ("-et",                 "Enable debug semaphore timeout");
     printf ("\n");
@@ -232,6 +232,11 @@ AeDoOptions (
             AcpiGbl_DbOpt_NoRegionSupport = TRUE;
             break;
 
+        case 'p':
+
+            AcpiGbl_ParseTableAsTermList = FALSE;
+            break;
+
         case 'r':
 
             AcpiGbl_DisableAutoRepair = TRUE;
@@ -285,11 +290,6 @@ AeDoOptions (
         case 'm':
 
             AcpiGbl_GroupModuleLevelCode = TRUE;
-            break;
-
-        case 'p':
-
-            AcpiGbl_ParseTableAsTermList = TRUE;
             break;
 
         case 's':

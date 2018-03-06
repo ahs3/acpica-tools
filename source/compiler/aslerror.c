@@ -813,6 +813,13 @@ AslCommonError (
     char                    *Filename,
     char                    *ExtraMessage)
 {
+    /* Check if user wants to ignore this exception */
+
+    if (AslIsExceptionIgnored (Level, MessageId))
+    {
+        return;
+    }
+
     AslLogNewError (Level, MessageId, CurrentLineNumber, LogicalLineNumber,
         LogicalByteOffset, Column, Filename, ExtraMessage,
         NULL, NULL);
