@@ -23,10 +23,10 @@ Signed-off-by: Al Stone <ahs3@redhat.com>
  source/include/platform/aclinux.h |    8 ++
  12 files changed, 487 insertions(+), 283 deletions(-)
 
-Index: acpica-unix-20171215/source/compiler/aslcodegen.c
+Index: acpica-unix2-20180209/source/compiler/aslcodegen.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslcodegen.c
-+++ acpica-unix-20171215/source/compiler/aslcodegen.c
+--- acpica-unix2-20180209.orig/source/compiler/aslcodegen.c
++++ acpica-unix2-20180209/source/compiler/aslcodegen.c
 @@ -240,16 +240,12 @@ CgWriteAmlOpcode (
      ACPI_PARSE_OBJECT       *Op)
  {
@@ -268,10 +268,10 @@ Index: acpica-unix-20171215/source/compiler/aslcodegen.c
  
      case AML_RAW_DATA_BUFFER:
  
-Index: acpica-unix-20171215/source/compiler/aslopcodes.c
+Index: acpica-unix2-20180209/source/compiler/aslopcodes.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslopcodes.c
-+++ acpica-unix-20171215/source/compiler/aslopcodes.c
+--- acpica-unix2-20180209.orig/source/compiler/aslopcodes.c
++++ acpica-unix2-20180209/source/compiler/aslopcodes.c
 @@ -485,6 +485,7 @@ OpcDoUnicode (
      UINT32                  i;
      UINT8                   *AsciiString;
@@ -290,10 +290,10 @@ Index: acpica-unix-20171215/source/compiler/aslopcodes.c
      }
  
      /*
-Index: acpica-unix-20171215/source/compiler/aslrestype1.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype1.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype1.c
-+++ acpica-unix-20171215/source/compiler/aslrestype1.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype1.c
++++ acpica-unix2-20180209/source/compiler/aslrestype1.c
 @@ -142,6 +142,11 @@ RsDoMemory24Descriptor (
      ACPI_PARSE_OBJECT       *LengthOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -490,10 +490,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype1.c
              RsCreateDwordField (InitializerOp, ACPI_RESTAG_LENGTH,
                  CurrentByteOffset + ASL_RESDESC_OFFSET (FixedMemory32.AddressLength));
              break;
-Index: acpica-unix-20171215/source/compiler/aslrestype1i.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype1i.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype1i.c
-+++ acpica-unix-20171215/source/compiler/aslrestype1i.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype1i.c
++++ acpica-unix2-20180209/source/compiler/aslrestype1i.c
 @@ -198,6 +198,8 @@ RsDoFixedDmaDescriptor (
      ACPI_PARSE_OBJECT       *InitializerOp;
      ASL_RESOURCE_NODE       *Rnode;
@@ -630,10 +630,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype1i.c
 +    ACPI_MOVE_16_TO_16(&Descriptor->Irq.IrqMask, &IrqMask);
      return (Rnode);
  }
-Index: acpica-unix-20171215/source/compiler/aslrestype2.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2.c
 @@ -76,6 +76,7 @@ RsDoGeneralRegisterDescriptor (
      ACPI_PARSE_OBJECT       *InitializerOp;
      ASL_RESOURCE_NODE       *Rnode;
@@ -774,10 +774,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2.c
  
      /* Point to end-of-descriptor for vendor data */
  
-Index: acpica-unix-20171215/source/compiler/aslrestype2d.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2d.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2d.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2d.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2d.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2d.c
 @@ -79,7 +79,13 @@ RsDoDwordIoDescriptor (
      ACPI_PARSE_OBJECT       *GranOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -1133,10 +1133,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2d.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS32) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20171215/source/compiler/aslrestype2e.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2e.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2e.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2e.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2e.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2e.c
 @@ -78,6 +78,13 @@ RsDoExtendedIoDescriptor (
      ACPI_PARSE_OBJECT       *GranOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -1242,10 +1242,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2e.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_EXTENDED_ADDRESS64) +
          StringLength;
      return (Rnode);
-Index: acpica-unix-20171215/source/compiler/aslrestype2q.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2q.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2q.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2q.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2q.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2q.c
 @@ -80,7 +80,13 @@ RsDoQwordIoDescriptor (
      ASL_RESOURCE_NODE       *Rnode;
      UINT8                   *OptionalFields;
@@ -1584,10 +1584,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2q.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS64) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20171215/source/compiler/aslrestype2s.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2s.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2s.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2s.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2s.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2s.c
 @@ -340,9 +340,14 @@ RsDoGpioIntDescriptor (
      UINT16                  VendorLength;
      UINT16                  InterruptLength;
@@ -2053,10 +2053,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2s.c
      MpSaveSerialInfo (Info->MappingOp, Descriptor, ResourceSource);
      return (Rnode);
  }
-Index: acpica-unix-20171215/source/compiler/aslrestype2w.c
+Index: acpica-unix2-20180209/source/compiler/aslrestype2w.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslrestype2w.c
-+++ acpica-unix-20171215/source/compiler/aslrestype2w.c
+--- acpica-unix2-20180209.orig/source/compiler/aslrestype2w.c
++++ acpica-unix2-20180209/source/compiler/aslrestype2w.c
 @@ -81,6 +81,12 @@ RsDoWordIoDescriptor (
      UINT8                   *OptionalFields;
      UINT16                  StringLength = 0;
@@ -2400,10 +2400,10 @@ Index: acpica-unix-20171215/source/compiler/aslrestype2w.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS16) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20171215/source/include/acmacros.h
+Index: acpica-unix2-20180209/source/include/acmacros.h
 ===================================================================
---- acpica-unix-20171215.orig/source/include/acmacros.h
-+++ acpica-unix-20171215/source/include/acmacros.h
+--- acpica-unix2-20180209.orig/source/include/acmacros.h
++++ acpica-unix2-20180209/source/include/acmacros.h
 @@ -98,9 +98,12 @@
                                             ((UINT8 *)(void *)(d))[6] = ((UINT8 *)(void *)(s))[1];\
                                             ((UINT8 *)(void *)(d))[7] = ((UINT8 *)(void *)(s))[0];}
@@ -2482,11 +2482,11 @@ Index: acpica-unix-20171215/source/include/acmacros.h
  
  #define ACPI_MOVE_32_TO_16(d, s)        ACPI_MOVE_16_TO_16(d, s)    /* Truncate to 16 */
  
-Index: acpica-unix-20171215/source/include/platform/aclinux.h
+Index: acpica-unix2-20180209/source/include/platform/aclinux.h
 ===================================================================
---- acpica-unix-20171215.orig/source/include/platform/aclinux.h
-+++ acpica-unix-20171215/source/include/platform/aclinux.h
-@@ -191,6 +191,7 @@
+--- acpica-unix2-20180209.orig/source/include/platform/aclinux.h
++++ acpica-unix2-20180209/source/include/platform/aclinux.h
+@@ -192,6 +192,7 @@
  
  #ifdef ACPI_USE_STANDARD_HEADERS
  #include <unistd.h>
@@ -2494,7 +2494,7 @@ Index: acpica-unix-20171215/source/include/platform/aclinux.h
  #endif
  
  /* Define/disable kernel-specific declarators */
-@@ -225,6 +226,10 @@
+@@ -226,6 +227,10 @@
  #define __cdecl
  #endif
  
@@ -2505,10 +2505,10 @@ Index: acpica-unix-20171215/source/include/platform/aclinux.h
  #endif /* __KERNEL__ */
  
  #endif /* __ACLINUX_H__ */
-Index: acpica-unix-20171215/source/compiler/aslanalyze.c
+Index: acpica-unix2-20180209/source/compiler/aslanalyze.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslanalyze.c
-+++ acpica-unix-20171215/source/compiler/aslanalyze.c
+--- acpica-unix2-20180209.orig/source/compiler/aslanalyze.c
++++ acpica-unix2-20180209/source/compiler/aslanalyze.c
 @@ -461,7 +461,7 @@ ApCheckForGpeNameConflict (
  
      /* Need a null-terminated string version of NameSeg */
@@ -2527,10 +2527,10 @@ Index: acpica-unix-20171215/source/compiler/aslanalyze.c
  
      /* Inject opposite letter ("L" versus "E") */
  
-Index: acpica-unix-20171215/source/compiler/asllookup.c
+Index: acpica-unix2-20180209/source/compiler/asllookup.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/asllookup.c
-+++ acpica-unix-20171215/source/compiler/asllookup.c
+--- acpica-unix2-20180209.orig/source/compiler/asllookup.c
++++ acpica-unix2-20180209/source/compiler/asllookup.c
 @@ -119,6 +119,7 @@ LkIsObjectUsed (
  {
      ACPI_NAMESPACE_NODE     *Node = ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, ObjHandle);
@@ -2561,10 +2561,10 @@ Index: acpica-unix-20171215/source/compiler/asllookup.c
              AslError (ASL_REMARK, ASL_MSG_NOT_REFERENCED,
                  LkGetNameOp (Node->Op), MsgBuffer);
              return (AE_OK);
-Index: acpica-unix-20171215/source/compiler/aslmain.c
+Index: acpica-unix2-20180209/source/compiler/aslmain.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/aslmain.c
-+++ acpica-unix-20171215/source/compiler/aslmain.c
+--- acpica-unix2-20180209.orig/source/compiler/aslmain.c
++++ acpica-unix2-20180209/source/compiler/aslmain.c
 @@ -102,18 +102,6 @@ main (
      signal (SIGINT, AslSignalHandler);
      signal (SIGSEGV, AslSignalHandler);
@@ -2584,10 +2584,10 @@ Index: acpica-unix-20171215/source/compiler/aslmain.c
      AcpiOsInitialize ();
      ACPI_DEBUG_INITIALIZE (); /* For debug version only */
  
-Index: acpica-unix-20171215/source/common/acfileio.c
+Index: acpica-unix2-20180209/source/common/acfileio.c
 ===================================================================
---- acpica-unix-20171215.orig/source/common/acfileio.c
-+++ acpica-unix-20171215/source/common/acfileio.c
+--- acpica-unix2-20180209.orig/source/common/acfileio.c
++++ acpica-unix2-20180209/source/common/acfileio.c
 @@ -280,6 +280,7 @@ AcGetOneTableFromFile (
      ACPI_TABLE_HEADER       *Table;
      INT32                   Count;
@@ -2649,10 +2649,10 @@ Index: acpica-unix-20171215/source/common/acfileio.c
              (UINT32) (FileSize - TableOffset));
          return (AE_BAD_HEADER);
      }
-Index: acpica-unix-20171215/source/common/dmtable.c
+Index: acpica-unix2-20180209/source/common/dmtable.c
 ===================================================================
---- acpica-unix-20171215.orig/source/common/dmtable.c
-+++ acpica-unix-20171215/source/common/dmtable.c
+--- acpica-unix2-20180209.orig/source/common/dmtable.c
++++ acpica-unix2-20180209/source/common/dmtable.c
 @@ -550,7 +550,7 @@ AcpiDmDumpDataTable (
       */
      if (ACPI_COMPARE_NAME (Table->Signature, ACPI_SIG_FACS))
@@ -2751,10 +2751,10 @@ Index: acpica-unix-20171215/source/common/dmtable.c
                  AcpiDmNfitSubnames[Temp16]);
              break;
  
-Index: acpica-unix-20171215/source/common/dmtables.c
+Index: acpica-unix2-20180209/source/common/dmtables.c
 ===================================================================
---- acpica-unix-20171215.orig/source/common/dmtables.c
-+++ acpica-unix-20171215/source/common/dmtables.c
+--- acpica-unix2-20180209.orig/source/common/dmtables.c
++++ acpica-unix2-20180209/source/common/dmtables.c
 @@ -142,7 +142,9 @@ AdCreateTableHeader (
      ACPI_TABLE_HEADER       *Table)
  {
@@ -2820,10 +2820,10 @@ Index: acpica-unix-20171215/source/common/dmtables.c
      AmlStart = ((UINT8 *) Table + sizeof (ACPI_TABLE_HEADER));
      ASL_CV_INIT_FILETREE(Table, AmlStart, AmlLength);
  
-Index: acpica-unix-20171215/source/common/dmtbdump.c
+Index: acpica-unix2-20180209/source/common/dmtbdump.c
 ===================================================================
---- acpica-unix-20171215.orig/source/common/dmtbdump.c
-+++ acpica-unix-20171215/source/common/dmtbdump.c
+--- acpica-unix2-20180209.orig/source/common/dmtbdump.c
++++ acpica-unix2-20180209/source/common/dmtbdump.c
 @@ -277,6 +277,8 @@ AcpiDmDumpRsdt (
      UINT32                  Entries;
      UINT32                  Offset;
@@ -2975,16 +2975,18 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          return;
      }
-@@ -493,7 +500,7 @@ AcpiDmValidateFadtLength (
+@@ -493,5 +500,5 @@ AcpiDmValidateFadtLength (
      AcpiOsPrintf (
          "\n// ACPI Warning: FADT revision %X does not match length: "
          "found %X expected %X\n",
 -        Revision, Length, ExpectedLength);
 +        Revision, Tmp32, ExpectedLength);
  }
- 
- 
-@@ -524,17 +531,21 @@ AcpiDmDumpAsf (
+Index: acpica-unix2-20180209/source/common/dmtbdump1.c
+===================================================================
+--- acpica-unix2-20180209.orig/source/common/dmtbdump1.c
++++ acpica-unix2-20180209/source/common/dmtbdump1.c
+@@ -79,17 +79,21 @@ AcpiDmDumpAsf (
      UINT32                  DataOffset = 0;
      UINT32                  i;
      UINT8                   Type;
@@ -3009,7 +3011,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -591,8 +602,7 @@ AcpiDmDumpAsf (
+@@ -146,8 +150,7 @@ AcpiDmDumpAsf (
              return;
          }
  
@@ -3019,7 +3021,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -608,7 +618,7 @@ AcpiDmDumpAsf (
+@@ -163,7 +166,7 @@ AcpiDmDumpAsf (
              for (i = 0; i < DataCount; i++)
              {
                  AcpiOsPrintf ("\n");
@@ -3028,7 +3030,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      DataTable, DataLength, DataInfoTable);
                  if (ACPI_FAILURE (Status))
                  {
-@@ -654,15 +664,14 @@ AcpiDmDumpAsf (
+@@ -209,15 +212,14 @@ AcpiDmDumpAsf (
  
          /* Point to next subtable */
  
@@ -3047,7 +3049,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -686,12 +695,13 @@ AcpiDmDumpCpep (
+@@ -241,12 +243,13 @@ AcpiDmDumpCpep (
  {
      ACPI_STATUS             Status;
      ACPI_CPEP_POLLING       *Subtable;
@@ -3062,7 +3064,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoCpep);
      if (ACPI_FAILURE (Status))
      {
-@@ -701,7 +711,7 @@ AcpiDmDumpCpep (
+@@ -256,7 +259,7 @@ AcpiDmDumpCpep (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_CPEP_POLLING, Table, Offset);
@@ -3071,7 +3073,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          AcpiOsPrintf ("\n");
          Status = AcpiDmDumpTable (Length, Offset, Subtable,
-@@ -741,7 +751,10 @@ AcpiDmDumpCsrt (
+@@ -296,7 +299,10 @@ AcpiDmDumpCsrt (
      ACPI_CSRT_GROUP         *Subtable;
      ACPI_CSRT_SHARED_INFO   *SharedInfoTable;
      ACPI_CSRT_DESCRIPTOR    *SubSubtable;
@@ -3083,7 +3085,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      UINT32                  Offset = sizeof (ACPI_TABLE_CSRT);
      UINT32                  SubOffset;
      UINT32                  SubSubOffset;
-@@ -752,14 +765,16 @@ AcpiDmDumpCsrt (
+@@ -307,14 +313,16 @@ AcpiDmDumpCsrt (
  
      /* Subtables (Resource Groups) */
  
@@ -3102,7 +3104,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -779,19 +794,20 @@ AcpiDmDumpCsrt (
+@@ -334,19 +342,20 @@ AcpiDmDumpCsrt (
              return;
          }
  
@@ -3127,7 +3129,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -801,7 +817,7 @@ AcpiDmDumpCsrt (
+@@ -356,7 +365,7 @@ AcpiDmDumpCsrt (
  
              /* Resource-specific info buffer */
  
@@ -3136,7 +3138,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (InfoLength)
              {
                  Status = AcpiDmDumpTable (Length,
-@@ -816,16 +832,15 @@ AcpiDmDumpCsrt (
+@@ -371,16 +380,15 @@ AcpiDmDumpCsrt (
  
              /* Point to next sub-subtable */
  
@@ -3157,7 +3159,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -849,16 +864,20 @@ AcpiDmDumpDbg2 (
+@@ -404,16 +412,20 @@ AcpiDmDumpDbg2 (
  {
      ACPI_STATUS             Status;
      ACPI_DBG2_DEVICE        *Subtable;
@@ -3179,7 +3181,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoDbg2);
      if (ACPI_FAILURE (Status))
      {
-@@ -868,11 +887,12 @@ AcpiDmDumpDbg2 (
+@@ -423,11 +435,12 @@ AcpiDmDumpDbg2 (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_DBG2_DEVICE, Table, Offset);
@@ -3194,7 +3196,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -882,13 +902,13 @@ AcpiDmDumpDbg2 (
+@@ -437,13 +450,13 @@ AcpiDmDumpDbg2 (
  
          for (i = 0; i < Subtable->RegisterCount; i++)
          {
@@ -3211,7 +3213,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -899,13 +919,13 @@ AcpiDmDumpDbg2 (
+@@ -454,13 +467,13 @@ AcpiDmDumpDbg2 (
  
          for (i = 0; i < Subtable->RegisterCount; i++)
          {
@@ -3228,7 +3230,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -915,12 +935,13 @@ AcpiDmDumpDbg2 (
+@@ -470,12 +483,13 @@ AcpiDmDumpDbg2 (
          /* Dump the Namestring (required) */
  
          AcpiOsPrintf ("\n");
@@ -3244,7 +3246,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -930,9 +951,10 @@ AcpiDmDumpDbg2 (
+@@ -485,9 +499,10 @@ AcpiDmDumpDbg2 (
  
          if (Subtable->OemDataOffset)
          {
@@ -3258,7 +3260,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -941,9 +963,9 @@ AcpiDmDumpDbg2 (
+@@ -496,9 +511,9 @@ AcpiDmDumpDbg2 (
  
          /* Point to next subtable */
  
@@ -3270,7 +3272,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -967,17 +989,20 @@ AcpiDmDumpDmar (
+@@ -522,17 +537,20 @@ AcpiDmDumpDmar (
  {
      ACPI_STATUS             Status;
      ACPI_DMAR_HEADER        *Subtable;
@@ -3292,7 +3294,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoDmar);
      if (ACPI_FAILURE (Status))
      {
-@@ -987,13 +1012,14 @@ AcpiDmDumpDmar (
+@@ -542,13 +560,14 @@ AcpiDmDumpDmar (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_DMAR_HEADER, Table, Offset);
@@ -3309,7 +3311,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1001,7 +1027,8 @@ AcpiDmDumpDmar (
+@@ -556,7 +575,8 @@ AcpiDmDumpDmar (
  
          AcpiOsPrintf ("\n");
  
@@ -3319,7 +3321,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
          case ACPI_DMAR_TYPE_HARDWARE_UNIT:
  
-@@ -1036,12 +1063,12 @@ AcpiDmDumpDmar (
+@@ -591,12 +611,12 @@ AcpiDmDumpDmar (
          default:
  
              AcpiOsPrintf ("\n**** Unknown DMAR subtable type 0x%X\n\n",
@@ -3334,7 +3336,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1050,8 +1077,8 @@ AcpiDmDumpDmar (
+@@ -605,8 +625,8 @@ AcpiDmDumpDmar (
          /*
           * Dump the optional device scope entries
           */
@@ -3345,7 +3347,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
              /* These types do not support device scopes */
  
-@@ -1059,7 +1086,7 @@ AcpiDmDumpDmar (
+@@ -614,7 +634,7 @@ AcpiDmDumpDmar (
          }
  
          ScopeTable = ACPI_ADD_PTR (ACPI_DMAR_DEVICE_SCOPE, Subtable, ScopeOffset);
@@ -3354,7 +3356,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
              AcpiOsPrintf ("\n");
              Status = AcpiDmDumpTable (Length, Offset + ScopeOffset, ScopeTable,
-@@ -1100,9 +1127,8 @@ AcpiDmDumpDmar (
+@@ -655,9 +675,8 @@ AcpiDmDumpDmar (
  NextSubtable:
          /* Point to next subtable */
  
@@ -3366,7 +3368,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -1129,12 +1155,15 @@ AcpiDmDumpDrtm (
+@@ -684,12 +703,15 @@ AcpiDmDumpDrtm (
      ACPI_DRTM_RESOURCE_LIST *DrtmRl;
      ACPI_DRTM_DPS_ID        *DrtmDps;
      UINT32                  Count;
@@ -3384,7 +3386,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -1148,7 +1177,7 @@ AcpiDmDumpDrtm (
+@@ -703,7 +725,7 @@ AcpiDmDumpDrtm (
  
      DrtmVtl = ACPI_ADD_PTR (ACPI_DRTM_VTABLE_LIST, Table, Offset);
      AcpiOsPrintf ("\n");
@@ -3393,7 +3395,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          DrtmVtl, ACPI_OFFSET (ACPI_DRTM_VTABLE_LIST, ValidatedTables),
          AcpiDmTableInfoDrtm0);
      if (ACPI_FAILURE (Status))
-@@ -1161,10 +1190,11 @@ AcpiDmDumpDrtm (
+@@ -716,10 +738,11 @@ AcpiDmDumpDrtm (
      /* Dump Validated table addresses */
  
      Count = 0;
@@ -3408,7 +3410,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              ACPI_ADD_PTR (void, Table, Offset), sizeof (UINT64),
              AcpiDmTableInfoDrtm0a);
          if (ACPI_FAILURE (Status))
-@@ -1180,7 +1210,7 @@ AcpiDmDumpDrtm (
+@@ -735,7 +758,7 @@ AcpiDmDumpDrtm (
  
      DrtmRl = ACPI_ADD_PTR (ACPI_DRTM_RESOURCE_LIST, Table, Offset);
      AcpiOsPrintf ("\n");
@@ -3417,7 +3419,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          DrtmRl, ACPI_OFFSET (ACPI_DRTM_RESOURCE_LIST, Resources),
          AcpiDmTableInfoDrtm1);
      if (ACPI_FAILURE (Status))
-@@ -1193,10 +1223,11 @@ AcpiDmDumpDrtm (
+@@ -748,10 +771,11 @@ AcpiDmDumpDrtm (
      /* Dump the Resource List */
  
      Count = 0;
@@ -3432,7 +3434,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              ACPI_ADD_PTR (void, Table, Offset),
              sizeof (ACPI_DRTM_RESOURCE), AcpiDmTableInfoDrtm1a);
          if (ACPI_FAILURE (Status))
-@@ -1212,7 +1243,7 @@ AcpiDmDumpDrtm (
+@@ -767,7 +791,7 @@ AcpiDmDumpDrtm (
  
      DrtmDps = ACPI_ADD_PTR (ACPI_DRTM_DPS_ID, Table, Offset);
      AcpiOsPrintf ("\n");
@@ -3441,7 +3443,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          DrtmDps, sizeof (ACPI_DRTM_DPS_ID), AcpiDmTableInfoDrtm2);
  }
  
-@@ -1236,12 +1267,13 @@ AcpiDmDumpEinj (
+@@ -791,12 +815,13 @@ AcpiDmDumpEinj (
  {
      ACPI_STATUS             Status;
      ACPI_WHEA_HEADER        *Subtable;
@@ -3456,7 +3458,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoEinj);
      if (ACPI_FAILURE (Status))
      {
-@@ -1251,7 +1283,7 @@ AcpiDmDumpEinj (
+@@ -806,7 +831,7 @@ AcpiDmDumpEinj (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_WHEA_HEADER, Table, Offset);
@@ -3465,7 +3467,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          AcpiOsPrintf ("\n");
          Status = AcpiDmDumpTable (Length, Offset, Subtable,
-@@ -1289,12 +1321,13 @@ AcpiDmDumpErst (
+@@ -844,12 +869,13 @@ AcpiDmDumpErst (
  {
      ACPI_STATUS             Status;
      ACPI_WHEA_HEADER        *Subtable;
@@ -3480,7 +3482,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoErst);
      if (ACPI_FAILURE (Status))
      {
-@@ -1304,7 +1337,7 @@ AcpiDmDumpErst (
+@@ -859,7 +885,7 @@ AcpiDmDumpErst (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_WHEA_HEADER, Table, Offset);
@@ -3489,7 +3491,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          AcpiOsPrintf ("\n");
          Status = AcpiDmDumpTable (Length, Offset, Subtable,
-@@ -1342,17 +1375,19 @@ AcpiDmDumpFpdt (
+@@ -897,17 +923,19 @@ AcpiDmDumpFpdt (
  {
      ACPI_STATUS             Status;
      ACPI_FPDT_HEADER        *Subtable;
@@ -3511,7 +3513,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -1364,7 +1399,8 @@ AcpiDmDumpFpdt (
+@@ -919,7 +947,8 @@ AcpiDmDumpFpdt (
              return;
          }
  
@@ -3521,7 +3523,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
          case ACPI_FPDT_TYPE_BOOT:
  
-@@ -1378,8 +1414,7 @@ AcpiDmDumpFpdt (
+@@ -933,8 +962,7 @@ AcpiDmDumpFpdt (
  
          default:
  
@@ -3531,7 +3533,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  
              /* Attempt to continue */
  
-@@ -1427,16 +1462,19 @@ AcpiDmDumpGtdt (
+@@ -982,16 +1010,19 @@ AcpiDmDumpGtdt (
  {
      ACPI_STATUS             Status;
      ACPI_GTDT_HEADER        *Subtable;
@@ -3552,7 +3554,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoGtdt);
      if (ACPI_FAILURE (Status))
      {
-@@ -1446,7 +1484,7 @@ AcpiDmDumpGtdt (
+@@ -1001,7 +1032,7 @@ AcpiDmDumpGtdt (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_GTDT_HEADER, Table, Offset);
@@ -3561,7 +3563,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -1464,8 +1502,9 @@ AcpiDmDumpGtdt (
+@@ -1019,8 +1050,9 @@ AcpiDmDumpGtdt (
          case ACPI_GTDT_TYPE_TIMER_BLOCK:
  
              SubtableLength = sizeof (ACPI_GTDT_TIMER_BLOCK);
@@ -3572,7 +3574,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  
              InfoTable = AcpiDmTableInfoGtdt0;
              break;
-@@ -1486,8 +1525,9 @@ AcpiDmDumpGtdt (
+@@ -1041,8 +1073,9 @@ AcpiDmDumpGtdt (
              return;
          }
  
@@ -3583,7 +3585,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1546,16 +1586,18 @@ AcpiDmDumpHest (
+@@ -1101,16 +1134,18 @@ AcpiDmDumpHest (
  {
      ACPI_STATUS             Status;
      ACPI_HEST_HEADER        *Subtable;
@@ -3603,7 +3605,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoHest);
      if (ACPI_FAILURE (Status))
      {
-@@ -1565,10 +1607,11 @@ AcpiDmDumpHest (
+@@ -1120,10 +1155,11 @@ AcpiDmDumpHest (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_HEST_HEADER, Table, Offset);
@@ -3617,7 +3619,11 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
          case ACPI_HEST_TYPE_IA32_CHECK:
  
-@@ -1902,15 +1945,21 @@ AcpiDmDumpIort (
+Index: acpica-unix2-20180209/source/common/dmtbdump2.c
+===================================================================
+--- acpica-unix2-20180209.orig/source/common/dmtbdump2.c
++++ acpica-unix2-20180209/source/common/dmtbdump2.c
+@@ -75,15 +75,21 @@ AcpiDmDumpIort (
      ACPI_IORT_SMMU          *IortSmmu = NULL;
      UINT32                  Offset;
      UINT32                  NodeOffset;
@@ -3641,7 +3647,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -1921,18 +1970,19 @@ AcpiDmDumpIort (
+@@ -94,18 +100,19 @@ AcpiDmDumpIort (
  
      /* Dump the OptionalPadding (optional) */
  
@@ -3666,7 +3672,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -1968,7 +2018,8 @@ AcpiDmDumpIort (
+@@ -141,7 +148,8 @@ AcpiDmDumpIort (
          case ACPI_IORT_NODE_PCI_ROOT_COMPLEX:
  
              InfoTable = AcpiDmTableInfoIort2;
@@ -3676,7 +3682,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              break;
  
          case ACPI_IORT_NODE_SMMU:
-@@ -1981,7 +2032,8 @@ AcpiDmDumpIort (
+@@ -154,7 +162,8 @@ AcpiDmDumpIort (
          case ACPI_IORT_NODE_SMMU_V3:
  
              InfoTable = AcpiDmTableInfoIort4;
@@ -3686,7 +3692,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              break;
  
          default:
-@@ -1991,7 +2043,8 @@ AcpiDmDumpIort (
+@@ -164,7 +173,8 @@ AcpiDmDumpIort (
  
              /* Attempt to continue */
  
@@ -3696,7 +3702,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              {
                  AcpiOsPrintf ("Invalid zero length IORT node\n");
                  return;
-@@ -2002,7 +2055,7 @@ AcpiDmDumpIort (
+@@ -175,7 +185,7 @@ AcpiDmDumpIort (
          /* Dump the node subtable header */
  
          AcpiOsPrintf ("\n");
@@ -3705,7 +3711,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
              Length, InfoTable);
          if (ACPI_FAILURE (Status))
-@@ -2022,9 +2075,10 @@ AcpiDmDumpIort (
+@@ -195,9 +205,10 @@ AcpiDmDumpIort (
  
              if (IortItsGroup)
              {
@@ -3718,7 +3724,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                          ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
                          4, AcpiDmTableInfoIort0a);
                      NodeOffset += 4;
-@@ -2036,11 +2090,11 @@ AcpiDmDumpIort (
+@@ -209,11 +220,11 @@ AcpiDmDumpIort (
  
              /* Dump the Padding (optional) */
  
@@ -3734,7 +3740,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  if (ACPI_FAILURE (Status))
                  {
                      return;
-@@ -2057,8 +2111,8 @@ AcpiDmDumpIort (
+@@ -230,8 +241,8 @@ AcpiDmDumpIort (
              if (IortSmmu)
              {
                  Length = 2 * sizeof (UINT64);
@@ -3745,7 +3751,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
                      Length, AcpiDmTableInfoIort3a);
                  if (ACPI_FAILURE (Status))
-@@ -2066,10 +2120,11 @@ AcpiDmDumpIort (
+@@ -239,10 +250,11 @@ AcpiDmDumpIort (
                      return;
                  }
  
@@ -3760,7 +3766,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                          ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
                          8, AcpiDmTableInfoIort3b);
                      if (ACPI_FAILURE (Status))
-@@ -2080,10 +2135,11 @@ AcpiDmDumpIort (
+@@ -253,10 +265,11 @@ AcpiDmDumpIort (
                      NodeOffset += 8;
                  }
  
@@ -3775,7 +3781,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                          ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
                          8, AcpiDmTableInfoIort3c);
                      if (ACPI_FAILURE (Status))
-@@ -2103,12 +2159,13 @@ AcpiDmDumpIort (
+@@ -276,12 +289,13 @@ AcpiDmDumpIort (
  
          /* Dump the ID mappings */
  
@@ -3792,7 +3798,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  ACPI_ADD_PTR (ACPI_IORT_NODE, IortNode, NodeOffset),
                  Length, AcpiDmTableInfoIortMap);
              if (ACPI_FAILURE (Status))
-@@ -2122,8 +2179,9 @@ AcpiDmDumpIort (
+@@ -295,8 +309,9 @@ AcpiDmDumpIort (
  NextSubtable:
          /* Point to next node subtable */
  
@@ -3804,7 +3810,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -2154,11 +2212,14 @@ AcpiDmDumpIvrs (
+@@ -327,11 +342,14 @@ AcpiDmDumpIvrs (
      ACPI_IVRS_DE_HEADER     *DeviceEntry;
      ACPI_IVRS_HEADER        *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
@@ -3820,7 +3826,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2167,13 +2228,14 @@ AcpiDmDumpIvrs (
+@@ -340,13 +358,14 @@ AcpiDmDumpIvrs (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_IVRS_HEADER, Table, Offset);
@@ -3838,7 +3844,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -2200,7 +2262,7 @@ AcpiDmDumpIvrs (
+@@ -373,7 +392,7 @@ AcpiDmDumpIvrs (
  
              /* Attempt to continue */
  
@@ -3847,7 +3853,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              {
                  AcpiOsPrintf ("Invalid zero length subtable\n");
                  return;
-@@ -2211,8 +2273,8 @@ AcpiDmDumpIvrs (
+@@ -384,8 +403,8 @@ AcpiDmDumpIvrs (
          /* Dump the subtable */
  
          AcpiOsPrintf ("\n");
@@ -3858,7 +3864,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -2226,7 +2288,7 @@ AcpiDmDumpIvrs (
+@@ -399,7 +418,7 @@ AcpiDmDumpIvrs (
              DeviceEntry = ACPI_ADD_PTR (ACPI_IVRS_DE_HEADER, Subtable,
                  sizeof (ACPI_IVRS_HARDWARE));
  
@@ -3867,7 +3873,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              {
                  AcpiOsPrintf ("\n");
                  /*
-@@ -2288,7 +2350,7 @@ AcpiDmDumpIvrs (
+@@ -461,7 +480,7 @@ AcpiDmDumpIvrs (
  
                  /* Dump the Device Entry */
  
@@ -3876,7 +3882,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      DeviceEntry, EntryLength, InfoTable);
                  if (ACPI_FAILURE (Status))
                  {
-@@ -2304,8 +2366,8 @@ AcpiDmDumpIvrs (
+@@ -477,8 +496,8 @@ AcpiDmDumpIvrs (
  NextSubtable:
          /* Point to next subtable */
  
@@ -3887,7 +3893,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -2331,7 +2393,7 @@ AcpiDmDumpLpit (
+@@ -504,7 +523,7 @@ AcpiDmDumpLpit (
  {
      ACPI_STATUS             Status;
      ACPI_LPIT_HEADER        *Subtable;
@@ -3896,7 +3902,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      UINT32                  Offset = sizeof (ACPI_TABLE_LPIT);
      ACPI_DMTABLE_INFO       *InfoTable;
      UINT32                  SubtableLength;
-@@ -2339,8 +2401,9 @@ AcpiDmDumpLpit (
+@@ -512,8 +531,9 @@ AcpiDmDumpLpit (
  
      /* Subtables */
  
@@ -3907,7 +3913,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -2404,13 +2467,14 @@ AcpiDmDumpMadt (
+@@ -577,13 +597,14 @@ AcpiDmDumpMadt (
  {
      ACPI_STATUS             Status;
      ACPI_SUBTABLE_HEADER    *Subtable;
@@ -3923,7 +3929,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoMadt);
      if (ACPI_FAILURE (Status))
      {
-@@ -2420,7 +2484,7 @@ AcpiDmDumpMadt (
+@@ -593,7 +614,7 @@ AcpiDmDumpMadt (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_SUBTABLE_HEADER, Table, Offset);
@@ -3932,7 +3938,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -2566,11 +2630,13 @@ AcpiDmDumpMcfg (
+@@ -739,11 +760,13 @@ AcpiDmDumpMcfg (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MCFG);
      ACPI_MCFG_ALLOCATION    *Subtable;
@@ -3947,7 +3953,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2579,17 +2645,17 @@ AcpiDmDumpMcfg (
+@@ -752,17 +775,17 @@ AcpiDmDumpMcfg (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MCFG_ALLOCATION, Table, Offset);
@@ -3969,7 +3975,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_MCFG_ALLOCATION), AcpiDmTableInfoMcfg0);
          if (ACPI_FAILURE (Status))
          {
-@@ -2623,6 +2689,7 @@ AcpiDmDumpMpst (
+@@ -796,6 +819,7 @@ AcpiDmDumpMpst (
  {
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MPST);
@@ -3977,7 +3983,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      ACPI_MPST_POWER_NODE    *Subtable0;
      ACPI_MPST_POWER_STATE   *Subtable0A;
      ACPI_MPST_COMPONENT     *Subtable0B;
-@@ -2631,11 +2698,13 @@ AcpiDmDumpMpst (
+@@ -804,11 +828,13 @@ AcpiDmDumpMpst (
      UINT16                  SubtableCount;
      UINT32                  PowerStateCount;
      UINT32                  ComponentCount;
@@ -3992,7 +3998,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2643,13 +2712,14 @@ AcpiDmDumpMpst (
+@@ -816,13 +842,14 @@ AcpiDmDumpMpst (
  
      /* Subtable: Memory Power Node(s) */
  
@@ -4010,7 +4016,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_MPST_POWER_NODE), AcpiDmTableInfoMpst0);
          if (ACPI_FAILURE (Status))
          {
-@@ -2658,8 +2728,8 @@ AcpiDmDumpMpst (
+@@ -831,8 +858,8 @@ AcpiDmDumpMpst (
  
          /* Extract the sub-subtable counts */
  
@@ -4021,7 +4027,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          Offset += sizeof (ACPI_MPST_POWER_NODE);
  
          /* Sub-subtables - Memory Power State Structure(s) */
-@@ -2670,7 +2740,7 @@ AcpiDmDumpMpst (
+@@ -843,7 +870,7 @@ AcpiDmDumpMpst (
          while (PowerStateCount)
          {
              AcpiOsPrintf ("\n");
@@ -4030,7 +4036,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  sizeof (ACPI_MPST_POWER_STATE), AcpiDmTableInfoMpst0A);
              if (ACPI_FAILURE (Status))
              {
-@@ -2680,7 +2750,7 @@ AcpiDmDumpMpst (
+@@ -853,7 +880,7 @@ AcpiDmDumpMpst (
              Subtable0A++;
              PowerStateCount--;
              Offset += sizeof (ACPI_MPST_POWER_STATE);
@@ -4039,7 +4045,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  
          /* Sub-subtables - Physical Component ID Structure(s) */
  
-@@ -2693,7 +2763,7 @@ AcpiDmDumpMpst (
+@@ -866,7 +893,7 @@ AcpiDmDumpMpst (
  
          while (ComponentCount)
          {
@@ -4048,7 +4054,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  sizeof (ACPI_MPST_COMPONENT), AcpiDmTableInfoMpst0B);
              if (ACPI_FAILURE (Status))
              {
-@@ -2708,17 +2778,19 @@ AcpiDmDumpMpst (
+@@ -881,17 +908,19 @@ AcpiDmDumpMpst (
          /* Point to next Memory Power Node subtable */
  
          SubtableCount--;
@@ -4071,7 +4077,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          sizeof (ACPI_MPST_DATA_HDR), AcpiDmTableInfoMpst1);
      if (ACPI_FAILURE (Status))
      {
-@@ -2733,10 +2805,10 @@ AcpiDmDumpMpst (
+@@ -906,10 +935,10 @@ AcpiDmDumpMpst (
      Subtable2 = ACPI_ADD_PTR (ACPI_MPST_POWER_DATA, Subtable1,
          sizeof (ACPI_MPST_DATA_HDR));
  
@@ -4084,7 +4090,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_MPST_POWER_DATA), AcpiDmTableInfoMpst2);
          if (ACPI_FAILURE (Status))
          {
-@@ -2769,11 +2841,13 @@ AcpiDmDumpMsct (
+@@ -942,11 +971,13 @@ AcpiDmDumpMsct (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MSCT);
      ACPI_MSCT_PROXIMITY     *Subtable;
@@ -4099,7 +4105,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2782,12 +2856,12 @@ AcpiDmDumpMsct (
+@@ -955,12 +986,12 @@ AcpiDmDumpMsct (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MSCT_PROXIMITY, Table, Offset);
@@ -4114,7 +4120,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_MSCT_PROXIMITY), AcpiDmTableInfoMsct0);
          if (ACPI_FAILURE (Status))
          {
-@@ -2822,11 +2896,13 @@ AcpiDmDumpMtmr (
+@@ -995,11 +1026,13 @@ AcpiDmDumpMtmr (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MTMR);
      ACPI_MTMR_ENTRY         *Subtable;
@@ -4129,7 +4135,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2835,12 +2911,12 @@ AcpiDmDumpMtmr (
+@@ -1008,12 +1041,12 @@ AcpiDmDumpMtmr (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MTMR_ENTRY, Table, Offset);
@@ -4144,7 +4150,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_MTMR_ENTRY), AcpiDmTableInfoMtmr0);
          if (ACPI_FAILURE (Status))
          {
-@@ -2882,11 +2958,17 @@ AcpiDmDumpNfit (
+@@ -1055,11 +1088,17 @@ AcpiDmDumpNfit (
      ACPI_NFIT_SMBIOS        *SmbiosInfo = NULL;
      ACPI_NFIT_FLUSH_ADDRESS *Hint = NULL;
      UINT32                  i;
@@ -4163,7 +4169,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -2895,19 +2977,21 @@ AcpiDmDumpNfit (
+@@ -1068,19 +1107,21 @@ AcpiDmDumpNfit (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_NFIT_HEADER, Table, Offset);
@@ -4189,7 +4195,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
          case ACPI_NFIT_TYPE_SYSTEM_ADDRESS:
  
-@@ -2964,7 +3048,7 @@ AcpiDmDumpNfit (
+@@ -1137,7 +1178,7 @@ AcpiDmDumpNfit (
  
              /* Attempt to continue */
  
@@ -4198,7 +4204,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              {
                  AcpiOsPrintf ("Invalid zero length subtable\n");
                  return;
-@@ -2973,8 +3057,8 @@ AcpiDmDumpNfit (
+@@ -1146,8 +1187,8 @@ AcpiDmDumpNfit (
          }
  
          AcpiOsPrintf ("\n");
@@ -4209,7 +4215,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -2982,13 +3066,14 @@ AcpiDmDumpNfit (
+@@ -1155,13 +1196,14 @@ AcpiDmDumpNfit (
  
          /* Per-subtable variable-length fields */
  
@@ -4227,7 +4233,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      &Interleave->LineOffset[i],
                      sizeof (UINT32), AcpiDmTableInfoNfit2a);
                  if (ACPI_FAILURE (Status))
-@@ -3002,12 +3087,11 @@ AcpiDmDumpNfit (
+@@ -1175,12 +1217,11 @@ AcpiDmDumpNfit (
  
          case ACPI_NFIT_TYPE_SMBIOS:
  
@@ -4242,7 +4248,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      sizeof (ACPI_NFIT_SMBIOS) - sizeof (UINT8),
                      SmbiosInfo,
                      Length, AcpiDmTableInfoNfit3a);
-@@ -3021,9 +3105,10 @@ AcpiDmDumpNfit (
+@@ -1194,9 +1235,10 @@ AcpiDmDumpNfit (
  
          case ACPI_NFIT_TYPE_FLUSH_ADDRESS:
  
@@ -4255,7 +4261,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                      &Hint->HintAddress[i],
                      sizeof (UINT64), AcpiDmTableInfoNfit6a);
                  if (ACPI_FAILURE (Status))
-@@ -3042,8 +3127,8 @@ AcpiDmDumpNfit (
+@@ -1215,8 +1257,8 @@ AcpiDmDumpNfit (
  NextSubtable:
          /* Point to next subtable */
  
@@ -4266,7 +4272,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -3068,12 +3153,13 @@ AcpiDmDumpPcct (
+@@ -1241,12 +1283,13 @@ AcpiDmDumpPcct (
      ACPI_STATUS             Status;
      ACPI_PCCT_SUBSPACE      *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
@@ -4281,7 +4287,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoPcct);
      if (ACPI_FAILURE (Status))
      {
-@@ -3083,7 +3169,7 @@ AcpiDmDumpPcct (
+@@ -1256,7 +1299,7 @@ AcpiDmDumpPcct (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_PCCT_SUBSPACE, Table, Offset);
@@ -4290,7 +4296,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          /* Common subtable header */
  
-@@ -3223,16 +3309,21 @@ AcpiDmDumpPmtt (
+@@ -1396,16 +1439,21 @@ AcpiDmDumpPmtt (
      ACPI_PMTT_HEADER        *MemSubtable;
      ACPI_PMTT_HEADER        *DimmSubtable;
      ACPI_PMTT_DOMAIN        *DomainArray;
@@ -4314,7 +4320,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoPmtt);
      if (ACPI_FAILURE (Status))
      {
-@@ -3242,13 +3333,14 @@ AcpiDmDumpPmtt (
+@@ -1415,13 +1463,14 @@ AcpiDmDumpPmtt (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Table, Offset);
@@ -4331,7 +4337,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -3267,7 +3359,7 @@ AcpiDmDumpPmtt (
+@@ -1440,7 +1489,7 @@ AcpiDmDumpPmtt (
          /* Dump the fixed-length portion of the subtable */
  
          Status = AcpiDmDumpTable (Length, Offset, Subtable,
@@ -4340,7 +4346,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -3279,15 +3371,16 @@ AcpiDmDumpPmtt (
+@@ -1452,15 +1501,16 @@ AcpiDmDumpPmtt (
          MemSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Subtable,
              sizeof (ACPI_PMTT_SOCKET));
  
@@ -4360,7 +4366,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -3307,7 +3400,7 @@ AcpiDmDumpPmtt (
+@@ -1480,7 +1530,7 @@ AcpiDmDumpPmtt (
  
              Status = AcpiDmDumpTable (Length,
                  Offset + MemOffset, MemSubtable,
@@ -4369,7 +4375,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -3315,13 +3408,14 @@ AcpiDmDumpPmtt (
+@@ -1488,13 +1538,14 @@ AcpiDmDumpPmtt (
  
              /* Walk the variable count of proximity domains */
  
@@ -4387,7 +4393,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  DomainCount)
              {
                  Status = AcpiDmDumpTable (Length,
-@@ -3349,15 +3443,16 @@ AcpiDmDumpPmtt (
+@@ -1522,15 +1573,16 @@ AcpiDmDumpPmtt (
              DimmSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, MemSubtable,
                  DomainOffset);
  
@@ -4407,7 +4413,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  if (ACPI_FAILURE (Status))
                  {
                      return;
-@@ -3377,7 +3472,7 @@ AcpiDmDumpPmtt (
+@@ -1550,7 +1602,7 @@ AcpiDmDumpPmtt (
  
                  Status = AcpiDmDumpTable (Length,
                      Offset + MemOffset + DimmOffset, DimmSubtable,
@@ -4416,7 +4422,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
                  if (ACPI_FAILURE (Status))
                  {
                      return;
-@@ -3385,23 +3480,22 @@ AcpiDmDumpPmtt (
+@@ -1558,23 +1610,22 @@ AcpiDmDumpPmtt (
  
                  /* Point to next DIMM subtable */
  
@@ -4446,7 +4452,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      }
  }
  
-@@ -3557,6 +3651,8 @@ AcpiDmDumpS3pt (
+@@ -1730,6 +1781,8 @@ AcpiDmDumpS3pt (
      ACPI_FPDT_HEADER        *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
      ACPI_TABLE_S3PT         *S3ptTable = ACPI_CAST_PTR (ACPI_TABLE_S3PT, Tables);
@@ -4455,7 +4461,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  
  
      /* Main table */
-@@ -3567,20 +3663,22 @@ AcpiDmDumpS3pt (
+@@ -1740,20 +1793,22 @@ AcpiDmDumpS3pt (
          return 0;
      }
  
@@ -4481,7 +4487,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          {
          case ACPI_S3PT_TYPE_RESUME:
  
-@@ -3595,7 +3693,7 @@ AcpiDmDumpS3pt (
+@@ -1768,7 +1823,7 @@ AcpiDmDumpS3pt (
          default:
  
              AcpiOsPrintf ("\n**** Unknown S3PT subtable type 0x%X\n",
@@ -4490,7 +4496,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  
              /* Attempt to continue */
  
-@@ -3608,7 +3706,7 @@ AcpiDmDumpS3pt (
+@@ -1781,7 +1836,7 @@ AcpiDmDumpS3pt (
          }
  
          AcpiOsPrintf ("\n");
@@ -4499,7 +4505,11 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              Subtable->Length, InfoTable);
          if (ACPI_FAILURE (Status))
          {
-@@ -3809,9 +3907,11 @@ void
+Index: acpica-unix2-20180209/source/common/dmtbdump3.c
+===================================================================
+--- acpica-unix2-20180209.orig/source/common/dmtbdump3.c
++++ acpica-unix2-20180209/source/common/dmtbdump3.c
+@@ -68,9 +68,11 @@ void
  AcpiDmDumpSlic (
      ACPI_TABLE_HEADER       *Table)
  {
@@ -4513,7 +4523,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
  }
  
  
-@@ -3834,14 +3934,17 @@ AcpiDmDumpSlit (
+@@ -93,14 +95,17 @@ AcpiDmDumpSlit (
      ACPI_STATUS             Status;
      UINT32                  Offset;
      UINT8                   *Row;
@@ -4533,7 +4543,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -3849,7 +3952,8 @@ AcpiDmDumpSlit (
+@@ -108,7 +113,8 @@ AcpiDmDumpSlit (
  
      /* Display the Locality NxN Matrix */
  
@@ -4543,7 +4553,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Offset = ACPI_OFFSET (ACPI_TABLE_SLIT, Entry[0]);
      Row = (UINT8 *) ACPI_CAST_PTR (ACPI_TABLE_SLIT, Table)->Entry;
  
-@@ -3862,7 +3966,7 @@ AcpiDmDumpSlit (
+@@ -121,7 +127,7 @@ AcpiDmDumpSlit (
          {
              /* Check for beyond EOT */
  
@@ -4552,7 +4562,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              {
                  AcpiOsPrintf (
                      "\n**** Not enough room in table for all localities\n");
-@@ -3914,11 +4018,13 @@ AcpiDmDumpSrat (
+@@ -173,11 +179,13 @@ AcpiDmDumpSrat (
      UINT32                  Offset = sizeof (ACPI_TABLE_SRAT);
      ACPI_SUBTABLE_HEADER    *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
@@ -4567,7 +4577,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -3927,12 +4033,12 @@ AcpiDmDumpSrat (
+@@ -186,12 +194,12 @@ AcpiDmDumpSrat (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_SUBTABLE_HEADER, Table, Offset);
@@ -4582,7 +4592,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              Subtable->Length, AcpiDmTableInfoSratHdr);
          if (ACPI_FAILURE (Status))
          {
-@@ -3981,7 +4087,7 @@ AcpiDmDumpSrat (
+@@ -240,7 +248,7 @@ AcpiDmDumpSrat (
          }
  
          AcpiOsPrintf ("\n");
@@ -4591,7 +4601,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              Subtable->Length, InfoTable);
          if (ACPI_FAILURE (Status))
          {
-@@ -4018,13 +4124,14 @@ AcpiDmDumpStao (
+@@ -277,13 +285,14 @@ AcpiDmDumpStao (
  {
      ACPI_STATUS             Status;
      char                    *Namepath;
@@ -4607,7 +4617,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoStao);
      if (ACPI_FAILURE (Status))
      {
-@@ -4033,7 +4140,7 @@ AcpiDmDumpStao (
+@@ -292,7 +301,7 @@ AcpiDmDumpStao (
  
      /* The rest of the table consists of Namepath strings */
  
@@ -4616,7 +4626,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      {
          Namepath = ACPI_ADD_PTR (char, Table, Offset);
          StringLength = strlen (Namepath) + 1;
-@@ -4075,11 +4182,14 @@ AcpiDmDumpTcpa (
+@@ -334,11 +343,14 @@ AcpiDmDumpTcpa (
      ACPI_TABLE_TCPA_HDR     *Subtable = ACPI_ADD_PTR (
                                  ACPI_TABLE_TCPA_HDR, Table, Offset);
      ACPI_STATUS             Status;
@@ -4632,7 +4642,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          0, AcpiDmTableInfoTcpaHdr);
      if (ACPI_FAILURE (Status))
      {
-@@ -4090,18 +4200,19 @@ AcpiDmDumpTcpa (
+@@ -349,18 +361,19 @@ AcpiDmDumpTcpa (
       * Examine the PlatformClass field to determine the table type.
       * Either a client or server table. Only one.
       */
@@ -4657,7 +4667,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
          break;
  
      default:
-@@ -4196,11 +4307,13 @@ AcpiDmDumpVrtc (
+@@ -455,11 +468,13 @@ AcpiDmDumpVrtc (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_VRTC);
      ACPI_VRTC_ENTRY         *Subtable;
@@ -4672,7 +4682,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -4209,12 +4322,12 @@ AcpiDmDumpVrtc (
+@@ -468,12 +483,12 @@ AcpiDmDumpVrtc (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_VRTC_ENTRY, Table, Offset);
@@ -4687,7 +4697,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_VRTC_ENTRY), AcpiDmTableInfoVrtc0);
          if (ACPI_FAILURE (Status))
          {
-@@ -4249,11 +4362,13 @@ AcpiDmDumpWdat (
+@@ -508,11 +523,13 @@ AcpiDmDumpWdat (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_WDAT);
      ACPI_WDAT_ENTRY         *Subtable;
@@ -4702,7 +4712,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -4262,12 +4377,12 @@ AcpiDmDumpWdat (
+@@ -521,12 +538,12 @@ AcpiDmDumpWdat (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_WDAT_ENTRY, Table, Offset);
@@ -4717,7 +4727,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
              sizeof (ACPI_WDAT_ENTRY), AcpiDmTableInfoWdat0);
          if (ACPI_FAILURE (Status))
          {
-@@ -4302,12 +4417,13 @@ AcpiDmDumpWpbt (
+@@ -561,12 +578,13 @@ AcpiDmDumpWpbt (
  {
      ACPI_STATUS             Status;
      ACPI_TABLE_WPBT         *Subtable;
@@ -4732,7 +4742,7 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoWpbt);
      if (ACPI_FAILURE (Status))
      {
-@@ -4317,10 +4433,10 @@ AcpiDmDumpWpbt (
+@@ -576,10 +594,10 @@ AcpiDmDumpWpbt (
      /* Extract the arguments buffer length from the main table */
  
      Subtable = ACPI_CAST_PTR (ACPI_TABLE_WPBT, Table);
@@ -4745,10 +4755,10 @@ Index: acpica-unix-20171215/source/common/dmtbdump.c
 +    (void) AcpiDmDumpTable (Length, 0, Table, ArgumentsLength,
          AcpiDmTableInfoWpbt0);
  }
-Index: acpica-unix-20171215/source/compiler/dtfield.c
+Index: acpica-unix2-20180209/source/compiler/dtfield.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/dtfield.c
-+++ acpica-unix-20171215/source/compiler/dtfield.c
+--- acpica-unix2-20180209.orig/source/compiler/dtfield.c
++++ acpica-unix2-20180209/source/compiler/dtfield.c
 @@ -359,7 +359,27 @@ DtCompileInteger (
          DtError (ASL_ERROR, ASL_MSG_INTEGER_SIZE, Field, MsgBuffer);
      }
@@ -4778,10 +4788,10 @@ Index: acpica-unix-20171215/source/compiler/dtfield.c
      return;
  }
  
-Index: acpica-unix-20171215/source/compiler/dtsubtable.c
+Index: acpica-unix2-20180209/source/compiler/dtsubtable.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/dtsubtable.c
-+++ acpica-unix-20171215/source/compiler/dtsubtable.c
+--- acpica-unix2-20180209.orig/source/compiler/dtsubtable.c
++++ acpica-unix2-20180209/source/compiler/dtsubtable.c
 @@ -378,6 +378,21 @@ DtSetSubtableLength (
          return;
      }
@@ -4806,10 +4816,10 @@ Index: acpica-unix-20171215/source/compiler/dtsubtable.c
 +        	Subtable->SizeOfLengthField);
 +    }
  }
-Index: acpica-unix-20171215/source/compiler/dttable1.c
+Index: acpica-unix2-20180209/source/compiler/dttable1.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/dttable1.c
-+++ acpica-unix-20171215/source/compiler/dttable1.c
+--- acpica-unix2-20180209.orig/source/compiler/dttable1.c
++++ acpica-unix2-20180209/source/compiler/dttable1.c
 @@ -281,6 +281,8 @@ DtCompileCsrt (
      DT_FIELD                **PFieldList = (DT_FIELD **) List;
      UINT32                  DescriptorCount;
@@ -4888,7 +4898,7 @@ Index: acpica-unix-20171215/source/compiler/dttable1.c
 -        DeviceInfo->NamepathOffset = CurrentOffset;
 +        ACPI_MOVE_16_TO_16(&DeviceInfo->NamepathOffset, &CurrentOffset);
          Status = DtCompileTable (PFieldList, AcpiDmTableInfoDbg2Name,
-             &Subtable, TRUE);
+             &Subtable);
          if (ACPI_FAILURE (Status))
 @@ -480,8 +493,9 @@ DtCompileDbg2 (
  
@@ -4921,7 +4931,7 @@ Index: acpica-unix-20171215/source/compiler/dttable1.c
 +    UINT16		    HdrType;
  
  
-     Status = DtCompileTable (PFieldList, AcpiDmTableInfoDmar, &Subtable, TRUE);
+     Status = DtCompileTable (PFieldList, AcpiDmTableInfoDmar, &Subtable);
 @@ -578,8 +594,11 @@ DtCompileDmar (
          DtPushSubtable (Subtable);
  
@@ -5051,7 +5061,7 @@ Index: acpica-unix-20171215/source/compiler/dttable1.c
 -    Iort->NodeOffset = sizeof (ACPI_TABLE_IORT);
 +    NodeOffset = sizeof (ACPI_TABLE_IORT);
      Status = DtCompileTable (PFieldList, AcpiDmTableInfoIortPad,
-         &Subtable, TRUE);
+         &Subtable);
      if (ACPI_FAILURE (Status))
 @@ -1498,7 +1525,7 @@ DtCompileIort (
      if (Subtable)
@@ -5119,7 +5129,7 @@ Index: acpica-unix-20171215/source/compiler/dttable1.c
 -            IortSmmu->GlobalInterruptOffset = NodeLength;
 +            ACPI_MOVE_32_TO_32(&IortSmmu->GlobalInterruptOffset, &NodeLength);
              Status = DtCompileTable (PFieldList, AcpiDmTableInfoIort3a,
-                 &Subtable, TRUE);
+                 &Subtable);
              if (ACPI_FAILURE (Status))
 @@ -1660,7 +1690,7 @@ DtCompileIort (
              /* Compile context interrupt array */
@@ -5181,10 +5191,10 @@ Index: acpica-unix-20171215/source/compiler/dttable1.c
      return (AE_OK);
  }
  
-Index: acpica-unix-20171215/source/compiler/dttable2.c
+Index: acpica-unix2-20180209/source/compiler/dttable2.c
 ===================================================================
---- acpica-unix-20171215.orig/source/compiler/dttable2.c
-+++ acpica-unix-20171215/source/compiler/dttable2.c
+--- acpica-unix2-20180209.orig/source/compiler/dttable2.c
++++ acpica-unix2-20180209/source/compiler/dttable2.c
 @@ -345,7 +345,7 @@ DtCompileMpst (
      DtPushSubtable (Subtable);
  
@@ -5341,10 +5351,10 @@ Index: acpica-unix-20171215/source/compiler/dttable2.c
  
      ParentTable = DtPeekSubtable ();
      DtInsertSubtable (ParentTable, Subtable);
-Index: acpica-unix-20171215/source/components/disassembler/dmbuffer.c
+Index: acpica-unix2-20180209/source/components/disassembler/dmbuffer.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/disassembler/dmbuffer.c
-+++ acpica-unix-20171215/source/components/disassembler/dmbuffer.c
+--- acpica-unix2-20180209.orig/source/components/disassembler/dmbuffer.c
++++ acpica-unix2-20180209/source/components/disassembler/dmbuffer.c
 @@ -204,7 +204,7 @@ AcpiDmByteList (
  
  
@@ -5420,10 +5430,10 @@ Index: acpica-unix-20171215/source/components/disassembler/dmbuffer.c
  
      NextOp = AcpiPsGetDepthNext (NULL, Op);
      if (!NextOp)
-Index: acpica-unix-20171215/source/components/disassembler/dmopcode.c
+Index: acpica-unix2-20180209/source/components/disassembler/dmopcode.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/disassembler/dmopcode.c
-+++ acpica-unix-20171215/source/components/disassembler/dmopcode.c
+--- acpica-unix2-20180209.orig/source/components/disassembler/dmopcode.c
++++ acpica-unix2-20180209/source/components/disassembler/dmopcode.c
 @@ -244,6 +244,7 @@ AcpiDmPredefinedDescription (
      char                        *NameString;
      int                         LastCharIsDigit;
@@ -5494,10 +5504,10 @@ Index: acpica-unix-20171215/source/components/disassembler/dmopcode.c
  
              Info->Level += 1;
              Info->MappingOp = Op;
-Index: acpica-unix-20171215/source/components/disassembler/dmresrcl.c
+Index: acpica-unix2-20180209/source/components/disassembler/dmresrcl.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/disassembler/dmresrcl.c
-+++ acpica-unix-20171215/source/components/disassembler/dmresrcl.c
+--- acpica-unix2-20180209.orig/source/components/disassembler/dmresrcl.c
++++ acpica-unix2-20180209/source/components/disassembler/dmresrcl.c
 @@ -141,7 +141,8 @@ AcpiDmMemoryFields (
      UINT32                  Level)
  {
@@ -5646,10 +5656,10 @@ Index: acpica-unix-20171215/source/components/disassembler/dmresrcl.c
      }
  
      AcpiDmIndent (Level);
-Index: acpica-unix-20171215/source/components/disassembler/dmresrcl2.c
+Index: acpica-unix2-20180209/source/components/disassembler/dmresrcl2.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/disassembler/dmresrcl2.c
-+++ acpica-unix-20171215/source/components/disassembler/dmresrcl2.c
+--- acpica-unix2-20180209.orig/source/components/disassembler/dmresrcl2.c
++++ acpica-unix2-20180209/source/components/disassembler/dmresrcl2.c
 @@ -191,22 +191,24 @@ AcpiDmGpioCommon (
      char                    *DeviceName = NULL;
      UINT32                  PinCount;
@@ -5873,10 +5883,10 @@ Index: acpica-unix-20171215/source/components/disassembler/dmresrcl2.c
  
      DeviceName = ACPI_ADD_PTR (char, Resource, ResourceSourceOffset);
      AcpiUtPrintString (DeviceName, ACPI_UINT16_MAX);
-Index: acpica-unix-20171215/source/components/disassembler/dmresrcs.c
+Index: acpica-unix2-20180209/source/components/disassembler/dmresrcs.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/disassembler/dmresrcs.c
-+++ acpica-unix-20171215/source/components/disassembler/dmresrcs.c
+--- acpica-unix2-20180209.orig/source/components/disassembler/dmresrcs.c
++++ acpica-unix2-20180209/source/components/disassembler/dmresrcs.c
 @@ -72,6 +72,7 @@ AcpiDmIrqDescriptor (
      UINT32                  Length,
      UINT32                  Level)
@@ -5933,10 +5943,10 @@ Index: acpica-unix-20171215/source/components/disassembler/dmresrcs.c
  
      AcpiDmIndent (Level + 1);
      AcpiDmDumpInteger8 (Resource->FixedIo.AddressLength, "Length");
-Index: acpica-unix-20171215/source/components/dispatcher/dsfield.c
+Index: acpica-unix2-20180209/source/components/dispatcher/dsfield.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/dispatcher/dsfield.c
-+++ acpica-unix-20171215/source/components/dispatcher/dsfield.c
+--- acpica-unix2-20180209.orig/source/components/dispatcher/dsfield.c
++++ acpica-unix2-20180209/source/components/dispatcher/dsfield.c
 @@ -321,6 +321,7 @@ AcpiDsGetFieldNames (
      ACPI_STATUS             Status;
      UINT64                  Position;
@@ -5981,10 +5991,10 @@ Index: acpica-unix-20171215/source/components/dispatcher/dsfield.c
              if (ACPI_FAILURE (Status))
              {
                  ACPI_ERROR_NAMESPACE (WalkState->ScopeInfo,
-Index: acpica-unix-20171215/source/components/events/evgpeblk.c
+Index: acpica-unix2-20180209/source/components/events/evgpeblk.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/events/evgpeblk.c
-+++ acpica-unix-20171215/source/components/events/evgpeblk.c
+--- acpica-unix2-20180209.orig/source/components/events/evgpeblk.c
++++ acpica-unix2-20180209/source/components/events/evgpeblk.c
 @@ -376,6 +376,7 @@ AcpiEvCreateGpeBlock (
      ACPI_STATUS             Status;
      ACPI_GPE_BLOCK_INFO     *GpeBlock;
@@ -6017,10 +6027,10 @@ Index: acpica-unix-20171215/source/components/events/evgpeblk.c
          InterruptNumber == AcpiGbl_FADT.SciInterrupt ? " (SCI)" : ""));
  
      /* Update global count of currently available GPEs */
-Index: acpica-unix-20171215/source/components/hardware/hwregs.c
+Index: acpica-unix2-20180209/source/components/hardware/hwregs.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/hardware/hwregs.c
-+++ acpica-unix-20171215/source/components/hardware/hwregs.c
+--- acpica-unix2-20180209.orig/source/components/hardware/hwregs.c
++++ acpica-unix2-20180209/source/components/hardware/hwregs.c
 @@ -197,7 +197,7 @@ AcpiHwValidateRegister (
       * Address must not be null. A null address also indicates an optional
       * ACPI register that is not supported, so no error message.
@@ -6030,10 +6040,10 @@ Index: acpica-unix-20171215/source/components/hardware/hwregs.c
      if (!(*Address))
      {
          return (AE_BAD_ADDRESS);
-Index: acpica-unix-20171215/source/components/hardware/hwvalid.c
+Index: acpica-unix2-20180209/source/components/hardware/hwvalid.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/hardware/hwvalid.c
-+++ acpica-unix-20171215/source/components/hardware/hwvalid.c
+--- acpica-unix2-20180209.orig/source/components/hardware/hwvalid.c
++++ acpica-unix2-20180209/source/components/hardware/hwvalid.c
 @@ -135,6 +135,8 @@ AcpiHwValidateIoRequest (
      UINT32                  ByteWidth;
      ACPI_IO_ADDRESS         LastAddress;
@@ -6055,10 +6065,10 @@ Index: acpica-unix-20171215/source/components/hardware/hwvalid.c
      {
          ACPI_ERROR ((AE_INFO,
              "Illegal I/O port address/length above 64K: %8.8X%8.8X/0x%X",
-Index: acpica-unix-20171215/source/components/namespace/nsaccess.c
+Index: acpica-unix2-20180209/source/components/namespace/nsaccess.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/namespace/nsaccess.c
-+++ acpica-unix-20171215/source/components/namespace/nsaccess.c
+--- acpica-unix2-20180209.orig/source/components/namespace/nsaccess.c
++++ acpica-unix2-20180209/source/components/namespace/nsaccess.c
 @@ -313,6 +313,7 @@ AcpiNsLookup (
      ACPI_OBJECT_TYPE        ThisSearchType;
      UINT32                  SearchParentFlag = ACPI_NS_SEARCH_PARENT;
@@ -6079,11 +6089,11 @@ Index: acpica-unix-20171215/source/components/namespace/nsaccess.c
                      AcpiUtGetTypeName (ThisNode->Type),
                      AcpiUtGetTypeName (TypeToCheckFor)));
              }
-Index: acpica-unix-20171215/source/components/namespace/nsparse.c
+Index: acpica-unix2-20180209/source/components/namespace/nsparse.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/namespace/nsparse.c
-+++ acpica-unix-20171215/source/components/namespace/nsparse.c
-@@ -196,13 +196,14 @@ AcpiNsOneCompleteParse (
+--- acpica-unix2-20180209.orig/source/components/namespace/nsparse.c
++++ acpica-unix2-20180209/source/components/namespace/nsparse.c
+@@ -197,13 +197,14 @@ AcpiNsOneCompleteParse (
  
      /* Table must consist of at least a complete header */
  
@@ -6100,10 +6110,10 @@ Index: acpica-unix-20171215/source/components/namespace/nsparse.c
  
      Status = AcpiTbGetOwnerId (TableIndex, &OwnerId);
      if (ACPI_FAILURE (Status))
-Index: acpica-unix-20171215/source/components/tables/tbdata.c
+Index: acpica-unix2-20180209/source/components/tables/tbdata.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbdata.c
-+++ acpica-unix-20171215/source/components/tables/tbdata.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbdata.c
++++ acpica-unix2-20180209/source/components/tables/tbdata.c
 @@ -552,6 +552,7 @@ AcpiTbVerifyTempTable (
      UINT32                  *TableIndex)
  {
@@ -6122,10 +6132,10 @@ Index: acpica-unix-20171215/source/components/tables/tbdata.c
          if (ACPI_FAILURE (Status))
          {
              ACPI_EXCEPTION ((AE_INFO, AE_NO_MEMORY,
-Index: acpica-unix-20171215/source/components/tables/tbfadt.c
+Index: acpica-unix2-20180209/source/components/tables/tbfadt.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbfadt.c
-+++ acpica-unix-20171215/source/components/tables/tbfadt.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbfadt.c
++++ acpica-unix2-20180209/source/components/tables/tbfadt.c
 @@ -424,18 +424,20 @@ AcpiTbCreateLocalFadt (
      ACPI_TABLE_HEADER       *Table,
      UINT32                  Length)
@@ -6237,10 +6247,10 @@ Index: acpica-unix-20171215/source/components/tables/tbfadt.c
                  "PmRegisters", 0);
          }
      }
-Index: acpica-unix-20171215/source/components/tables/tbfind.c
+Index: acpica-unix2-20180209/source/components/tables/tbfind.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbfind.c
-+++ acpica-unix-20171215/source/components/tables/tbfind.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbfind.c
++++ acpica-unix2-20180209/source/components/tables/tbfind.c
 @@ -108,8 +108,11 @@ AcpiTbFindTable (
      (void) AcpiUtAcquireMutex (ACPI_MTX_TABLES);
      for (i = 0; i < AcpiGbl_RootTableList.CurrentTableCount; ++i)
@@ -6254,10 +6264,10 @@ Index: acpica-unix-20171215/source/components/tables/tbfind.c
          {
              /* Not the requested table */
  
-Index: acpica-unix-20171215/source/components/tables/tbprint.c
+Index: acpica-unix2-20180209/source/components/tables/tbprint.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbprint.c
-+++ acpica-unix-20171215/source/components/tables/tbprint.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbprint.c
++++ acpica-unix2-20180209/source/components/tables/tbprint.c
 @@ -143,15 +143,18 @@ AcpiTbPrintTableHeader (
      ACPI_TABLE_HEADER       *Header)
  {
@@ -6299,10 +6309,10 @@ Index: acpica-unix-20171215/source/components/tables/tbprint.c
      }
  }
  
-Index: acpica-unix-20171215/source/components/tables/tbutils.c
+Index: acpica-unix2-20180209/source/components/tables/tbutils.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbutils.c
-+++ acpica-unix-20171215/source/components/tables/tbutils.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbutils.c
++++ acpica-unix2-20180209/source/components/tables/tbutils.c
 @@ -238,7 +238,7 @@ AcpiTbGetRootTableEntry (
           * 64-bit platform, XSDT: Move (unaligned) 64-bit to local,
           *  return 64-bit
@@ -6362,10 +6372,10 @@ Index: acpica-unix-20171215/source/components/tables/tbutils.c
          {
              AcpiGbl_FadtIndex = TableIndex;
              AcpiTbParseFadt ();
-Index: acpica-unix-20171215/source/components/tables/tbxface.c
+Index: acpica-unix2-20180209/source/components/tables/tbxface.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbxface.c
-+++ acpica-unix-20171215/source/components/tables/tbxface.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbxface.c
++++ acpica-unix2-20180209/source/components/tables/tbxface.c
 @@ -293,8 +293,11 @@ AcpiGetTableHeader (
  
      for (i = 0, j = 0; i < AcpiGbl_RootTableList.CurrentTableCount; i++)
@@ -6379,10 +6389,10 @@ Index: acpica-unix-20171215/source/components/tables/tbxface.c
          {
              continue;
          }
-Index: acpica-unix-20171215/source/components/tables/tbxfload.c
+Index: acpica-unix2-20180209/source/components/tables/tbxfload.c
 ===================================================================
---- acpica-unix-20171215.orig/source/components/tables/tbxfload.c
-+++ acpica-unix-20171215/source/components/tables/tbxfload.c
+--- acpica-unix2-20180209.orig/source/components/tables/tbxfload.c
++++ acpica-unix2-20180209/source/components/tables/tbxfload.c
 @@ -156,6 +156,7 @@ AcpiTbLoadNamespace (
      ACPI_TABLE_DESC         *Table;
      UINT32                  TablesLoaded = 0;
@@ -6402,10 +6412,10 @@ Index: acpica-unix-20171215/source/components/tables/tbxfload.c
           ACPI_FAILURE (AcpiTbValidateTable (Table)))
      {
          Status = AE_NO_ACPI_TABLES;
-Index: acpica-unix-20171215/source/tools/acpiexec/aetables.c
+Index: acpica-unix2-20180209/source/tools/acpiexec/aetables.c
 ===================================================================
---- acpica-unix-20171215.orig/source/tools/acpiexec/aetables.c
-+++ acpica-unix-20171215/source/tools/acpiexec/aetables.c
+--- acpica-unix2-20180209.orig/source/tools/acpiexec/aetables.c
++++ acpica-unix2-20180209/source/tools/acpiexec/aetables.c
 @@ -146,21 +146,25 @@ AeInitializeTableHeader (
      char                    *Signature,
      UINT32                  Length)
@@ -6557,10 +6567,10 @@ Index: acpica-unix-20171215/source/tools/acpiexec/aetables.c
      }
  
      return (AE_OK);
-Index: acpica-unix-20171215/source/common/dmswitch.c
+Index: acpica-unix2-20180209/source/common/dmswitch.c
 ===================================================================
---- acpica-unix-20171215.orig/source/common/dmswitch.c
-+++ acpica-unix-20171215/source/common/dmswitch.c
+--- acpica-unix2-20180209.orig/source/common/dmswitch.c
++++ acpica-unix2-20180209/source/common/dmswitch.c
 @@ -88,13 +88,15 @@ AcpiDmProcessSwitch (
      ACPI_PARSE_OBJECT_LIST  *Current;
      ACPI_PARSE_OBJECT_LIST  *Previous;
