@@ -10,3 +10,6 @@ arm7hl.patch
 big-endian-v2.patch
 simple-64bit.patch
 mips-be-fix.patch
+cve-2017-13693.patch
+cve-2017-13694.patch
+cve-2017-13695.patch

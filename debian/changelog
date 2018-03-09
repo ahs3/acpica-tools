@@ -2,6 +2,12 @@ acpica-unix (20180209-1) unstable; urgency=medium
 
   * Upgrade to 20180209 upstream
   * Refresh patches as needed
+  * CVE-2017-13693: operand cache leak in dsutils.c (patch from github
+    applied)
+  * CVE-2017-13694: acpi parse and parseext cache leak in psobjects.c 
+    (patch from github applied)
+  * CVE-2017-13695: operand cache leak in nseval.c (patch from github
+    applied)
 
  -- Al Stone <ahs3@debian.org>  Tue, 06 Mar 2018 15:38:05 -0700
 
