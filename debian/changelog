@@ -8,8 +8,12 @@ acpica-unix (20180209-1) unstable; urgency=medium
     (patch from github applied)
   * CVE-2017-13695: operand cache leak in nseval.c (patch from github
     applied)
+  * NOTE: all CVE patches are for acpica-tools ONLY; the kernel must be
+    patched separately.
+  * Add patch from github to improve the way hex files are output and make
+    them more usable.
 
- -- Al Stone <ahs3@debian.org>  Tue, 06 Mar 2018 15:38:05 -0700
+ -- Al Stone <ahs3@debian.org>  Fri, 09 Mar 2018 14:30:56 -0700
 
 acpica-unix (20180105-1) unstable; urgency=medium
 

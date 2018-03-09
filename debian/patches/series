@@ -13,3 +13,4 @@ mips-be-fix.patch
 cve-2017-13693.patch
 cve-2017-13694.patch
 cve-2017-13695.patch
+add-th-option.patch
