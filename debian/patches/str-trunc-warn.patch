@@ -75,9 +75,9 @@ Index: acpica-unix2-20180209/source/compiler/aslpredef.c
 +                PredefinedName, TypeName, PackageIndex, StringBuffer);
 +        }
 +
++        AslError (ASL_ERROR, ASL_MSG_RESERVED_OPERAND_TYPE, Op, strp);
 +	if (cnt > 0)
 +	    free(strp);
-+        AslError (ASL_ERROR, ASL_MSG_RESERVED_OPERAND_TYPE, Op, strp);
      }
  
 -    AslError (ASL_ERROR, ASL_MSG_RESERVED_OPERAND_TYPE, Op, MsgBuffer);
