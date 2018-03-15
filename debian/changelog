@@ -10,8 +10,6 @@ acpica-unix (20180209-1) unstable; urgency=medium
     applied)
   * NOTE: all CVE patches are for acpica-tools ONLY; the kernel must be
     patched separately.
-  * Add patch from github to improve the way hex files are output and make
-    them more usable.
 
  -- Al Stone <ahs3@debian.org>  Fri, 09 Mar 2018 14:30:56 -0700
 
