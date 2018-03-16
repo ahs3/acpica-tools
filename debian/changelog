@@ -12,6 +12,7 @@ acpica-unix (20180209-1) unstable; urgency=medium
     patched separately.
   * Clean up compiler warnings on some arches for string truncations
   * Clean up compiler warnings for pointer casting on other arches
+  * Clean up lintian warning about update-alternatives
 
  -- Al Stone <ahs3@debian.org>  Fri, 16 Mar 2018 14:43:32 -0600
 
