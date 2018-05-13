@@ -8,7 +8,7 @@ Hi,
 
 the current version fails to build on GNU/kFreeBSD.
 
-It needs small tweak to define uintptr_t, see bellow.
+It needs small tweak to define uintptr_t, see below.
 
 It would also be nice if you can ask upstream
 to include this change.
