@@ -3,11 +3,11 @@ Description: Stop listing all 64bit architectures
  64bit architectures.
 Author: Adrian Bunk <bunk@debian.org>
 
-Index: acpica-unix2-20180209/source/include/platform/aclinux.h
+Index: acpica-unix-20180313/source/include/platform/aclinux.h
 ===================================================================
---- acpica-unix2-20180209.orig/source/include/platform/aclinux.h
-+++ acpica-unix2-20180209/source/include/platform/aclinux.h
-@@ -209,9 +209,7 @@
+--- acpica-unix-20180313.orig/source/include/platform/aclinux.h
++++ acpica-unix-20180313/source/include/platform/aclinux.h
+@@ -210,9 +210,7 @@
  #define ACPI_FLUSH_CPU_CACHE()
  #define ACPI_CAST_PTHREAD_T(Pthread) ((ACPI_THREAD_ID) (Pthread))
  
