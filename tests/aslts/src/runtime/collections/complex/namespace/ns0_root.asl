@@ -47,7 +47,7 @@
             0x04
         })
         I001 = Arg0
-        CH03 (__METHOD__, Z154, 0x14, 0x30, 0x00)
+        CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -103,20 +103,20 @@
         Store ((D000.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (__METHOD__, Z154, 0x14, 0x61, 0x00)
+            CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (__METHOD__, Z154, 0x63, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((D000.I000 != 0x80000000))
             {
-                ERR (__METHOD__, Z154, 0x66, 0x00, 0x00, D000.I000, 0x80000000)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, D000.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x69, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, __LINE__, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -139,7 +139,7 @@
             0x04
         })
         I001 = Arg0
-        CH03 (__METHOD__, Z154, 0x14, 0x7C, 0x00)
+        CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -195,20 +195,20 @@
         Store ((TZ00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (__METHOD__, Z154, 0x14, 0xAC, 0x00)
+            CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (__METHOD__, Z154, 0xAE, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((TZ00.I000 != 0x80000000))
             {
-                ERR (__METHOD__, Z154, 0xB1, 0x00, 0x00, TZ00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, TZ00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (__METHOD__, 0x01, 0x05, Z154, 0xB4, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, __LINE__, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -231,7 +231,7 @@
             0x04
         })
         I001 = Arg0
-        CH03 (__METHOD__, Z154, 0x14, 0xC7, 0x00)
+        CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -287,20 +287,20 @@
         Store ((PR00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (__METHOD__, Z154, 0x14, 0xF8, 0x00)
+            CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (__METHOD__, Z154, 0xFA, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((PR00.I000 != 0x80000000))
             {
-                ERR (__METHOD__, Z154, 0xFD, 0x00, 0x00, PR00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, PR00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x0100, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, __LINE__, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 
@@ -323,7 +323,7 @@
             0x04
         })
         I001 = Arg0
-        CH03 (__METHOD__, Z154, 0x1D, 0x0113, 0x00)
+        CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
         Method (M001, 0, NotSerialized)
         {
             Method (M002, 0, NotSerialized)
@@ -379,20 +379,20 @@
         Store ((PW00.I000 + M001 ()), Local0)
         If (FLG9)
         {
-            CH03 (__METHOD__, Z154, 0x14, 0x0144, 0x00)
+            CH03 (__METHOD__, Z154, __LINE__, 0x00, 0x00)
             If ((Local0 != 0x87654321))
             {
-                ERR (__METHOD__, Z154, 0x0146, 0x00, 0x00, Local0, 0x87654321)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, Local0, 0x87654321)
             }
 
             If ((PW00.I000 != 0x80000000))
             {
-                ERR (__METHOD__, Z154, 0x0149, 0x00, 0x00, PW00.I000, 0x80000000)
+                ERR (__METHOD__, Z154, __LINE__, 0x00, 0x00, PW00.I000, 0x80000000)
             }
         }
         Else
         {
-            CH04 (__METHOD__, 0x01, 0x05, Z154, 0x014C, 0x00, 0x00)    /* AE_NOT_FOUND */
+            CH04 (__METHOD__, 0x01, 0x05, Z154, __LINE__, 0x00, 0x00)    /* AE_NOT_FOUND */
         }
     }
 

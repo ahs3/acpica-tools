@@ -218,13 +218,13 @@
             CreateField (Arg0, 0x08, 0x08, BF90)
             If ((BF90 != 0x77))
             {
-                ERR (__METHOD__, Z111, 0xEF, 0x00, 0x00, BF90, 0x77)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x77)
             }
 
             BF90 = 0x9999992B
             If ((BF90 != 0x2B))
             {
-                ERR (__METHOD__, Z111, 0xF3, 0x00, 0x00, BF90, 0x2B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x2B)
             }
         }
 
@@ -233,14 +233,14 @@
             CreateField (Arg0, 0x08, 0x08, BF90)
             If ((BF90 != 0x77))
             {
-                ERR (__METHOD__, Z111, 0xFB, 0x00, 0x00, BF90, 0x77)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x77)
             }
 
             BF90 = 0x2B
             CopyObject (0x9999992B, BF90) /* \M22C.M001.BF90 */
             If ((BF90 != 0x2B))
             {
-                ERR (__METHOD__, Z111, 0x0101, 0x00, 0x00, BF90, 0x2B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x2B)
             }
         }
 
@@ -251,10 +251,10 @@
             M001 (B010)
         }
 
-        M386 (__METHOD__, B000, 0x00, 0x04)
+        M386 (__METHOD__, B000, 0x00, __LINE__)
         If (X191)
         {
-            M386 (__METHOD__, B010, 0x00, 0x05)
+            M386 (__METHOD__, B010, 0x00, __LINE__)
         }
 
         END0 ()
@@ -360,13 +360,13 @@
             CreateField (Local2, 0x08, 0x08, BF90)
             If ((BF90 != 0x77))
             {
-                ERR (__METHOD__, Z111, 0x0178, 0x00, 0x00, BF90, 0x77)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x77)
             }
 
             BF90 = 0x9999992B
             If ((BF90 != 0x2B))
             {
-                ERR (__METHOD__, Z111, 0x017C, 0x00, 0x00, BF90, 0x2B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x2B)
             }
         }
 
@@ -376,13 +376,13 @@
             CreateField (Local2, 0x08, 0x08, BF90)
             If ((BF90 != 0x77))
             {
-                ERR (__METHOD__, Z111, 0x0186, 0x00, 0x00, BF90, 0x77)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x77)
             }
 
             CopyObject (0x9999992B, BF90) /* \M234.M001.BF90 */
             If ((BF90 != 0x2B))
             {
-                ERR (__METHOD__, Z111, 0x018A, 0x00, 0x00, BF90, 0x2B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, BF90, 0x2B)
             }
         }
 
@@ -392,15 +392,15 @@
             M000 (Local0)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0100)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x0101)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x0102)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -409,15 +409,15 @@
             M000 (RefOf (Arg0))
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0103)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x0104)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x0105)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -427,15 +427,15 @@
             M001 (Local0)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0106)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x0107)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x0108)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -444,33 +444,33 @@
             M001 (RefOf (Arg0))
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0109)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x010A)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x010B)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
         BEG0 (Z111, __METHOD__)
         M010 (B000, C00B)
-        M382 (__METHOD__, B000, 0x00, 0x010C)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
         M020 (B000, C00B)
-        M382 (__METHOD__, B000, 0x00, 0x010D)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
         If (X191)
         {
             M011 (B000, C00B)
-            M382 (__METHOD__, B000, 0x00, 0x010E)
+            M382 (__METHOD__, B000, 0x00, __LINE__)
         }
 
         If (X191)
         {
             M021 (B000, C00B)
-            M382 (__METHOD__, B000, 0x00, 0x010F)
+            M382 (__METHOD__, B000, 0x00, __LINE__)
         }
 
         END0 ()
@@ -528,19 +528,19 @@
             Arg1 = Arg0
             If ((Arg2 == C009))
             {
-                M380 (__METHOD__, Arg1, 0x00, 0x00)
+                M380 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00A))
             {
-                M381 (__METHOD__, Arg1, 0x00, 0x01)
+                M381 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00B))
             {
-                M382 (__METHOD__, Arg1, 0x00, 0x02)
+                M382 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00C))
             {
-                M383 (__METHOD__, Arg1, 0x00, 0x03)
+                M383 (__METHOD__, Arg1, 0x00, __LINE__)
             }
         }
 
@@ -549,19 +549,19 @@
             CopyObject (Arg0, Arg1)
             If ((Arg2 == C009))
             {
-                M380 (__METHOD__, Arg1, 0x00, 0x04)
+                M380 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00A))
             {
-                M381 (__METHOD__, Arg1, 0x00, 0x05)
+                M381 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00B))
             {
-                M382 (__METHOD__, Arg1, 0x00, 0x06)
+                M382 (__METHOD__, Arg1, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00C))
             {
-                M383 (__METHOD__, Arg1, 0x00, 0x07)
+                M383 (__METHOD__, Arg1, 0x00, __LINE__)
             }
         }
 
@@ -571,19 +571,19 @@
             Local2 = DerefOf (Arg1)
             If ((Arg2 == C009))
             {
-                M380 (__METHOD__, Local2, 0x00, 0x08)
+                M380 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00A))
             {
-                M381 (__METHOD__, Local2, 0x00, 0x09)
+                M381 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00B))
             {
-                M382 (__METHOD__, Local2, 0x00, 0x0A)
+                M382 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00C))
             {
-                M383 (__METHOD__, Local2, 0x00, 0x0B)
+                M383 (__METHOD__, Local2, 0x00, __LINE__)
             }
         }
 
@@ -593,26 +593,26 @@
             Local2 = DerefOf (Arg1)
             If ((Arg2 == C009))
             {
-                M380 (__METHOD__, Local2, 0x00, 0x0C)
+                M380 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00A))
             {
-                M381 (__METHOD__, Local2, 0x00, 0x0D)
+                M381 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00B))
             {
-                M382 (__METHOD__, Local2, 0x00, 0x0E)
+                M382 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg2 == C00C))
             {
-                M383 (__METHOD__, Local2, 0x00, 0x0F)
+                M383 (__METHOD__, Local2, 0x00, __LINE__)
             }
         }
 
         Method (M004, 2, NotSerialized)
         {
             Arg1 = Arg0
-            M380 (__METHOD__, Arg1, 0x00, 0x10)
+            M380 (__METHOD__, Arg1, 0x00, __LINE__)
         }
 
         Method (M005, 2, NotSerialized)
@@ -624,117 +624,117 @@
         /* ArgX-Object -->> ArgY-Object */
 
         M000 (I000, I001, C009)
-        M380 (__METHOD__, I000, 0x00, 0x11)
-        M384 (__METHOD__, I001, 0x00, 0x12)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M384 (__METHOD__, I001, 0x00, __LINE__)
         M001 (I000, I001, C009)
-        M380 (__METHOD__, I000, 0x00, 0x13)
-        M384 (__METHOD__, I001, 0x00, 0x14)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M384 (__METHOD__, I001, 0x00, __LINE__)
         /* ArgX-Object -->> ArgY-ORef */
 
         M002 (I000, RefOf (I001), C009)
-        M380 (__METHOD__, I000, 0x00, 0x15)
-        M380 (__METHOD__, I001, 0x00, 0x16)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         M003 (I000, RefOf (I021), C009)
-        M380 (__METHOD__, I000, 0x00, 0x17)
-        M380 (__METHOD__, I021, 0x00, 0x18)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I021, 0x00, __LINE__)
         Local0 = RefOf (I031)
         M002 (I000, Local0, C009)
-        M380 (__METHOD__, I000, 0x00, 0x19)
-        M380 (__METHOD__, I031, 0x00, 0x1A)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I031, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M380 (__METHOD__, Local2, 0x00, 0x1B)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         Local0 = RefOf (I041)
         M003 (I000, Local0, C009)
-        M380 (__METHOD__, I000, 0x00, 0x1C)
-        M380 (__METHOD__, I041, 0x00, 0x1D)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I041, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M380 (__METHOD__, Local2, 0x00, 0x1E)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         /* ArgX-Object -->> ArgY-IRef */
 
         M004 (I000, Local0 = S021 [0x01])
-        M380 (__METHOD__, I000, 0x00, 0x1F)
-        M385 (__METHOD__, S021, 0x00, 0x20)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M384 (__METHOD__, Local2, 0x00, 0x21)
+        M384 (__METHOD__, Local2, 0x00, __LINE__)
         Local1 = Local0 = S021 [0x01]
         M004 (I000, Local0)
-        M380 (__METHOD__, I000, 0x00, 0x22)
-        M385 (__METHOD__, S021, 0x00, 0x23)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M384 (__METHOD__, Local2, 0x00, 0x24)
+        M384 (__METHOD__, Local2, 0x00, __LINE__)
         M004 (I000, Local1)
-        M380 (__METHOD__, I000, 0x00, 0x25)
-        M385 (__METHOD__, S021, 0x00, 0x26)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
         Local2 = DerefOf (Local1)
-        M384 (__METHOD__, Local2, 0x00, 0x27)
+        M384 (__METHOD__, Local2, 0x00, __LINE__)
         /* ArgX-ORef -->> ArgY-Object */
 
         M005 (RefOf (I000), S000)
-        M380 (__METHOD__, I000, 0x00, 0x28)
-        M381 (__METHOD__, S000, 0x00, 0x29)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
         M005 (RefOf (I000), I051)
-        M380 (__METHOD__, I000, 0x00, 0x2A)
-        M384 (__METHOD__, I051, 0x00, 0x2B)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M384 (__METHOD__, I051, 0x00, __LINE__)
         Local0 = RefOf (I000)
         M005 (Local0, S000)
-        M380 (__METHOD__, I000, 0x00, 0x2C)
-        M381 (__METHOD__, S000, 0x00, 0x2D)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
         M005 (Local0, I051)
-        M380 (__METHOD__, I000, 0x00, 0x2E)
-        M384 (__METHOD__, I051, 0x00, 0x2F)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M384 (__METHOD__, I051, 0x00, __LINE__)
         /* ArgX-IRef -->> ArgY-Object */
 
         M005 (Local0 = S000 [0x01], I000)
-        M381 (__METHOD__, S000, 0x00, 0x30)
-        M380 (__METHOD__, I000, 0x00, 0x31)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
         /* The entire expression (exercised below): */
         /* m005(Index(s021, 1, Local0), RefOf(i010)) */
         /* here is executed step by step: */
-        M385 (__METHOD__, S021, 0x00, 0x32)
-        M380 (__METHOD__, I010, 0x00, 0x33)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
+        M380 (__METHOD__, I010, 0x00, __LINE__)
         M005 (Local0 = S021 [0x01], I010)
-        M385 (__METHOD__, S021, 0x00, 0x34)
-        M380 (__METHOD__, I010, 0x00, 0x35)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
+        M380 (__METHOD__, I010, 0x00, __LINE__)
         M005 (I051, RefOf (I010))
-        M385 (__METHOD__, S021, 0x00, 0x36)
-        M384 (__METHOD__, I051, 0x00, 0x37)
-        M384 (__METHOD__, I010, 0x00, 0x38)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
+        M384 (__METHOD__, I051, 0x00, __LINE__)
+        M384 (__METHOD__, I010, 0x00, __LINE__)
         If (Y513)
         {
             /* ArgX-IRef -->> ArgY-ORef */
 
             M005 (Local0 = S021 [0x01], RefOf (I020))
-            M385 (__METHOD__, S021, 0x00, 0x39)
-            M384 (__METHOD__, I020, 0x00, 0x3A)
+            M385 (__METHOD__, S021, 0x00, __LINE__)
+            M384 (__METHOD__, I020, 0x00, __LINE__)
             Local1 = DerefOf (Local0)
-            M384 (__METHOD__, Local1, 0x00, 0x3B)
+            M384 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         /* ArgX-IRef -->> ArgY-IRef */
 
         M005 (Local0 = S021 [0x01], Local1 = S010 [0x01])
-        M385 (__METHOD__, S021, 0x00, 0x3C)
-        M381 (__METHOD__, S010, 0x00, 0x3D)
+        M385 (__METHOD__, S021, 0x00, __LINE__)
+        M381 (__METHOD__, S010, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M384 (__METHOD__, Local2, 0x00, 0x3E)
+        M384 (__METHOD__, Local2, 0x00, __LINE__)
         Local2 = DerefOf (Local1)
-        M380 (__METHOD__, Local2, 0x00, 0x3F)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         If (Y513)
         {
             /* ArgX-ORef -->> ArgY-ORef */
 
             M005 (RefOf (I000), RefOf (I061))
-            M380 (__METHOD__, I000, 0x00, 0x40)
-            M380 (__METHOD__, I061, 0x00, 0x41)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M380 (__METHOD__, I061, 0x00, __LINE__)
         }
 
         /* ArgX-ORef -->> ArgY-IRef */
 
         M005 (RefOf (I000), Local0 = S031 [0x01])
-        M380 (__METHOD__, I000, 0x00, 0x42)
-        M385 (__METHOD__, S031, 0x00, 0x43)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M385 (__METHOD__, S031, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M384 (__METHOD__, Local2, 0x00, 0x44)
+        M384 (__METHOD__, Local2, 0x00, __LINE__)
         END0 ()
     }
 
@@ -777,19 +777,19 @@
             Local0 = Arg0
             If ((Arg1 == C009))
             {
-                M380 (__METHOD__, Local0, 0x00, 0x00)
+                M380 (__METHOD__, Local0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Local0, 0x00, 0x01)
+                M381 (__METHOD__, Local0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Local0, 0x00, 0x02)
+                M382 (__METHOD__, Local0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Local0, 0x00, 0x03)
+                M383 (__METHOD__, Local0, 0x00, __LINE__)
             }
 
             Local0 = 0x11
@@ -801,7 +801,7 @@
             Local0 = ObjectType (Arg0)
             If ((Local0 != Arg1))
             {
-                ERR (__METHOD__, Z111, 0x0318, 0x00, 0x00, Local0, Arg1)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, Arg1)
             }
 
             /* Overwrite LocalX which contains either */
@@ -816,29 +816,29 @@
         M000 (S000, C00A)
         M000 (B000, C00B)
         M000 (P000, C00C)
-        M380 (__METHOD__, I000, 0x00, 0x04)
-        M381 (__METHOD__, S000, 0x00, 0x05)
-        M382 (__METHOD__, B000, 0x00, 0x06)
-        M383 (__METHOD__, P000, 0x00, 0x07)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         /* ArgX-ORef -->> LocalX */
 
         M001 (RefOf (I000), C009)
         M001 (RefOf (S000), C00A)
         M001 (RefOf (B000), C00B)
         M001 (RefOf (P000), C00C)
-        M380 (__METHOD__, I000, 0x00, 0x08)
-        M381 (__METHOD__, S000, 0x00, 0x09)
-        M382 (__METHOD__, B000, 0x00, 0x0A)
-        M383 (__METHOD__, P000, 0x00, 0x0B)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         /* ArgX-IRef -->> LocalX */
 
         M001 (S000 [0x01], C016)
         M001 (B000 [0x01], C016)
         M001 (P000 [0x01], C009)
-        M380 (__METHOD__, I000, 0x00, 0x0C)
-        M381 (__METHOD__, S000, 0x00, 0x0D)
-        M382 (__METHOD__, B000, 0x00, 0x0E)
-        M383 (__METHOD__, P000, 0x00, 0x0F)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         END0 ()
     }
 
@@ -891,10 +891,10 @@
         M000 (S000)
         M000 (B000)
         M000 (P000)
-        M380 (__METHOD__, I000, 0x00, 0x00)
-        M381 (__METHOD__, S000, 0x00, 0x01)
-        M382 (__METHOD__, B000, 0x00, 0x02)
-        M383 (__METHOD__, P000, 0x00, 0x03)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         END0 ()
     }
 
@@ -964,17 +964,17 @@
         M000 (S000)
         M000 (B000)
         M000 (P000)
-        M380 (__METHOD__, I000, 0x00, 0x00)
-        M381 (__METHOD__, S000, 0x00, 0x01)
-        M382 (__METHOD__, B000, 0x00, 0x02)
-        M383 (__METHOD__, P000, 0x00, 0x03)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M001 (S000)
         M001 (B000)
         M001 (P000)
-        M380 (__METHOD__, I000, 0x00, 0x04)
-        M381 (__METHOD__, S000, 0x00, 0x05)
-        M382 (__METHOD__, B000, 0x00, 0x06)
-        M383 (__METHOD__, P000, 0x00, 0x07)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         END0 ()
     }
 
@@ -1054,14 +1054,14 @@
         M000 (SA00, SA10)
         M000 (BA00, BA10)
         M000 (PA00, PA10)
-        M380 (__METHOD__, IA00, 0x00, 0x00)
-        M381 (__METHOD__, SA00, 0x00, 0x01)
-        M382 (__METHOD__, BA00, 0x00, 0x02)
-        M383 (__METHOD__, PA00, 0x00, 0x03)
-        M380 (__METHOD__, IA10, 0x00, 0x04)
-        M381 (__METHOD__, SA10, 0x00, 0x05)
-        M382 (__METHOD__, BA10, 0x00, 0x06)
-        M383 (__METHOD__, PA10, 0x00, 0x07)
+        M380 (__METHOD__, IA00, 0x00, __LINE__)
+        M381 (__METHOD__, SA00, 0x00, __LINE__)
+        M382 (__METHOD__, BA00, 0x00, __LINE__)
+        M383 (__METHOD__, PA00, 0x00, __LINE__)
+        M380 (__METHOD__, IA10, 0x00, __LINE__)
+        M381 (__METHOD__, SA10, 0x00, __LINE__)
+        M382 (__METHOD__, BA10, 0x00, __LINE__)
+        M383 (__METHOD__, PA10, 0x00, __LINE__)
         If (Y514)
         {
             /* m001 */
@@ -1070,28 +1070,28 @@
             M001 (SA00, SA10)
             M001 (BA00, BA10)
             M001 (PA00, PA10)
-            M380 (__METHOD__, IA00, 0x00, 0x08)
-            M381 (__METHOD__, SA00, 0x00, 0x09)
-            M382 (__METHOD__, BA00, 0x00, 0x0A)
-            M383 (__METHOD__, PA00, 0x00, 0x0B)
-            M380 (__METHOD__, IA10, 0x00, 0x0C)
-            M381 (__METHOD__, SA10, 0x00, 0x0D)
-            M382 (__METHOD__, BA10, 0x00, 0x0E)
-            M383 (__METHOD__, PA10, 0x00, 0x0F)
+            M380 (__METHOD__, IA00, 0x00, __LINE__)
+            M381 (__METHOD__, SA00, 0x00, __LINE__)
+            M382 (__METHOD__, BA00, 0x00, __LINE__)
+            M383 (__METHOD__, PA00, 0x00, __LINE__)
+            M380 (__METHOD__, IA10, 0x00, __LINE__)
+            M381 (__METHOD__, SA10, 0x00, __LINE__)
+            M382 (__METHOD__, BA10, 0x00, __LINE__)
+            M383 (__METHOD__, PA10, 0x00, __LINE__)
             /* m002 */
 
             M002 (IA00, IA10)
             M002 (SA00, SA10)
             M002 (BA00, BA10)
             M002 (PA00, PA10)
-            M380 (__METHOD__, IA00, 0x00, 0x10)
-            M381 (__METHOD__, SA00, 0x00, 0x11)
-            M382 (__METHOD__, BA00, 0x00, 0x12)
-            M383 (__METHOD__, PA00, 0x00, 0x13)
-            M380 (__METHOD__, IA10, 0x00, 0x14)
-            M381 (__METHOD__, SA10, 0x00, 0x15)
-            M382 (__METHOD__, BA10, 0x00, 0x16)
-            M383 (__METHOD__, PA10, 0x00, 0x17)
+            M380 (__METHOD__, IA00, 0x00, __LINE__)
+            M381 (__METHOD__, SA00, 0x00, __LINE__)
+            M382 (__METHOD__, BA00, 0x00, __LINE__)
+            M383 (__METHOD__, PA00, 0x00, __LINE__)
+            M380 (__METHOD__, IA10, 0x00, __LINE__)
+            M381 (__METHOD__, SA10, 0x00, __LINE__)
+            M382 (__METHOD__, BA10, 0x00, __LINE__)
+            M383 (__METHOD__, PA10, 0x00, __LINE__)
         }
 
         /* m003 */
@@ -1100,14 +1100,14 @@
         M003 (SA00, SA10)
         M003 (BA00, BA10)
         M003 (PA00, PA10)
-        M380 (__METHOD__, IA00, 0x00, 0x18)
-        M381 (__METHOD__, SA00, 0x00, 0x19)
-        M382 (__METHOD__, BA00, 0x00, 0x1A)
-        M383 (__METHOD__, PA00, 0x00, 0x1B)
-        M380 (__METHOD__, IA10, 0x00, 0x1C)
-        M381 (__METHOD__, SA10, 0x00, 0x1D)
-        M382 (__METHOD__, BA10, 0x00, 0x1E)
-        M383 (__METHOD__, PA10, 0x00, 0x1F)
+        M380 (__METHOD__, IA00, 0x00, __LINE__)
+        M381 (__METHOD__, SA00, 0x00, __LINE__)
+        M382 (__METHOD__, BA00, 0x00, __LINE__)
+        M383 (__METHOD__, PA00, 0x00, __LINE__)
+        M380 (__METHOD__, IA10, 0x00, __LINE__)
+        M381 (__METHOD__, SA10, 0x00, __LINE__)
+        M382 (__METHOD__, BA10, 0x00, __LINE__)
+        M383 (__METHOD__, PA10, 0x00, __LINE__)
         END0 ()
     }
 
@@ -1211,14 +1211,14 @@
         M000 (S000, S010)
         M000 (B000, B010)
         M000 (P000, P010)
-        M380 (__METHOD__, I000, 0x00, 0x00)
-        M381 (__METHOD__, S000, 0x00, 0x01)
-        M382 (__METHOD__, B000, 0x00, 0x02)
-        M383 (__METHOD__, P000, 0x00, 0x03)
-        M380 (__METHOD__, I010, 0x00, 0x04)
-        M381 (__METHOD__, S010, 0x00, 0x05)
-        M382 (__METHOD__, B010, 0x00, 0x06)
-        M383 (__METHOD__, P010, 0x00, 0x07)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
+        M380 (__METHOD__, I010, 0x00, __LINE__)
+        M381 (__METHOD__, S010, 0x00, __LINE__)
+        M382 (__METHOD__, B010, 0x00, __LINE__)
+        M383 (__METHOD__, P010, 0x00, __LINE__)
         If (Y514)
         {
             /* m001 */
@@ -1227,28 +1227,28 @@
             M001 (S000, S010)
             M001 (B000, B010)
             M001 (P000, P010)
-            M380 (__METHOD__, I000, 0x00, 0x08)
-            M381 (__METHOD__, S000, 0x00, 0x09)
-            M382 (__METHOD__, B000, 0x00, 0x0A)
-            M383 (__METHOD__, P000, 0x00, 0x0B)
-            M380 (__METHOD__, I010, 0x00, 0x0C)
-            M381 (__METHOD__, S010, 0x00, 0x0D)
-            M382 (__METHOD__, B010, 0x00, 0x0E)
-            M383 (__METHOD__, P010, 0x00, 0x0F)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M381 (__METHOD__, S000, 0x00, __LINE__)
+            M382 (__METHOD__, B000, 0x00, __LINE__)
+            M383 (__METHOD__, P000, 0x00, __LINE__)
+            M380 (__METHOD__, I010, 0x00, __LINE__)
+            M381 (__METHOD__, S010, 0x00, __LINE__)
+            M382 (__METHOD__, B010, 0x00, __LINE__)
+            M383 (__METHOD__, P010, 0x00, __LINE__)
             /* m002 */
 
             M002 (I000, I010)
             M002 (S000, S010)
             M002 (B000, B010)
             M002 (P000, P010)
-            M380 (__METHOD__, I000, 0x00, 0x10)
-            M381 (__METHOD__, S000, 0x00, 0x11)
-            M382 (__METHOD__, B000, 0x00, 0x12)
-            M383 (__METHOD__, P000, 0x00, 0x13)
-            M380 (__METHOD__, I010, 0x00, 0x14)
-            M381 (__METHOD__, S010, 0x00, 0x15)
-            M382 (__METHOD__, B010, 0x00, 0x16)
-            M383 (__METHOD__, P010, 0x00, 0x17)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M381 (__METHOD__, S000, 0x00, __LINE__)
+            M382 (__METHOD__, B000, 0x00, __LINE__)
+            M383 (__METHOD__, P000, 0x00, __LINE__)
+            M380 (__METHOD__, I010, 0x00, __LINE__)
+            M381 (__METHOD__, S010, 0x00, __LINE__)
+            M382 (__METHOD__, B010, 0x00, __LINE__)
+            M383 (__METHOD__, P010, 0x00, __LINE__)
         }
 
         /* m003 */
@@ -1257,14 +1257,14 @@
         M003 (S000, S010)
         M003 (B000, B010)
         M003 (P000, P010)
-        M380 (__METHOD__, I000, 0x00, 0x18)
-        M381 (__METHOD__, S000, 0x00, 0x19)
-        M382 (__METHOD__, B000, 0x00, 0x1A)
-        M383 (__METHOD__, P000, 0x00, 0x1B)
-        M380 (__METHOD__, I010, 0x00, 0x1C)
-        M381 (__METHOD__, S010, 0x00, 0x1D)
-        M382 (__METHOD__, B010, 0x00, 0x1E)
-        M383 (__METHOD__, P010, 0x00, 0x1F)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
+        M380 (__METHOD__, I010, 0x00, __LINE__)
+        M381 (__METHOD__, S010, 0x00, __LINE__)
+        M382 (__METHOD__, B010, 0x00, __LINE__)
+        M383 (__METHOD__, P010, 0x00, __LINE__)
         END0 ()
     }
 
@@ -1434,14 +1434,14 @@
         /* Store */
 
         S000 [0x01] = 0x2B
-        M385 (__METHOD__, S000, 0x00, 0x00)
+        M385 (__METHOD__, S000, 0x00, __LINE__)
         Local0 = S010 [0x01]
         S010 [0x01] = 0x2B
-        M385 (__METHOD__, S010, 0x00, 0x01)
+        M385 (__METHOD__, S010, 0x00, __LINE__)
         /* CopyObject */
         /* CURRENTLY: compiler failed CopyObject(xx, Index(xx,xx)) */
         /* CopyObject(0x2b, Index(s020, 1)) */
-        /* m385(ts, s020, 0, 2) */
+        /* m385 (ts, s020, 0, __LINE__)*/
         END0 ()
     }
 
@@ -1463,10 +1463,10 @@
         /* Store */
 
         B000 [0x01] = 0x2B
-        M386 (__METHOD__, B000, 0x00, 0x00)
+        M386 (__METHOD__, B000, 0x00, __LINE__)
         Local0 = B010 [0x01]
         B010 [0x01] = 0x2B
-        M386 (__METHOD__, B010, 0x00, 0x01)
+        M386 (__METHOD__, B010, 0x00, __LINE__)
         END0 ()
     }
 
@@ -1588,10 +1588,10 @@
         /* Store */
 
         P000 [0x01] = 0x2B
-        M387 (__METHOD__, P000, 0x00, 0x00)
+        M387 (__METHOD__, P000, 0x00, __LINE__)
         Local0 = P010 [0x01]
         P010 [0x01] = 0x2B
-        M387 (__METHOD__, P010, 0x00, 0x01)
+        M387 (__METHOD__, P010, 0x00, __LINE__)
         END0 ()
     }
 
@@ -1702,34 +1702,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x00, 0x06F1, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (Local0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x06F3, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (Local0, C009, 0x00, 0x00, 0x02)
-        M380 (__METHOD__, DerefOf (Local0), 0x00, 0x03)
+        M380 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x04)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = RefOf (S000)
         M1A3 (Local0, C00A, 0x00, 0x00, 0x05)
-        M381 (__METHOD__, DerefOf (Local0), 0x00, 0x06)
+        M381 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x07)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = RefOf (B000)
         M1A3 (Local0, C00B, 0x00, 0x00, 0x08)
-        M382 (__METHOD__, DerefOf (Local0), 0x00, 0x09)
+        M382 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x0A)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = RefOf (P000)
         M1A3 (Local0, C00C, 0x00, 0x00, 0x0B)
-        M383 (__METHOD__, DerefOf (Local0), 0x00, 0x0C)
+        M383 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = RefOf (D000)
         M1A3 (Local0, C00E, 0x00, 0x00, 0x0E)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x0F)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -1763,34 +1763,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x02, 0x0729, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (Local0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x072B, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (Local0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (Local0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x02)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         CopyObject (RefOf (S000), Local0)
         M1A3 (Local0, C00A, 0x00, 0x00, 0x03)
-        M381 (__METHOD__, DerefOf (Local0), 0x00, 0x04)
+        M381 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x05)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         CopyObject (RefOf (B000), Local0)
         M1A3 (Local0, C00B, 0x00, 0x00, 0x06)
-        M382 (__METHOD__, DerefOf (Local0), 0x00, 0x07)
+        M382 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x08)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         CopyObject (RefOf (P000), Local0)
         M1A3 (Local0, C00C, 0x00, 0x00, 0x09)
-        M383 (__METHOD__, DerefOf (Local0), 0x00, 0x0A)
+        M383 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x0B)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         CopyObject (RefOf (D000), Local0)
         M1A3 (Local0, C00E, 0x00, 0x00, 0x0C)
         M000 (Local0)
-        M384 (__METHOD__, DerefOf (Local0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -1808,7 +1808,7 @@
         If (Y519)
         {
             M356 (I000)
-            M380 (__METHOD__, I000, 0x00, 0x00)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
         }
         Else
         {
@@ -1820,7 +1820,7 @@
         If (Y520)
         {
             M357 (I001)
-            M380 (__METHOD__, I001, 0x00, 0x01)
+            M380 (__METHOD__, I001, 0x00, __LINE__)
         }
         Else
         {
@@ -1860,34 +1860,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x04, 0x0784, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (Arg0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x0786, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (Arg0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (Arg0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x02)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         Arg0 = RefOf (S000)
         M1A3 (Arg0, C00A, 0x00, 0x00, 0x03)
-        M381 (__METHOD__, DerefOf (Arg0), 0x00, 0x04)
+        M381 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x05)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         Arg0 = RefOf (B000)
         M1A3 (Arg0, C00B, 0x00, 0x00, 0x06)
-        M382 (__METHOD__, DerefOf (Arg0), 0x00, 0x07)
+        M382 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x08)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         Arg0 = RefOf (P000)
         M1A3 (Arg0, C00C, 0x00, 0x00, 0x09)
-        M383 (__METHOD__, DerefOf (Arg0), 0x00, 0x0A)
+        M383 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x0B)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         Arg0 = RefOf (D000)
         M1A3 (Arg0, C00E, 0x00, 0x00, 0x0C)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -1921,34 +1921,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x06, 0x07BC, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (Arg0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x07BE, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (Arg0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (Arg0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x02)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         CopyObject (RefOf (S000), Arg0)
         M1A3 (Arg0, C00A, 0x00, 0x00, 0x03)
-        M381 (__METHOD__, DerefOf (Arg0), 0x00, 0x04)
+        M381 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x05)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         CopyObject (RefOf (B000), Arg0)
         M1A3 (Arg0, C00B, 0x00, 0x00, 0x06)
-        M382 (__METHOD__, DerefOf (Arg0), 0x00, 0x07)
+        M382 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x08)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         CopyObject (RefOf (P000), Arg0)
         M1A3 (Arg0, C00C, 0x00, 0x00, 0x09)
-        M383 (__METHOD__, DerefOf (Arg0), 0x00, 0x0A)
+        M383 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x0B)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         CopyObject (RefOf (D000), Arg0)
         M1A3 (Arg0, C00E, 0x00, 0x00, 0x0C)
         M000 (Arg0)
-        M384 (__METHOD__, DerefOf (Arg0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -2012,34 +2012,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x08, 0x0810, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (III0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x0812, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (III0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (III0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x02)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         III0 = RefOf (S000)
         M1A3 (III0, C00A, 0x00, 0x00, 0x03)
-        M381 (__METHOD__, DerefOf (III0), 0x00, 0x04)
+        M381 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x05)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         III0 = RefOf (B000)
         M1A3 (III0, C00B, 0x00, 0x00, 0x06)
-        M382 (__METHOD__, DerefOf (III0), 0x00, 0x07)
+        M382 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x08)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         III0 = RefOf (P000)
         M1A3 (III0, C00C, 0x00, 0x00, 0x09)
-        M383 (__METHOD__, DerefOf (III0), 0x00, 0x0A)
+        M383 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x0B)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         III0 = RefOf (D000)
         M1A3 (III0, C00E, 0x00, 0x00, 0x0C)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -2074,34 +2074,34 @@
         {
             /* This is a reference */
 
-            CH03 (__METHOD__, 0x00, 0x0A, 0x084A, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local7 = (III0 + 0x01)
-            CH04 (__METHOD__, 0x00, 0xFF, 0x00, 0x084C, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
         }
 
         M1A3 (III0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (III0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x02)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         CopyObject (RefOf (S000), III0) /* \M359.III0 */
         M1A3 (III0, C00A, 0x00, 0x00, 0x03)
-        M381 (__METHOD__, DerefOf (III0), 0x00, 0x04)
+        M381 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x05)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         CopyObject (RefOf (B000), III0) /* \M359.III0 */
         M1A3 (III0, C00B, 0x00, 0x00, 0x06)
-        M382 (__METHOD__, DerefOf (III0), 0x00, 0x07)
+        M382 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x08)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         CopyObject (RefOf (P000), III0) /* \M359.III0 */
         M1A3 (III0, C00C, 0x00, 0x00, 0x09)
-        M383 (__METHOD__, DerefOf (III0), 0x00, 0x0A)
+        M383 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x0B)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         CopyObject (RefOf (D000), III0) /* \M359.III0 */
         M1A3 (III0, C00E, 0x00, 0x00, 0x0C)
         M000 (III0)
-        M384 (__METHOD__, DerefOf (III0), 0x00, 0x0D)
+        M384 (__METHOD__, DerefOf (III0), 0x00, __LINE__)
         END0 ()
     }
 
@@ -2147,16 +2147,16 @@
         PPP0 [0x04] = RefOf (D000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C009, 0x00, 0x00, 0x00)
-        M380 (__METHOD__, DerefOf (Local0), 0x00, 0x01)
+        M380 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = DerefOf (PPP0 [0x01])
         M1A3 (Local0, C00A, 0x00, 0x00, 0x02)
-        M381 (__METHOD__, DerefOf (Local0), 0x00, 0x03)
+        M381 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = DerefOf (PPP0 [0x02])
         M1A3 (Local0, C00B, 0x00, 0x00, 0x04)
-        M382 (__METHOD__, DerefOf (Local0), 0x00, 0x05)
+        M382 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = DerefOf (PPP0 [0x03])
         M1A3 (Local0, C00C, 0x00, 0x00, 0x06)
-        M383 (__METHOD__, DerefOf (Local0), 0x00, 0x07)
+        M383 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         Local0 = DerefOf (PPP0 [0x04])
         M1A3 (Local0, C00E, 0x00, 0x00, 0x08)
         /* Replace */
@@ -2164,19 +2164,19 @@
         PPP0 [0x00] = RefOf (I000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C009, 0x00, 0x00, 0x09)
-        M380 (__METHOD__, DerefOf (Local0), 0x00, 0x0A)
+        M380 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         PPP0 [0x00] = RefOf (S000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C00A, 0x00, 0x00, 0x0B)
-        M381 (__METHOD__, DerefOf (Local0), 0x00, 0x0C)
+        M381 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         PPP0 [0x00] = RefOf (B000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C00B, 0x00, 0x00, 0x0D)
-        M382 (__METHOD__, DerefOf (Local0), 0x00, 0x0E)
+        M382 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         PPP0 [0x00] = RefOf (P000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C00C, 0x00, 0x00, 0x0F)
-        M383 (__METHOD__, DerefOf (Local0), 0x00, 0x10)
+        M383 (__METHOD__, DerefOf (Local0), 0x00, __LINE__)
         PPP0 [0x00] = RefOf (D000)
         Local0 = DerefOf (PPP0 [0x00])
         M1A3 (Local0, C00E, 0x00, 0x00, 0x11)
@@ -2203,35 +2203,35 @@
      CopyObject(RefOf(d000), Index(ppp0, 4))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c009, 0, 0, 0)
-     m380(ts, DerefOf(Local0), 0, 1)
+     m380 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(DerefOf(Index(ppp0, 1)), Local0)
      m1a3(Local0, c00a, 0, 0, 2)
-     m381(ts, DerefOf(Local0), 0, 3)
+     m381 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(DerefOf(Index(ppp0, 2)), Local0)
      m1a3(Local0, c00b, 0, 0, 4)
-     m382(ts, DerefOf(Local0), 0, 5)
+     m382 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(DerefOf(Index(ppp0, 3)), Local0)
      m1a3(Local0, c00c, 0, 0, 6)
-     m383(ts, DerefOf(Local0), 0, 7)
+     m383 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(DerefOf(Index(ppp0, 4)), Local0)
      m1a3(Local0, c00e, 0, 0, 8)
      // Replace
      CopyObject(RefOf(i000), Index(ppp0, 0))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c009, 0, 0, 9)
-     m380(ts, DerefOf(Local0), 0, 10)
+     m380 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(RefOf(s000), Index(ppp0, 0))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c00a, 0, 0, 11)
-     m381(ts, DerefOf(Local0), 0, 12)
+     m381 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(RefOf(b000), Index(ppp0, 0))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c00b, 0, 0, 13)
-     m382(ts, DerefOf(Local0), 0, 14)
+     m382 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(RefOf(p000), Index(ppp0, 0))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c00c, 0, 0, 15)
-     m383(ts, DerefOf(Local0), 0, 16)
+     m383 (ts, DerefOf(Local0), 0, __LINE__)
      CopyObject(RefOf(d000), Index(ppp0, 0))
      CopyObject(DerefOf(Index(ppp0, 0)), Local0)
      m1a3(Local0, c00e, 0, 0, 17)
@@ -2367,11 +2367,11 @@
         /* Store */
 
         M35E (I000)
-        M380 (__METHOD__, I000, Z111, 0x00)
+        M380 (__METHOD__, I000, Z111, __LINE__)
         /* CopyObject */
 
         M35F (I010)
-        M380 (__METHOD__, I010, Z111, 0x01)
+        M380 (__METHOD__, I010, Z111, __LINE__)
     }
 
     Method (M35E, 1, Serialized)
@@ -2709,15 +2709,15 @@
         }
 
         M1D3 (I000, I001)
-        M380 (__METHOD__, I000, 0x00, 0x00)
-        M380 (__METHOD__, I001, 0x00, 0x01)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         If (X127)
         {
             M1D4 (I000, I001) /* bug 127 */
         }
 
-        M380 (__METHOD__, I000, 0x00, 0x02)
-        M380 (__METHOD__, I001, 0x00, 0x03)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         If (X127)
         {
             M1D5 () /* bug 127 */
@@ -2754,9 +2754,9 @@
      */
     Method (M26D, 0, NotSerialized)
     {
-        CH03 ("m26d", 0x00, 0x00, 0x0BB5, 0x00)
+        CH03 ("m26d", 0x00, __LINE__, 0x00, 0x00)
         M1AE ("m26d", "Buffer total", "Not implemented yet")
-        CH03 ("m26d", 0x00, 0x01, 0x0BB7, 0x00)
+        CH03 ("m26d", 0x00, __LINE__, 0x00, 0x00)
     }
 
     /*
@@ -2773,14 +2773,14 @@
             Debug = __METHOD__ /* \M26E.TS__ */
         }
 
-        CH03 (__METHOD__, 0x00, 0x00, 0x0BC7, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         /* Store */
 
         M365 ()
         /* CopyObject */
 
         M366 ()
-        CH03 (__METHOD__, 0x00, 0x01, 0x0BCF, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }
 
     Method (M365, 0, Serialized)
@@ -2807,8 +2807,8 @@
         {
             Name (I002, 0x77)
             Arg0 = RefOf (I002)
-            M380 (__METHOD__, DerefOf (Arg0), 0x00, 0x00)
-            M380 (__METHOD__, I002, 0x00, 0x01)
+            M380 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
+            M380 (__METHOD__, I002, 0x00, __LINE__)
         }
 
         Method (M001, 1, NotSerialized)
@@ -2821,7 +2821,7 @@
             Arg0 = 0x00
             M001 (RefOf (Arg0))
             Arg1 = DerefOf (Arg0)
-            M380 (__METHOD__, Arg1, 0x00, 0x02)
+            M380 (__METHOD__, Arg1, 0x00, __LINE__)
         }
 
         Method (M003, 0, NotSerialized)
@@ -2851,7 +2851,7 @@
             Arg0 = 0x00
             M005 (RefOf (Arg0))
             Arg1 = DerefOf (Arg0)
-            M380 (__METHOD__, Arg1, 0x00, 0x03)
+            M380 (__METHOD__, Arg1, 0x00, __LINE__)
         }
 
         Method (M007, 1, NotSerialized)
@@ -2869,21 +2869,21 @@
 
         Local0 = RefOf (I000)
         Local1 = DerefOf (Local0)
-        M380 (__METHOD__, Local1, 0x00, 0x04)
-        M380 (__METHOD__, I000, 0x00, 0x05)
+        M380 (__METHOD__, Local1, 0x00, __LINE__)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
         /* 2. */
 
         M000 (I001)
-        M380 (__METHOD__, I001, 0x00, 0x06)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         /* 3. */
 
         CopyObject (RefOf (I000), III0) /* \M365.III0 */
         III0 = RefOf (I001)
         Local1 = DerefOf (III0)
-        M380 (__METHOD__, I001, 0x00, 0x07)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         If (Y523)
         {
-            M380 (__METHOD__, Local1, 0x00, 0x08)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         /* 4. */
@@ -2891,12 +2891,12 @@
         Local0 = 0x00
         M001 (RefOf (Local0))
         Local1 = DerefOf (Local0)
-        M380 (__METHOD__, Local1, 0x00, 0x09)
+        M380 (__METHOD__, Local1, 0x00, __LINE__)
         /* 5. */
 
         M002 (I001, I002)
-        M380 (__METHOD__, I001, 0x00, 0x0A)
-        M380 (__METHOD__, I002, 0x00, 0x0B)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
+        M380 (__METHOD__, I002, 0x00, __LINE__)
         /* 6. */
 
         If (Y526)
@@ -2904,7 +2904,7 @@
             CopyObject (RefOf (I003), III5) /* \M365.III5 */
             M007 (RefOf (III5))
             Local1 = DerefOf (III5)
-            M380 (__METHOD__, Local1, 0x00, 0x0C)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         /* 7. */
@@ -2915,7 +2915,7 @@
             Store (PPP0 [0x00], Local0)
             Local1 = DerefOf (Local0)
             Local2 = DerefOf (Local1)
-            M380 (__METHOD__, Local2, 0x00, 0x0D)
+            M380 (__METHOD__, Local2, 0x00, __LINE__)
         }
 
         /* 8. */
@@ -2925,8 +2925,8 @@
             CopyObject (RefOf (III3), III4) /* \M365.III4 */
             RefOf (III4) = RefOf (I000)
             Local1 = DerefOf (III4)
-            M380 (__METHOD__, I000, 0x00, 0x0E)
-            M380 (__METHOD__, Local1, 0x00, 0x0F)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         /* 9. */
@@ -2934,8 +2934,8 @@
         PPP1 [0x00] = RefOf (I000)
         Local2 = DerefOf (PPP1 [0x00])
         Local1 = DerefOf (Local2)
-        M380 (__METHOD__, Local1, 0x00, 0x10)
-        M380 (__METHOD__, I000, 0x00, 0x11)
+        M380 (__METHOD__, Local1, 0x00, __LINE__)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
         /* 10. */
         /*
          * There are some statements try to pass a value of an integer to a LocalX via reference,
@@ -2949,8 +2949,8 @@
             Local6 = RefOf (Local7)
             DerefOf (Local6) = RefOf (I000)
             Local0 = DerefOf (Local7)
-            M380 (__METHOD__, Local0, 0x00, 0x18)
-            M380 (__METHOD__, I000, 0x00, 0x19)
+            M380 (__METHOD__, Local0, 0x00, __LINE__)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
         }
 
         /* Particular cases of (12): */
@@ -2962,12 +2962,12 @@
             Local0 = 0x00
             M005 (RefOf (Local0))
             Local1 = DerefOf (Local0)
-            M380 (__METHOD__, Local1, 0x00, 0x1A)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
             /* 14. (5) */
 
             M006 (I001, I002)
-            M380 (__METHOD__, I001, 0x00, 0x1B)
-            M380 (__METHOD__, I002, 0x00, 0x1C)
+            M380 (__METHOD__, I001, 0x00, __LINE__)
+            M380 (__METHOD__, I002, 0x00, __LINE__)
             /* 15. (6) */
 
             If (Y526)
@@ -2975,7 +2975,7 @@
                 CopyObject (RefOf (I003), III6) /* \M365.III6 */
                 M008 (RefOf (III6))
                 Local1 = DerefOf (III6)
-                M380 (__METHOD__, Local1, 0x00, 0x1D)
+                M380 (__METHOD__, Local1, 0x00, __LINE__)
             }
 
             /* 16. (7) */
@@ -2986,7 +2986,7 @@
                 Store (PPP0 [0x00], Local0)
                 Local1 = DerefOf (Local0)
                 Local2 = DerefOf (Local1)
-                M380 (__METHOD__, Local2, 0x00, 0x1E)
+                M380 (__METHOD__, Local2, 0x00, __LINE__)
             }
 
             /* 17. (8) */
@@ -2996,8 +2996,8 @@
                 CopyObject (RefOf (III3), III4) /* \M365.III4 */
                 DerefOf (RefOf (III4)) = RefOf (I000)
                 Local1 = DerefOf (III4)
-                M380 (__METHOD__, I000, 0x00, 0x1F)
-                M380 (__METHOD__, Local1, 0x00, 0x20)
+                M380 (__METHOD__, I000, 0x00, __LINE__)
+                M380 (__METHOD__, Local1, 0x00, __LINE__)
             }
 
             /* 18. (9) */
@@ -3005,20 +3005,20 @@
             DerefOf (PPP1 [0x00]) = RefOf (I000)
             Local2 = DerefOf (PPP1 [0x00])
             Local1 = DerefOf (Local2)
-            M380 (__METHOD__, Local1, 0x00, 0x21)
-            M380 (__METHOD__, I000, 0x00, 0x22)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
             /* 19. (10) */
 
             DerefOf (M003 ()) = RefOf (I000)
             Local1 = DerefOf (III1)
-            M380 (__METHOD__, I000, 0x00, 0x23)
-            M380 (__METHOD__, Local1, 0x00, 0x24)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
             /* 20. (11) */
 
             DerefOf (M004 (0x00)) = RefOf (I000)
             Local1 = DerefOf (III2)
-            M380 (__METHOD__, I000, 0x00, 0x25)
-            M380 (__METHOD__, Local1, 0x00, 0x26)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         END0 ()
@@ -3040,8 +3040,8 @@
         {
             Name (I002, 0x77)
             CopyObject (RefOf (I002), Arg0)
-            M380 (__METHOD__, DerefOf (Arg0), 0x00, 0x00)
-            M380 (__METHOD__, I002, 0x00, 0x01)
+            M380 (__METHOD__, DerefOf (Arg0), 0x00, __LINE__)
+            M380 (__METHOD__, I002, 0x00, __LINE__)
         }
 
         Method (M001, 1, NotSerialized)
@@ -3054,7 +3054,7 @@
             Arg0 = 0x00
             M001 (RefOf (Arg0))
             Arg1 = DerefOf (Arg0)
-            M380 (__METHOD__, Arg1, 0x00, 0x02)
+            M380 (__METHOD__, Arg1, 0x00, __LINE__)
         }
 
         BEG0 (Z111, __METHOD__)
@@ -3062,20 +3062,20 @@
 
         CopyObject (RefOf (I000), Local0)
         Local1 = DerefOf (Local0)
-        M380 (__METHOD__, Local1, 0x00, 0x03)
-        M380 (__METHOD__, I000, 0x00, 0x04)
+        M380 (__METHOD__, Local1, 0x00, __LINE__)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
         /* 22. */
 
         M000 (I001)
-        M380 (__METHOD__, I001, 0x00, 0x05)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
         /* 23. */
 
         If (Y128)
         {
             CopyObject (RefOf (I000), III0) /* \M366.III0 */
             Local1 = DerefOf (III0)
-            M380 (__METHOD__, Local1, 0x00, 0x06)
-            M380 (__METHOD__, I000, 0x00, 0x07)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
         }
 
         /* 24. */
@@ -3083,12 +3083,12 @@
         Local0 = 0x00
         M001 (RefOf (Local0))
         Local1 = DerefOf (Local0)
-        M380 (__METHOD__, Local1, 0x00, 0x08)
+        M380 (__METHOD__, Local1, 0x00, __LINE__)
         /* 25. */
 
         M002 (I001, I002)
-        M380 (__METHOD__, I001, 0x00, 0x09)
-        M380 (__METHOD__, I002, 0x00, 0x0A)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
+        M380 (__METHOD__, I002, 0x00, __LINE__)
         /* 26. */
 
         If (Y526)
@@ -3096,7 +3096,7 @@
             III1 = 0x00
             M001 (RefOf (III1))
             Local1 = DerefOf (III1)
-            M380 (__METHOD__, Local1, 0x00, 0x0B)
+            M380 (__METHOD__, Local1, 0x00, __LINE__)
         }
 
         /* 27. */
@@ -3107,7 +3107,7 @@
             Store (PPP1 [0x00], Local0)
             Local1 = DerefOf (Local0)
             Local2 = DerefOf (Local1)
-            M380 (__METHOD__, Local2, 0x00, 0x0C)
+            M380 (__METHOD__, Local2, 0x00, __LINE__)
         }
 
         /*
@@ -3116,8 +3116,8 @@
          * CopyObject(RefOf(i000), Index(ppp0, 0))
          * Store(DerefOf(Index(ppp0, 0)), Local2)
          * Store(DerefOf(Local2), Local1)
-         * m380(ts, Local1, 0, 13)
-         * m380(ts, i000, 0, 14)
+         * m380 (ts, Local1, 0, __LINE__)
+         * m380 (ts, i000, 0, __LINE__)
          */
         END0 ()
     }
@@ -3127,9 +3127,9 @@
      */
     Method (M26F, 0, NotSerialized)
     {
-        CH03 ("m26f", 0x00, 0x00, 0x0D1E, 0x00)
+        CH03 ("m26f", 0x00, __LINE__, 0x00, 0x00)
         M1AE ("m26f", "All the legal ways of writing IRef reference to some target location", "Not implemented yet")
-        CH03 ("m26f", 0x00, 0x01, 0x0D23, 0x00)
+        CH03 ("m26f", 0x00, __LINE__, 0x00, 0x00)
     }
 
     /*
@@ -3137,7 +3137,7 @@
      */
     Method (M270, 0, Serialized)
     {
-        CH03 (__METHOD__, 0x00, 0x00, 0x0D2D, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         If (Y100)
         {
             TS00 (__METHOD__)
@@ -3147,17 +3147,17 @@
             Debug = __METHOD__ /* \M270.TS__ */
         }
 
-        CH03 (__METHOD__, 0x00, 0x01, 0x0D35, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         /* Store */
 
         M367 ()
-        CH03 (__METHOD__, 0x00, 0x02, 0x0D3A, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         /* CopyObject */
 
         M368 ()
-        CH03 (__METHOD__, 0x00, 0x03, 0x0D3F, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         M1AE ("m270", "All the legal sources of references (ORef and IRef)", "Started, but not implemented yet")
-        CH03 (__METHOD__, 0x00, 0x04, 0x0D44, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }
 
     Method (M367, 0, Serialized)
@@ -3182,19 +3182,19 @@
             Arg5 = Local0
             Arg6 = Local0
             Local7 = DerefOf (Arg0)
-            M380 (__METHOD__, Local7, 0x00, 0x00)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg1)
-            M380 (__METHOD__, Local7, 0x00, 0x01)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg2)
-            M380 (__METHOD__, Local7, 0x00, 0x02)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg3)
-            M380 (__METHOD__, Local7, 0x00, 0x03)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg4)
-            M380 (__METHOD__, Local7, 0x00, 0x04)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg5)
-            M380 (__METHOD__, Local7, 0x00, 0x05)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
             Local7 = DerefOf (Arg6)
-            M380 (__METHOD__, Local7, 0x00, 0x06)
+            M380 (__METHOD__, Local7, 0x00, __LINE__)
         }
 
         Method (M002, 7, NotSerialized)
@@ -3206,19 +3206,19 @@
             Arg4 = Arg3
             Arg5 = Arg4
             Arg6 = Arg5
-            M380 (__METHOD__, DerefOf (Arg6), 0x00, 0x07)
+            M380 (__METHOD__, DerefOf (Arg6), 0x00, __LINE__)
             Arg6 = DerefOf (Arg0)
-            M380 (__METHOD__, Arg6, 0x00, 0x08)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
             Arg6 = DerefOf (Arg1)
-            M380 (__METHOD__, Arg6, 0x00, 0x09)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
             Arg6 = DerefOf (Arg2)
-            M380 (__METHOD__, Arg6, 0x00, 0x0A)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
             Arg6 = DerefOf (Arg3)
-            M380 (__METHOD__, Arg6, 0x00, 0x0B)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
             Arg6 = DerefOf (Arg4)
-            M380 (__METHOD__, Arg6, 0x00, 0x0C)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
             Arg6 = DerefOf (Arg5)
-            M380 (__METHOD__, Arg6, 0x00, 0x0D)
+            M380 (__METHOD__, Arg6, 0x00, __LINE__)
         }
 
         BEG0 (Z111, __METHOD__)
@@ -3232,43 +3232,43 @@
         Local5 = Local4
         Local6 = Local5
         Local7 = Local6
-        M380 (__METHOD__, DerefOf (Local7), 0x00, 0x0E)
+        M380 (__METHOD__, DerefOf (Local7), 0x00, __LINE__)
         Local7 = DerefOf (Local0)
-        M380 (__METHOD__, Local7, 0x00, 0x0F)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local1)
-        M380 (__METHOD__, Local7, 0x00, 0x10)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local2)
-        M380 (__METHOD__, Local7, 0x00, 0x11)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local3)
-        M380 (__METHOD__, Local7, 0x00, 0x12)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local4)
-        M380 (__METHOD__, Local7, 0x00, 0x13)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local5)
-        M380 (__METHOD__, Local7, 0x00, 0x14)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         Local7 = DerefOf (Local6)
-        M380 (__METHOD__, Local7, 0x00, 0x15)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         /* 2. ORef-LocalX */
 
         M001 (I000, I001, I002, I003, I004, I005, I006)
-        M380 (__METHOD__, I000, 0x00, 0x16)
-        M380 (__METHOD__, I001, 0x00, 0x17)
-        M380 (__METHOD__, I002, 0x00, 0x18)
-        M380 (__METHOD__, I003, 0x00, 0x19)
-        M380 (__METHOD__, I004, 0x00, 0x1A)
-        M380 (__METHOD__, I005, 0x00, 0x1B)
-        M380 (__METHOD__, I006, 0x00, 0x1C)
+        M380 (__METHOD__, I000, 0x00, __LINE__)
+        M380 (__METHOD__, I001, 0x00, __LINE__)
+        M380 (__METHOD__, I002, 0x00, __LINE__)
+        M380 (__METHOD__, I003, 0x00, __LINE__)
+        M380 (__METHOD__, I004, 0x00, __LINE__)
+        M380 (__METHOD__, I005, 0x00, __LINE__)
+        M380 (__METHOD__, I006, 0x00, __LINE__)
         If (Y134)
         {
             /* 2. ORef-ArgX */
 
             M002 (I000, I001, I002, I003, I004, I005, I006)
-            M380 (__METHOD__, I000, 0x00, 0x1D)
-            M380 (__METHOD__, I001, 0x00, 0x1E)
-            M380 (__METHOD__, I002, 0x00, 0x1F)
-            M380 (__METHOD__, I003, 0x00, 0x20)
-            M380 (__METHOD__, I004, 0x00, 0x21)
-            M380 (__METHOD__, I005, 0x00, 0x22)
-            M380 (__METHOD__, I006, 0x00, 0x23)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
+            M380 (__METHOD__, I001, 0x00, __LINE__)
+            M380 (__METHOD__, I002, 0x00, __LINE__)
+            M380 (__METHOD__, I003, 0x00, __LINE__)
+            M380 (__METHOD__, I004, 0x00, __LINE__)
+            M380 (__METHOD__, I005, 0x00, __LINE__)
+            M380 (__METHOD__, I006, 0x00, __LINE__)
         }
 
         /* 3. ORef-LocalX */
@@ -3281,10 +3281,10 @@
             Local0 = RefOf (I000)
             III0 = Local0
             Local1 = DerefOf (III0)
-            M380 (__METHOD__, I000, 0x00, 0x24)
+            M380 (__METHOD__, I000, 0x00, __LINE__)
             If (Y523)
             {
-                M380 (__METHOD__, Local1, 0x00, 0x25)
+                M380 (__METHOD__, Local1, 0x00, __LINE__)
             }
         }
 
@@ -3305,21 +3305,21 @@
         CopyObject (Local4, Local5)
         CopyObject (Local5, Local6)
         CopyObject (Local6, Local7)
-        M380 (__METHOD__, DerefOf (Local7), 0x00, 0x00)
+        M380 (__METHOD__, DerefOf (Local7), 0x00, __LINE__)
         CopyObject (DerefOf (Local0), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x01)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local1), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x02)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local2), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x03)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local3), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x04)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local4), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x05)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local5), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x06)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         CopyObject (DerefOf (Local6), Local7)
-        M380 (__METHOD__, Local7, 0x00, 0x07)
+        M380 (__METHOD__, Local7, 0x00, __LINE__)
         END0 ()
     }
 
@@ -3405,7 +3405,7 @@
             Local7 = (Local0 + 0x05)
             If ((Local7 != 0x1928374B))
             {
-                ERR (__METHOD__, Z111, 0x0E3E, 0x00, 0x00, Local7, 0x1928374B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local7, 0x1928374B)
             }
         }
 
@@ -3445,7 +3445,7 @@
             Local7 = (Local0 + 0x05)
             If ((Local7 != 0x13))
             {
-                ERR (__METHOD__, Z111, 0x0E66, 0x00, 0x00, Local7, 0x13)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local7, 0x13)
             }
         }
 
@@ -3470,7 +3470,7 @@
             Local7 = (Arg0 + 0x05)
             If ((Local7 != 0x13))
             {
-                ERR (__METHOD__, Z111, 0x0E79, 0x00, 0x00, Local7, 0x13)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local7, 0x13)
             }
         }
 
@@ -3511,13 +3511,13 @@
             Local0 = 0x90
             If ((Local0 != 0x90))
             {
-                ERR (__METHOD__, Z111, 0x0E94, 0x00, 0x00, Local0, 0x90)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x90)
             }
 
             Local1 = 0x91
             If ((Local1 != 0x91))
             {
-                ERR (__METHOD__, Z111, 0x0E98, 0x00, 0x00, Local1, 0x91)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, 0x91)
             }
         }
 
@@ -3529,13 +3529,13 @@
             CopyObject (0x94, Local0)
             If ((Local0 != 0x94))
             {
-                ERR (__METHOD__, Z111, 0x0EA3, 0x00, 0x00, Local0, 0x94)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x94)
             }
 
             CopyObject (0x95, Local1)
             If ((Local1 != 0x95))
             {
-                ERR (__METHOD__, Z111, 0x0EA7, 0x00, 0x00, Local1, 0x95)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, 0x95)
             }
         }
 
@@ -3566,27 +3566,27 @@
         M000 (S000)
         M000 (B000)
         M000 (P000)
-        M381 (__METHOD__, S000, 0x00, 0x00)
-        M382 (__METHOD__, B000, 0x00, 0x01)
-        M383 (__METHOD__, P000, 0x00, 0x02)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M001 (S000)
         M001 (B000)
         M001 (P000)
-        M381 (__METHOD__, S000, 0x00, 0x03)
-        M382 (__METHOD__, B000, 0x00, 0x04)
-        M383 (__METHOD__, P000, 0x00, 0x05)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M002 (S000)
         M002 (B000)
         M002 (P000)
-        M385 (__METHOD__, S000, 0x00, 0x06)
-        M386 (__METHOD__, B000, 0x00, 0x07)
-        M387 (__METHOD__, P000, 0x00, 0x08)
+        M385 (__METHOD__, S000, 0x00, __LINE__)
+        M386 (__METHOD__, B000, 0x00, __LINE__)
+        M387 (__METHOD__, P000, 0x00, __LINE__)
         M003 (S010)
         M003 (B010)
         M003 (P010)
-        M385 (__METHOD__, S010, 0x00, 0x09)
-        M386 (__METHOD__, B010, 0x00, 0x0A)
-        M387 (__METHOD__, P010, 0x00, 0x0B)
+        M385 (__METHOD__, S010, 0x00, __LINE__)
+        M386 (__METHOD__, B010, 0x00, __LINE__)
+        M387 (__METHOD__, P010, 0x00, __LINE__)
         END0 ()
     }
 
@@ -3604,24 +3604,24 @@
             Local1 = ObjectType (Local0)
             If ((Local1 != C009))
             {
-                ERR (__METHOD__, Z111, 0x0EF6, 0x00, 0x00, Local1, C009)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, C009)
             }
             Else
             {
                 Local1 = SizeOf (Local0)
                 If ((Local1 != ISZ0))
                 {
-                    ERR (__METHOD__, Z111, 0x0EFA, 0x00, 0x00, Local1, ISZ0)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, ISZ0)
                 }
 
                 If ((Local6 != 0xABCD0000))
                 {
-                    ERR (__METHOD__, Z111, 0x0EFD, 0x00, 0x00, Local6, 0xABCD0000)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local6, 0xABCD0000)
                 }
 
                 If ((Local7 != 0x11111111))
                 {
-                    ERR (__METHOD__, Z111, 0x0F00, 0x00, 0x00, Local7, 0x11111111)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local7, 0x11111111)
                 }
             }
         }
@@ -3629,7 +3629,7 @@
         M000 (I000)
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F07, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
     }
 
@@ -3642,19 +3642,19 @@
             Local1 = ObjectType (Local0)
             If ((Local1 != C009))
             {
-                ERR (__METHOD__, Z111, 0x0F16, 0x00, 0x00, Local1, C009)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, C009)
             }
             Else
             {
                 Local1 = SizeOf (Local0)
                 If ((Local1 != ISZ0))
                 {
-                    ERR (__METHOD__, Z111, 0x0F1A, 0x00, 0x00, Local1, ISZ0)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, ISZ0)
                 }
 
                 If ((Local0 != 0xABCD0000))
                 {
-                    ERR (__METHOD__, Z111, 0x0F1D, 0x00, 0x00, Local0, 0xABCD0000)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0xABCD0000)
                 }
             }
         }
@@ -3662,7 +3662,7 @@
         M000 (I000)
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F24, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
     }
 
@@ -3676,7 +3676,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0xABCD0000))
             {
-                ERR (__METHOD__, Z111, 0x0F34, 0x00, 0x00, Local2, 0xABCD0000)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0xABCD0000)
             }
 
             RefOf (Arg0) = 0x11111111
@@ -3684,27 +3684,27 @@
             Local0 = 0x11111111
             If ((Local0 != 0x11111111))
             {
-                ERR (__METHOD__, Z111, 0x0F3C, 0x00, 0x00, Local0, 0x11111111)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x11111111)
             }
         }
 
         M000 (RefOf (I000))
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F42, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
 
         Local0 = RefOf (I000)
         M000 (Local0)
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F48, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
 
         Local2 = DerefOf (Local0)
         If ((Local2 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F4C, 0x00, 0x00, Local2, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0xABCD0000)
         }
     }
 
@@ -3718,7 +3718,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0xABCD0000))
             {
-                ERR (__METHOD__, Z111, 0x0F5C, 0x00, 0x00, Local2, 0xABCD0000)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0xABCD0000)
             }
         }
 
@@ -3733,14 +3733,14 @@
         M000 (RefOf (I000))
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F6A, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
 
         Local0 = RefOf (I000)
         M000 (Local0)
         If ((I000 != 0xABCD0000))
         {
-            ERR (__METHOD__, Z111, 0x0F70, 0x00, 0x00, I000, 0xABCD0000)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I000, 0xABCD0000)
         }
 
         If (Y512)
@@ -3748,7 +3748,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0xABCD0000))
             {
-                ERR (__METHOD__, Z111, 0x0F75, 0x00, 0x00, Local2, 0xABCD0000)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0xABCD0000)
             }
         }
 
@@ -3757,14 +3757,14 @@
         M001 (RefOf (I001))
         If ((I001 != 0x11111111))
         {
-            ERR (__METHOD__, Z111, 0x0F7D, 0x00, 0x00, I001, 0x11111111)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I001, 0x11111111)
         }
 
         Local0 = RefOf (I001)
         M001 (Local0)
         If ((I001 != 0x11111111))
         {
-            ERR (__METHOD__, Z111, 0x0F83, 0x00, 0x00, I001, 0x11111111)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, I001, 0x11111111)
         }
 
         If (Y512)
@@ -3772,7 +3772,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x11111111))
             {
-                ERR (__METHOD__, Z111, 0x0F88, 0x00, 0x00, Local2, 0x11111111)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x11111111)
             }
         }
     }
@@ -3788,7 +3788,7 @@
             Local2 = DerefOf (Arg0)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x0F97, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -3801,7 +3801,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x0FA3, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -3812,7 +3812,7 @@
             Local0 = 0x11111111
             If ((Local0 != 0x11111111))
             {
-                ERR (__METHOD__, Z111, 0x0FAE, 0x00, 0x00, Local0, 0x11111111)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x11111111)
             }
         }
 
@@ -3824,7 +3824,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FB6, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3837,7 +3837,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FBC, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3846,7 +3846,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FC0, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         Local1 = Local0 = B000 [0x02]
@@ -3856,7 +3856,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FC6, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3865,7 +3865,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FCA, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         M000 (Local1)
@@ -3874,7 +3874,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FCE, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3883,7 +3883,7 @@
         Local2 = DerefOf (Local1)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FD2, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         /* m001 */
@@ -3894,7 +3894,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FD9, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3907,7 +3907,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FDF, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3916,7 +3916,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FE3, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         Local1 = Local0 = B000 [0x02]
@@ -3926,7 +3926,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FE9, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3935,7 +3935,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FED, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         M001 (Local1)
@@ -3944,7 +3944,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FF1, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3953,7 +3953,7 @@
         Local2 = DerefOf (Local1)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x0FF5, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         /* m002 */
@@ -3964,7 +3964,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x0FFC, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3977,7 +3977,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1002, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -3986,7 +3986,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x1006, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         Local1 = Local0 = B000 [0x02]
@@ -3996,7 +3996,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x100C, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4005,7 +4005,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x1010, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         M002 (Local1)
@@ -4014,7 +4014,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1014, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4023,7 +4023,7 @@
         Local2 = DerefOf (Local1)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x1018, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
     }
 
@@ -4042,7 +4042,7 @@
             Local2 = DerefOf (Arg0)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x1027, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -4054,7 +4054,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x1032, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -4072,7 +4072,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1040, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4085,7 +4085,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1046, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4094,7 +4094,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x104A, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         Local1 = Local0 = B000 [0x02]
@@ -4104,7 +4104,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1050, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4113,7 +4113,7 @@
         Local2 = DerefOf (Local0)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x1054, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         M000 (Local1)
@@ -4122,7 +4122,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1058, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4131,7 +4131,7 @@
         Local2 = DerefOf (Local1)
         If ((Local2 != 0x69))
         {
-            ERR (__METHOD__, Z111, 0x105C, 0x00, 0x00, Local2, 0x69)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
         }
 
         /* m001 */
@@ -4142,7 +4142,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1063, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4155,7 +4155,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1069, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4166,7 +4166,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x106E, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -4177,7 +4177,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1075, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4188,7 +4188,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x107A, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -4198,7 +4198,7 @@
                          0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                     }))
         {
-            ERR (__METHOD__, Z111, 0x107F, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x69, 0x04, 0x05                     // ..i..
                 })
@@ -4209,7 +4209,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0x69))
             {
-                ERR (__METHOD__, Z111, 0x1084, 0x00, 0x00, Local2, 0x69)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x69)
             }
         }
 
@@ -4221,7 +4221,7 @@
                          0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                     }))
         {
-            ERR (__METHOD__, Z111, 0x108C, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                 })
@@ -4234,7 +4234,7 @@
                          0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                     }))
         {
-            ERR (__METHOD__, Z111, 0x1092, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                 })
@@ -4245,7 +4245,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x11))
             {
-                ERR (__METHOD__, Z111, 0x1097, 0x00, 0x00, Local2, 0x11)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x11)
             }
         }
 
@@ -4256,7 +4256,7 @@
                          0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                     }))
         {
-            ERR (__METHOD__, Z111, 0x109E, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                 })
@@ -4267,7 +4267,7 @@
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x11))
             {
-                ERR (__METHOD__, Z111, 0x10A3, 0x00, 0x00, Local2, 0x11)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x11)
             }
         }
 
@@ -4277,7 +4277,7 @@
                          0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                     }))
         {
-            ERR (__METHOD__, Z111, 0x10A8, 0x00, 0x00, B000, Buffer (0x05)
+            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, B000, Buffer (0x05)
                 {
                      0x01, 0x02, 0x11, 0x04, 0x05                     // .....
                 })
@@ -4288,7 +4288,7 @@
             Local2 = DerefOf (Local1)
             If ((Local2 != 0x11))
             {
-                ERR (__METHOD__, Z111, 0x10AD, 0x00, 0x00, Local2, 0x11)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x11)
             }
         }
     }
@@ -4349,20 +4349,20 @@
             Local3 = ObjectType (Local2)
             If ((Local3 != Arg1))
             {
-                ERR (__METHOD__, Z111, 0x10CE, 0x00, 0x00, Local3, Arg1)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local3, Arg1)
             }
 
             Local1 = Local0 = Local2 [0x01]
             Local0 = 0x90
             If ((Local0 != 0x90))
             {
-                ERR (__METHOD__, Z111, 0x10D5, 0x00, 0x00, Local0, 0x90)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x90)
             }
 
             Local1 = 0x91
             If ((Local1 != 0x91))
             {
-                ERR (__METHOD__, Z111, 0x10D9, 0x00, 0x00, Local1, 0x91)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, 0x91)
             }
         }
 
@@ -4375,13 +4375,13 @@
             CopyObject (0x94, Local0)
             If ((Local0 != 0x94))
             {
-                ERR (__METHOD__, Z111, 0x10E6, 0x00, 0x00, Local0, 0x94)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, 0x94)
             }
 
             CopyObject (0x95, Local1)
             If ((Local1 != 0x95))
             {
-                ERR (__METHOD__, Z111, 0x10EA, 0x00, 0x00, Local1, 0x95)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, 0x95)
             }
         }
 
@@ -4393,15 +4393,15 @@
             Local2 [0x01] = 0x2B
             If ((Arg1 == C00A))
             {
-                M385 (__METHOD__, Local2, 0x00, 0x00)
+                M385 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M386 (__METHOD__, Local2, 0x00, 0x01)
+                M386 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M387 (__METHOD__, Local2, 0x00, 0x02)
+                M387 (__METHOD__, Local2, 0x00, __LINE__)
             }
         }
 
@@ -4414,21 +4414,21 @@
             Local2 [0x01] = 0x2B
             If ((Arg1 == C00A))
             {
-                M385 (__METHOD__, Local2, 0x00, 0x03)
+                M385 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M386 (__METHOD__, Local2, 0x00, 0x04)
+                M386 (__METHOD__, Local2, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M387 (__METHOD__, Local2, 0x00, 0x05)
+                M387 (__METHOD__, Local2, 0x00, __LINE__)
             }
 
             Local2 = DerefOf (Local0)
             If ((Local2 != 0x2B))
             {
-                ERR (__METHOD__, Z111, 0x1110, 0x00, 0x00, Local2, 0x2B)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local2, 0x2B)
             }
         }
 
@@ -4439,15 +4439,15 @@
             M000 (RefOf (Arg0), Arg1)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x06)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x07)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x08)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4458,15 +4458,15 @@
             M001 (RefOf (Arg0))
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x09)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x0A)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x0B)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4476,15 +4476,15 @@
             M002 (Local0, Arg1)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0C)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x0D)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x0E)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4493,15 +4493,15 @@
             M002 (RefOf (Arg0), Arg1)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x0F)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x10)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x11)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4511,15 +4511,15 @@
             M003 (Local0, Arg1)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x12)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x13)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x14)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4528,15 +4528,15 @@
             M003 (RefOf (Arg0), Arg1)
             If ((Arg1 == C00A))
             {
-                M381 (__METHOD__, Arg0, 0x00, 0x15)
+                M381 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00B))
             {
-                M382 (__METHOD__, Arg0, 0x00, 0x16)
+                M382 (__METHOD__, Arg0, 0x00, __LINE__)
             }
             ElseIf ((Arg1 == C00C))
             {
-                M383 (__METHOD__, Arg0, 0x00, 0x17)
+                M383 (__METHOD__, Arg0, 0x00, __LINE__)
             }
         }
 
@@ -4544,39 +4544,39 @@
         M010 (S000, C00A)
         M010 (B000, C00B)
         M010 (P000, C00C)
-        M381 (__METHOD__, S000, 0x00, 0x18)
-        M382 (__METHOD__, B000, 0x00, 0x19)
-        M383 (__METHOD__, P000, 0x00, 0x1A)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M011 (S000, C00A)
         M011 (B000, C00B)
         M011 (P000, C00C)
-        M381 (__METHOD__, S000, 0x00, 0x1B)
-        M382 (__METHOD__, B000, 0x00, 0x1C)
-        M383 (__METHOD__, P000, 0x00, 0x1D)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M012 (S000, C00A)
         M012 (B000, C00B)
         M012 (P000, C00C)
-        M381 (__METHOD__, S000, 0x00, 0x1E)
-        M382 (__METHOD__, B000, 0x00, 0x1F)
-        M383 (__METHOD__, P000, 0x00, 0x20)
+        M381 (__METHOD__, S000, 0x00, __LINE__)
+        M382 (__METHOD__, B000, 0x00, __LINE__)
+        M383 (__METHOD__, P000, 0x00, __LINE__)
         M022 (S010, C00A)
         M022 (B010, C00B)
         M022 (P010, C00C)
-        M381 (__METHOD__, S010, 0x00, 0x21)
-        M382 (__METHOD__, B010, 0x00, 0x22)
-        M383 (__METHOD__, P010, 0x00, 0x23)
+        M381 (__METHOD__, S010, 0x00, __LINE__)
+        M382 (__METHOD__, B010, 0x00, __LINE__)
+        M383 (__METHOD__, P010, 0x00, __LINE__)
         M013 (S020, C00A)
         M013 (B020, C00B)
         M013 (P020, C00C)
-        M381 (__METHOD__, S020, 0x00, 0x24)
-        M382 (__METHOD__, B020, 0x00, 0x25)
-        M383 (__METHOD__, P020, 0x00, 0x26)
+        M381 (__METHOD__, S020, 0x00, __LINE__)
+        M382 (__METHOD__, B020, 0x00, __LINE__)
+        M383 (__METHOD__, P020, 0x00, __LINE__)
         M023 (S030, C00A)
         M023 (B030, C00B)
         M023 (P030, C00C)
-        M381 (__METHOD__, S030, 0x00, 0x27)
-        M382 (__METHOD__, B030, 0x00, 0x28)
-        M383 (__METHOD__, P030, 0x00, 0x29)
+        M381 (__METHOD__, S030, 0x00, __LINE__)
+        M382 (__METHOD__, B030, 0x00, __LINE__)
+        M383 (__METHOD__, P030, 0x00, __LINE__)
         END0 ()
     }
 
@@ -4704,7 +4704,7 @@
                         Local0 = ObjectType (Arg0)
                         If ((Local0 != Arg2))
                         {
-                            ERR (__METHOD__, Z111, 0x11DE, 0x00, 0x00, Local0, Arg2)
+                            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, Arg2)
                         }
 
                         If (OP00)
@@ -4764,22 +4764,22 @@
                         }
 
                         Local0 = DerefOf (Arg0)
-                        M391 (Local0, Arg1, 0x00, 0x00)
+                        M391 (Local0, Arg1, 0x00, __LINE__)
                     }
 
                     M000 (Arg0, Arg1, Arg2)
                     Local0 = DerefOf (Arg0)
-                    M391 (Local0, Arg1, 0x00, 0x01)
+                    M391 (Local0, Arg1, 0x00, __LINE__)
                 }
 
                 M000 (Arg0, Arg1, Arg2)
                 Local0 = DerefOf (Arg0)
-                M391 (Local0, Arg1, 0x00, 0x02)
+                M391 (Local0, Arg1, 0x00, __LINE__)
             }
 
             M000 (Arg0, Arg1, Arg2)
             Local0 = DerefOf (Arg0)
-            M391 (Local0, Arg1, 0x00, 0x03)
+            M391 (Local0, Arg1, 0x00, __LINE__)
         }
 
         BEG0 (Z111, __METHOD__)
@@ -4787,53 +4787,53 @@
 
         Local0 = RefOf (I000)
         M000 (Local0, C009, C009)
-        M391 (I000, C009, 0x00, 0x04)
+        M391 (I000, C009, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C009, 0x00, 0x05)
+        M391 (Local2, C009, 0x00, __LINE__)
         Local0 = RefOf (S000)
         M000 (Local0, C009, C00A)
-        M391 (S000, C009, 0x00, 0x06)
+        M391 (S000, C009, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C009, 0x00, 0x07)
+        M391 (Local2, C009, 0x00, __LINE__)
         Local0 = RefOf (B000)
         M000 (Local0, C009, C00B)
-        M391 (B000, C009, 0x00, 0x08)
+        M391 (B000, C009, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C009, 0x00, 0x09)
+        M391 (Local2, C009, 0x00, __LINE__)
         /* Write String */
 
         Local0 = RefOf (I010)
         M000 (Local0, C00A, C009)
-        M391 (I010, C00A, 0x00, 0x0C)
+        M391 (I010, C00A, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00A, 0x00, 0x0D)
+        M391 (Local2, C00A, 0x00, __LINE__)
         Local0 = RefOf (S010)
         M000 (Local0, C00A, C00A)
-        M391 (S010, C00A, 0x00, 0x0E)
+        M391 (S010, C00A, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00A, 0x00, 0x0F)
+        M391 (Local2, C00A, 0x00, __LINE__)
         Local0 = RefOf (B010)
         M000 (Local0, C00A, C00B)
-        M391 (B010, C00A, 0x00, 0x10)
+        M391 (B010, C00A, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00A, 0x00, 0x11)
+        M391 (Local2, C00A, 0x00, __LINE__)
         /* Write Buffer */
 
         Local0 = RefOf (I020)
         M000 (Local0, C00B, C009)
-        M391 (I020, C00B, 0x00, 0x14)
+        M391 (I020, C00B, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00B, 0x00, 0x15)
+        M391 (Local2, C00B, 0x00, __LINE__)
         Local0 = RefOf (S020)
         M000 (Local0, C00B, C00A)
-        M391 (S020, C00B, 0x00, 0x16)
+        M391 (S020, C00B, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00B, 0x00, 0x17)
+        M391 (Local2, C00B, 0x00, __LINE__)
         Local0 = RefOf (B020)
         M000 (Local0, C00B, C00B)
-        M391 (B020, C00B, 0x00, 0x18)
+        M391 (B020, C00B, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M391 (Local2, C00B, 0x00, 0x19)
+        M391 (Local2, C00B, 0x00, __LINE__)
         /* Write Package */
 
         If (!OP00)
@@ -4848,62 +4848,62 @@
         {
             Local0 = RefOf (I030)
             M000 (Local0, C00C, C009)
-            M391 (I030, C00C, 0x00, 0x1C)
+            M391 (I030, C00C, 0x00, __LINE__)
             Local2 = DerefOf (Local0)
-            M391 (Local2, C00C, 0x00, 0x1D)
+            M391 (Local2, C00C, 0x00, __LINE__)
             Local0 = RefOf (S030)
             M000 (Local0, C00C, C00A)
-            M391 (S030, C00C, 0x00, 0x1E)
+            M391 (S030, C00C, 0x00, __LINE__)
             Local2 = DerefOf (Local0)
-            M391 (Local2, C00C, 0x00, 0x1F)
+            M391 (Local2, C00C, 0x00, __LINE__)
             Local0 = RefOf (B030)
             M000 (Local0, C00C, C00B)
-            M391 (B030, C00C, 0x00, 0x20)
+            M391 (B030, C00C, 0x00, __LINE__)
             Local2 = DerefOf (Local0)
-            M391 (Local2, C00C, 0x00, 0x21)
+            M391 (Local2, C00C, 0x00, __LINE__)
             Local0 = RefOf (P030)
             M000 (Local0, C00C, C00C)
-            M391 (P030, C00C, 0x00, 0x22)
+            M391 (P030, C00C, 0x00, __LINE__)
             Local2 = DerefOf (Local0)
-            M391 (Local2, C00C, 0x00, 0x23)
+            M391 (Local2, C00C, 0x00, __LINE__)
         }
 
         /* Write Integer */
 
         M000 (RefOf (I040), C009, C009)
-        M391 (I040, C009, 0x00, 0x24)
+        M391 (I040, C009, 0x00, __LINE__)
         M000 (RefOf (S040), C009, C00A)
-        M391 (I040, C009, 0x00, 0x25)
+        M391 (I040, C009, 0x00, __LINE__)
         M000 (RefOf (B040), C009, C00B)
-        M391 (I040, C009, 0x00, 0x26)
+        M391 (I040, C009, 0x00, __LINE__)
         /* Write String */
 
         M000 (RefOf (I050), C00A, C009)
-        M391 (I050, C00A, 0x00, 0x28)
+        M391 (I050, C00A, 0x00, __LINE__)
         M000 (RefOf (S050), C00A, C00A)
-        M391 (I050, C00A, 0x00, 0x29)
+        M391 (I050, C00A, 0x00, __LINE__)
         M000 (RefOf (B050), C00A, C00B)
-        M391 (I050, C00A, 0x00, 0x2A)
+        M391 (I050, C00A, 0x00, __LINE__)
         /* Write Bufer */
 
         M000 (RefOf (I060), C00B, C009)
-        M391 (I060, C00B, 0x00, 0x2C)
+        M391 (I060, C00B, 0x00, __LINE__)
         M000 (RefOf (S060), C00B, C00A)
-        M391 (I060, C00B, 0x00, 0x2D)
+        M391 (I060, C00B, 0x00, __LINE__)
         M000 (RefOf (B060), C00B, C00B)
-        M391 (I060, C00B, 0x00, 0x2E)
+        M391 (I060, C00B, 0x00, __LINE__)
         /* Write Package */
 
         If (OP01)
         {
             M000 (RefOf (I070), C00C, C009)
-            M391 (I070, C00C, 0x00, 0x30)
+            M391 (I070, C00C, 0x00, __LINE__)
             M000 (RefOf (S070), C00C, C00A)
-            M391 (I070, C00C, 0x00, 0x31)
+            M391 (I070, C00C, 0x00, __LINE__)
             M000 (RefOf (B070), C00C, C00B)
-            M391 (I070, C00C, 0x00, 0x32)
+            M391 (I070, C00C, 0x00, __LINE__)
             M000 (RefOf (P070), C00C, C00C)
-            M391 (I070, C00C, 0x00, 0x33)
+            M391 (I070, C00C, 0x00, __LINE__)
         }
 
         END0 ()
@@ -4935,7 +4935,7 @@
                         Local0 = ObjectType (Arg0)
                         If ((Local0 != Arg2))
                         {
-                            ERR (__METHOD__, Z111, 0x12B0, 0x00, 0x00, Local0, Arg2)
+                            ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local0, Arg2)
                         }
 
                         If (OP00)
@@ -4947,22 +4947,22 @@
                             Arg0 = 0x2B
                         }
 
-                        M391 (Arg0, Arg1, 0x00, 0x00)
+                        M391 (Arg0, Arg1, 0x00, __LINE__)
                     }
 
                     M000 (Arg0, Arg1, Arg2)
                     Local0 = DerefOf (Arg0)
-                    M390 (Local0, Arg1, 0x00, 0x01)
+                    M390 (Local0, Arg1, 0x00, __LINE__)
                 }
 
                 M000 (Arg0, Arg1, Arg2)
                 Local0 = DerefOf (Arg0)
-                M390 (Local0, Arg1, 0x00, 0x02)
+                M390 (Local0, Arg1, 0x00, __LINE__)
             }
 
             M000 (Arg0, Arg1, Arg2)
             Local0 = DerefOf (Arg0)
-            M390 (Local0, Arg1, 0x00, 0x03)
+            M390 (Local0, Arg1, 0x00, __LINE__)
         }
 
         BEG0 (Z111, __METHOD__)
@@ -4970,23 +4970,23 @@
 
         Store (S000 [0x01], Local0)
         M000 (Local0, C009, C016)
-        M390 (S000, C00A, 0x00, 0x04)
+        M390 (S000, C00A, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M380 (__METHOD__, Local2, 0x00, 0x05)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         /* Buffer */
 
         Store (B000 [0x01], Local0)
         M000 (Local0, C009, C016)
-        M390 (B000, C00B, 0x00, 0x06)
+        M390 (B000, C00B, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M380 (__METHOD__, Local2, 0x00, 0x07)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         /* Package */
 
         Store (P000 [0x01], Local0)
         M000 (Local0, C009, C009)
-        M390 (P000, C00C, 0x00, 0x08)
+        M390 (P000, C00C, 0x00, __LINE__)
         Local2 = DerefOf (Local0)
-        M380 (__METHOD__, Local2, 0x00, 0x09)
+        M380 (__METHOD__, Local2, 0x00, __LINE__)
         END0 ()
     }
 
@@ -4994,7 +4994,7 @@
     {
         BEG0 (Z111, __METHOD__)
         RefOf (I900) = 0x77
-        M380 (__METHOD__, I900, 0x00, 0x00)
+        M380 (__METHOD__, I900, 0x00, __LINE__)
         RefOf (S900) = 0x77
         M4C0 (__METHOD__, S900, "0000000000000077", "00000077")
         RefOf (B900) = 0x77
@@ -5003,29 +5003,29 @@
                  0x77, 0x00, 0x00, 0x00, 0x00                     // w....
             }, 0x01)
         RefOf (P953) = 0x77
-        M380 (__METHOD__, P953, 0x00, 0x02)
+        M380 (__METHOD__, P953, 0x00, __LINE__)
         RefOf (E900) = 0x77
-        M380 (__METHOD__, E900, 0x00, 0x03)
+        M380 (__METHOD__, E900, 0x00, __LINE__)
         RefOf (MX90) = 0x77
-        M380 (__METHOD__, MX90, 0x00, 0x04)
+        M380 (__METHOD__, MX90, 0x00, __LINE__)
         RefOf (D900) = 0x77
-        M380 (__METHOD__, D900, 0x00, 0x05)
+        M380 (__METHOD__, D900, 0x00, __LINE__)
         If (Y508)
         {
             RefOf (TZ90) = 0x77
-            M380 (__METHOD__, TZ90, 0x00, 0x06)
+            M380 (__METHOD__, TZ90, 0x00, __LINE__)
         }
 
         RefOf (PR90) = 0x77
-        M380 (__METHOD__, PR90, 0x00, 0x07)
+        M380 (__METHOD__, PR90, 0x00, __LINE__)
         If (Y510)
         {
             RefOf (R900) = 0x77
-            M380 (__METHOD__, R900, 0x00, 0x08)
+            M380 (__METHOD__, R900, 0x00, __LINE__)
         }
 
         RefOf (PW90) = 0x77
-        M380 (__METHOD__, PW90, 0x00, 0x09)
+        M380 (__METHOD__, PW90, 0x00, __LINE__)
         M1AC ()
         M1A6 ()
         END0 ()
@@ -5064,14 +5064,14 @@
             Local1 = ObjectType (Local0)
             If ((Local1 != C009))
             {
-                ERR (__METHOD__, Z111, 0x1334, 0x00, 0x00, Local1, C009)
+                ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, C009)
             }
             Else
             {
                 Local1 = DerefOf (Local0)
                 If ((Local1 != Local6))
                 {
-                    ERR (__METHOD__, Z111, 0x1338, 0x00, 0x00, Local1, Local6)
+                    ERR (__METHOD__, Z111, __LINE__, 0x00, 0x00, Local1, Local6)
                 }
             }
 
@@ -5147,7 +5147,7 @@
         }
 
         M000 (RefOf (I000))
-        M380 ("m362", I000, Z111, 0x00)
+        M380 ("m362", I000, Z111, __LINE__)
     }
 
     Method (M363, 0, Serialized)
@@ -5159,7 +5159,7 @@
         }
 
         M000 (RefOf (I000))
-        M380 ("m363", I000, Z111, 0x00)
+        M380 ("m363", I000, Z111, __LINE__)
     }
 
     Method (M364, 0, Serialized)
@@ -5172,7 +5172,7 @@
 
         Local0 = RefOf (I000)
         M000 (Local0)
-        M380 ("m364", I000, Z111, 0x00)
+        M380 ("m364", I000, Z111, __LINE__)
     }
 
     /*
@@ -5284,13 +5284,13 @@
         Local1 = ObjectType (Local0)
         If ((Local1 != C01C))
         {
-            ERR ("mfab", Z111, 0x13FB, 0x00, 0x00, Local1, C01C)
+            ERR ("mfab", Z111, __LINE__, 0x00, 0x00, Local1, C01C)
         }
 
         Local1 = ObjectType (DerefOf (Local0))
         If ((Local1 != C01C))
         {
-            ERR ("mfab", Z111, 0x1400, 0x00, 0x00, Local1, C01C)
+            ERR ("mfab", Z111, __LINE__, 0x00, 0x00, Local1, C01C)
         }
     }
 
@@ -5347,7 +5347,7 @@
             Debug = Local1
             If ((Local1 != C01C))
             {
-                ERR ("mfad", Z111, 0x142B, 0x00, 0x00, Local1, C01C)
+                ERR ("mfad", Z111, __LINE__, 0x00, 0x00, Local1, C01C)
             }
         }
         Else
@@ -5356,7 +5356,7 @@
              * ObjectType here falls into the infinitive loop.
              * Sort this out!
              */
-            ERR ("mfad", Z111, 0x1432, 0x00, 0x00, 0x00, 0x00)
+            ERR ("mfad", Z111, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
     }
 
@@ -5413,7 +5413,7 @@
             Debug = Local1
             If ((Local1 != 0x64))
             {
-                ERR ("mfc3", Z111, 0x145D, 0x00, 0x00, Local1, 0x64)
+                ERR ("mfc3", Z111, __LINE__, 0x00, 0x00, Local1, 0x64)
             }
         }
         Else
@@ -5422,7 +5422,7 @@
              * SizeOf here falls into the infinitive loop.
              * Sort this out!
              */
-            ERR ("mfc3", Z111, 0x1464, 0x00, 0x00, 0x00, 0x00)
+            ERR ("mfc3", Z111, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
     }
 
@@ -5479,7 +5479,7 @@
             Debug = Local1
             If ((Local1 != 0x64))
             {
-                ERR ("mfc4", Z111, 0x1490, 0x00, 0x00, Local1, 0x64)
+                ERR ("mfc4", Z111, __LINE__, 0x00, 0x00, Local1, 0x64)
             }
         }
         Else
@@ -5488,7 +5488,7 @@
              * SizeOf here falls into the infinitive loop.
              * Sort this out!
              */
-            ERR ("mfc4", Z111, 0x1497, 0x00, 0x00, 0x00, 0x00)
+            ERR ("mfc4", Z111, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
     }
 

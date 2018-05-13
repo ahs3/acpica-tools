@@ -943,6 +943,9 @@ AcpiPsGetNextArg (
 
             if (Arg->Common.AmlOpcode == AML_INT_METHODCALL_OP)
             {
+                /* Free method call op and corresponding namestring sub-ob */
+
+                AcpiPsFreeOp (Arg->Common.Value.Arg);
                 AcpiPsFreeOp (Arg);
                 Arg = NULL;
                 WalkState->ArgCount = 1;

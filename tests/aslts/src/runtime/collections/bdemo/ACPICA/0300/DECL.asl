@@ -70,19 +70,19 @@
 
                 If ((Arg0 != II00))
                 {
-                    ERR ("", ZFFF, 0x4C, 0x00, 0x00, Arg0, II00)
+                    ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Arg0, II00)
                 }
 
                 If ((Arg0 != Local5))
                 {
-                    ERR ("", ZFFF, 0x4F, 0x00, 0x00, Arg0, Local5)
+                    ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Arg0, Local5)
                 }
             }
 
             M100 (0x00)
         }
 
-        CH03 ("", 0x00, 0x02, 0x55, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         M000 ()
-        CH03 ("", 0x00, 0x03, 0x57, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }

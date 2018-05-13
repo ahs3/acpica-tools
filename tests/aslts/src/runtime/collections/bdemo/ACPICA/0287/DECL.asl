@@ -39,30 +39,30 @@
             /* SignatureString is greater than four characters */
 
             LoadTable ("OEMXX", "", "", "", "\\D287.PLDT", 0x01)
-            CH04 ("", 0x00, 0xFF, 0x00, 0x2D, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
             If ((PLDT != 0x00))
             {
-                ERR ("", ZFFF, 0x2F, 0x00, 0x00, PLDT, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, PLDT, 0x00)
                 Return (0x01)
             }
 
             /* OEMIDString is greater than six characters */
 
             LoadTable ("OEM1", "IntelXX", "", "", "\\D287.PLDT", 0x01)
-            CH04 ("", 0x00, 0xFF, 0x00, 0x36, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
             If ((PLDT != 0x00))
             {
-                ERR ("", ZFFF, 0x38, 0x00, 0x00, PLDT, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, PLDT, 0x00)
                 Return (0x01)
             }
 
             /* OEMTableID is greater than eight characters */
 
             LoadTable ("OEM1", "", "ManyXXXXX", "", "\\D287.PLDT", 0x01)
-            CH04 ("", 0x00, 0xFF, 0x00, 0x3F, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
             If ((PLDT != 0x00))
             {
-                ERR ("", ZFFF, 0x41, 0x00, 0x00, PLDT, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, PLDT, 0x00)
                 Return (0x01)
             }
 

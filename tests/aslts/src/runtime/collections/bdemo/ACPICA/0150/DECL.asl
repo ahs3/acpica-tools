@@ -56,14 +56,14 @@
         Local1 = 0x00
         If (Acquire (MX00, 0x0001))
         {
-            ERR ("", ZFFF, 0x3F, 0x00, 0x00, 0x00, 0x00)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
         Else
         {
             Local0 = 0x01
             If (Acquire (MX01, 0x0001))
             {
-                ERR ("", ZFFF, 0x43, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -96,14 +96,14 @@
         Local1 = 0x00
         If (Acquire (MX00, 0x0001))
         {
-            ERR ("", ZFFF, 0x60, 0x00, 0x00, 0x00, 0x00)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
         Else
         {
             Local0 = 0x01
-            CH03 ("", 0x00, 0x03, 0x63, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Acquire (MX01, 0x0001)
-            CH04 ("", 0x00, 0x40, 0x00, 0x65, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
+            CH04 (__METHOD__, 0x00, 0x40, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
         }
 
         If (Local0)
@@ -130,14 +130,14 @@
         Local1 = 0x00
         If (Acquire (MX00, 0x0001))
         {
-            ERR ("", ZFFF, 0x7E, 0x00, 0x00, 0x00, 0x00)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
         Else
         {
             Local0 = 0x01
-            CH03 ("", 0x00, 0x06, 0x81, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             MX01 ()
-            CH03 ("", 0x00, 0x07, 0x83, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
 
         If (Local0)
@@ -164,14 +164,14 @@
         Local1 = 0x00
         If (Acquire (MX00, 0x0001))
         {
-            ERR ("", ZFFF, 0x9D, 0x00, 0x00, 0x00, 0x00)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
         }
         Else
         {
             Local0 = 0x01
-            CH03 ("", 0x00, 0x09, 0xA0, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             MX01 ()
-            CH04 ("", 0x00, 0x40, 0x00, 0xA2, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
+            CH04 (__METHOD__, 0x00, 0x40, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
         }
 
         If (Local0)

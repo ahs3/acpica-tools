@@ -87,7 +87,7 @@
         Local0 = ("12345678" + 0x11111111)
         If ((Local0 != 0x23456789))
         {
-            ERR ("", ZFFF, 0x5E, 0x00, 0x00, Local0, 0x23456789)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x23456789)
         }
 
         /* 8 hex */
@@ -95,7 +95,7 @@
         Local0 = ("abcdefab" + 0x11111111)
         If ((Local0 != 0xBCDF00BC))
         {
-            ERR ("", ZFFF, 0x64, 0x00, 0x00, Local0, 0xBCDF00BC)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xBCDF00BC)
         }
 
         /* 16 decimal */
@@ -103,7 +103,7 @@
         Local0 = ("1234567890876543" + 0x1111111111111111)
         If ((Local0 != 0x23456789A1987654))
         {
-            ERR ("", ZFFF, 0x6A, 0x00, 0x00, Local0, 0x23456789A1987654)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x23456789A1987654)
         }
 
         /* 16 hex */
@@ -111,7 +111,7 @@
         Local0 = ("abcdefababcdfead" + 0x1111111111111111)
         If ((Local0 != 0xBCDF00BCBCDF0FBE))
         {
-            ERR ("", ZFFF, 0x70, 0x00, 0x00, Local0, 0xBCDF00BCBCDF0FBE)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xBCDF00BCBCDF0FBE)
         }
 
         /* 17 hex */
@@ -119,7 +119,7 @@
         Local0 = ("1234567890123456z" + 0x1111111111111111)
         If ((Local0 != 0x23456789A1234567))
         {
-            ERR ("", ZFFF, 0x76, 0x00, 0x00, Local0, 0x23456789A1234567)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x23456789A1234567)
         }
 
         /* 17 hex (caused AE_BAD_HEX_CONSTANT, 28.09.2005) */
@@ -127,7 +127,7 @@
         Local0 = ("12345678901234560" + 0x1111111111111111)
         If ((Local0 != 0x23456789A1234567))
         {
-            ERR ("", ZFFF, 0x7C, 0x00, 0x00, Local0, 0x23456789A1234567)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x23456789A1234567)
         }
 
         /* Looks like octal, but should be treated as hex */
@@ -135,7 +135,7 @@
         Local0 = ("01111" + 0x2222)
         If ((Local0 != 0x3333))
         {
-            ERR ("", ZFFF, 0x82, 0x00, 0x00, Local0, 0x3333)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x3333)
         }
 
         /* The first zeros each must be put into value */
@@ -143,31 +143,31 @@
         Local0 = ("000010234" + 0x00)
         If ((Local0 != 0x00010234))
         {
-            ERR ("", ZFFF, 0x89, 0x00, 0x00, Local0, 0x00010234)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00010234)
         }
 
         Local0 = ("000000000000000010234" + 0x00)
         If ((Local0 != 0x00010234))
         {
-            ERR ("", ZFFF, 0x8E, 0x00, 0x00, Local0, 0x00010234)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00010234)
         }
 
         Local0 = ("00000000000000010234" + 0x00)
         If ((Local0 != 0x00010234))
         {
-            ERR ("", ZFFF, 0x93, 0x00, 0x00, Local0, 0x00010234)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00010234)
         }
 
         Local0 = ("0000000010234" + 0x00)
         If ((Local0 != 0x00010234))
         {
-            ERR ("", ZFFF, 0x98, 0x00, 0x00, Local0, 0x00010234)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00010234)
         }
 
         Local0 = ("000000010234" + 0x00)
         If ((Local0 != 0x00010234))
         {
-            ERR ("", ZFFF, 0x9D, 0x00, 0x00, Local0, 0x00010234)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00010234)
         }
 
         /* Non-complete 4 hex, should be extended with zeros */
@@ -175,7 +175,7 @@
         Local0 = ("abcd" + 0x1111)
         If ((Local0 != 0xBCDE))
         {
-            ERR ("", ZFFF, 0xA3, 0x00, 0x00, Local0, 0xBCDE)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xBCDE)
         }
 
         /* Non-complete 5 decimal, should be extended with zeros */
@@ -183,10 +183,10 @@
         Local0 = ("12345" + 0x1111)
         If ((Local0 != 0x00013456))
         {
-            ERR ("", ZFFF, 0xA9, 0x00, 0x00, Local0, 0x00013456)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00013456)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0100, 0xAC, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Too large, all hex, should be trancated */
 
         Local0 = ("abcdef0123456789112233445566778890" + 0x00)
@@ -194,15 +194,15 @@
         {
             If ((Local0 != 0xABCDEF0123456789))
             {
-                ERR ("", ZFFF, 0xB2, 0x00, 0x00, Local0, 0xABCDEF0123456789)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEF0123456789)
             }
         }
         ElseIf ((Local0 != 0xABCDEF01))
         {
-            ERR ("", ZFFF, 0xB6, 0x00, 0x00, Local0, 0xABCDEF01)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEF01)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0101, 0xBA, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Large, all hex, looks like octal, should be trancated */
 
         Local0 = ("0abcdef0123456789112233445566778890" + 0x1234)
@@ -210,57 +210,57 @@
         {
             If ((Local0 != 0xABCDEF0123456789))
             {
-                ERR ("", ZFFF, 0xC0, 0x00, 0x00, Local0, 0xABCDEF0123456789)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEF0123456789)
             }
         }
         ElseIf ((Local0 != 0xABCDEF01))
         {
-            ERR ("", ZFFF, 0xC4, 0x00, 0x00, Local0, 0xABCDEF01)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEF01)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0102, 0xC8, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Looks like usual hex, but 'x' terminates conversion */
 
         Local0 = ("0x1111" + 0x2222)
         If ((Local0 != 0x2222))
         {
-            ERR ("", ZFFF, 0xCD, 0x00, 0x00, Local0, 0x2222)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x2222)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0103, 0xD0, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Empty string, no action - the relevant parameter of Add remains zero */
 
         Local0 = ("" + 0xDE)
         If ((Local0 != 0xDE))
         {
-            ERR ("", ZFFF, 0xD5, 0x00, 0x00, Local0, 0xDE)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xDE)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0104, 0xD8, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Blank string, no action - the relevant parameter of Add remains zero */
 
         Local0 = (" " + 0x0333)
         If ((Local0 != 0x0333))
         {
-            ERR ("", ZFFF, 0xDD, 0x00, 0x00, Local0, 0x0333)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x0333)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0105, 0xE0, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Blank string, no action - the relevant parameter of Add remains zero */
 
         Local0 = ("                                " + 0x92)
         If ((Local0 != 0x92))
         {
-            ERR ("", ZFFF, 0xE5, 0x00, 0x00, Local0, 0x92)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x92)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0106, 0xE8, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Conversion is terminated just by the first symbol (non-hex) though followed by hex-es, remains zero */
 
         Local0 = ("k1234567" + 0x01E9)
         If ((Local0 != 0x01E9))
         {
-            ERR ("", ZFFF, 0xED, 0x00, 0x00, Local0, 0x01E9)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x01E9)
         }
 
         /* Conversion is terminated just by the first symbol (non-hex), single */
@@ -268,25 +268,25 @@
         Local0 = ("k" + 0x000000ABCDEF0000)
         If ((Local0 != 0x000000ABCDEF0000))
         {
-            ERR ("", ZFFF, 0xF3, 0x00, 0x00, Local0, 0x000000ABCDEF0000)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x000000ABCDEF0000)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0107, 0xF6, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Looks like designation of hex (terminated by x) */
 
         Local0 = ("0x" + 0x12345678)
         If ((Local0 != 0x12345678))
         {
-            ERR ("", ZFFF, 0xFB, 0x00, 0x00, Local0, 0x12345678)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x12345678)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0108, 0xFE, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Special symbol in the hex designation (terminated by x) */
 
         Local0 = ("x" + 0x00BC614E)
         If ((Local0 != 0x00BC614E))
         {
-            ERR ("", ZFFF, 0x0103, 0x00, 0x00, Local0, 0x00BC614E)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00BC614E)
         }
 
         /* Starts with the special symbol in the hex designation (terminated by x) */
@@ -294,7 +294,7 @@
         Local0 = ("x12345" + 0x6F)
         If ((Local0 != 0x6F))
         {
-            ERR ("", ZFFF, 0x0109, 0x00, 0x00, Local0, 0x6F)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x6F)
         }
 
         /* No one hex, conversion is terminated just by the first symbol Z */
@@ -302,7 +302,7 @@
         Local0 = ("ZZZZ" + 0x0001E240)
         If ((Local0 != 0x0001E240))
         {
-            ERR ("", ZFFF, 0x010F, 0x00, 0x00, Local0, 0x0001E240)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x0001E240)
         }
 
         /* Short <= 8, conversion is terminated by non-hex symbol Z */
@@ -310,7 +310,7 @@
         Local0 = ("abcdZZZZ" + 0x11)
         If ((Local0 != 0xABDE))
         {
-            ERR ("", ZFFF, 0x0115, 0x00, 0x00, Local0, 0xABDE)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABDE)
         }
 
         /* Short <= 8, hex in the middle (terminated by Z) */
@@ -318,7 +318,7 @@
         Local0 = ("ZQ123MMM" + 0x0001E240)
         If ((Local0 != 0x0001E240))
         {
-            ERR ("", ZFFF, 0x011B, 0x00, 0x00, Local0, 0x0001E240)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x0001E240)
         }
 
         /* Short <= 8, hex at the end (terminated by Z) */
@@ -326,7 +326,7 @@
         Local0 = ("ZQMMM123" + 0x0001E240)
         If ((Local0 != 0x0001E240))
         {
-            ERR ("", ZFFF, 0x0121, 0x00, 0x00, Local0, 0x0001E240)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x0001E240)
         }
 
         /* Long exceeding 16, no one hex */
@@ -334,7 +334,7 @@
         Local0 = ("zxswqrrrrrrrrrrrrrrtttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyuuuuuuuuuuuuuuuuuuuuuuu" + 0x7B)
         If ((Local0 != 0x7B))
         {
-            ERR ("", ZFFF, 0x0127, 0x00, 0x00, Local0, 0x7B)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x7B)
         }
 
         /* Long exceeding 16, hex at the beginning */
@@ -342,7 +342,7 @@
         Local0 = ("1234zxswqrrrrrrrrrrrrrrtttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyuuuuuuuuuuuuuuuuuuuuuuu" + 0x53)
         If ((Local0 != 0x1287))
         {
-            ERR ("", ZFFF, 0x012D, 0x00, 0x00, Local0, 0x1287)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x1287)
         }
 
         /* Long exceeding 16, hex everywhere */
@@ -350,7 +350,7 @@
         Local0 = ("123z4s5qr6rr7rrrrrrrrr8ttttttt9ttttttattttbttttcyyyydyyeyyyyyyyyuuuuuuuuuuuuuuuuuuuuf" + 0x53)
         If ((Local0 != 0x0176))
         {
-            ERR ("", ZFFF, 0x0133, 0x00, 0x00, Local0, 0x0176)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x0176)
         }
 
         /* Long exceeding 16, hex at the end */
@@ -358,7 +358,7 @@
         Local0 = ("zxswqrrrrrrrrrrrrrrtttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyuuuuuuuuuuuuuuuuuuuuuuu1234" + 0x14D1)
         If ((Local0 != 0x14D1))
         {
-            ERR ("", ZFFF, 0x0139, 0x00, 0x00, Local0, 0x14D1)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x14D1)
         }
 
         /* Long exceeding 16, hex in the middle inside the possible Integer */
@@ -366,7 +366,7 @@
         Local0 = ("zx1234swqrrrrrrrrrrrrrrtttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyuuuuuuuuuuuuuuuuuuuuuuu" + 0x00012321)
         If ((Local0 != 0x00012321))
         {
-            ERR ("", ZFFF, 0x013F, 0x00, 0x00, Local0, 0x00012321)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00012321)
         }
 
         /* Long exceeding 16, hex in the middle beyond the bounds of the possible Integer */
@@ -374,10 +374,10 @@
         Local0 = ("zxswqrrrrrrrrrrrrrrtttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyuuuuuuuuuuuuuuuuuuuuu1234uu" + 0x3021)
         If ((Local0 != 0x3021))
         {
-            ERR ("", ZFFF, 0x0145, 0x00, 0x00, Local0, 0x3021)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x3021)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x0109, 0x0148, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Only decimal, much more than 16 */
 
         Store (("123456789012345601112223334446667788990087654" + 0x00), Local1)
@@ -385,15 +385,15 @@
         {
             If ((Local0 != 0x1234567890123456))
             {
-                ERR ("", ZFFF, 0x014E, 0x00, 0x00, Local0, 0x1234567890123456)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x1234567890123456)
             }
         }
         ElseIf ((Local0 != 0x12345678))
         {
-            ERR ("", ZFFF, 0x0152, 0x00, 0x00, Local0, 0x12345678)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x12345678)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x010A, 0x0156, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Only hex, much more than 16 */
 
         Store (("abcdefabcdefabcdefabcdefabcdefabcdefabcdefabc" + 0x00), Local1)
@@ -401,15 +401,15 @@
         {
             If ((Local0 != 0xABCDEFABCDEFABCD))
             {
-                ERR ("", ZFFF, 0x015C, 0x00, 0x00, Local0, 0xABCDEFABCDEFABCD)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEFABCDEFABCD)
             }
         }
         ElseIf ((Local0 != 0xABCDEFAB))
         {
-            ERR ("", ZFFF, 0x0160, 0x00, 0x00, Local0, 0xABCDEFAB)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEFAB)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x010B, 0x0164, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Only decimal, much more than 16, non-hex at the end */
 
         Store (("123456789012345601112223334446667788990087654ZZZZ" + 0x00), Local1)
@@ -417,15 +417,15 @@
         {
             If ((Local0 != 0x1234567890123456))
             {
-                ERR ("", ZFFF, 0x016A, 0x00, 0x00, Local0, 0x1234567890123456)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x1234567890123456)
             }
         }
         ElseIf ((Local0 != 0x12345678))
         {
-            ERR ("", ZFFF, 0x016E, 0x00, 0x00, Local0, 0x12345678)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x12345678)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x010C, 0x0172, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         /* Only hex, much more than 16, non-hex at the end */
 
         Store (("abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcZZZZ" + 0x00), Local1)
@@ -433,15 +433,15 @@
         {
             If ((Local0 != 0xABCDEFABCDEFABCD))
             {
-                ERR ("", ZFFF, 0x0178, 0x00, 0x00, Local0, 0xABCDEFABCDEFABCD)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEFABCDEFABCD)
             }
         }
         ElseIf ((Local0 != 0xABCDEFAB))
         {
-            ERR ("", ZFFF, 0x017C, 0x00, 0x00, Local0, 0xABCDEFAB)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0xABCDEFAB)
         }
 
-        CH03 (__METHOD__, ZFFF, 0x010D, 0x0180, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
     }
 
     Method (MD75, 0, NotSerialized)
@@ -451,9 +451,9 @@
 
     Method (MD76, 0, Serialized)
     {
-        CH03 (__METHOD__, ZFFF, 0x010E, 0x018B, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         MD74 ()
-        CH03 (__METHOD__, ZFFF, 0x010F, 0x018D, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
         MD75 ()
-        CH03 (__METHOD__, ZFFF, 0x0110, 0x018F, 0x00)
+        CH03 (__METHOD__, ZFFF, __LINE__, 0x00, 0x00)
     }

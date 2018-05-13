@@ -91,7 +91,7 @@
             \DTM0.RFU0 = \DTM0.BUF0
             If (CondRefOf (\SSS0, Local0))
             {
-                ERR (Arg0, Z175, 0x62, 0x00, 0x00, "\\SSS0", 0x01)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\SSS0", 0x01)
                 Return (Zero)
             }
 
@@ -102,13 +102,13 @@
 
             Local0 = \DTM0.RFU0
             Store ((\DTM0.SUM + \DTM0.CHSM (Local0, SizeOf (Local0))), \DTM0.SUM)
-            If (CH03 (Arg0, Z175, 0x01, 0x6D, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (Zero)
             }
 
             Load (\DTM0.RFU0, HI0) /* \DTM1.TST0.HI0_ */
-            If (CH03 (Arg0, Z175, 0x02, 0x73, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (Zero)
             }
@@ -119,7 +119,7 @@
             {
                 /* DDB Handle */
 
-                ERR (Arg0, Z175, 0x7B, 0x00, 0x00, Local1, C017)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local1, C017)
             }
 
             /* Check the new Object appears */
@@ -127,7 +127,7 @@
             If (CondRefOf (\SSS0, Local0)){}
             Else
             {
-                ERR (Arg0, Z175, 0x82, 0x00, 0x00, "\\SSS0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\SSS0", 0x00)
             }
 
             Local1 = ObjectType (Local0)
@@ -135,26 +135,26 @@
             {
                 /* Method */
 
-                ERR (Arg0, Z175, 0x87, 0x00, 0x00, Local1, C010)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local1, C010)
             }
             Else
             {
                 Local0 = \SSS0 ()
-                If (CH03 (Arg0, Z175, 0x06, 0x8A, 0x01))
+                If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x01))
                 {
                     Return (Zero)
                 }
 
                 If (("\\SSS0" != Local0))
                 {
-                    ERR (Arg0, Z175, 0x8E, 0x00, 0x00, Local0, "\\SSS0")
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, "\\SSS0")
                 }
             }
 
             /* UnLoad operator execution */
 
             Unload (M000 ())
-            If (CH03 (Arg0, Z175, 0x08, 0x95, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (Zero)
             }
@@ -162,7 +162,7 @@
             Debug = "Table Unloaded"
             If (CondRefOf (\SSS0, Local0))
             {
-                ERR (Arg0, Z175, 0x9C, 0x00, 0x00, "\\SSS0", 0x01)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\SSS0", 0x01)
             }
 
             Return (Zero)
@@ -181,7 +181,7 @@
                 Local0 = ObjectType (Arg2)
                 If ((Arg3 != Local0))
                 {
-                    ERR (Arg0, Z175, 0xAF, 0x00, 0x00, Local0, Arg3)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, Arg3)
                     Return (0x01)
                 }
 
@@ -195,7 +195,7 @@
 
                 If (CondRefOf (\AUXD.INT0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xBC, 0x00, 0x00, "\\AUXD.INT0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.INT0", 0x01)
                     Return (0x01)
                 }
 
@@ -203,7 +203,7 @@
 
                 If (CondRefOf (\AUXD.STR0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xC2, 0x00, 0x00, "\\AUXD.STR0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.STR0", 0x01)
                     Return (0x01)
                 }
 
@@ -211,7 +211,7 @@
 
                 If (CondRefOf (\AUXD.BUF0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xC8, 0x00, 0x00, "\\AUXD.BUF0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.BUF0", 0x01)
                     Return (0x01)
                 }
 
@@ -219,7 +219,7 @@
 
                 If (CondRefOf (\AUXD.PAC0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xCE, 0x00, 0x00, "\\AUXD.PAC0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.PAC0", 0x01)
                     Return (0x01)
                 }
 
@@ -227,7 +227,7 @@
 
                 If (CondRefOf (\AUXD.FLU0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xD4, 0x00, 0x00, "\\AUXD.FLU0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.FLU0", 0x01)
                     Return (0x01)
                 }
 
@@ -235,7 +235,7 @@
 
                 If (CondRefOf (\AUXD.DEV0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xDA, 0x00, 0x00, "\\AUXD.DEV0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.DEV0", 0x01)
                     Return (0x01)
                 }
 
@@ -243,7 +243,7 @@
 
                 If (CondRefOf (\AUXD.EVE0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xE0, 0x00, 0x00, "\\AUXD.EVE0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.EVE0", 0x01)
                     Return (0x01)
                 }
 
@@ -251,7 +251,7 @@
 
                 If (CondRefOf (\AUXD.MMM0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xE6, 0x00, 0x00, "\\AUXD.MMM0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.MMM0", 0x01)
                     Return (0x01)
                 }
 
@@ -259,7 +259,7 @@
 
                 If (CondRefOf (\AUXD.MTX0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xEC, 0x00, 0x00, "\\AUXD.MTX0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.MTX0", 0x01)
                     Return (0x01)
                 }
 
@@ -267,7 +267,7 @@
 
                 If (CondRefOf (\AUXD.OPR0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xF2, 0x00, 0x00, "\\AUXD.OPR0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.OPR0", 0x01)
                     Return (0x01)
                 }
 
@@ -275,7 +275,7 @@
 
                 If (CondRefOf (\AUXD.PWR0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xF8, 0x00, 0x00, "\\AUXD.PWR0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.PWR0", 0x01)
                     Return (0x01)
                 }
 
@@ -283,7 +283,7 @@
 
                 If (CondRefOf (\AUXD.CPU0, Local0))
                 {
-                    ERR (Arg0, Z175, 0xFE, 0x00, 0x00, "\\AUXD.CPU0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.CPU0", 0x01)
                     Return (0x01)
                 }
 
@@ -291,7 +291,7 @@
 
                 If (CondRefOf (\AUXD.TZN0, Local0))
                 {
-                    ERR (Arg0, Z175, 0x0104, 0x00, 0x00, "\\AUXD.TZN0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.TZN0", 0x01)
                     Return (0x01)
                 }
 
@@ -299,7 +299,7 @@
 
                 If (CondRefOf (\AUXD.BFL0, Local0))
                 {
-                    ERR (Arg0, Z175, 0x010A, 0x00, 0x00, "\\AUXD.BFL0", 0x01)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.BFL0", 0x01)
                     Return (0x01)
                 }
 
@@ -318,7 +318,7 @@
 
             \DTM0.RFU3 = \DTM0.BUF3
             Load (\DTM0.RFU3, DDB0) /* \DTM1.TST1.DDB0 */
-            If (CH03 (Arg0, Z175, 0x1F, 0x011C, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -331,7 +331,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0124, 0x00, 0x00, "\\AUXD.INT0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.INT0", 0x00)
             }
 
             /* String */
@@ -342,7 +342,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x012B, 0x00, 0x00, "\\AUXD.STR0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.STR0", 0x00)
             }
 
             /* Buffer */
@@ -353,7 +353,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0132, 0x00, 0x00, "\\AUXD.BUF0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.BUF0", 0x00)
             }
 
             /* Package */
@@ -366,7 +366,7 @@
                 }
                 Else
                 {
-                    ERR (Arg0, Z175, 0x013A, 0x00, 0x00, "\\AUXD.PAC0", 0x00)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.PAC0", 0x00)
                 }
             }
 
@@ -378,7 +378,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0142, 0x00, 0x00, "\\AUXD.FLU0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.FLU0", 0x00)
             }
 
             /* Device */
@@ -389,7 +389,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0149, 0x00, 0x00, "\\AUXD.DEV0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.DEV0", 0x00)
             }
 
             /* Event */
@@ -400,7 +400,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0150, 0x00, 0x00, "\\AUXD.EVE0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.EVE0", 0x00)
             }
 
             /* Method */
@@ -411,7 +411,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0157, 0x00, 0x00, "\\AUXD.MMM0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.MMM0", 0x00)
             }
 
             /* Mutex */
@@ -422,7 +422,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x015E, 0x00, 0x00, "\\AUXD.MTX0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.MTX0", 0x00)
             }
 
             /* OpRegion */
@@ -433,7 +433,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0165, 0x00, 0x00, "\\AUXD.OPR0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.OPR0", 0x00)
             }
 
             /* Power Resource */
@@ -444,7 +444,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x016C, 0x00, 0x00, "\\AUXD.PWR0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.PWR0", 0x00)
             }
 
             /* Processor */
@@ -455,7 +455,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0173, 0x00, 0x00, "\\AUXD.CPU0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.CPU0", 0x00)
             }
 
             /* Thermal Zone */
@@ -466,7 +466,7 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x017A, 0x00, 0x00, "\\AUXD.TZN0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.TZN0", 0x00)
             }
 
             /* Buffer Field */
@@ -477,11 +477,11 @@
             }
             Else
             {
-                ERR (Arg0, Z175, 0x0181, 0x00, 0x00, "\\AUXD.BFL0", 0x00)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, "\\AUXD.BFL0", 0x00)
             }
 
             Unload (DDB0)
-            CH03 (Arg0, Z175, 0x2F, 0x0186, 0x00)
+            CH03 (Arg0, Z175, __LINE__, 0x00, 0x00)
             /* Check absence of the auxiliary table Objects after UnLoad */
 
             If (M001 (Concatenate (Arg0, ".after")))
@@ -524,12 +524,12 @@
                 Local0 = ObjectType (Arg2)
                 If ((Arg3 != Local0))
                 {
-                    ERR (Arg0, Z175, 0x01AF, 0x00, 0x00, Local0, Arg3)
+                    ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, Arg3)
                     Return (0x01)
                 }
 
                 Unload (DerefOf (Arg2))
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x01B4, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
                 Return (0x00)
             }
 
@@ -538,7 +538,7 @@
 
             \DTM0.RFU3 = \DTM0.BUF3
             Load (\DTM0.RFU3, DDB0) /* \DTM1.TST3.DDB0 */
-            If (CH03 (Arg0, Z175, 0x33, 0x01BF, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -553,18 +553,18 @@
             Local0 = ObjectType (Local1)
             If ((C008 != Local0))
             {
-                ERR (Arg0, Z175, 0x01C9, 0x00, 0x00, Local0, C008)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, C008)
             }
             Else
             {
                 Unload (Local1)
                 If (SLCK)
                 {
-                    CH04 (Arg0, 0x00, 0x2F, Z175, 0x01CD, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                    CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
                 }
                 Else
                 {
-                    CH04 (Arg0, 0x00, 0x31, Z175, 0x01CF, 0x00, 0x00) /* AE_AML_UNINITIALIZED_LOCAL */
+                    CH04 (Arg0, 0x00, 0x31, Z175, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_LOCAL */
                 }
             }
 
@@ -587,12 +587,12 @@
             Local0 = ObjectType (\AUXD.PAC0)
             If ((C00C != Local0))
             {
-                ERR (Arg0, Z175, 0x01E4, 0x00, 0x00, Local0, C00C)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, C00C)
             }
             Else
             {
                 Unload (\AUXD.PAC0)
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x01E7, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
             }
 
             /* Field Unit */
@@ -603,12 +603,12 @@
             Local0 = ObjectType (\AUXD.DEV0)
             If ((C00E != Local0))
             {
-                ERR (Arg0, Z175, 0x01F0, 0x00, 0x00, Local0, C00E)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, C00E)
             }
             Else
             {
                 Unload (\AUXD.DEV0)
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x01F3, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
             }
 
             /* Event */
@@ -634,19 +634,19 @@
             Local0 = ObjectType (\AUXD.TZN0)
             If ((C015 != Local0))
             {
-                ERR (Arg0, Z175, 0x020B, 0x00, 0x00, Local0, C015)
+                ERR (Arg0, Z175, __LINE__, 0x00, 0x00, Local0, C015)
             }
             Else
             {
                 Unload (\AUXD.TZN0)
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x020E, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
             }
 
             /* Buffer Field */
 
             M000 (Arg0, "bfl", RefOf (\AUXD.BFL0), C016)
             Unload (DDB0)
-            CH03 (Arg0, Z175, 0x3C, 0x0216, 0x00)
+            CH03 (Arg0, Z175, __LINE__, 0x00, 0x00)
             Return (0x00)
         }
 
@@ -661,7 +661,7 @@
 
             \DTM0.RFU3 = \DTM0.BUF3
             Load (\DTM0.RFU3, DDB0) /* \DTM1.TST4.DDB0 */
-            If (CH03 (Arg0, Z175, 0x3D, 0x0227, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -669,7 +669,7 @@
             /* First Unload */
 
             Unload (DDB0)
-            If (CH03 (Arg0, Z175, 0x3E, 0x022E, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -680,7 +680,7 @@
                 /* Any next */
 
                 Unload (DDB0)
-                CH04 (Arg0, 0x00, 0x1C, Z175, 0x0238, 0x05, Local0) /* AE_BAD_PARAMETER */
+                CH04 (Arg0, 0x00, 0x1C, Z175, __LINE__, 0x05, Local0) /* AE_BAD_PARAMETER */
                 Local0--
             }
 
@@ -688,7 +688,7 @@
 
             \DTM0.RFU3 = \DTM0.BUF3
             Load (\DTM0.RFU3, DDB1) /* \DTM1.TST4.DDB1 */
-            If (CH03 (Arg0, Z175, 0x40, 0x0241, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -699,12 +699,12 @@
                 /* Any next */
 
                 Unload (DDB0)
-                CH04 (Arg0, 0x00, 0x1C, Z175, 0x024B, 0x05, Local0) /* AE_BAD_PARAMETER */
+                CH04 (Arg0, 0x00, 0x1C, Z175, __LINE__, 0x05, Local0) /* AE_BAD_PARAMETER */
                 Local0--
             }
 
             Unload (DDB1)
-            If (CH03 (Arg0, Z175, 0x42, 0x0252, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -732,7 +732,7 @@
 
             \DTM0.RFU3 = \DTM0.BUF3
             Load (\DTM0.RFU3, DDB0) /* \DTM1.TST5.DDB0 */
-            If (CH03 (Arg0, Z175, 0x43, 0x0267, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -740,26 +740,26 @@
             /* Device */
 
             Unload (DerefOf (RefOf (\AUXD.DEV0)))
-            CH04 (Arg0, 0x00, 0x3E, Z175, 0x026D, 0x00, 0x00) /* AE_AML_NO_RETURN_VALUE */
+            CH04 (Arg0, 0x00, 0x3E, Z175, __LINE__, 0x00, 0x00) /* AE_AML_NO_RETURN_VALUE */
             /* Thermal Zone */
 
             Unload (DerefOf (RefOf (\AUXD.TZN0)))
-            CH04 (Arg0, 0x00, 0x3E, Z175, 0x0271, 0x00, 0x00) /* AE_AML_NO_RETURN_VALUE */
+            CH04 (Arg0, 0x00, 0x3E, Z175, __LINE__, 0x00, 0x00) /* AE_AML_NO_RETURN_VALUE */
             /* Method execution */
 
             CopyObject (M000 (), M001) /* \DTM1.TST5.M001 */
             Unload (M001 ())
             If (SLCK)
             {
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x0278, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
             }
             Else
             {
-                CH04 (Arg0, 0x00, 0x2F, Z175, 0x027A, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
+                CH04 (Arg0, 0x00, 0x2F, Z175, __LINE__, 0x00, 0x00) /* AE_AML_OPERAND_TYPE */
             }
 
             Unload (DDB0)
-            If (CH03 (Arg0, Z175, 0x48, 0x027F, 0x00))
+            If (CH03 (Arg0, Z175, __LINE__, 0x00, 0x00))
             {
                 Return (0x01)
             }
@@ -770,24 +770,24 @@
 
     Method (TUL0, 0, Serialized)
     {
-        CH03 (__METHOD__, Z175, 0x0200, 0x028B, 0x00)
+        CH03 (__METHOD__, Z175, __LINE__, 0x00, 0x00)
         /* Different Sources to specify DDBHandle for UnLoad. */
         /* Most of them (Named Object, LocalX, ArgX, Derefof) */
         /* are checked in load.asl */
         /* DDBHandle returned by Method call */
         SRMT ("TUL0.tst0")
         \DTM1.TST0 (__METHOD__)
-        CH03 (__METHOD__, Z175, 0x0201, 0x0294, 0x00)
+        CH03 (__METHOD__, Z175, __LINE__, 0x00, 0x00)
         /* All namespace objects created as a result of the corresponding */
         /* Load operation are absent in the namespace after UnLoad */
         SRMT ("TUL0.tst1")
         \DTM1.TST1 (__METHOD__)
-        CH03 (__METHOD__, Z175, 0x0202, 0x029B, 0x00)
+        CH03 (__METHOD__, Z175, __LINE__, 0x00, 0x00)
         /* Load/UnLoad processing can be done with the same table many times */
 
         SRMT ("TUL0.tst2")
         \DTM1.TST2 (__METHOD__)
-        CH03 (__METHOD__, Z175, 0x0203, 0x02A1, 0x00)
+        CH03 (__METHOD__, Z175, __LINE__, 0x00, 0x00)
     }
 
     /* Exceptional conditions */

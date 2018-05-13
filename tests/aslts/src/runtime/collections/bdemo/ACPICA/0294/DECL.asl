@@ -234,7 +234,7 @@
             Name (DDB3, 0x00)
             If (INIT ())
             {
-                ERR ("", ZFFF, 0xF1, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
                 Return (0x01)
             }
 
@@ -247,7 +247,7 @@
 
                 If (LD ())
                 {
-                    ERR ("", ZFFF, 0xFC, 0x00, 0x00, Local0, HI0N)
+                    ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, HI0N)
                     Return (0x01)
                 }
 
@@ -261,7 +261,7 @@
             /* The following Load should cause AE_OWNER_ID_LIMIT */
 
             Load (RFU3, DDB3) /* \D294.TST0.DDB3 */
-            CH04 ("", 0x00, 0xFF, 0x00, 0x010A, 0x00, 0x00)
+            CH04 (__METHOD__, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00)
             Return (0x00)
         }
     }

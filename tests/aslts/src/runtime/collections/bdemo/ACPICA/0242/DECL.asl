@@ -53,7 +53,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T000 (Level 0, index 0)"
-                ERR ("", ZFFF, 0x3E, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -64,7 +64,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T001 (Level 0, index 1)"
-                ERR ("", ZFFF, 0x46, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -75,7 +75,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T002 (Level 0, index 2)"
-                ERR ("", ZFFF, 0x4E, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -86,7 +86,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T003 (Level 0, index 3)"
-                ERR ("", ZFFF, 0x56, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -95,21 +95,21 @@
 
             Debug = "Releasing mutexes of level 0:"
             Debug = "Release T000 (Level 0, index 0)"
-            CH03 ("", 0x00, 0x04, 0x5F, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T000)
-            CH03 ("", 0x00, 0x05, 0x61, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T001 (Level 0, index 1)"
-            CH03 ("", 0x00, 0x06, 0x64, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T001)
-            CH03 ("", 0x00, 0x07, 0x66, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T002 (Level 0, index 2)"
-            CH03 ("", 0x00, 0x08, 0x69, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T002)
-            CH03 ("", 0x00, 0x09, 0x6B, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T003 (Level 0, index 3)"
-            CH03 ("", 0x00, 0x0A, 0x6E, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T003)
-            CH03 ("", 0x00, 0x0B, 0x70, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
 
         /*
@@ -125,7 +125,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T100 (Level 1, index 0)"
-                ERR ("", ZFFF, 0x81, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -136,7 +136,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T101 (Level 1, index 1)"
-                ERR ("", ZFFF, 0x89, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -147,7 +147,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T102 (Level 1, index 2)"
-                ERR ("", ZFFF, 0x91, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -158,7 +158,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T103 (Level 1, index 3)"
-                ERR ("", ZFFF, 0x99, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -167,21 +167,21 @@
 
             Debug = "Releasing mutexes of Level 1:"
             Debug = "Release T100 (Level 1, index 0)"
-            CH03 ("", 0x00, 0x10, 0xA2, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T100)
-            CH03 ("", 0x00, 0x11, 0xA4, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T101 (Level 1, index 1)"
-            CH03 ("", 0x00, 0x12, 0xA7, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T101)
-            CH03 ("", 0x00, 0x13, 0xA9, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T102 (Level 1, index 2)"
-            CH03 ("", 0x00, 0x14, 0xAC, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T102)
-            CH03 ("", 0x00, 0x15, 0xAE, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T103 (Level 1, index 3)"
-            CH03 ("", 0x00, 0x16, 0xB1, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T103)
-            CH03 ("", 0x00, 0x17, 0xB3, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
 
         /*
@@ -198,7 +198,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T100 (Level 1, index 0)"
-                ERR ("", ZFFF, 0xC5, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -209,7 +209,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T101 (Level 1, index 1)"
-                ERR ("", ZFFF, 0xCD, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -220,7 +220,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T102 (Level 1, index 2)"
-                ERR ("", ZFFF, 0xD5, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -231,7 +231,7 @@
             If (Local0)
             {
                 Debug = "ERROR: Acquire T103 (Level 1, index 3)"
-                ERR ("", ZFFF, 0xDD, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -240,21 +240,21 @@
 
             Debug = "Releasing mutexes of Level 1:"
             Debug = "Release T101 (Level 1, index 1)"
-            CH03 ("", 0x00, 0x1C, 0xE6, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T101)
-            CH03 ("", 0x00, 0x1D, 0xE8, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T102 (Level 1, index 2)"
-            CH03 ("", 0x00, 0x1E, 0xEB, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T102)
-            CH03 ("", 0x00, 0x1F, 0xED, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T103 (Level 1, index 3)"
-            CH03 ("", 0x00, 0x20, 0xF0, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T103)
-            CH03 ("", 0x00, 0x21, 0xF2, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Debug = "Release T100 (Level 1, index 0)"
-            CH03 ("", 0x00, 0x22, 0xF5, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Release (T100)
-            CH03 ("", 0x00, 0x23, 0xF7, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
 
         Method (MM00, 0, NotSerialized)
@@ -264,7 +264,7 @@
             M002 ()
         }
 
-        CH03 ("", 0x00, 0x24, 0x0101, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         MM00 ()
-        CH03 ("", 0x00, 0x25, 0x0103, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }

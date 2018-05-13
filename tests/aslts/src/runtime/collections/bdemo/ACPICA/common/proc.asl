@@ -75,7 +75,7 @@
                 TRC1 (Arg0, LPC0, Local0)
                 If ((Local0 != LPC0))
                 {
-                    ERR ("", ZFFF, 0x4D, 0x00, 0x00, Local0, LPC0)
+                    ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, LPC0)
                 }
 
                 LPN0--
@@ -91,7 +91,7 @@
             TRC1 (Arg0, 0x00, Local0)
             If ((Local0 != 0x00))
             {
-                ERR ("", ZFFF, 0x59, 0x00, 0x00, Local0, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x00)
             }
 
             /* Last pre-initialized element */
@@ -101,7 +101,7 @@
             TRC1 (Arg0, Local0, Local1)
             If ((Local1 != Local0))
             {
-                ERR ("", ZFFF, 0x61, 0x00, 0x00, Local1, Local0)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, Local0)
             }
 
             /* Middle pre-initialized element */
@@ -111,7 +111,7 @@
             TRC1 (Arg0, Local0, Local1)
             If ((Local1 != Local0))
             {
-                ERR ("", ZFFF, 0x69, 0x00, 0x00, Local1, Local0)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, Local0)
             }
         }
 
@@ -132,7 +132,7 @@
                 TRC1 (Arg0, LPC0, Local0)
                 If ((Local0 != LPC0))
                 {
-                    ERR ("", ZFFF, 0x7A, 0x00, 0x00, Local0, LPC0)
+                    ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, LPC0)
                 }
 
                 LPN0--
@@ -148,7 +148,7 @@
             TRC1 (Arg0, Arg3, Local0)
             If ((Local0 != Arg3))
             {
-                ERR ("", ZFFF, 0x86, 0x00, 0x00, Local0, Arg3)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, Arg3)
             }
 
             /* Last written element */
@@ -159,7 +159,7 @@
             TRC1 (Arg0, Local0, Local1)
             If ((Local1 != Local0))
             {
-                ERR ("", ZFFF, 0x8F, 0x00, 0x00, Local1, Local0)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, Local0)
             }
 
             /* Middle written element */
@@ -170,7 +170,7 @@
             TRC1 (Arg0, Local0, Local1)
             If ((Local1 != Local0))
             {
-                ERR ("", ZFFF, 0x98, 0x00, 0x00, Local1, Local0)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, Local0)
             }
         }
 
@@ -186,17 +186,17 @@
 
                     TRC1 (Arg0, Arg2, 0xF0F0F0F0)
                     Store (Arg0 [Arg2], Local0)
-                    CH03 ("", 0x00, 0x0100, 0xA6, 0x00)
+                    CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                     Local1 = DerefOf (Local0)
-                    CH04 ("", 0x01, 0x33, 0x00, 0xA8, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                    CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
                     /* Just before written area */
 
                     Local1 = (Arg3 - 0x01)
                     TRC1 (Arg0, Local1, 0xF0F0F0F0)
                     Store (Arg0 [Local1], Local0)
-                    CH03 ("", 0x00, 0x0102, 0xAF, 0x00)
+                    CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                     Local1 = DerefOf (Local0)
-                    CH04 ("", 0x01, 0x33, 0x00, 0xB1, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                    CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
                 }
 
                 /* Just after pre-initialized and written areas */
@@ -211,17 +211,17 @@
                 {
                     TRC1 (Arg0, Local7, 0xF0F0F0F0)
                     Store (Arg0 [Local7], Local0)
-                    CH03 ("", 0x00, 0x0104, 0xBE, 0x00)
+                    CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                     Local1 = DerefOf (Local0)
-                    CH04 ("", 0x01, 0x33, 0x00, 0xC0, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                    CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
                     /* Last element of Package */
 
                     Local1 = (Arg1 - 0x01)
                     TRC1 (Arg0, Local1, 0xF0F0F0F0)
                     Store (Arg0 [Local1], Local0)
-                    CH03 ("", 0x00, 0x0106, 0xC7, 0x00)
+                    CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                     Local1 = DerefOf (Local0)
-                    CH04 ("", 0x01, 0x33, 0x00, 0xC9, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                    CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
                 }
             }
             Else
@@ -230,41 +230,41 @@
 
                 TRC1 (Arg0, Arg2, 0xF0F0F0F0)
                 Store (Arg0 [Arg2], Local0)
-                CH03 ("", 0x00, 0x0108, 0xD0, 0x00)
+                CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                 Local1 = DerefOf (Local0)
-                CH04 ("", 0x01, 0x33, 0x00, 0xD2, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
                 /* Last element of Package */
 
                 Local1 = (Arg1 - 0x01)
                 TRC1 (Arg0, Local1, 0xF0F0F0F0)
                 Store (Arg0 [Local1], Local0)
-                CH03 ("", 0x00, 0x010A, 0xD9, 0x00)
+                CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
                 Local1 = DerefOf (Local0)
-                CH04 ("", 0x01, 0x33, 0x00, 0xDB, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+                CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
             }
         }
 
         /* Check exception on out of Package access */
 
         TRC1 (Arg0, Arg1, 0xF0F0F0F0)
-        CH03 ("", 0x00, 0x010C, 0xE2, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         Local0 = Arg0 [Arg1]
-        CH04 ("", 0x00, 0x37, 0x00, 0xE4, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
+        CH04 (__METHOD__, 0x00, 0x37, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
         Local7 = (Arg1 + 0x01)
         If ((Local7 >= Arg1))
         {
             TRC1 (Arg0, Local7, 0xF0F0F0F0)
-            CH03 ("", 0x00, 0x010E, 0xE9, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local0 = Arg0 [Local7]
-            CH04 ("", 0x00, 0x37, 0x00, 0xEB, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
+            CH04 (__METHOD__, 0x00, 0x37, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
         }
 
         If ((0xFFFFFFFFFFFFFFFF >= Arg1))
         {
             TRC1 (Arg0, 0xFFFFFFFFFFFFFFFF, 0xF0F0F0F0)
-            CH03 ("", 0x00, 0x0110, 0xF0, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local0 = Arg0 [0xFFFFFFFFFFFFFFFF]
-            CH04 ("", 0x00, 0x37, 0x00, 0xF2, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
+            CH04 (__METHOD__, 0x00, 0x37, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
         }
 
         /* Check near the maximal bound of a simple Package */
@@ -306,15 +306,15 @@
         {
             /* Was initialized */
 
-            CH03 ("", 0x00, 0x0112, 0x011B, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local0 = DerefOf (Arg0 [Arg5])
             TRC1 (Arg0, Arg5, Local0)
             If ((Local0 != Arg5))
             {
-                ERR ("", ZFFF, 0x011F, 0x00, 0x00, Local0, Arg5)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, Arg5)
             }
 
-            CH03 ("", 0x00, 0x0113, 0x0121, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
         ElseIf ((Arg5 < Arg1))
         {
@@ -322,18 +322,18 @@
 
             TRC1 (Arg0, Arg5, 0xF0F0F0F0)
             Store (Arg0 [Arg5], Local0)
-            CH03 ("", 0x00, 0x0114, 0x0129, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local1 = DerefOf (Local0)
-            CH04 ("", 0x01, 0x33, 0x00, 0x012B, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
+            CH04 (__METHOD__, 0x01, 0x33, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_UNINITIALIZED_ELEMENT */
         }
         Else
         {
             /* Check exception on out of Package access */
 
             TRC1 (Arg0, Arg5, 0xF0F0F0F0)
-            CH03 ("", 0x00, 0x0116, 0x0132, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             Local0 = Arg0 [Arg5]
-            CH04 ("", 0x00, 0x37, 0x00, 0x0134, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
+            CH04 (__METHOD__, 0x00, 0x37, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_PACKAGE_LIMIT */
         }
     }
 
@@ -353,7 +353,7 @@
          * - number of exceptions NOT GREATER than two
          */
         /* Check opcode of the first exception */
-        CH04 ("", 0x01, 0x38, 0x00, 0x014B, 0x00, 0x00) /* AE_AML_DIVIDE_BY_ZERO */
+        CH04 (__METHOD__, 0x01, 0x38, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_DIVIDE_BY_ZERO */
         /* Number of exceptions not greater than two */
 
         If ((EXC1 > 0x02))
@@ -369,7 +369,7 @@
             ID01 = 0x01
         }
 
-        CH03 ("", 0x00, 0x0119, 0x0159, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         Return (0x01)
     }
 
@@ -387,14 +387,14 @@
         Local0 = ObjectType (Arg0)
         If ((Local0 != Arg1))
         {
-            ERR ("", ZFFF, 0x016B, 0x00, 0x00, Local0, Arg1)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, Arg1)
         }
 
         If (Arg5)
         {
             If ((Arg0 != Arg2))
             {
-                ERR ("", ZFFF, 0x016F, 0x00, 0x00, Arg0, Arg2)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Arg0, Arg2)
             }
         }
     }
@@ -402,5 +402,5 @@
     Method (M02A, 0, NotSerialized)
     {
         Debug = "Check the error manually and remove call to m02a() when the bug is fixed."
-        ERR ("", ZFFF, 0x0178, 0x00, 0x00, 0x00, 0x00)
+        ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
     }

@@ -45,7 +45,7 @@
             If (Local0)
             {
                 Debug = "!!!!!!!! ERROR 0: Acquire T500 (Level 5, index 0)"
-                ERR ("", ZFFF, 0x32, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -59,7 +59,7 @@
             If (Local0)
             {
                 Debug = "!!!!!!!! ERROR 1: Acquire T600 (Level 6, index 0)"
-                ERR ("", ZFFF, 0x3C, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -75,7 +75,7 @@
              * If no exception there:
              * ERROR: NO exception though expected! (it is the contents of bug 238)
              */
-            CH04 ("", 0x00, 0x40, 0x00, 0x49, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
+            CH04 (__METHOD__, 0x00, 0x40, 0x00, __LINE__, 0x00, 0x00) /* AE_AML_MUTEX_ORDER */
             /* (4) */
 
             Debug = "Acquiring mutex of level 7:"
@@ -83,7 +83,7 @@
             If (Local0)
             {
                 Debug = "!!!!!!!! ERROR 3: Acquire T700 (Level 7, index 0)"
-                ERR ("", ZFFF, 0x50, 0x00, 0x00, 0x00, 0x00)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, 0x00, 0x00)
             }
             Else
             {
@@ -91,12 +91,12 @@
                 Debug = "Current level is equal to 7!"
             }
 
-            CH03 ("", 0x00, 0x04, 0x55, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             /* (5) */
 
             Debug = "Releasing the mutex of the current level: T700 (Level 7, index 0)"
             Release (T700)
-            CH03 ("", 0x00, 0x05, 0x5A, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             /*
              * (6)
              *
@@ -105,12 +105,12 @@
              */
             Debug = "Releasing mutex of level 6: T600 (Level 6, index 0)"
             Release (T600)
-            CH03 ("", 0x00, 0x06, 0x64, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
             /* (7) */
 
             Debug = "Releasing mutex of level 5: T500 (Level 5, index 0)"
             Release (T500)
-            CH03 ("", 0x00, 0x07, 0x69, 0x00)
+            CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         }
 
         Method (MM00, 0, NotSerialized)

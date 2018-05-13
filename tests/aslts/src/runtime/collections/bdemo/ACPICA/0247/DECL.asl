@@ -43,7 +43,7 @@
             Local0 = 0x02
             While (Local0)
             {
-                If (CH03 ("", 0x00, ERRN, 0x32, 0x00))
+                If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00))
                 {
                     Return (Zero)
                 }
@@ -74,7 +74,7 @@
 
                 }
 
-                If (CH03 ("", 0x00, ERRN, 0x46, 0x00))
+                If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00))
                 {
                     Return (Zero)
                 }
@@ -85,25 +85,25 @@
 
             If ((CH10 != Arg1))
             {
-                ERR ("", ZFFF, 0x4E, 0x00, 0x00, CH10, Arg1)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, CH10, Arg1)
             }
 
             ERRN++
             If ((CH11 == Arg1))
             {
-                ERR ("", ZFFF, 0x52, 0x00, 0x00, CH11, Arg1)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, CH11, Arg1)
             }
 
             ERRN++
             If ((CH20 != Arg2))
             {
-                ERR ("", ZFFF, 0x56, 0x00, 0x00, CH20, Arg2)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, CH20, Arg2)
             }
 
             ERRN++
             If ((CH21 == Arg2))
             {
-                ERR ("", ZFFF, 0x5A, 0x00, 0x00, CH21, Arg2)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, CH21, Arg2)
             }
 
             ERRN++
