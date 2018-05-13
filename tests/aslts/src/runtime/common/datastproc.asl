@@ -33,54 +33,54 @@
     /* arg0 - test name */
     /* arg1 - Integer, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M380, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C009))
         {
-            ERR (Arg0, Z115, 0x2E, Arg2, Arg3, Local0, C009)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C009)
         }
         ElseIf ((Arg1 != 0x77))
         {
-            ERR (Arg0, Z115, 0x30, Arg2, Arg3, Arg1, 0x77)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, 0x77)
         }
     }
 
     /* arg0 - test name */
     /* arg1 - String, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M381, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00A))
         {
-            ERR (Arg0, Z115, 0x3D, Arg2, Arg3, Local0, C00A)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00A)
         }
         ElseIf ((Arg1 != "qwer0000"))
         {
-            ERR (Arg0, Z115, 0x3F, Arg2, Arg3, Arg1, "qwer0000")
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, "qwer0000")
         }
     }
 
     /* arg0 - test name */
     /* arg1 - Buffer, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M382, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00B))
         {
-            ERR (Arg0, Z115, 0x4C, Arg2, Arg3, Local0, C00B)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00B)
         }
         ElseIf ((Arg1 != Buffer (0x04)
                     {
                          0x01, 0x77, 0x03, 0x04                           // .w..
                     }))
         {
-            ERR (Arg0, Z115, 0x4E, Arg2, Arg3, Arg1, Buffer (0x04)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, Buffer (0x04)
                 {
                      0x01, 0x77, 0x03, 0x04                           // .w..
                 })
@@ -90,13 +90,13 @@
     /* arg0 - test name */
     /* arg1 - Package, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M383, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00C))
         {
-            ERR (Arg0, Z115, 0x5B, Arg2, Arg3, Local0, C00C)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00C)
         }
         Else
         {
@@ -104,21 +104,21 @@
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x05))
             {
-                ERR (Arg0, Z115, 0x60, Arg2, Arg3, Local1, 0x05)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x05)
             }
 
             Local0 = Arg1 [0x01]
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x77))
             {
-                ERR (Arg0, Z115, 0x66, Arg2, Arg3, Local1, 0x77)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x77)
             }
 
             Local0 = Arg1 [0x02]
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x07))
             {
-                ERR (Arg0, Z115, 0x6C, Arg2, Arg3, Local1, 0x07)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x07)
             }
         }
     }
@@ -127,54 +127,54 @@
     /* arg0 - test name */
     /* arg1 - Integer, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M384, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C009))
         {
-            ERR (Arg0, Z115, 0x7C, Arg2, Arg3, Local0, C009)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C009)
         }
         ElseIf ((Arg1 != 0x2B))
         {
-            ERR (Arg0, Z115, 0x7E, Arg2, Arg3, Arg1, 0x2B)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, 0x2B)
         }
     }
 
     /* arg0 - test name */
     /* arg1 - String, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M385, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00A))
         {
-            ERR (Arg0, Z115, 0x8B, Arg2, Arg3, Local0, C00A)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00A)
         }
         ElseIf ((Arg1 != "q+er0000"))
         {
-            ERR (Arg0, Z115, 0x8D, Arg2, Arg3, Arg1, "q+er0000")
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, "q+er0000")
         }
     }
 
     /* arg0 - test name */
     /* arg1 - Buffer, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M386, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00B))
         {
-            ERR (Arg0, Z115, 0x9A, Arg2, Arg3, Local0, C00B)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00B)
         }
         ElseIf ((Arg1 != Buffer (0x04)
                     {
                          0x01, 0x2B, 0x03, 0x04                           // .+..
                     }))
         {
-            ERR (Arg0, Z115, 0x9C, Arg2, Arg3, Arg1, Buffer (0x04)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Arg1, Buffer (0x04)
                 {
                      0x01, 0x2B, 0x03, 0x04                           // .+..
                 })
@@ -184,13 +184,13 @@
     /* arg0 - test name */
     /* arg1 - Package, original object */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M387, 4, NotSerialized)
     {
         Local0 = ObjectType (Arg1)
         If ((Local0 != C00C))
         {
-            ERR (Arg0, Z115, 0xA9, Arg2, Arg3, Local0, C00C)
+            ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local0, C00C)
         }
         Else
         {
@@ -198,21 +198,21 @@
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x05))
             {
-                ERR (Arg0, Z115, 0xAE, Arg2, Arg3, Local1, 0x05)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x05)
             }
 
             Local0 = Arg1 [0x01]
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x2B))
             {
-                ERR (Arg0, Z115, 0xB4, Arg2, Arg3, Local1, 0x2B)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x2B)
             }
 
             Local0 = Arg1 [0x02]
             Local1 = DerefOf (Local0)
             If ((Local1 != 0x07))
             {
-                ERR (Arg0, Z115, 0xBA, Arg2, Arg3, Local1, 0x07)
+                ERR (Arg0, Z115, __LINE__, Arg2, Arg3, Local1, 0x07)
             }
         }
     }
@@ -220,49 +220,49 @@
     /* arg0 - original object */
     /* arg1 - type of it */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M390, 4, Serialized)
     {
         Name (TS, "m390")
         If ((Arg1 == C009))
         {
-            M380 (TS, Arg0, Arg2, Arg3)
+            M380 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00A))
         {
-            M381 (TS, Arg0, Arg2, Arg3)
+            M381 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00B))
         {
-            M382 (TS, Arg0, Arg2, Arg3)
+            M382 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00C))
         {
-            M383 (TS, Arg0, Arg2, Arg3)
+            M383 (TS, Arg0, Arg2, __LINE__)
         }
     }
 
     /* arg0 - original object */
     /* arg1 - type of it */
     /* arg2 - absolute index of file initiating the checking */
-    /* arg3 - index of checking (inside the file) */
+    /* arg3 - line number of checking (inside the file) */
     Method (M391, 4, Serialized)
     {
         Name (TS, "m391")
         If ((Arg1 == C009))
         {
-            M384 (TS, Arg0, Arg2, Arg3)
+            M384 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00A))
         {
-            M385 (TS, Arg0, Arg2, Arg3)
+            M385 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00B))
         {
-            M386 (TS, Arg0, Arg2, Arg3)
+            M386 (TS, Arg0, Arg2, __LINE__)
         }
         ElseIf ((Arg1 == C00C))
         {
-            M387 (TS, Arg0, Arg2, Arg3)
+            M387 (TS, Arg0, Arg2, __LINE__)
         }
     }

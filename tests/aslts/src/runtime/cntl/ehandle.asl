@@ -732,7 +732,7 @@
             Else
             {
                 Debug = "Maximal number of exceptions exceeded"
-                ERR ("_ERR", Z063, 0xC5, 0x00, 0x00, EXC0, EXC2)
+                ERR ("_ERR", Z063, __LINE__, 0x00, 0x00, EXC0, EXC2)
             }
         }
 
@@ -752,7 +752,7 @@
         If (EXC1)
         {
             Concatenate ("Some unexpected exceptions were handled, 0x", EXC1, Local0)
-            ERR ("CH02", Z063, 0xD9, 0x00, 0x00, Local0, 0x00)
+            ERR ("CH02", Z063, __LINE__, 0x00, 0x00, Local0, 0x00)
         }
 
         Return (EXC1) /* \EXC1 */
@@ -776,7 +776,7 @@
             Concatenate (Local1, EX01, Local0)
             Concatenate (Local0, ", ", Local1)
             Concatenate (Local1, EX00, Debug)
-            ERR (Arg0, Z063, 0xF0, Arg1, Arg2, Arg3, Arg4)
+            ERR (Arg0, Z063, __LINE__, Arg1, Arg2, Arg3, Arg4)
             Local7 = EXC0 /* \EXC0 */
         }
 
@@ -903,7 +903,7 @@
         EX04 = 0x00
         If (Local5)
         {
-            ERR (Arg0, Z063, 0x0166, Arg3, Arg4, Arg5, Arg6)
+            ERR (Arg0, Z063, __LINE__, Arg3, Arg4, Arg5, Arg6)
         }
 
         Return (Local5)
@@ -911,20 +911,20 @@
 
     Method (CH05, 0, NotSerialized)
     {
-        Return (CH03 ("CH05", 0x00, 0x00, 0x016E, 0x00))
+        Return (CH03 ("CH05", 0x00, __LINE__, 0x00, 0x00))
     }
 
     Method (CH06, 3, NotSerialized)
     {
         If (EXCV)
         {
-            Return (CH04 (Arg0, 0x00, Arg2, 0x00, 0x0174, 0x00, 0x00))
+            Return (CH04 (Arg0, 0x00, Arg2, 0x00, __LINE__, 0x00, 0x00))
         }
         Else
         {
             /* Just only presence of ANY exception(s) */
 
-            Return (CH04 (Arg0, 0x00, 0xFF, 0x00, 0x0177, 0x00, 0x00))
+            Return (CH04 (Arg0, 0x00, 0xFF, 0x00, __LINE__, 0x00, 0x00))
         }
     }
 
@@ -935,11 +935,11 @@
     {
         If (SLCK)
         {
-            CH03 (Arg0, Arg3, Arg4, 0x0181, Arg6)
+            CH03 (Arg0, Arg3, __LINE__, 0x00, Arg6)
         }
         Else
         {
-            CH04 (Arg0, Arg1, Arg2, Arg3, 0x0183, Arg5, Arg6)
+            CH04 (Arg0, Arg1, Arg2, Arg3, __LINE__, Arg5, Arg6)
         }
     }
 
@@ -1034,7 +1034,7 @@
             Concatenate (Local0, ", number of exceptions 0x", Local1)
             Concatenate (Local1, Local4, Local0)
             MSG0 (Arg1, Local0)
-            ERR (Arg0, Z063, 0x01DE, Arg2, Arg3, Arg4, Arg5)
+            ERR (Arg0, Z063, __LINE__, Arg2, Arg3, Arg4, Arg5)
             Local7 = 0x01
         }
 
@@ -1115,7 +1115,7 @@
          */
         If (Local5)
         {
-            ERR ("", Z063, 0x022E, Arg3, Arg4, 0x00, 0x00)
+            ERR (__METHOD__, Z063, __LINE__, Arg3, Arg4, 0x00, 0x00)
         }
 
         Arg5 = Local7

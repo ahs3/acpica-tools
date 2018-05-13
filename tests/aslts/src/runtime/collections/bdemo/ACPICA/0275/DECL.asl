@@ -53,20 +53,20 @@
         Method (M002, 2, NotSerialized)
         {
             Local0 = Arg0 [0x01]
-            If (CH03 ("", 0x00, 0x01, 0x36, 0x01))
+            If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x01))
             {
                 Return (Zero)
             }
 
             Local1 = DerefOf (Local0)
-            If (CH03 ("", 0x00, 0x02, 0x3B, 0x01))
+            If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x01))
             {
                 Return (Zero)
             }
 
             If ((Local1 != 0xABCD0001))
             {
-                ERR ("", ZFFF, 0x40, 0x00, 0x00, Local1, 0xABCD0001)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, 0xABCD0001)
             }
 
             Return (Zero)

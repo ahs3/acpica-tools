@@ -52,21 +52,21 @@
             Debug = "-------------------------."
         }
 
-        CH03 ("", 0x00, 0x00, 0x36, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         M123 (I000)
         Local0 = ObjectType (I001)
         If ((Local0 != C015))
         {
-            ERR ("", ZFFF, 0x3C, 0x00, 0x00, Local0, C015)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, C015)
         }
 
-        CH03 ("", 0x00, 0x02, 0x3E, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         CopyObject (I002, I001) /* \M020.I001 */
         Local0 = ObjectType (I001)
         If ((Local0 != C009))
         {
-            ERR ("", ZFFF, 0x44, 0x00, 0x00, Local0, C009)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, C009)
         }
 
-        CH03 ("", 0x00, 0x04, 0x46, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }

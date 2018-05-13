@@ -63,11 +63,11 @@
             Debug = Local0
             If ((Local0 != 0x01777777))
             {
-                ERR ("", ZFFF, 0x3E, 0x00, 0x00, Local0, 0x01777777)
+                ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x01777777)
             }
         }
 
-        CH03 ("", 0x00, 0x01, 0x42, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
         M000 ()
-        CH03 ("", 0x00, 0x02, 0x44, 0x00)
+        CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00)
     }

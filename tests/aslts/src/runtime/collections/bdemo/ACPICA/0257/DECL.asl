@@ -68,17 +68,17 @@
         F257 = B257 /* \B257 */
         If (CondRefOf (\AUXD, Local0))
         {
-            ERR ("", ZFFF, 0x4F, 0x00, 0x00, "\\AUXD", 0x01)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, "\\AUXD", 0x01)
             Return (Zero)
         }
 
-        If (CH03 ("", 0x00, 0x01, 0x53, 0x00))
+        If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00))
         {
             Return (Zero)
         }
 
         Load (F257, H257) /* \H257 */
-        If (CH03 ("", 0x00, 0x02, 0x59, 0x00))
+        If (CH03 (__METHOD__, 0x00, __LINE__, 0x00, 0x00))
         {
             Return (Zero)
         }
@@ -86,27 +86,27 @@
         If (CondRefOf (\AUXD, Local0)){}
         Else
         {
-            ERR ("", ZFFF, 0x5F, 0x00, 0x00, "\\AUXD", 0x00)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, "\\AUXD", 0x00)
             Return (Zero)
         }
 
         Local1 = ObjectType (Local0)
         If ((Local1 != 0x06))
         {
-            ERR ("", ZFFF, 0x66, 0x00, 0x00, Local1, 0x06)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local1, 0x06)
             Return (Zero)
         }
 
         Local0 = ObjectType (\AUXD.M000)
         If ((Local0 != 0x08))
         {
-            ERR ("", ZFFF, 0x6C, 0x00, 0x00, Local0, 0x08)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, Local0, 0x08)
             Return (Zero)
         }
 
         Unload (H257)
         If (CondRefOf (\AUXD, Local0))
         {
-            ERR ("", ZFFF, 0x73, 0x00, 0x00, "\\AUXD", 0x01)
+            ERR (__METHOD__, ZFFF, __LINE__, 0x00, 0x00, "\\AUXD", 0x01)
         }
     }
