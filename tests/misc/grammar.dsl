@@ -1,25 +1,25 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20171215 (32-bit version)
- * Copyright (c) 2000 - 2017 Intel Corporation
+ * AML/ASL+ Disassembler version 20180313 (32-bit version)
+ * Copyright (c) 2000 - 2018 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of grammar.xxx, Thu Jan 04 09:03:38 2018
+ * Disassembly of grammar.xxx, Thu Mar 22 09:44:49 2018
  *
  * Original Table Header:
  *     Signature        "DSDT"
  *     Length           0x0002192B (137515)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x1D **** Incorrect checksum, should be 0x4E
+ *     Checksum         0x2C **** Incorrect checksum, should be 0x5D
  *     OEM ID           "Intel"
  *     OEM Table ID     "GRMTEST"
  *     OEM Revision     0x20090511 (537462033)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20171215 (538382869)
+ *     Compiler Version 0x20180313 (538444563)
  */
 /*
- * Some or all of this work - Copyright (c) 2006 - 2017, Intel Corp.
+ * Some or all of this work - Copyright (c) 2006 - 2018, Intel Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
