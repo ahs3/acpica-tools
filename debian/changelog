@@ -3,6 +3,8 @@ acpica-unix (20180508-1) unstable; urgency=medium
   * Upgrade to 20180508 upstream
   * Refresh patches as needed
   * Update Standards-Version to 4.1.4
+  * Closes: #886753 -- bump debhelper compat to 10 the fix FTCBFS
+    (thanks, Helmut!)
 
  -- Al Stone <ahs3@debian.org>  Tue, 15 May 2018 09:44:07 -0600
 
