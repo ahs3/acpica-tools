@@ -80,6 +80,7 @@ AeDoOptions (
 /* Globals */
 
 BOOLEAN                     AcpiGbl_UseLocalFaultHandler = TRUE;
+BOOLEAN                     AcpiGbl_VerboseHandlers = FALSE;
 UINT8                       AcpiGbl_RegionFillValue = 0;
 BOOLEAN                     AcpiGbl_IgnoreErrors = FALSE;
 BOOLEAN                     AcpiGbl_AbortLoopOnTimeout = FALSE;
@@ -171,6 +172,7 @@ usage (
 
     ACPI_OPTION ("-v",                  "Display version information");
     ACPI_OPTION ("-vd",                 "Display build date and time");
+    ACPI_OPTION ("-vh",                 "Verbose exception handler output");
     ACPI_OPTION ("-vi",                 "Verbose initialization output");
     ACPI_OPTION ("-vr",                 "Verbose region handler output");
     ACPI_OPTION ("-x <DebugLevel>",     "Debug output level");
@@ -439,6 +441,11 @@ AeDoOptions (
             printf (ACPI_COMMON_BUILD_TIME);
             return (1);
 
+        case 'h':
+
+            AcpiGbl_VerboseHandlers = TRUE;
+            break;
+
         case 'i':
 
             AcpiDbgLevel |= ACPI_LV_INIT_NAMES;
@@ -458,7 +465,7 @@ AeDoOptions (
 
     case 'x':
 
-        AcpiDbgLevel = strtoul (AcpiGbl_Optarg, NULL, 0);
+        AcpiDbgLevel = strtoul (AcpiGbl_Optarg, NULL, 16);
         AcpiGbl_DbConsoleDebugLevel = AcpiDbgLevel;
         printf ("Debug Level: 0x%8.8X\n", AcpiDbgLevel);
         break;
@@ -499,10 +506,6 @@ main (
     ACPI_DEBUG_INITIALIZE (); /* For debug version only */
 
     signal (SIGINT, AeSignalHandler);
-    if (AcpiGbl_UseLocalFaultHandler)
-    {
-        signal (SIGSEGV, AeSignalHandler);
-    }
 
     /* Init debug globals */
 
@@ -559,6 +562,11 @@ main (
         }
 
         goto ErrorExit;
+    }
+
+    if (AcpiGbl_UseLocalFaultHandler)
+    {
+        signal (SIGSEGV, AeSignalHandler);
     }
 
     /* The remaining arguments are filenames for ACPI tables */
