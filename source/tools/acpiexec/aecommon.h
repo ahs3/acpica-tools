@@ -82,6 +82,7 @@ typedef struct ae_debug_regions
 
 
 extern BOOLEAN              AcpiGbl_UseLocalFaultHandler;
+extern BOOLEAN              AcpiGbl_VerboseHandlers;
 extern BOOLEAN              AcpiGbl_IgnoreErrors;
 extern BOOLEAN              AcpiGbl_AbortLoopOnTimeout;
 extern UINT8                AcpiGbl_RegionFillValue;
