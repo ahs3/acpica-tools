@@ -1,7 +1,8 @@
-diff -Naur acpica-unix2-20180209.orig/source/components/tables/tbutils.c acpica-unix2-20180209/source/components/tables/tbutils.c
---- acpica-unix2-20180209.orig/source/components/tables/tbutils.c	2018-03-15 16:47:21.831526264 -0600
-+++ acpica-unix2-20180209/source/components/tables/tbutils.c	2018-03-15 16:58:20.030097284 -0600
-@@ -238,9 +238,11 @@
+Index: acpica-unix-20180508/source/components/tables/tbutils.c
+===================================================================
+--- acpica-unix-20180508.orig/source/components/tables/tbutils.c
++++ acpica-unix-20180508/source/components/tables/tbutils.c
+@@ -238,9 +238,11 @@ AcpiTbGetRootTableEntry (
           * 64-bit platform, XSDT: Move (unaligned) 64-bit to local,
           *  return 64-bit
           */
@@ -14,7 +15,7 @@ diff -Naur acpica-unix2-20180209.orig/source/components/tables/tbutils.c acpica-
          if (Address64 > ACPI_UINT32_MAX)
          {
              /* Will truncate 64-bit address to 32 bits, issue warning */
-@@ -250,9 +252,15 @@
+@@ -250,9 +252,15 @@ AcpiTbGetRootTableEntry (
                  " truncating",
                  ACPI_FORMAT_UINT64 (Address64)));
          }
@@ -31,10 +32,11 @@ diff -Naur acpica-unix2-20180209.orig/source/components/tables/tbutils.c acpica-
      }
  }
  
-diff -Naur acpica-unix2-20180209.orig/source/compiler/aslparseop.c acpica-unix2-20180209/source/compiler/aslparseop.c
---- acpica-unix2-20180209.orig/source/compiler/aslparseop.c	2018-03-15 17:20:09.844338074 -0600
-+++ acpica-unix2-20180209/source/compiler/aslparseop.c	2018-03-15 17:28:19.570800797 -0600
-@@ -287,7 +287,11 @@
+Index: acpica-unix-20180508/source/compiler/aslparseop.c
+===================================================================
+--- acpica-unix-20180508.orig/source/compiler/aslparseop.c
++++ acpica-unix-20180508/source/compiler/aslparseop.c
+@@ -287,7 +287,11 @@ TrCreateValuedLeafOp (
          ParseOpcode == PARSEOP_NAMESEG ||
          ParseOpcode == PARSEOP_STRING_LITERAL)
      {

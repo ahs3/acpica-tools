@@ -24,10 +24,10 @@ From: Al Stone <ahs3@redhat.com>
  source/tools/acpiexec/aemain.c          |    2 +-
  18 files changed, 28 insertions(+), 28 deletions(-)
 
-Index: acpica-unix2-20180531/source/compiler/aslcompile.c
+Index: acpica-unix-20180508/source/compiler/aslcompile.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/compiler/aslcompile.c
-+++ acpica-unix2-20180531/source/compiler/aslcompile.c
+--- acpica-unix-20180508.orig/source/compiler/aslcompile.c
++++ acpica-unix-20180508/source/compiler/aslcompile.c
 @@ -750,7 +750,7 @@ CmCleanupAndExit (
  
      if (Gbl_ExceptionCount[ASL_ERROR] > ASL_MAX_ERROR_COUNT)
@@ -37,10 +37,10 @@ Index: acpica-unix2-20180531/source/compiler/aslcompile.c
              ASL_MAX_ERROR_COUNT);
      }
  
-Index: acpica-unix2-20180531/source/compiler/aslerror.c
+Index: acpica-unix-20180508/source/compiler/aslerror.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/compiler/aslerror.c
-+++ acpica-unix2-20180531/source/compiler/aslerror.c
+--- acpica-unix-20180508.orig/source/compiler/aslerror.c
++++ acpica-unix-20180508/source/compiler/aslerror.c
 @@ -880,7 +880,7 @@ AslLogNewError (
      Gbl_ExceptionCount[Level]++;
      if (Gbl_ExceptionCount[ASL_ERROR] > ASL_MAX_ERROR_COUNT)
@@ -59,10 +59,10 @@ Index: acpica-unix2-20180531/source/compiler/aslerror.c
              ASL_MAX_DISABLED_MESSAGES);
          return (AE_LIMIT);
      }
-Index: acpica-unix2-20180531/source/compiler/aslopt.c
+Index: acpica-unix-20180508/source/compiler/aslopt.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/compiler/aslopt.c
-+++ acpica-unix2-20180531/source/compiler/aslopt.c
+--- acpica-unix-20180508.orig/source/compiler/aslopt.c
++++ acpica-unix-20180508/source/compiler/aslopt.c
 @@ -584,7 +584,7 @@ OptOptimizeNamePath (
      }
  
@@ -72,10 +72,10 @@ Index: acpica-unix2-20180531/source/compiler/aslopt.c
          Op->Asl.LogicalLineNumber,
          AcpiPsGetOpcodeName (Op->Common.Parent->Common.AmlOpcode),
          AcpiPsGetOpcodeName (Op->Common.AmlOpcode)));
-Index: acpica-unix2-20180531/source/compiler/aslpredef.c
+Index: acpica-unix-20180508/source/compiler/aslpredef.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/compiler/aslpredef.c
-+++ acpica-unix2-20180531/source/compiler/aslpredef.c
+--- acpica-unix-20180508.orig/source/compiler/aslpredef.c
++++ acpica-unix-20180508/source/compiler/aslpredef.c
 @@ -114,7 +114,7 @@ ApCheckForPredefinedMethod (
  
          if (MethodInfo->NumArguments != 0)
@@ -85,10 +85,10 @@ Index: acpica-unix2-20180531/source/compiler/aslpredef.c
  
              AslError (ASL_WARNING, ASL_MSG_RESERVED_ARG_COUNT_HI, Op,
                  MsgBuffer);
-Index: acpica-unix2-20180531/source/compiler/aslprepkg.c
+Index: acpica-unix-20180508/source/compiler/aslprepkg.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/compiler/aslprepkg.c
-+++ acpica-unix2-20180531/source/compiler/aslprepkg.c
+--- acpica-unix-20180508.orig/source/compiler/aslprepkg.c
++++ acpica-unix-20180508/source/compiler/aslprepkg.c
 @@ -309,7 +309,7 @@ ApCheckPackage (
  
          if (Count & 1)
@@ -98,10 +98,10 @@ Index: acpica-unix2-20180531/source/compiler/aslprepkg.c
                  Predefined->Info.Name, Count);
  
              AslError (ASL_ERROR, ASL_MSG_RESERVED_PACKAGE_LENGTH,
-Index: acpica-unix2-20180531/source/components/debugger/dbexec.c
+Index: acpica-unix-20180508/source/components/debugger/dbexec.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/debugger/dbexec.c
-+++ acpica-unix2-20180531/source/components/debugger/dbexec.c
+--- acpica-unix-20180508.orig/source/components/debugger/dbexec.c
++++ acpica-unix-20180508/source/components/debugger/dbexec.c
 @@ -230,7 +230,7 @@ AcpiDbExecuteMethod (
              ACPI_ERROR ((AE_INFO,
                  "Possible overflow of internal debugger "
@@ -111,10 +111,10 @@ Index: acpica-unix2-20180531/source/components/debugger/dbexec.c
          }
      }
  
-Index: acpica-unix2-20180531/source/components/dispatcher/dsmthdat.c
+Index: acpica-unix-20180508/source/components/dispatcher/dsmthdat.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/dispatcher/dsmthdat.c
-+++ acpica-unix2-20180531/source/components/dispatcher/dsmthdat.c
+--- acpica-unix-20180508.orig/source/components/dispatcher/dsmthdat.c
++++ acpica-unix-20180508/source/components/dispatcher/dsmthdat.c
 @@ -291,7 +291,7 @@ AcpiDsMethodDataGetNode (
          if (Index > ACPI_METHOD_MAX_LOCAL)
          {
@@ -133,10 +133,10 @@ Index: acpica-unix2-20180531/source/components/dispatcher/dsmthdat.c
                  Index, ACPI_METHOD_MAX_ARG));
              return_ACPI_STATUS (AE_AML_INVALID_INDEX);
          }
-Index: acpica-unix2-20180531/source/components/dispatcher/dsutils.c
+Index: acpica-unix-20180508/source/components/dispatcher/dsutils.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/dispatcher/dsutils.c
-+++ acpica-unix2-20180531/source/components/dispatcher/dsutils.c
+--- acpica-unix-20180508.orig/source/components/dispatcher/dsutils.c
++++ acpica-unix-20180508/source/components/dispatcher/dsutils.c
 @@ -788,7 +788,7 @@ AcpiDsCreateOperands (
      }
  
@@ -146,10 +146,10 @@ Index: acpica-unix2-20180531/source/components/dispatcher/dsutils.c
          WalkState->NumOperands, ArgCount, Index));
  
      /* Create the interpreter arguments, in reverse order */
-Index: acpica-unix2-20180531/source/components/dispatcher/dswscope.c
+Index: acpica-unix-20180508/source/components/dispatcher/dswscope.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/dispatcher/dswscope.c
-+++ acpica-unix2-20180531/source/components/dispatcher/dswscope.c
+--- acpica-unix-20180508.orig/source/components/dispatcher/dswscope.c
++++ acpica-unix-20180508/source/components/dispatcher/dswscope.c
 @@ -149,7 +149,7 @@ AcpiDsScopeStackPush (
      WalkState->ScopeDepth++;
  
@@ -168,10 +168,10 @@ Index: acpica-unix2-20180531/source/components/dispatcher/dswscope.c
          (UINT32) WalkState->ScopeDepth,
          AcpiUtGetNodeName (ScopeInfo->Scope.Node),
          AcpiUtGetTypeName (ScopeInfo->Common.Value)));
-Index: acpica-unix2-20180531/source/components/events/evgpe.c
+Index: acpica-unix-20180508/source/components/events/evgpe.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/events/evgpe.c
-+++ acpica-unix2-20180531/source/components/events/evgpe.c
+--- acpica-unix-20180508.orig/source/components/events/evgpe.c
++++ acpica-unix-20180508/source/components/events/evgpe.c
 @@ -481,7 +481,7 @@ AcpiEvGpeDetect (
                      "Ignore disabled registers for GPE %02X-%02X: "
                      "RunEnable=%02X, WakeEnable=%02X\n",
@@ -181,10 +181,10 @@ Index: acpica-unix2-20180531/source/components/events/evgpe.c
                      GpeRegisterInfo->EnableForRun,
                      GpeRegisterInfo->EnableForWake));
                  continue;
-Index: acpica-unix2-20180531/source/components/executer/exdump.c
+Index: acpica-unix-20180508/source/components/executer/exdump.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/executer/exdump.c
-+++ acpica-unix2-20180531/source/components/executer/exdump.c
+--- acpica-unix-20180508.orig/source/components/executer/exdump.c
++++ acpica-unix-20180508/source/components/executer/exdump.c
 @@ -678,7 +678,7 @@ AcpiExDumpOperand (
      if (Depth > 0)
      {
@@ -194,10 +194,10 @@ Index: acpica-unix2-20180531/source/components/executer/exdump.c
      }
      else
      {
-Index: acpica-unix2-20180531/source/components/executer/exfldio.c
+Index: acpica-unix-20180508/source/components/executer/exfldio.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/executer/exfldio.c
-+++ acpica-unix2-20180531/source/components/executer/exfldio.c
+--- acpica-unix-20180508.orig/source/components/executer/exfldio.c
++++ acpica-unix-20180508/source/components/executer/exfldio.c
 @@ -681,8 +681,8 @@ AcpiExWriteWithUpdateRule (
  
              ACPI_ERROR ((AE_INFO,
@@ -209,10 +209,10 @@ Index: acpica-unix2-20180531/source/components/executer/exfldio.c
              return_ACPI_STATUS (AE_AML_OPERAND_VALUE);
          }
      }
-Index: acpica-unix2-20180531/source/components/executer/exnames.c
+Index: acpica-unix-20180508/source/components/executer/exnames.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/executer/exnames.c
-+++ acpica-unix2-20180531/source/components/executer/exnames.c
+--- acpica-unix-20180508.orig/source/components/executer/exnames.c
++++ acpica-unix-20180508/source/components/executer/exnames.c
 @@ -237,7 +237,7 @@ AcpiExNameSegment (
           */
          ACPI_DEBUG_PRINT ((ACPI_DB_INFO,
@@ -231,10 +231,10 @@ Index: acpica-unix2-20180531/source/components/executer/exnames.c
      }
  
      *InAmlAddress = ACPI_CAST_PTR (UINT8, AmlAddress);
-Index: acpica-unix2-20180531/source/components/hardware/hwregs.c
+Index: acpica-unix-20180508/source/components/hardware/hwregs.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/hardware/hwregs.c
-+++ acpica-unix2-20180531/source/components/hardware/hwregs.c
+--- acpica-unix-20180508.orig/source/components/hardware/hwregs.c
++++ acpica-unix-20180508/source/components/hardware/hwregs.c
 @@ -460,7 +460,7 @@ AcpiHwClearAcpiStatus (
  
  
@@ -244,10 +244,10 @@ Index: acpica-unix2-20180531/source/components/hardware/hwregs.c
          ACPI_FORMAT_UINT64 (AcpiGbl_XPm1aStatus.Address)));
  
      LockFlags = AcpiOsAcquireLock (AcpiGbl_HardwareLock);
-Index: acpica-unix2-20180531/source/components/tables/tbfadt.c
+Index: acpica-unix-20180508/source/components/tables/tbfadt.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/tables/tbfadt.c
-+++ acpica-unix2-20180531/source/components/tables/tbfadt.c
+--- acpica-unix-20180508.orig/source/components/tables/tbfadt.c
++++ acpica-unix-20180508/source/components/tables/tbfadt.c
 @@ -233,7 +233,7 @@ AcpiTbInitGenericAddress (
          if (!(Flags & ACPI_FADT_GPE_REGISTER))
          {
@@ -275,10 +275,10 @@ Index: acpica-unix2-20180531/source/components/tables/tbfadt.c
                          Name, Address32,
                          ACPI_FORMAT_UINT64 (Address64->Address),
                          AcpiGbl_Use32BitFadtAddresses ? 32 : 64));
-Index: acpica-unix2-20180531/source/components/tables/tbxfroot.c
+Index: acpica-unix-20180508/source/components/tables/tbxfroot.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/tables/tbxfroot.c
-+++ acpica-unix2-20180531/source/components/tables/tbxfroot.c
+--- acpica-unix-20180508.orig/source/components/tables/tbxfroot.c
++++ acpica-unix-20180508/source/components/tables/tbxfroot.c
 @@ -177,7 +177,7 @@ AcpiFindRootPointer (
      {
          ACPI_ERROR ((AE_INFO,
@@ -306,10 +306,10 @@ Index: acpica-unix2-20180531/source/components/tables/tbxfroot.c
  
          return_ACPI_STATUS (AE_NO_MEMORY);
      }
-Index: acpica-unix2-20180531/source/components/utilities/utownerid.c
+Index: acpica-unix-20180508/source/components/utilities/utownerid.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/components/utilities/utownerid.c
-+++ acpica-unix2-20180531/source/components/utilities/utownerid.c
+--- acpica-unix-20180508.orig/source/components/utilities/utownerid.c
++++ acpica-unix-20180508/source/components/utilities/utownerid.c
 @@ -237,7 +237,7 @@ AcpiUtReleaseOwnerId (
      else
      {
@@ -319,10 +319,10 @@ Index: acpica-unix2-20180531/source/components/utilities/utownerid.c
      }
  
      (void) AcpiUtReleaseMutex (ACPI_MTX_CACHES);
-Index: acpica-unix2-20180531/source/tools/acpiexec/aemain.c
+Index: acpica-unix-20180508/source/tools/acpiexec/aemain.c
 ===================================================================
---- acpica-unix2-20180531.orig/source/tools/acpiexec/aemain.c
-+++ acpica-unix2-20180531/source/tools/acpiexec/aemain.c
+--- acpica-unix-20180508.orig/source/tools/acpiexec/aemain.c
++++ acpica-unix-20180508/source/tools/acpiexec/aemain.c
 @@ -209,7 +209,7 @@ AeDoOptions (
  
          if (strlen (AcpiGbl_Optarg) > (AE_BUFFER_SIZE -1))

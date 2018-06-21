@@ -1,9 +1,9 @@
 This prevents a segfault when an Include file does not exist.
 
-Index: acpica-unix2-20170929/source/compiler/aslfiles.c
+Index: acpica-unix-20180508/source/compiler/aslfiles.c
 ===================================================================
---- acpica-unix2-20170929.orig/source/compiler/aslfiles.c
-+++ acpica-unix2-20170929/source/compiler/aslfiles.c
+--- acpica-unix-20180508.orig/source/compiler/aslfiles.c
++++ acpica-unix-20180508/source/compiler/aslfiles.c
 @@ -318,7 +318,7 @@ FlOpenIncludeWithPrefix (
      if (!IncludeFile)
      {

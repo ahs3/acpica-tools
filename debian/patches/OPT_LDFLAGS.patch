@@ -1,7 +1,7 @@
-Index: acpica-unix2-20170728/generate/unix/Makefile.config
+Index: acpica-unix-20180508/generate/unix/Makefile.config
 ===================================================================
---- acpica-unix2-20170728.orig/generate/unix/Makefile.config
-+++ acpica-unix2-20170728/generate/unix/Makefile.config
+--- acpica-unix-20180508.orig/generate/unix/Makefile.config
++++ acpica-unix-20180508/generate/unix/Makefile.config
 @@ -23,6 +23,9 @@
  # OPT_CFLAGS can be overridden on the make command line by
  #   adding OPT_CFLAGS="..." to the invocation.
