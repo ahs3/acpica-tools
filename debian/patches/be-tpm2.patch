@@ -1,0 +1,40 @@
+diff -Naur acpica-unix2-20171110/source/compiler/dttable2.c acpica-unix2-20171110.patched/source/compiler/dttable2.c
+--- acpica-unix2-20171110/source/compiler/dttable2.c	2017-11-27 15:20:04.705226128 -0700
++++ acpica-unix2-20171110.patched/source/compiler/dttable2.c	2017-11-27 15:26:29.121734421 -0700
+@@ -1797,6 +1797,7 @@
+     ACPI_TABLE_TPM2         *Tpm2Header;
+     DT_SUBTABLE             *ParentTable;
+     ACPI_STATUS             Status = AE_OK;
++    UINT32		    Tmp32;
+ 
+ 
+     /* Compile the main table */
+@@ -1831,7 +1832,8 @@
+ 
+     /* Subtable type depends on the StartMethod */
+ 
+-    switch (Tpm2Header->StartMethod)
++    ACPI_MOVE_32_TO_32(&Tmp32, &Tpm2Header->StartMethod);
++    switch (Tmp32)
+     {
+     case ACPI_TPM2_COMMAND_BUFFER_WITH_ARM_SMC:
+ 
+@@ -1861,16 +1863,14 @@
+     case ACPI_TPM2_RESERVED9:
+     case ACPI_TPM2_RESERVED10:
+ 
+-        AcpiOsPrintf ("\n**** Reserved TPM2 Start Method type 0x%X\n",
+-            Tpm2Header->StartMethod);
++        AcpiOsPrintf ("\n**** Reserved TPM2 Start Method type 0x%X\n", Tmp32);
+         Status = AE_ERROR;
+         break;
+ 
+     case ACPI_TPM2_NOT_ALLOWED:
+     default:
+ 
+-        AcpiOsPrintf ("\n**** Unknown TPM2 Start Method type 0x%X\n",
+-            Tpm2Header->StartMethod);
++        AcpiOsPrintf ("\n**** Unknown TPM2 Start Method type 0x%X\n", Tmp32);
+         Status = AE_ERROR;
+         break;
+     }

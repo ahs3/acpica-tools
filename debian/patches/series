@@ -4,11 +4,15 @@ unaligned.patch
 fix_ftbfs_debian-hurd.patch
 add-testing.patch
 OPT_LDFLAGS.patch
+int-format.patch
+f23-harden.patch
 template.patch
+free.patch
 ppc64le.patch
 arm7hl.patch
 big-endian-v2.patch
 simple-64bit.patch
+be-tpm2.patch
 mips-be-fix.patch
 cve-2017-13693.patch
 cve-2017-13694.patch
