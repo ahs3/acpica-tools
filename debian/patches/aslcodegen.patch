@@ -1,0 +1,28 @@
+Changes in the handling of comments caused some length fields to be used
+in new ways.  The new way broke the existing adaptation for big endian
+support; this patch repairs that adaptation.
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+
+diff -Naur acpica-unix2-20180531.orig/source/compiler/aslcodegen.c acpica-unix2-20180531/source/compiler/aslcodegen.c
+--- acpica-unix2-20180531.orig/source/compiler/aslcodegen.c	2018-07-06 20:28:35.255546578 -0400
++++ acpica-unix2-20180531/source/compiler/aslcodegen.c	2018-07-06 20:32:10.373797644 -0400
+@@ -494,8 +494,7 @@
+ 
+     /* Table length. Checksum zero for now, will rewrite later */
+ 
+-    DWord = sizeof (ACPI_TABLE_HEADER) + Op->Asl.AmlSubtreeLength;
+-    ACPI_MOVE_32_TO_32(&TableHeader.Length, &DWord);
++    TableHeader.Length = sizeof (ACPI_TABLE_HEADER) + Op->Asl.AmlSubtreeLength;
+ 
+     /* Calculate the comment lengths for this definition block parseOp */
+ 
+@@ -539,6 +538,8 @@
+         CvDbgPrint ("    Length: %u\n", CommentLength);
+         }
+     }
++    DWord = TableHeader.Length;
++    ACPI_MOVE_32_TO_32(&TableHeader.Length, &DWord);
+ 
+     TableHeader.Checksum = 0;
+ 

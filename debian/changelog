@@ -1,3 +1,16 @@
+acpica-unix (20180629-1) unstable; urgency=medium
+
+  * Upgrade to 20180629 upstream
+  * Refresh patches as needed
+  * Add patch to aslcodegen.c to repair a little-endian change that breaks
+    an existing big-endian change.  Closes: #902203
+  * Reportedly, this upstream version has a repair for vbox.  Closes: #899318
+  * Patch applied.  Closes: #886753.
+  * Closes: #867381.  Update-alternatives has been working properly for
+    quite some time now, so no changes are needed.
+
+ -- Al Stone <ahs3@debian.org>  Sun, 08 Jul 2018 17:19:35 -0600
+
 acpica-unix (20180531-1) unstable; urgency=medium
 
   * Upgrade to 20180531 upstream
