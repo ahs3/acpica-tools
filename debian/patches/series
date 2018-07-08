@@ -19,3 +19,4 @@ cve-2017-13694.patch
 cve-2017-13695.patch
 str-trunc-warn.patch
 ptr-cast.patch
+aslcodegen.patch
