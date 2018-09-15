@@ -61,6 +61,7 @@ override_dh_install:
 	install -m 0644 debian/acpibin.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpidump.1 \
 			$(DESTDIR)/usr/share/man/man1/acpidump-acpica.1
+	install -m 0644 debian/acpiexamples.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpiexec.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpihelp.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpinames.1 $(DESTDIR)/usr/share/man/man1
