@@ -2,6 +2,8 @@ acpica-unix (20181003-1) unstable; urgency=medium
 
   * Upgrade to 20181003 upstream
   * Refresh patches as needed
+  * Fix use of update alternative to point at compressed man pages.
+    Closes: #909430
 
  -- Al Stone <ahs3@debian.org>  Wed, 24 Oct 2018 16:01:02 -0600
 
