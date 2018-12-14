@@ -128,7 +128,7 @@ DtTrim (
 
     /* Skip lines that start with a space */
 
-    if (!strcmp (String, " "))
+    if (*String == 0 || !strcmp (String, " "))
     {
         ReturnString = UtLocalCacheCalloc (1);
         return (ReturnString);
@@ -150,7 +150,7 @@ DtTrim (
 
     while (End >= Start)
     {
-        if (*End == '\r' || *End == '\n')
+        if (*End == '\n')
         {
             End--;
             continue;
@@ -414,6 +414,7 @@ DtGetNextLine (
     UINT32                  CurrentLineOffset;
     UINT32                  i;
     int                     c;
+    int                     c1;
 
 
     memset (AslGbl_CurrentLineBuffer, 0, AslGbl_LineBufferSize);
@@ -460,6 +461,29 @@ DtGetNextLine (
              */
             c = '\n';
             State = DT_NORMAL_TEXT;
+        }
+        else if (c == '\r')
+        {
+            c1 = getc (Handle);
+            if (c1 == '\n')
+            {
+                /*
+                 * Skip the carriage return as if it didn't exist. This is
+                 * onlt meant for input files in DOS format in unix. fopen in
+                 * unix may not support "text mode" and leaves CRLF intact.
+                 */
+                c = '\n';
+            }
+            else
+            {
+                /* This was not a CRLF. Only a CR */
+
+                ungetc(c1, Handle);
+
+                DtFatal (ASL_MSG_COMPILER_INTERNAL, NULL,
+                    "Carriage return without linefeed detected");
+                return (ASL_EOF);
+            }
         }
 
         switch (State)
