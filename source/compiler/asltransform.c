@@ -352,11 +352,7 @@ TrTransformSubtree (
 
     case PARSEOP_EXTERNAL:
 
-        if (AslGbl_DoExternals == TRUE)
-        {
-            ExDoExternal (Op);
-        }
-
+        ExDoExternal (Op);
         break;
 
     case PARSEOP___METHOD__:
