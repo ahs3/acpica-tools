@@ -384,7 +384,7 @@ LdNamespace1Begin (
     case AML_FIELD_OP:
 
         Status = LdLoadFieldElements (Op, WalkState);
-        return (Status);
+        break;
 
     case AML_INT_CONNECTION_OP:
 
@@ -448,7 +448,8 @@ LdNamespace1Begin (
          * We only want references to named objects:
          *      Store (2, WXYZ) -> Attempt to resolve the name
          */
-        if (OpInfo->Class == AML_CLASS_NAMED_OBJECT)
+        if ((OpInfo->Class == AML_CLASS_NAMED_OBJECT) &&
+            (OpInfo->Type != AML_TYPE_NAMED_FIELD))
         {
             return (AE_OK);
         }
@@ -594,7 +595,7 @@ LdNamespace1Begin (
 
                 /* However, this is an error -- operand to Scope must exist */
 
-                if (strlen (Op->Asl.ExternalName) == ACPI_NAME_SIZE)
+                if (strlen (Op->Asl.ExternalName) == ACPI_NAMESEG_SIZE)
                 {
                     AslError (ASL_ERROR, ASL_MSG_NOT_FOUND, Op,
                         Op->Asl.ExternalName);
@@ -623,7 +624,7 @@ LdNamespace1Begin (
              * 10/2015.
              */
             if ((Node->Flags & ANOBJ_IS_EXTERNAL) &&
-                (ACPI_COMPARE_NAME (AslGbl_TableSignature, "DSDT")))
+                (ACPI_COMPARE_NAMESEG (AslGbl_TableSignature, "DSDT")))
             {
                 /* However, allowed if the reference is within a method */
 
@@ -987,7 +988,7 @@ LdNamespace2Begin (
             {
                 /* Standalone NameSeg vs. NamePath */
 
-                if (strlen (Arg->Asl.ExternalName) == ACPI_NAME_SIZE)
+                if (strlen (Arg->Asl.ExternalName) == ACPI_NAMESEG_SIZE)
                 {
                     AslError (ASL_ERROR, ASL_MSG_NOT_FOUND, Op,
                         Arg->Asl.ExternalName);
