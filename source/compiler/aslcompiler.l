@@ -705,7 +705,7 @@ NamePathTail                [.]{NameSeg}
 
 {NameSeg}                   { char *s;
                                 count (0);
-                                s=UtLocalCacheCalloc (ACPI_NAME_SIZE + 1);
+                                s=UtLocalCacheCalloc (ACPI_NAMESEG_SIZE + 1);
                                 if (strcmp (AslCompilertext, "\\"))
                                 {
                                     /*

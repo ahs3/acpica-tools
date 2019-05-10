@@ -351,7 +351,7 @@ AdDisassembleOneTable (
      */
     if (AcpiGbl_CaptureComments)
     {
-        strncpy (Table->Signature, AcpiGbl_TableSig, ACPI_NAME_SIZE);
+        strncpy (Table->Signature, AcpiGbl_TableSig, ACPI_NAMESEG_SIZE);
     }
 #endif
 

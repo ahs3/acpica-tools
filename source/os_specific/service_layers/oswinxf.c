@@ -65,7 +65,7 @@
 
 
 UINT64                      TimerFrequency;
-char                        TableName[ACPI_NAME_SIZE + 1];
+char                        TableName[ACPI_NAMESEG_SIZE + 1];
 
 #define ACPI_OS_DEBUG_TIMEOUT   30000 /* 30 seconds */
 

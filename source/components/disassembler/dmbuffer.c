@@ -628,7 +628,7 @@ AcpiDmIsPldBuffer (
     {
         Node = ParentOp->Common.Node;
 
-        if (ACPI_COMPARE_NAME (Node->Name.Ascii, METHOD_NAME__PLD))
+        if (ACPI_COMPARE_NAMESEG (Node->Name.Ascii, METHOD_NAME__PLD))
         {
             /* Ignore the Size argument in the disassembly of this buffer op */
 
@@ -662,7 +662,7 @@ AcpiDmIsPldBuffer (
         {
             Node = ParentOp->Common.Node;
 
-            if (ACPI_COMPARE_NAME (Node->Name.Ascii, METHOD_NAME__PLD))
+            if (ACPI_COMPARE_NAMESEG (Node->Name.Ascii, METHOD_NAME__PLD))
             {
                 /* Ignore the Size argument in the disassembly of this buffer op */
 
@@ -992,7 +992,7 @@ AcpiDmCheckForHardwareId (
 
     /* Check for _HID - has one argument */
 
-    if (ACPI_COMPARE_NAME (&Name, METHOD_NAME__HID))
+    if (ACPI_COMPARE_NAMESEG (&Name, METHOD_NAME__HID))
     {
         AcpiDmGetHardwareIdType (NextOp);
         return;
@@ -1000,7 +1000,7 @@ AcpiDmCheckForHardwareId (
 
     /* Exit if not _CID */
 
-    if (!ACPI_COMPARE_NAME (&Name, METHOD_NAME__CID))
+    if (!ACPI_COMPARE_NAMESEG (&Name, METHOD_NAME__CID))
     {
         return;
     }

@@ -179,6 +179,10 @@ void
 AeMiscellaneousTests (
     void);
 
+void
+AeLateTest (
+    void);
+
 /* aeregion */
 
 ACPI_STATUS

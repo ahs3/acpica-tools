@@ -382,7 +382,7 @@ AcpiAhMatchPredefinedName (
 
     for (Info = AslPredefinedInfo; Info->Name; Info++)
     {
-        if (ACPI_COMPARE_NAME (Nameseg, Info->Name))
+        if (ACPI_COMPARE_NAMESEG (Nameseg, Info->Name))
         {
             return (Info);
         }
