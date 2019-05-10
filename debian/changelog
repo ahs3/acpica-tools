@@ -1,3 +1,10 @@
+acpica-unix (20190108-1) unstable; urgency=medium
+
+  * Upgrade to 20190108 upstream
+  * Refresh patches as needed
+
+ -- Al Stone <ahs3@debian.org>  Fri, 10 May 2019 14:29:15 -0600
+
 acpica-unix (20181213-1) unstable; urgency=medium
 
   * Upgrade to 20181213 upstream

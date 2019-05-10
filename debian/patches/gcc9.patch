@@ -1,0 +1,65 @@
+diff -Naur acpica-unix2-20190108/source/common/dmrestag.c acpica-unix2-20190108-patch/source/common/dmrestag.c
+--- acpica-unix2-20190108/source/common/dmrestag.c	2019-01-08 14:10:31.000000000 -0700
++++ acpica-unix2-20190108-patch/source/common/dmrestag.c	2019-05-10 13:57:10.768398838 -0600
+@@ -710,10 +710,25 @@
+      * end up in the final compiled AML, it's just an appearance issue for the
+      * disassembled code.
+      */
+-    Pathname[strlen (Pathname) - ACPI_NAME_SIZE] = 0;
+-    strncat (Pathname, ResourceNode->Name.Ascii, ACPI_NAME_SIZE);
+-    strcat (Pathname, ".");
+-    strncat (Pathname, Tag, ACPI_NAME_SIZE);
++    {
++    	/* 
++	 * GCC9 forces some contortions when non-null-terminated char
++	 * strings are being used; using strncat() might be simpler,
++	 * but the assumption that the string is null-terminated gets
++	 * checked and AML does not always guarantee that is true.
++	 */
++    	char *tmp;
++	unsigned char dot = '.';
++
++    	Pathname[strlen (Pathname) - ACPI_NAME_SIZE] = 0;
++	tmp = Pathname + strlen(Pathname);
++	memcpy (tmp, ResourceNode->Name.Ascii, ACPI_NAME_SIZE);
++	tmp += ACPI_NAME_SIZE;
++	memcpy (tmp, &dot, 1);
++	tmp++;
++        memcpy (tmp, Tag, ACPI_NAME_SIZE);
++	tmp += ACPI_NAME_SIZE;
++    }
+ 
+     /* Internalize the namepath to AML format */
+ 
+diff -Naur acpica-unix2-20190108/source/compiler/aslcodegen.c acpica-unix2-20190108-patch/source/compiler/aslcodegen.c
+--- acpica-unix2-20190108/source/compiler/aslcodegen.c	2019-05-10 13:40:12.827411487 -0600
++++ acpica-unix2-20190108-patch/source/compiler/aslcodegen.c	2019-05-10 13:25:34.667850614 -0600
+@@ -450,11 +450,11 @@
+      */
+     if (AcpiGbl_CaptureComments)
+     {
+-        strncpy(AcpiGbl_TableSig, Child->Asl.Value.String, ACPI_NAME_SIZE);
++        memcpy(AcpiGbl_TableSig, Child->Asl.Value.String, ACPI_NAME_SIZE);
+         Child->Asl.Value.String = ACPI_SIG_XXXX;
+     }
+ 
+-    strncpy (AslGbl_TableHeader.Signature, Child->Asl.Value.String, ACPI_NAME_SIZE);
++    memcpy (AslGbl_TableHeader.Signature, Child->Asl.Value.String, ACPI_NAME_SIZE);
+ 
+     /* Revision */
+ 
+@@ -471,12 +471,12 @@
+     /* OEMID */
+ 
+     Child = Child->Asl.Next;
+-    strncpy (AslGbl_TableHeader.OemId, Child->Asl.Value.String, ACPI_OEM_ID_SIZE);
++    memcpy (AslGbl_TableHeader.OemId, Child->Asl.Value.String, ACPI_OEM_ID_SIZE);
+ 
+     /* OEM TableID */
+ 
+     Child = Child->Asl.Next;
+-    strncpy (AslGbl_TableHeader.OemTableId, Child->Asl.Value.String, ACPI_OEM_TABLE_ID_SIZE);
++    memcpy (AslGbl_TableHeader.OemTableId, Child->Asl.Value.String, ACPI_OEM_TABLE_ID_SIZE);
+ 
+     /* OEM Revision */
+ 
