@@ -386,6 +386,7 @@ CmDoCompile (
     UtEndEvent (Event);
 
     UtEndEvent (FullCompile);
+    AslCheckExpectedExceptions ();
     CmCleanupAndExit ();
     return (0);
 
@@ -703,7 +704,6 @@ CmCleanupAndExit (
     BOOLEAN                 DeleteAmlFile = FALSE;
 
 
-    AslCheckExpectedExceptions ();
     AePrintErrorLog (ASL_FILE_STDERR);
     if (AslGbl_DebugFlag)
     {

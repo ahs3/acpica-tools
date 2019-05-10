@@ -594,7 +594,7 @@ OpnDoPackage (
 
 
 /*
- * aslopt - optmization
+ * aslopt - optimization
  */
 void
 OptOptimizeNamePath (
@@ -1045,7 +1045,7 @@ OtXrefWalkPart1 (
 
 
 /*
- * aslutils - common compiler utilites
+ * aslutils - common compiler utilities
  */
 void
 DbgPrint (
