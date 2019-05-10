@@ -256,7 +256,7 @@ Warning  3144 -                            ^ Method Local is set but never used 
 
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler/Disassembler version VVVVVVVV
-Copyright (c) 2000 - 2018 Intel Corporation
+Copyright (c) 2000 - 2019 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
