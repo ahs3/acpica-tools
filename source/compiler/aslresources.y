@@ -758,7 +758,7 @@ UartSerialBusTerm
         OptionalBitsPerByte         /* 05: BitsPerByte */
         OptionalStopBits            /* 06: StopBits */
         ',' ByteConstExpr           /* 08: LinesInUse */
-        OptionalEndian              /* 09: Endianess */
+        OptionalEndian              /* 09: Endianness */
         OptionalParityType          /* 10: Parity */
         OptionalFlowControl         /* 11: FlowControl */
         ',' WordConstExpr           /* 13: Rx BufferSize */
@@ -783,7 +783,7 @@ UartSerialBusTermV2
         OptionalBitsPerByte         /* 05: BitsPerByte */
         OptionalStopBits            /* 06: StopBits */
         ',' ByteConstExpr           /* 08: LinesInUse */
-        OptionalEndian              /* 09: Endianess */
+        OptionalEndian              /* 09: Endianness */
         OptionalParityType          /* 10: Parity */
         OptionalFlowControl         /* 11: FlowControl */
         ',' WordConstExpr           /* 13: Rx BufferSize */
