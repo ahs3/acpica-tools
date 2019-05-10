@@ -5,7 +5,7 @@
  *****************************************************************************/
 
 /*
- * Copyright (C) 2000 - 2018, Intel Corp.
+ * Copyright (C) 2000 - 2019, Intel Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -174,6 +174,7 @@ usage (
     printf ("\n");
 
     ACPI_OPTION ("-v",                  "Display version information");
+    ACPI_OPTION ("-va",                 "Display verbose dump of any memory leaks");
     ACPI_OPTION ("-vd",                 "Display build date and time");
     ACPI_OPTION ("-vh",                 "Verbose exception handler output");
     ACPI_OPTION ("-vi",                 "Verbose initialization output");
@@ -439,6 +440,11 @@ AeDoOptions (
         case '^':  /* -v: (Version): signon already emitted, just exit */
 
             return (1);
+
+        case 'a':
+
+            AcpiGbl_VerboseLeakDump = TRUE;
+            break;
 
         case 'd':
 
