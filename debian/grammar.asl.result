@@ -1,3 +1,4 @@
+ACPI Warning: NsLookup: Type mismatch on OPR2 (Region), searching for (BankField) (20190329/nsaccess-732)
 grammar.asl    120:     Device (A1)
 Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
