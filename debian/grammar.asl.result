@@ -1,4 +1,10 @@
-ACPI Warning: NsLookup: Type mismatch on OPR2 (Region), searching for (BankField) (20190405/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on GIDX (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on IDX2 (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on INDX (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on AIDX (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on C05D (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on INDX (RegionField), searching for (Region) (20190509/nsaccess-732)
+ACPI Warning: NsLookup: Type mismatch on IND2 (RegionField), searching for (Region) (20190509/nsaccess-732)
 grammar.asl    120:     Device (A1)
 Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
@@ -28,6 +34,12 @@ Remark   2089 -                     ^ Object is not referenced (Name [_STR] is w
 
 grammar.asl    515:         Store (MFLD, Local0)
 Warning  3144 -                              ^ Method Local is set but never used (Local0)
+
+grammar.asl    522:     NAME (ESC1, "abcdefg\x00hijklmn")
+Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
+
+grammar.asl    523:     NAME (ESC2, "abcdefg\000hijklmn")
+Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
 
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
@@ -94,6 +106,12 @@ Remark   2089 -   Object is not referenced ^  (Name [MTX2] is within a method [O
 
 grammar.asl   1329:         CreateField (BUF2, 148, 96, FLD3)
 Remark   2089 -                  Object is not referenced ^  (Name [FLD3] is within a method [FLDS])
+
+grammar.asl   1394:         Store (0x1234567887654321, QWD2)
+Warning  3038 -                                    ^ Truncating 64-bit constant found in 32-bit table
+
+grammar.asl   1396:         if (LNotEqual (Local0, 0x1234567887654321))
+Warning  3038 -   Truncating 64-bit constant found in 32-bit table ^ 
 
 grammar.asl   1476:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
@@ -286,6 +304,9 @@ Warning  3144 -          Method Local is set but never used ^  (Local6)
 
 grammar.asl   6393:     Device (IDX5)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   6478:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
+Warning  3046 -        Invalid or unknown escape sequence ^ 
 
 grammar.asl   6709:         Device (BITI)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
