@@ -132,8 +132,7 @@ DtDoCompile (
         DtError (ASL_ERROR, ASL_MSG_SYNTAX, NULL,
             "Input file does not appear to be an ASL or data table source file");
 
-        Status = AE_ERROR;
-        goto CleanupAndExit;
+        return (AE_ERROR);
     }
 
     Event = UtBeginEvent ("Compile parse tree");
@@ -151,7 +150,7 @@ DtDoCompile (
         DtError (ASL_ERROR, ASL_MSG_SYNTAX, NULL,
             "Could not compile input file");
 
-        goto CleanupAndExit;
+        return (Status);
     }
 
     /* Create/open the binary output file */
@@ -160,7 +159,7 @@ DtDoCompile (
     Status = FlOpenAmlOutputFile (AslGbl_OutputFilenamePrefix);
     if (ACPI_FAILURE (Status))
     {
-        goto CleanupAndExit;
+        return (Status);
     }
 
     /* Write the binary, then the optional hex file */
@@ -169,10 +168,6 @@ DtDoCompile (
     HxDoHexOutput ();
     DtWriteTableToListing ();
 
-CleanupAndExit:
-
-    AcpiUtDeleteCaches ();
-    CmCleanupAndExit ();
     return (Status);
 }
 
