@@ -4,11 +4,11 @@ support; this patch repairs that adaptation.
 
 Signed-off-by: Al Stone <ahs3@redhat.com>
 
-Index: acpica-unix-20190329/source/compiler/aslcodegen.c
+Index: acpica-unix-20190405/source/compiler/aslcodegen.c
 ===================================================================
---- acpica-unix-20190329.orig/source/compiler/aslcodegen.c
-+++ acpica-unix-20190329/source/compiler/aslcodegen.c
-@@ -500,8 +500,7 @@ CgWriteTableHeader (
+--- acpica-unix-20190405.orig/source/compiler/aslcodegen.c
++++ acpica-unix-20190405/source/compiler/aslcodegen.c
+@@ -497,8 +497,7 @@ CgWriteTableHeader (
  
      /* Table length. Checksum zero for now, will rewrite later */
  
@@ -18,7 +18,7 @@ Index: acpica-unix-20190329/source/compiler/aslcodegen.c
  
      /* Calculate the comment lengths for this definition block parseOp */
  
-@@ -547,6 +546,8 @@ CgWriteTableHeader (
+@@ -544,6 +543,8 @@ CgWriteTableHeader (
              CvDbgPrint ("    Length: %u\n", CommentLength);
          }
      }

@@ -7,7 +7,6 @@ OPT_LDFLAGS.patch
 int-format.patch
 f23-harden.patch
 template.patch
-free.patch
 ppc64le.patch
 arm7hl.patch
 big-endian-v2.patch
