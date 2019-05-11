@@ -12,7 +12,7 @@ Index: acpica-unix-20180508/Makefile
 +	$(CURDIR)/tests/aslts.sh $(CURDIR)/tests/aslts $(CURDIR)/generate/unix
 +
 +	# misc tests
-+	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20190405
++	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20190509
 +
 +	# Template tests
 +	cd $(CURDIR)/tests/templates
