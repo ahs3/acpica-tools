@@ -1,17 +1,14 @@
-converterSample.asl     37:     Method(MAIN) {
+converterSample.asl     37: ***********************************************************
 Remark   2120 -                          ^ Control Method should be made Serialized (due to creation of named objects within)
 
-converterSample.asl     48:             Name(b,0);
+converterSample.asl     48: 
 Remark   2089 -    Object is not referenced ^  (Name [B___] is within a method [MAIN])
 
-converterSample.asl     65:     Method(SCOP)
+converterSample.asl     65:       Name (a1, 0x04)
 Remark   2120 -                          ^ Control Method should be made Serialized (due to creation of named objects within)
 
-converterSample.asl     68:         Name (a1, 0x04)
+converterSample.asl     68: ationRegion(GNVS,SystemMemory,0xFFFF0000,0xAA55)
 Remark   2089 -  Object is not referenced ^  (Name [A1__] is within a method [SCOP])
-
-converterSample.asl     76:         Offset(0),//c37
-Remark   2158 -                           ^ Unnecessary/redundant use of Offset operator
 
 
 Intel ACPI Component Architecture
@@ -20,7 +17,7 @@ Copyright (c) 2000 - 2019 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     converterSample.asl - 85 lines, 1968 bytes, 11 keywords
-AML Output:    converterSample.aml - 182 bytes, 9 named objects, 2 executable opcodes
+ASL Input:     converterSample.asl -    1968 bytes     11 keywords     85 source lines
+AML Output:    converterSample.aml -     182 bytes      2 opcodes       9 named objects
 
-Compilation complete. 0 Errors, 0 Warnings, 5 Remarks, 10 Optimizations
+Compilation successful. 0 Errors, 0 Warnings, 5 Remarks, 10 Optimizations
