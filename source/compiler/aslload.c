@@ -56,6 +56,7 @@
 
 static ACPI_STATUS
 LdLoadFieldElements (
+    UINT32                  AmlType,
     ACPI_PARSE_OBJECT       *Op,
     ACPI_WALK_STATE         *WalkState);
 
@@ -82,6 +83,10 @@ LdCommonNamespaceEnd (
     UINT32                  Level,
     void                    *Context);
 
+static void
+LdCheckSpecialNames (
+    ACPI_NAMESPACE_NODE     *Node,
+    ACPI_PARSE_OBJECT       *Op);
 
 /*******************************************************************************
  *
@@ -139,7 +144,8 @@ LdLoadNamespace (
  *
  * FUNCTION:    LdLoadFieldElements
  *
- * PARAMETERS:  Op              - Parent node (Field)
+ * PARAMETERS:  AmlType         - Type to search
+ *              Op              - Parent node (Field)
  *              WalkState       - Current walk state
  *
  * RETURN:      Status
@@ -151,6 +157,7 @@ LdLoadNamespace (
 
 static ACPI_STATUS
 LdLoadFieldElements (
+    UINT32                  AmlType,
     ACPI_PARSE_OBJECT       *Op,
     ACPI_WALK_STATE         *WalkState)
 {
@@ -166,7 +173,7 @@ LdLoadFieldElements (
     {
         Status = AcpiNsLookup (WalkState->ScopeInfo,
             SourceRegion->Asl.Value.String,
-            ACPI_TYPE_REGION, ACPI_IMODE_EXECUTE,
+            AmlType, ACPI_IMODE_EXECUTE,
             ACPI_NS_DONT_OPEN_SCOPE, NULL, &Node);
         if (Status == AE_NOT_FOUND)
         {
@@ -399,11 +406,15 @@ LdNamespace1Begin (
      */
     switch (Op->Asl.AmlOpcode)
     {
-    case AML_BANK_FIELD_OP:
     case AML_INDEX_FIELD_OP:
+
+        Status = LdLoadFieldElements (ACPI_TYPE_LOCAL_REGION_FIELD, Op, WalkState);
+        return (Status);
+
+    case AML_BANK_FIELD_OP:
     case AML_FIELD_OP:
 
-        Status = LdLoadFieldElements (Op, WalkState);
+        Status = LdLoadFieldElements (ACPI_TYPE_REGION, Op, WalkState);
         return (Status);
 
     case AML_INT_CONNECTION_OP:
@@ -858,6 +869,10 @@ LdNamespace1Begin (
         }
     }
 
+    /* Check special names like _WAK and _PTS */
+
+    LdCheckSpecialNames (Node, Op);
+
     if (ForceNewScope)
     {
         Status = AcpiDsScopeStackPush (Node, ObjectType, WalkState);
@@ -893,6 +908,42 @@ FinishNode:
     }
 
     return_ACPI_STATUS (Status);
+}
+
+
+/*******************************************************************************
+ *
+ * FUNCTION:    LdCheckSpecialNames
+ *
+ * PARAMETERS:  Node        - Node that represents the named object
+ *              Op          - Named object declaring this named object
+ *
+ * RETURN:      None
+ *
+ * DESCRIPTION: Check if certain named objects are declared in the incorrect
+ *              scope. Special named objects are listed in
+ *              AslGbl_SpecialNamedObjects and can only be declared at the root
+ *              scope.
+ *
+ ******************************************************************************/
+
+static void
+LdCheckSpecialNames (
+    ACPI_NAMESPACE_NODE     *Node,
+    ACPI_PARSE_OBJECT       *Op)
+{
+    UINT32                  i;
+
+
+    for (i = 0; i < MAX_SPECIAL_NAMES; i++)
+    {
+        if (ACPI_COMPARE_NAMESEG(Node->Name.Ascii, AslGbl_SpecialNamedObjects[i]) &&
+            Node->Parent != AcpiGbl_RootNode)
+        {
+            AslError (ASL_ERROR, ASL_MSG_INVALID_SPECIAL_NAME, Op, Op->Asl.ExternalName);
+            return;
+        }
+    }
 }
 
 
