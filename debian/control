@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Mattia Dongili <malattia@debian.org>
 Uploaders: Al Stone <ahs3@debian.org>
 Build-Depends: debhelper (>= 10~), flex, bison
-Standards-Version: 4.2.1
+Standards-Version: 4.4.1
 Vcs-Git: https://github.com/ahs3/acpica-tools.git
 Vcs-Browser: https://github.com/ahs3/acpica-tools
 Homepage: http://www.acpica.org
