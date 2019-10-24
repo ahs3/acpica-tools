@@ -1,10 +1,3 @@
-ACPI Warning: NsLookup: Type mismatch on GIDX (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on IDX2 (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on INDX (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on AIDX (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on C05D (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on INDX (RegionField), searching for (Region) (20190509/nsaccess-732)
-ACPI Warning: NsLookup: Type mismatch on IND2 (RegionField), searching for (Region) (20190509/nsaccess-732)
 grammar.asl    120:     Device (A1)
 Warning  3141 -                 ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
