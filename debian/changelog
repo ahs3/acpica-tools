@@ -4,6 +4,11 @@ acpica-unix (20190703-1) unstable; urgency=medium
   * Refresh patches as needed
   * Update to latest Standards version
   * Closes: #933154 -- adopt the package from retired maintainer
+  * Closes: #841238 -- the turbostat command has been moved to the
+    linux-cpupower package; please install that package to get that
+    command installed
+  * Closes: #909340 -- the postinst scripts were fixed some time ago
+    but this bug was not closed at that time, so close it now
 
  -- Al Stone <ahs3@debian.org>  Wed, 23 Oct 2019 19:27:11 -0600
 
