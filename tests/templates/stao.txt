@@ -1,0 +1,192 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "stao.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+Pr(0000) - Predefined #define: __IASL__->
+
+Pr(0037) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : STAO
+0000000B 0000017C 00000021 00000030 00000000 00                        Table Length : 0000007E
+0000000C 000001B5 00000025 00000030 00000000 00                            Revision : 01
+0000000D 000001E8 00000025 00000030 00000000 00                            Checksum : 7F
+0000000E 0000021B 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 00000254 00000021 00000030 00000000 00                        Oem Table ID : TEMPLATE
+00000010 0000028F 00000021 00000030 00000000 00                        Oem Revision : 00000000
+00000011 000002C8 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 000002FF 00000018 00000030 00000000 00               Asl Compiler Revision : 20150410
+00000014 0000033A 00000022 00000030 00000000 00                         Ignore UART : 01
+00000015 0000036D 00000023 00000030 00000000 00                          Namestring : \_SB0.BUS0.DEV1
+00000016 000003AF 00000023 00000030 00000000 00                          Namestring : \_SB0.BUS0.DEV2
+00000017 000003F1 00000023 00000030 00000000 00                          Namestring : \_SB0.BUS1.DEV1.DEV2
+00000018 00000438 00000023 00000030 00000000 00                          Namestring : \_SB0.BUS1.DEV2.DEV2
+00000019 0000047F 00000023 00000030 00000000 00                          Namestring : \USB1.HUB1.PT1
+
+
+Full Integer expression: 0000007E
+**** Input expression: 0000007E  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 126 (000000000000007E)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 7F
+**** Input expression: 7F  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 127 (000000000000007F)
+Full Integer expression: 00000000
+**** Input expression: 00000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00002272 00                           Signature : STAO
+0000000B 0000017C 00000021 00000030 00002276 00                        Table Length : 0000007E
+0000000C 000001B5 00000025 00000030 0000227A 00                            Revision : 01
+0000000D 000001E8 00000025 00000030 0000227B 00                            Checksum : 7F
+0000000E 0000021B 00000027 00000030 0000227C 00                              Oem ID : INTEL 
+0000000F 00000254 00000021 00000030 00002282 00                        Oem Table ID : TEMPLATE
+00000010 0000028F 00000021 00000030 0000228A 00                        Oem Revision : 00000000
+00000011 000002C8 0000001E 00000030 0000228E 01                     Asl Compiler ID : INTL
+00000012 000002FF 00000018 00000030 00002292 01               Asl Compiler Revision : 20190703
+00000014 0000033A 00000022 00000030 00002296 00                         Ignore UART : 01
+00000015 0000036D 00000023 00000030 00002297 00                          Namestring : \_SB0.BUS0.DEV1
+00000016 000003AF 00000023 00000030 000022A7 00                          Namestring : \_SB0.BUS0.DEV2
+00000017 000003F1 00000023 00000030 000022B7 00                          Namestring : \_SB0.BUS1.DEV1.DEV2
+00000018 00000438 00000023 00000030 000022CC 00                          Namestring : \_SB0.BUS1.DEV2.DEV2
+00000019 0000047F 00000023 00000030 000022E1 00                          Namestring : \USB1.HUB1.PT1
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 0000007E 00000004 00000000 03094FBC 00000000 03094FE8 00000000
+[0001]              Ignore UART 00000001 00000001 00000000 00000000 03094FE8 03094FBC 00000000 03095014
+[0001]               Namestring 00000010 00000010 00000000 00000000 03095014 03094FBC 00000000 03095040
+[0001]               Namestring 00000010 00000010 00000000 00000000 03095040 03094FBC 00000000 0309506C
+[0001]               Namestring 00000015 00000015 00000000 00000000 0309506C 03094FBC 00000000 03095098
+[0001]               Namestring 00000015 00000015 00000000 00000000 03095098 03094FBC 00000000 030950C4
+[0001]               Namestring 0000000F 0000000F 00000000 00000000 030950C4 03094FBC 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  03094FBC (24) - (7E)
+[0001]              Ignore UART     03094FE8 (01) - (01)
+[0001]               Namestring     03095014 (10) - (10)
+[0001]               Namestring     03095040 (10) - (10)
+[0001]               Namestring     0309506C (15) - (15)
+[0001]               Namestring     03095098 (15) - (15)
+[0001]               Namestring     030950C4 (0F) - (0F)
+

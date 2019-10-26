@@ -167,7 +167,6 @@ LdLoadFieldElements (
     ACPI_STATUS             Status;
 
 
-
     SourceRegion = UtGetArg (Op, 0);
     if (SourceRegion)
     {
@@ -923,7 +922,8 @@ FinishNode:
  * DESCRIPTION: Check if certain named objects are declared in the incorrect
  *              scope. Special named objects are listed in
  *              AslGbl_SpecialNamedObjects and can only be declared at the root
- *              scope.
+ *              scope. _UID inside of a processor declaration must not be a
+ *              string.
  *
  ******************************************************************************/
 
@@ -943,6 +943,13 @@ LdCheckSpecialNames (
             AslError (ASL_ERROR, ASL_MSG_INVALID_SPECIAL_NAME, Op, Op->Asl.ExternalName);
             return;
         }
+    }
+
+    if (ACPI_COMPARE_NAMESEG (Node->Name.Ascii, "_UID") &&
+        Node->Parent->Type == ACPI_TYPE_PROCESSOR &&
+        Node->Type == ACPI_TYPE_STRING)
+    {
+        AslError (ASL_ERROR, ASL_MSG_INVALID_PROCESSOR_UID , Op, "found a string");
     }
 }
 

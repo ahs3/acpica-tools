@@ -1,0 +1,177 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "wsmt.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0030) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : WSMT
+0000000B 0000018C 00000021 00000030 00000000 00                        Table Length : 00000028
+0000000C 000001C5 00000025 00000030 00000000 00                            Revision : 00
+0000000D 000001F8 00000025 00000030 00000000 00                            Checksum : 08
+0000000E 0000022B 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 00000264 00000021 00000030 00000000 00                        Oem Table ID : TEMPLATE
+00000010 0000029F 00000021 00000030 00000000 00                        Oem Revision : 00000000
+00000011 000002D8 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 0000030F 00000018 00000030 00000000 00               Asl Compiler Revision : 20170119
+00000014 0000034A 0000001D 00000030 00000000 00                    Protection Flags : 00000005
+00000015 00000383 0000001B 00000030 00000000 00                  FIXED_COMM_BUFFERS : 1
+00000016 000003B5 0000000C 00000030 00000000 00    COMM_BUFFER_NESTED_PTR_PROTECTION : 0
+00000017 000003E7 00000013 00000030 00000000 00          SYSTEM_RESOURCE_PROTECTION : 1
+
+
+Full Integer expression: 00000028
+**** Input expression: 00000028  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 40 (0000000000000028)
+Full Integer expression: 00
+**** Input expression: 00  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 08
+**** Input expression: 08  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 8 (0000000000000008)
+Full Integer expression: 00000000
+**** Input expression: 00000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 00000005
+**** Input expression: 00000005  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 5 (0000000000000005)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 0000261D 00                           Signature : WSMT
+0000000B 0000018C 00000021 00000030 00002621 00                        Table Length : 00000028
+0000000C 000001C5 00000025 00000030 00002625 00                            Revision : 00
+0000000D 000001F8 00000025 00000030 00002626 00                            Checksum : 08
+0000000E 0000022B 00000027 00000030 00002627 00                              Oem ID : INTEL 
+0000000F 00000264 00000021 00000030 0000262D 00                        Oem Table ID : TEMPLATE
+00000010 0000029F 00000021 00000030 00002635 00                        Oem Revision : 00000000
+00000011 000002D8 0000001E 00000030 00002639 01                     Asl Compiler ID : INTL
+00000012 0000030F 00000018 00000030 0000263D 01               Asl Compiler Revision : 20190703
+00000014 0000034A 0000001D 00000030 00002641 00                    Protection Flags : 00000005
+00000015 00000383 0000001B 00000030 00002645 00                  FIXED_COMM_BUFFERS : 1
+00000016 000003B5 0000000C 00000030 00002645 00    COMM_BUFFER_NESTED_PTR_PROTECTION : 0
+00000017 000003E7 00000013 00000030 00002645 00          SYSTEM_RESOURCE_PROTECTION : 1
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 00000028 00000004 00000000 030C72B0 00000000 030C72DC 00000000
+[0001]         Protection Flags 00000004 00000004 00000000 00000000 030C72DC 030C72B0 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  030C72B0 (24) - (28)
+[0001]         Protection Flags     030C72DC (04) - (04)
+
