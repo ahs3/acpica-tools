@@ -1,0 +1,152 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "slic.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0070) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : SLIC
+0000000B 0000018B 00000021 00000030 00000000 00                        Table Length : 00000176
+0000000C 000001C4 00000025 00000030 00000000 00                            Revision : 01
+0000000D 000001F7 00000025 00000030 00000000 00                            Checksum : 07
+0000000E 0000022A 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 00000263 00000021 00000030 00000000 00                        Oem Table ID : TEMPLATE
+00000010 0000029E 00000021 00000030 00000000 00                        Oem Revision : 00000001
+00000011 000002D7 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 0000030E 00000018 00000030 00000000 00               Asl Compiler Revision : 20110211
+0000002A 000007FE 00000011 00000030 00000000 00        Software Licensing Structure : 00 00 00 00 9C 00 00 00 06 02 00 00 00 24 00 00      52 53 41 31 00 04 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00      B6 00 00 00 00 00 02 00 49 4E 54 45 4C 20 54 45      4D 50 4C 41 54 45 57 49 4E 44 4F 57 53 20 01 00      02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00
+
+
+Full Integer expression: 00000176
+**** Input expression: 00000176  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 374 (0000000000000176)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 07
+**** Input expression: 07  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 7 (0000000000000007)
+Full Integer expression: 00000001
+**** Input expression: 00000001  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00001F69 00                           Signature : SLIC
+0000000B 0000018B 00000021 00000030 00001F6D 00                        Table Length : 00000176
+0000000C 000001C4 00000025 00000030 00001F71 00                            Revision : 01
+0000000D 000001F7 00000025 00000030 00001F72 00                            Checksum : 07
+0000000E 0000022A 00000027 00000030 00001F73 00                              Oem ID : INTEL 
+0000000F 00000263 00000021 00000030 00001F79 00                        Oem Table ID : TEMPLATE
+00000010 0000029E 00000021 00000030 00001F81 00                        Oem Revision : 00000001
+00000011 000002D7 0000001E 00000030 00001F85 01                     Asl Compiler ID : INTL
+00000012 0000030E 00000018 00000030 00001F89 01               Asl Compiler Revision : 20190703
+0000002A 000007FE 00000011 00000030 00001F8D 00        Software Licensing Structure : 00 00 00 00 9C 00 00 00 06 02 00 00 00 24 00 00      52 53 41 31 00 04 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00      B6 00 00 00 00 00 02 00 49 4E 54 45 4C 20 54 45      4D 50 4C 41 54 45 57 49 4E 44 4F 57 53 20 01 00      02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00      00 00
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 00000176 00000004 00000000 0309482C 00000000 03094858 00000000
+[0001] Software Licensing Structure 00000152 00000152 00000000 00000000 03094858 0309482C 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  0309482C (24) - (176)
+[0001] Software Licensing Structure     03094858 (152) - (152)
+

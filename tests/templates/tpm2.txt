@@ -1,0 +1,280 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "tpm2.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0036) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : TPM2
+0000000B 00000197 00000021 00000030 00000000 00                        Table Length : 0000004C
+0000000C 000001D0 00000025 00000030 00000000 00                            Revision : 04
+0000000D 00000203 00000025 00000030 00000000 00                            Checksum : CB
+0000000E 00000236 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 0000026F 00000021 00000030 00000000 00                        Oem Table ID : Template
+00000010 000002AA 00000021 00000030 00000000 00                        Oem Revision : 00000001
+00000011 000002E3 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 0000031A 00000018 00000030 00000000 00               Asl Compiler Revision : 20181213
+00000014 00000355 0000001F 00000030 00000000 00                      Platform Class : 0001
+00000015 0000038A 00000025 00000030 00000000 00                            Reserved : 0000
+00000016 000003BF 0000001E 00000030 00000000 00                     Control Address : 0000000000000000
+00000017 00000400 00000021 00000030 00000000 00                        Start Method : 08
+00000019 00000466 0000001C 00000030 00000000 00                   Method Parameters : 01 02 03 04 05 06 07 08 09 0A 0B 0C
+0000001A 000004BA 0000001B 00000030 00000000 00                  Minimum Log Length : 0000FFFF
+0000001B 000004F3 00000022 00000030 00000000 00                         Log Address : 0000000000000000
+
+
+Full Integer expression: 0000004C
+**** Input expression: 0000004C  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 76 (000000000000004C)
+Full Integer expression: 04
+**** Input expression: 04  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 4 (0000000000000004)
+Full Integer expression: CB
+**** Input expression: CB  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 203 (00000000000000CB)
+Full Integer expression: 00000001
+**** Input expression: 00000001  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 0001
+**** Input expression: 0001  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 0000
+**** Input expression: 0000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 0000000000000000
+**** Input expression: 0000000000000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 08
+**** Input expression: 08  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 8 (0000000000000008)
+Full Integer expression: 0000FFFF
+**** Input expression: 0000FFFF  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 65535 (000000000000FFFF)
+Full Integer expression: 0000000000000000
+**** Input expression: 0000000000000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 0000236C 00                           Signature : TPM2
+0000000B 00000197 00000021 00000030 00002370 00                        Table Length : 0000004C
+0000000C 000001D0 00000025 00000030 00002374 00                            Revision : 04
+0000000D 00000203 00000025 00000030 00002375 00                            Checksum : CB
+0000000E 00000236 00000027 00000030 00002376 00                              Oem ID : INTEL 
+0000000F 0000026F 00000021 00000030 0000237C 00                        Oem Table ID : Template
+00000010 000002AA 00000021 00000030 00002384 00                        Oem Revision : 00000001
+00000011 000002E3 0000001E 00000030 00002388 01                     Asl Compiler ID : INTL
+00000012 0000031A 00000018 00000030 0000238C 01               Asl Compiler Revision : 20190703
+00000014 00000355 0000001F 00000030 00002390 00                      Platform Class : 0001
+00000015 0000038A 00000025 00000030 00002392 00                            Reserved : 0000
+00000016 000003BF 0000001E 00000030 00002394 00                     Control Address : 0000000000000000
+00000017 00000400 00000021 00000030 0000239C 00                        Start Method : 08
+00000019 00000466 0000001C 00000030 000023A0 00                   Method Parameters : 01 02 03 04 05 06 07 08 09 0A 0B 0C
+0000001A 000004BA 0000001B 00000030 000023AC 00                  Minimum Log Length : 0000FFFF
+0000001B 000004F3 00000022 00000030 000023B0 00                         Log Address : 0000000000000000
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 0000004C 00000004 00000000 030951CC 00000000 030951F8 00000000
+[0001]           Platform Class 00000010 00000010 00000000 00000000 030951F8 030951CC 00000000 03095224
+[0001]        Method Parameters 00000018 00000018 00000000 00000000 03095224 030951CC 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  030951CC (24) - (4C)
+[0001]           Platform Class     030951F8 (10) - (10)
+[0001]        Method Parameters     03095224 (18) - (18)
+

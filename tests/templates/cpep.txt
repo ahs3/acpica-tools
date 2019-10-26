@@ -1,0 +1,278 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "cpep.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0034) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : CPEP
+0000000B 0000018D 00000021 00000030 00000000 00                        Table Length : 00000034
+0000000C 000001C6 00000025 00000030 00000000 00                            Revision : 01
+0000000D 000001F9 00000025 00000030 00000000 00                            Checksum : 0F
+0000000E 0000022C 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 00000265 00000021 00000030 00000000 00                        Oem Table ID : TEMPLATE
+00000010 000002A0 00000021 00000030 00000000 00                        Oem Revision : 00000000
+00000011 000002D9 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 00000310 00000018 00000030 00000000 00               Asl Compiler Revision : 20100528
+00000014 0000034B 00000025 00000030 00000000 00                            Reserved : 0000000000000000
+00000016 0000038E 00000020 00000030 00000000 00                       Subtable Type : 00
+00000017 000003C1 00000027 00000030 00000000 00                              Length : 08
+00000018 000003F4 00000021 00000030 00000000 00                        Processor ID : 00
+00000019 00000427 00000020 00000030 00000000 00                       Processor EID : 00
+0000001A 0000045A 0000001D 00000030 00000000 00                    Polling Interval : 00000000
+
+
+Full Integer expression: 00000034
+**** Input expression: 00000034  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 52 (0000000000000034)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 0F
+**** Input expression: 0F  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 15 (000000000000000F)
+Full Integer expression: 00000000
+**** Input expression: 00000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 0000000000000000
+**** Input expression: 0000000000000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 00
+**** Input expression: 00  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 08
+**** Input expression: 08  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 8 (0000000000000008)
+Full Integer expression: 00
+**** Input expression: 00  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 00
+**** Input expression: 00  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 00000000
+**** Input expression: 00000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 0000025C 00                           Signature : CPEP
+0000000B 0000018D 00000021 00000030 00000260 00                        Table Length : 00000034
+0000000C 000001C6 00000025 00000030 00000264 00                            Revision : 01
+0000000D 000001F9 00000025 00000030 00000265 00                            Checksum : 0F
+0000000E 0000022C 00000027 00000030 00000266 00                              Oem ID : INTEL 
+0000000F 00000265 00000021 00000030 0000026C 00                        Oem Table ID : TEMPLATE
+00000010 000002A0 00000021 00000030 00000274 00                        Oem Revision : 00000000
+00000011 000002D9 0000001E 00000030 00000278 01                     Asl Compiler ID : INTL
+00000012 00000310 00000018 00000030 0000027C 01               Asl Compiler Revision : 20190703
+00000014 0000034B 00000025 00000030 00000280 00                            Reserved : 0000000000000000
+00000016 0000038E 00000020 00000030 00000288 00                       Subtable Type : 00
+00000017 000003C1 00000027 00000030 00000289 00                              Length : 08
+00000018 000003F4 00000021 00000030 0000028A 00                        Processor ID : 00
+00000019 00000427 00000020 00000030 0000028B 00                       Processor EID : 00
+0000001A 0000045A 0000001D 00000030 0000028C 00                    Polling Interval : 00000000
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 00000034 00000004 00000000 03017854 00000000 03017880 00000000
+[0001]                 Reserved 00000008 00000008 00000000 00000000 03017880 03017854 00000000 030178AC
+[0001]            Subtable Type 00000008 00000008 00000001 00000000 030178AC 03017854 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  03017854 (24) - (34)
+[0001]                 Reserved     03017880 (08) - (08)
+[0001]            Subtable Type     030178AC (08) - (08)
+

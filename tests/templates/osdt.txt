@@ -1,0 +1,369 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "osdt.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+Pr(0000) - Predefined #define: __IASL__->
+
+Pr(0015) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+Starting parse
+Entering state 0
+Reading a token: Next token is token PARSEOP_DEFINITION_BLOCK ()
+Shifting token PARSEOP_DEFINITION_BLOCK ()
+Entering state 2
+Reading a token: Next token is token PARSEOP_OPEN_PAREN ()
+Shifting token PARSEOP_OPEN_PAREN ()
+Entering state 6
+Reducing stack by rule 3 (line 1175):
+
+CreateLeafOp  Ln/Col 8/17 NewOp 0355AD24  Op DEFINITION_BLOCK
+
+-> $$ = nterm @1 ()
+Stack now 0 2 6
+Entering state 9
+Reading a token: Next token is token PARSEOP_STRING_LITERAL ()
+Shifting token PARSEOP_STRING_LITERAL ()
+Entering state 10
+Reducing stack by rule 147 (line 1585):
+   $1 = token PARSEOP_STRING_LITERAL ()
+
+CreateValuedLeafOp  Ln/Col 8/19 NewOp 0355ADF4  Op STRING_LITERAL  Value 000000000300B19D  STRING->
+
+-> $$ = nterm String ()
+Stack now 0 2 6 9
+Entering state 11
+Reading a token: Next token is token ',' ()
+Shifting token ',' ()
+Entering state 12
+Reading a token: Next token is token PARSEOP_STRING_LITERAL ()
+Shifting token PARSEOP_STRING_LITERAL ()
+Entering state 10
+Reducing stack by rule 147 (line 1585):
+   $1 = token PARSEOP_STRING_LITERAL ()
+
+CreateValuedLeafOp  Ln/Col 8/27 NewOp 0355AEC4  Op STRING_LITERAL  Value 000000000300B19E  STRING->OSDT
+
+-> $$ = nterm String ()
+Stack now 0 2 6 9 11 12
+Entering state 13
+Reading a token: Next token is token ',' ()
+Shifting token ',' ()
+Entering state 14
+Reading a token: Next token is token PARSEOP_INTEGER ()
+Shifting token PARSEOP_INTEGER ()
+Entering state 15
+Reducing stack by rule 146 (line 1580):
+   $1 = token PARSEOP_INTEGER ()
+
+CreateValuedLeafOp  Ln/Col 8/30 NewOp 0355AF94  Op INTEGER  Value 0000000000000002  INTEGER->0000000000000002
+
+-> $$ = nterm Integer ()
+Stack now 0 2 6 9 11 12 13 14
+Entering state 17
+Reducing stack by rule 116 (line 1504):
+   $1 = nterm Integer ()
+
+UpdateOp: Old - INTEGER, New - BYTECONST
+-> $$ = nterm ByteConst ()
+Stack now 0 2 6 9 11 12 13 14
+Entering state 16
+Reading a token: Next token is token ',' ()
+Shifting token ',' ()
+Entering state 18
+Reading a token: Next token is token PARSEOP_STRING_LITERAL ()
+Shifting token PARSEOP_STRING_LITERAL ()
+Entering state 10
+Reducing stack by rule 147 (line 1585):
+   $1 = token PARSEOP_STRING_LITERAL ()
+
+CreateValuedLeafOp  Ln/Col 8/39 NewOp 0355B064  Op STRING_LITERAL  Value 000000000300B1A3  STRING->Intel
+
+-> $$ = nterm String ()
+Stack now 0 2 6 9 11 12 13 14 16 18
+Entering state 19
+Reading a token: Next token is token ',' ()
+Shifting token ',' ()
+Entering state 20
+Reading a token: Next token is token PARSEOP_STRING_LITERAL ()
+Shifting token PARSEOP_STRING_LITERAL ()
+Entering state 10
+Reducing stack by rule 147 (line 1585):
+   $1 = token PARSEOP_STRING_LITERAL ()
+
+CreateValuedLeafOp  Ln/Col 8/51 NewOp 0355B134  Op STRING_LITERAL  Value 000000000300B1A9  STRING->_OSDT_01
+
+-> $$ = nterm String ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20
+Entering state 21
+Reading a token: Next token is token ',' ()
+Shifting token ',' ()
+Entering state 22
+Reading a token: Next token is token PARSEOP_INTEGER ()
+Shifting token PARSEOP_INTEGER ()
+Entering state 15
+Reducing stack by rule 146 (line 1580):
+   $1 = token PARSEOP_INTEGER ()
+
+CreateValuedLeafOp  Ln/Col 8/63 NewOp 0355B204  Op INTEGER  Value 0000000000000001  INTEGER->0000000000000001
+
+-> $$ = nterm Integer ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22
+Entering state 24
+Reducing stack by rule 118 (line 1512):
+   $1 = nterm Integer ()
+
+UpdateOp: Old - INTEGER, New - DWORDCONST
+-> $$ = nterm DWordConst ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22
+Entering state 23
+Reading a token: Next token is token PARSEOP_CLOSE_PAREN ()
+Shifting token PARSEOP_CLOSE_PAREN ()
+Entering state 25
+Reducing stack by rule 4 (line 1182):
+-> $$ = nterm $@2 ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25
+Entering state 26
+Reading a token: Next token is token '{' ()
+Shifting token '{' ()
+Entering state 27
+Reducing stack by rule 45 (line 1317):
+-> $$ = nterm TermList ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27
+Entering state 28
+Reading a token: Next token is token PARSEOP_METHOD ()
+Shifting token PARSEOP_METHOD ()
+Entering state 100
+Reading a token: Next token is token PARSEOP_OPEN_PAREN ()
+Shifting token PARSEOP_OPEN_PAREN ()
+Entering state 350
+Reading a token: NameSeg: OS01
+Next token is token PARSEOP_NAMESEG ()
+Reducing stack by rule 493 (line 2602):
+
+CreateLeafOp  Ln/Col 10/16 NewOp 0355B2D4  Op METHOD
+
+-> $$ = nterm @62 ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350
+Entering state 543
+Next token is token PARSEOP_NAMESEG ()
+Shifting token PARSEOP_NAMESEG ()
+Entering state 106
+Reducing stack by rule 14 (line 1215):
+   $1 = token PARSEOP_NAMESEG ()
+
+CreateValuedLeafOp  Ln/Col 10/16 NewOp 0355B3A4  Op NAMESEG  Value 000000000300B1B2  NAMESEG->OS01
+
+-> $$ = nterm NameSeg ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543
+Entering state 167
+Reducing stack by rule 8 (line 1200):
+   $1 = nterm NameSeg ()
+-> $$ = nterm NameString ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543
+Entering state 802
+Reading a token: Next token is token PARSEOP_CLOSE_PAREN ()
+Reducing stack by rule 1094 (line 4619):
+-> $$ = nterm OptionalByteConstExpr ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802
+Entering state 1052
+Reducing stack by rule 494 (line 2604):
+-> $$ = nterm $@63 ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052
+Entering state 1196
+Next token is token PARSEOP_CLOSE_PAREN ()
+Reducing stack by rule 292 (line 1850):
+-> $$ = nterm OptionalSerializeRuleKeyword ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196
+Entering state 1378
+Next token is token PARSEOP_CLOSE_PAREN ()
+Reducing stack by rule 1094 (line 4619):
+-> $$ = nterm OptionalByteConstExpr ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196 1378
+Entering state 1476
+Next token is token PARSEOP_CLOSE_PAREN ()
+Reducing stack by rule 87 (line 1409):
+
+CreateLeafOp  Ln/Col 10/17 NewOp 0355B474  Op DEFAULT_ARG
+
+-> $$ = nterm OptionalParameterTypePackage ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196 1378 1476
+Entering state 1587
+Next token is token PARSEOP_CLOSE_PAREN ()
+Reducing stack by rule 94 (line 1429):
+
+CreateLeafOp  Ln/Col 10/17 NewOp 0355B544  Op DEFAULT_ARG
+
+-> $$ = nterm OptionalParameterTypesPackage ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196 1378 1476 1587
+Entering state 1717
+Next token is token PARSEOP_CLOSE_PAREN ()
+Shifting token PARSEOP_CLOSE_PAREN ()
+Entering state 1785
+Reading a token: Next token is token '{' ()
+Shifting token '{' ()
+Entering state 1879
+Reducing stack by rule 495 (line 2609):
+-> $$ = nterm $@64 ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196 1378 1476 1587 1717 1785 1879
+Entering state 1955
+Reducing stack by rule 45 (line 1317):
+-> $$ = nterm TermList ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28 100 350 543 802 1052 1196 1378 1476 1587 1717 1785 1879 1955
+Entering state 2027
+Reading a token: Next token is token '}' ()
+Shifting token '}' ()
+Entering state 2083
+Reducing stack by rule 496 (line 2601):
+   $1 = token PARSEOP_METHOD ()
+   $2 = token PARSEOP_OPEN_PAREN ()
+   $3 = nterm @62 ()
+   $4 = nterm NameString ()
+   $5 = nterm OptionalByteConstExpr ()
+   $6 = nterm $@63 ()
+   $7 = nterm OptionalSerializeRuleKeyword ()
+   $8 = nterm OptionalByteConstExpr ()
+   $9 = nterm OptionalParameterTypePackage ()
+   $10 = nterm OptionalParameterTypesPackage ()
+   $11 = token PARSEOP_CLOSE_PAREN ()
+   $12 = token '{' ()
+   $13 = nterm $@64 ()
+   $14 = nterm TermList ()
+   $15 = token '}' ()
+
+SetOpFlags: NAMESEG Op 0355B3A4, 00010000 OP_IS_NAME_DECLARATION
+
+
+LinkChildren  Line [10 to 12] NewParent 0355B2D4 Child 7 Op METHOD  0355B3A4, 00000000, 00000000, 00000000, 0355B474, 0355B544, 00000000, 
+
+-> $$ = nterm MethodTerm ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28
+Entering state 252
+Reducing stack by rule 164 (line 1616):
+   $1 = nterm MethodTerm ()
+-> $$ = nterm NamedObject ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28
+Entering state 183
+Reducing stack by rule 73 (line 1375):
+   $1 = nterm NamedObject ()
+-> $$ = nterm Object ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28
+Entering state 172
+Reducing stack by rule 15 (line 1223):
+   $1 = nterm Object ()
+-> $$ = nterm Term ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27 28
+Entering state 168
+Reading a token: Next token is token '}' ()
+Reducing stack by rule 46 (line 1318):
+   $1 = nterm TermList ()
+   $2 = nterm Term ()
+
+LinkPeerOp: 1=00000000 ((null)), 2=0355B2D4 (METHOD)
+-> $$ = nterm TermList ()
+Stack now 0 2 6 9 11 12 13 14 16 18 19 20 21 22 23 25 26 27
+Entering state 28
+Next token is token '}' ()
+Shifting token '}' ()
+Entering state 164
+Reducing stack by rule 5 (line 1174):
+   $1 = token PARSEOP_DEFINITION_BLOCK ()
+   $2 = token PARSEOP_OPEN_PAREN ()
+   $3 = nterm @1 ()
+   $4 = nterm String ()
+   $5 = token ',' ()
+   $6 = nterm String ()
+   $7 = token ',' ()
+   $8 = nterm ByteConst ()
+   $9 = token ',' ()
+   $10 = nterm String ()
+   $11 = token ',' ()
+   $12 = nterm String ()
+   $13 = token ',' ()
+   $14 = nterm DWordConst ()
+   $15 = token PARSEOP_CLOSE_PAREN ()
+   $16 = nterm $@2 ()
+   $17 = token '{' ()
+   $18 = nterm TermList ()
+   $19 = token '}' ()
+
+LinkChildren  Line [8 to 8] NewParent 0355AD24 Child 7 Op DEFINITION_BLOCK  DEFINITION_BLOCK (Tree Completed)->0355ADF4, 0355AEC4, 0355AF94, 0355B064, 0355B134, 0355B204, 0355B2D4, 
+
+-> $$ = nterm DefinitionBlockTerm ()
+Stack now 0
+Entering state 4
+Reading a token: 
+Pop InputFile Stack, Fnode 00000000
+Include: Closing "osdt.asl"
+
+Now at end of input.
+Reducing stack by rule 6 (line 1189):
+   $1 = nterm DefinitionBlockTerm ()
+-> $$ = nterm DefinitionBlockList ()
+Stack now 0
+Entering state 5
+Reducing stack by rule 1 (line 1148):
+   $1 = nterm DefinitionBlockList ()
+
+CreateLeafOp  Ln/Col 15/0 NewOp 0355B954  Op ASL_CODE
+
+
+LinkChildren  Line [15 to 15] NewParent 0355B954 Child 1 Op ASL_CODE  Creating subsequent Definition Block
+ASLCODE (Tree Completed)->0355AD24, 
+
+-> $$ = nterm AslCode ()
+Stack now 0
+Entering state 3
+Now at end of input.
+Shifting token $end ()
+Entering state 7
+Stack now 0 3 7
+Cleanup: popping token $end ()
+Cleanup: popping nterm AslCode ()
+
+Original parse tree from parser:
+
+                                                                  Value P_Op Flags     Line#  End# LogL# EndL#
+00015 [ 0] DEFAULT_ARG                                                  0148 00000000    15    15    15    15
+00008 [ 1]    DEFINITION_BLOCK                                          0149 00000000     8     8     8     8
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00008 [ 2]       DEFAULT_ARG                                            0148 00000000     8     0     8     0
+00010 [ 2]       METHOD                                                 01AF 00000002    10    12    10    12 OP_AML_PACKAGE
+00010 [ 3]          NAMESEG                                        DS01 01B8 00010000    10     0    10     0 OP_IS_NAME_DECLARATION
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00012 [ 3]          RAW_DATA                                            01EE 00000000    12     0    12     0
+00010 [ 3]          DEFAULT_ARG                                         0148 00000000    10     0    10     0
+00010 [ 3]          DEFAULT_ARG                                         0148 00000000    10     0    10     0
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00008 [ 1]    DEFINITION_BLOCK                                          0149 00000000     8     8     8     8
+00008 [ 2]       STRING_LITERAL                                         021F 00000000     8     0     8     0
+00008 [ 2]       STRING_LITERAL                                    OSDT 021F 00000000     8     0     8     0
+00008 [ 2]       BYTECONST                                           02 012F 00000000     8     0     8     0
+00008 [ 2]       STRING_LITERAL                                   Intel 021F 00000000     8     0     8     0
+00008 [ 2]       STRING_LITERAL                                _OSDT_01 021F 00000000     8     0     8     0
+00008 [ 2]       DWORDCONST                                    00000001 0154 00000000     8     0     8     0
+00010 [ 2]       METHOD                                                 01AF 00000000    10    12    10    12
+00010 [ 3]          NAMESEG                                        OS01 01B8 00010000    10     0    10     0 OP_IS_NAME_DECLARATION
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+00010 [ 3]          DEFAULT_ARG                                         0148 00000000    10     0    10     0
+00010 [ 3]          DEFAULT_ARG                                         0148 00000000    10     0    10     0
+00012 [ 3]          DEFAULT_ARG                                         0148 00000000    12     0    12     0
+                                                                  Value P_Op Flags     Line#  End# LogL# EndL#
+
+Parse tree transforms
+
+Generating AML opcodes
+

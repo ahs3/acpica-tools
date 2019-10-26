@@ -1,0 +1,337 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "pdtt.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0054) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : PDTT
+0000000B 00000183 00000021 00000030 00000000 00                        Table Length : 00000034
+0000000C 000001BC 00000025 00000030 00000000 00                            Revision : 01
+0000000D 000001EF 00000025 00000030 00000000 00                            Checksum : CB
+0000000E 00000222 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 0000025B 00000021 00000030 00000000 00                        Oem Table ID : Template
+00000010 00000296 00000021 00000030 00000000 00                        Oem Revision : 00000001
+00000011 000002CF 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 00000306 00000018 00000030 00000000 00               Asl Compiler Revision : 20170831
+00000014 00000341 00000020 00000030 00000000 00                       Trigger Count : 04
+00000015 00000374 00000025 00000030 00000000 00                            Reserved : 000000
+00000016 000003AB 00000021 00000030 00000000 00                        Array Offset : 0000002C
+00000018 000003E6 00000020 00000030 00000000 00                       Subchannel Id : AA
+00000019 00000419 00000018 00000030 00000000 00               Flags (Decoded Below) : 03
+0000001A 0000044C 0000001E 00000030 00000000 00                     Runtime Trigger : 1
+0000001B 0000047E 0000001A 00000030 00000000 00                 Wait for Completion : 1
+0000001C 000004B0 00000020 00000030 00000000 00                       Trigger Order : 0
+0000001E 000004E4 00000020 00000030 00000000 00                       Subchannel Id : BB
+0000001F 00000517 00000018 00000030 00000000 00               Flags (Decoded Below) : 02
+00000020 0000054A 0000001E 00000030 00000000 00                     Runtime Trigger : 0
+00000021 0000057C 0000001A 00000030 00000000 00                 Wait for Completion : 1
+00000022 000005AE 00000020 00000030 00000000 00                       Trigger Order : 0
+00000024 000005E2 00000020 00000030 00000000 00                       Subchannel Id : CC
+00000025 00000615 00000018 00000030 00000000 00               Flags (Decoded Below) : 01
+00000026 00000648 0000001E 00000030 00000000 00                     Runtime Trigger : 1
+00000027 0000067A 0000001A 00000030 00000000 00                 Wait for Completion : 0
+00000028 000006AC 00000020 00000030 00000000 00                       Trigger Order : 0
+0000002A 000006E0 00000020 00000030 00000000 00                       Subchannel Id : DD
+0000002B 00000713 00000018 00000030 00000000 00               Flags (Decoded Below) : 00
+0000002C 00000746 0000001E 00000030 00000000 00                     Runtime Trigger : 0
+0000002D 00000778 0000001A 00000030 00000000 00                 Wait for Completion : 0
+0000002E 000007AA 00000020 00000030 00000000 00                       Trigger Order : 0
+
+
+Full Integer expression: 00000034
+**** Input expression: 00000034  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 52 (0000000000000034)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: CB
+**** Input expression: CB  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 203 (00000000000000CB)
+Full Integer expression: 00000001
+**** Input expression: 00000001  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 04
+**** Input expression: 04  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 4 (0000000000000004)
+Full Integer expression: 000000
+**** Input expression: 000000  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 0000002C
+**** Input expression: 0000002C  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 44 (000000000000002C)
+Full Integer expression: AA
+**** Input expression: AA  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 170 (00000000000000AA)
+Full Integer expression: BB
+**** Input expression: BB  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 187 (00000000000000BB)
+Full Integer expression: CC
+**** Input expression: CC  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 204 (00000000000000CC)
+Full Integer expression: DD
+**** Input expression: DD  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 221 (00000000000000DD)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00001C9D 00                           Signature : PDTT
+0000000B 00000183 00000021 00000030 00001CA1 00                        Table Length : 00000034
+0000000C 000001BC 00000025 00000030 00001CA5 00                            Revision : 01
+0000000D 000001EF 00000025 00000030 00001CA6 00                            Checksum : CB
+0000000E 00000222 00000027 00000030 00001CA7 00                              Oem ID : INTEL 
+0000000F 0000025B 00000021 00000030 00001CAD 00                        Oem Table ID : Template
+00000010 00000296 00000021 00000030 00001CB5 00                        Oem Revision : 00000001
+00000011 000002CF 0000001E 00000030 00001CB9 01                     Asl Compiler ID : INTL
+00000012 00000306 00000018 00000030 00001CBD 01               Asl Compiler Revision : 20190703
+00000014 00000341 00000020 00000030 00001CC1 00                       Trigger Count : 04
+00000015 00000374 00000025 00000030 00001CC2 00                            Reserved : 000000
+00000016 000003AB 00000021 00000030 00001CC5 00                        Array Offset : 0000002C
+00000018 000003E6 00000020 00000030 00001CC9 00                       Subchannel Id : AA
+00000019 00000419 00000018 00000030 00001CCA 00               Flags (Decoded Below) : 03
+0000001A 0000044C 0000001E 00000030 00001CCB 00                     Runtime Trigger : 1
+0000001B 0000047E 0000001A 00000030 00001CCB 00                 Wait for Completion : 1
+0000001C 000004B0 00000020 00000030 00001CCB 00                       Trigger Order : 0
+0000001E 000004E4 00000020 00000030 00001CCB 00                       Subchannel Id : BB
+0000001F 00000517 00000018 00000030 00001CCC 00               Flags (Decoded Below) : 02
+00000020 0000054A 0000001E 00000030 00001CCD 00                     Runtime Trigger : 0
+00000021 0000057C 0000001A 00000030 00001CCD 00                 Wait for Completion : 1
+00000022 000005AE 00000020 00000030 00001CCD 00                       Trigger Order : 0
+00000024 000005E2 00000020 00000030 00001CCD 00                       Subchannel Id : CC
+00000025 00000615 00000018 00000030 00001CCE 00               Flags (Decoded Below) : 01
+00000026 00000648 0000001E 00000030 00001CCF 00                     Runtime Trigger : 1
+00000027 0000067A 0000001A 00000030 00001CCF 00                 Wait for Completion : 0
+00000028 000006AC 00000020 00000030 00001CCF 00                       Trigger Order : 0
+0000002A 000006E0 00000020 00000030 00001CCF 00                       Subchannel Id : DD
+0000002B 00000713 00000018 00000030 00001CD0 00               Flags (Decoded Below) : 00
+0000002C 00000746 0000001E 00000030 00001CD1 00                     Runtime Trigger : 0
+0000002D 00000778 0000001A 00000030 00001CD1 00                 Wait for Completion : 0
+0000002E 000007AA 00000020 00000030 00001CD1 00                       Trigger Order : 0
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 00000034 00000004 00000000 0306D144 00000000 0306D170 00000000
+[0001]            Trigger Count 00000008 00000008 00000000 00000000 0306D170 0306D144 00000000 0306D19C
+[0001]            Subchannel Id 00000002 00000002 00000000 00000000 0306D19C 0306D144 00000000 0306D1C8
+[0001]            Subchannel Id 00000002 00000002 00000000 00000000 0306D1C8 0306D144 00000000 03093E34
+[0001]            Subchannel Id 00000002 00000002 00000000 00000000 03093E34 0306D144 00000000 03093E60
+[0001]            Subchannel Id 00000002 00000002 00000000 00000000 03093E60 0306D144 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  0306D144 (24) - (34)
+[0001]            Trigger Count     0306D170 (08) - (08)
+[0001]            Subchannel Id     0306D19C (02) - (02)
+[0001]            Subchannel Id     0306D1C8 (02) - (02)
+[0001]            Subchannel Id     03093E34 (02) - (02)
+[0001]            Subchannel Id     03093E60 (02) - (02)
+

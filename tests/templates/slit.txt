@@ -1,0 +1,251 @@
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20190703 (32-bit version)
+Copyright (c) 2000 - 2019 Intel Corporation
+
+Compilation of "slit.asl" - Fri Aug  2 08:55:58 2019
+
+Starting preprocessing phase
+
+
+Pr(0092) - Pop InputFile Stack, Fnode 00000000
+
+Preprocessing phase complete 
+
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 00000000 00                           Signature : SLIT
+0000000B 00000188 00000021 00000030 00000000 00                        Table Length : 000001BC
+0000000C 000001C1 00000025 00000030 00000000 00                            Revision : 01
+0000000D 000001F4 00000025 00000030 00000000 00                            Checksum : 00
+0000000E 00000227 00000027 00000030 00000000 00                              Oem ID : INTEL 
+0000000F 00000260 00000021 00000030 00000000 00                        Oem Table ID : TEMPLATE
+00000010 0000029B 00000021 00000030 00000000 00                        Oem Revision : 00000001
+00000011 000002D4 0000001E 00000030 00000000 00                     Asl Compiler ID : INTL
+00000012 0000030B 00000018 00000030 00000000 00               Asl Compiler Revision : 20110316
+00000014 00000346 00000023 00000030 00000000 00                          Localities : 0000000000000014
+00000016 000003E9 00000021 00000030 00000000 00                        Locality   0 : 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22 23                                                 24 25 26 27
+00000018 00000487 00000021 00000030 00000000 00                        Locality   1 : 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22                                                 23 24 25 26
+0000001A 00000525 00000021 00000030 00000000 00                        Locality   2 : 16 15 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21                                                 22 23 24 25
+0000001C 000005C3 00000021 00000030 00000000 00                        Locality   3 : 17 16 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E 1F 20                                                 21 22 23 24
+0000001E 00000661 00000021 00000030 00000000 00                        Locality   4 : 18 17 16 15 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F                                                 20 21 22 23
+00000020 000006FF 00000021 00000030 00000000 00                        Locality   5 : 19 18 17 16 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E                                                 1F 20 21 22
+00000022 0000079D 00000021 00000030 00000000 00                        Locality   6 : 1A 19 18 17 16 15 0A 10 16 17 18 19 1A 1B 1C 1D                                                 1E 1F 20 21
+00000024 0000083B 00000021 00000030 00000000 00                        Locality   7 : 1B 1A 19 18 17 16 10 0A 15 16 17 18 19 1A 1B 1C                                                 1D 1E 1F 20
+00000026 000008D9 00000021 00000030 00000000 00                        Locality   8 : 1C 1B 1A 19 18 17 16 15 0A 10 16 17 18 19 1A 1B                                                 1C 1D 1E 1F
+00000028 00000977 00000021 00000030 00000000 00                        Locality   9 : 1D 1C 1B 1A 19 18 17 16 10 0A 15 16 17 18 19 1A                                                 1B 1C 1D 1E
+0000002A 00000A15 00000021 00000030 00000000 00                        Locality  10 : 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10 16 17 18 19                                                 1A 1B 1C 1D
+0000002C 00000AB3 00000021 00000030 00000000 00                        Locality  11 : 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A 15 16 17 18                                                 19 1A 1B 1C
+0000002E 00000B51 00000021 00000030 00000000 00                        Locality  12 : 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10 16 17                                                 18 19 1A 1B
+00000030 00000BEF 00000021 00000030 00000000 00                        Locality  13 : 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A 15 16                                                 17 18 19 1A
+00000032 00000C8D 00000021 00000030 00000000 00                        Locality  14 : 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10                                                 16 17 18 19
+00000034 00000D2B 00000021 00000030 00000000 00                        Locality  15 : 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A                                                 15 16 17 18
+00000036 00000DC9 00000021 00000030 00000000 00                        Locality  16 : 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15                                                 0A 10 16 17
+00000038 00000E67 00000021 00000030 00000000 00                        Locality  17 : 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16                                                 10 0A 15 16
+0000003A 00000F05 00000021 00000030 00000000 00                        Locality  18 : 26 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17                                                 16 15 0A 10
+0000003C 00000FA3 00000021 00000030 00000000 00                        Locality  19 : 27 26 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18                                                 17 16 10 0A
+
+
+Full Integer expression: 000001BC
+**** Input expression: 000001BC  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 444 (00000000000001BC)
+Full Integer expression: 01
+**** Input expression: 01  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 00
+**** Input expression: 00  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 0 (0000000000000000)
+Full Integer expression: 00000001
+**** Input expression: 00000001  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 1 (0000000000000001)
+Full Integer expression: 20190703
+**** Input expression: 20190703  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 538511107 (0000000020190703)
+Full Integer expression: 0000000000000014
+**** Input expression: 0000000000000014  (Base 16)
+Starting parse
+Entering state 0
+Reading a token: Next token is token OP_EXP_NUMBER ()
+Shifting token OP_EXP_NUMBER ()
+Entering state 1
+Reducing stack by rule 25 (line 286):
+   $1 = token OP_EXP_NUMBER ()
+-> $$ = nterm Expression ()
+Stack now 0
+Entering state 9
+Reading a token: Next token is token OP_EXP_EOF ()
+Shifting token OP_EXP_EOF ()
+Entering state 14
+Reducing stack by rule 2 (line 237):
+   $1 = nterm Expression ()
+   $2 = token OP_EXP_EOF ()
+**** Parser returned value: 20 (0000000000000014)
+
+Field List:
+LineNo   ByteOff  NameCol  Column   TableOff Flags                             Name : Value
+
+0000000A 0000012A 00000024 00000030 000020DF 00                           Signature : SLIT
+0000000B 00000188 00000021 00000030 000020E3 00                        Table Length : 000001BC
+0000000C 000001C1 00000025 00000030 000020E7 00                            Revision : 01
+0000000D 000001F4 00000025 00000030 000020E8 00                            Checksum : 00
+0000000E 00000227 00000027 00000030 000020E9 00                              Oem ID : INTEL 
+0000000F 00000260 00000021 00000030 000020EF 00                        Oem Table ID : TEMPLATE
+00000010 0000029B 00000021 00000030 000020F7 00                        Oem Revision : 00000001
+00000011 000002D4 0000001E 00000030 000020FB 01                     Asl Compiler ID : INTL
+00000012 0000030B 00000018 00000030 000020FF 01               Asl Compiler Revision : 20190703
+00000014 00000346 00000023 00000030 00002103 00                          Localities : 0000000000000014
+00000016 000003E9 00000021 00000030 00000000 00                        Locality   0 : 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22 23                                                 24 25 26 27
+00000018 00000487 00000021 00000030 00000000 00                        Locality   1 : 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22                                                 23 24 25 26
+0000001A 00000525 00000021 00000030 00000000 00                        Locality   2 : 16 15 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21                                                 22 23 24 25
+0000001C 000005C3 00000021 00000030 00000000 00                        Locality   3 : 17 16 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E 1F 20                                                 21 22 23 24
+0000001E 00000661 00000021 00000030 00000000 00                        Locality   4 : 18 17 16 15 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F                                                 20 21 22 23
+00000020 000006FF 00000021 00000030 00000000 00                        Locality   5 : 19 18 17 16 10 0A 15 16 17 18 19 1A 1B 1C 1D 1E                                                 1F 20 21 22
+00000022 0000079D 00000021 00000030 00000000 00                        Locality   6 : 1A 19 18 17 16 15 0A 10 16 17 18 19 1A 1B 1C 1D                                                 1E 1F 20 21
+00000024 0000083B 00000021 00000030 00000000 00                        Locality   7 : 1B 1A 19 18 17 16 10 0A 15 16 17 18 19 1A 1B 1C                                                 1D 1E 1F 20
+00000026 000008D9 00000021 00000030 00000000 00                        Locality   8 : 1C 1B 1A 19 18 17 16 15 0A 10 16 17 18 19 1A 1B                                                 1C 1D 1E 1F
+00000028 00000977 00000021 00000030 00000000 00                        Locality   9 : 1D 1C 1B 1A 19 18 17 16 10 0A 15 16 17 18 19 1A                                                 1B 1C 1D 1E
+0000002A 00000A15 00000021 00000030 00000000 00                        Locality  10 : 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10 16 17 18 19                                                 1A 1B 1C 1D
+0000002C 00000AB3 00000021 00000030 00000000 00                        Locality  11 : 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A 15 16 17 18                                                 19 1A 1B 1C
+0000002E 00000B51 00000021 00000030 00000000 00                        Locality  12 : 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10 16 17                                                 18 19 1A 1B
+00000030 00000BEF 00000021 00000030 00000000 00                        Locality  13 : 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A 15 16                                                 17 18 19 1A
+00000032 00000C8D 00000021 00000030 00000000 00                        Locality  14 : 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15 0A 10                                                 16 17 18 19
+00000034 00000D2B 00000021 00000030 00000000 00                        Locality  15 : 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 10 0A                                                 15 16 17 18
+00000036 00000DC9 00000021 00000030 00000000 00                        Locality  16 : 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16 15                                                 0A 10 16 17
+00000038 00000E67 00000021 00000030 00000000 00                        Locality  17 : 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17 16                                                 10 0A 15 16
+0000003A 00000F05 00000021 00000030 00000000 00                        Locality  18 : 26 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18 17                                                 16 15 0A 10
+0000003C 00000FA3 00000021 00000030 00000000 00                        Locality  19 : 27 26 25 24 23 22 21 20 1F 1E 1D 1C 1B 1A 19 18                                                 17 16 10 0A
+
+
+Subtable Info:
+Depth                      Name Length   TotalLen LenSize  Flags    This     Parent   Child    Peer
+
+[0000]                Signature 00000024 000001BC 00000004 00000000 03094884 00000000 030948B0 00000000
+[0001]               Localities 00000008 00000008 00000000 00000000 030948B0 03094884 00000000 030948DC
+[0001]                   (null) 00000014 00000014 00000000 00000000 030948DC 03094884 00000000 03094908
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094908 03094884 00000000 03094934
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094934 03094884 00000000 03094960
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094960 03094884 00000000 0309498C
+[0001]                   (null) 00000014 00000014 00000000 00000000 0309498C 03094884 00000000 030949B8
+[0001]                   (null) 00000014 00000014 00000000 00000000 030949B8 03094884 00000000 030949E4
+[0001]                   (null) 00000014 00000014 00000000 00000000 030949E4 03094884 00000000 03094A10
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094A10 03094884 00000000 03094A3C
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094A3C 03094884 00000000 03094A68
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094A68 03094884 00000000 03094A94
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094A94 03094884 00000000 03094AC0
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094AC0 03094884 00000000 03094AEC
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094AEC 03094884 00000000 03094B18
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094B18 03094884 00000000 03094B44
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094B44 03094884 00000000 03094B70
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094B70 03094884 00000000 03094B9C
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094B9C 03094884 00000000 03094BC8
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094BC8 03094884 00000000 03094BF4
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094BF4 03094884 00000000 03094C20
+[0001]                   (null) 00000014 00000014 00000000 00000000 03094C20 03094884 00000000 00000000
+
+Subtable Tree: (Depth, Name, Subtable, Length, TotalLength)
+
+[0000]                Signature  03094884 (24) - (1BC)
+[0001]               Localities     030948B0 (08) - (08)
+[0001]                   (null)     030948DC (14) - (14)
+[0001]                   (null)     03094908 (14) - (14)
+[0001]                   (null)     03094934 (14) - (14)
+[0001]                   (null)     03094960 (14) - (14)
+[0001]                   (null)     0309498C (14) - (14)
+[0001]                   (null)     030949B8 (14) - (14)
+[0001]                   (null)     030949E4 (14) - (14)
+[0001]                   (null)     03094A10 (14) - (14)
+[0001]                   (null)     03094A3C (14) - (14)
+[0001]                   (null)     03094A68 (14) - (14)
+[0001]                   (null)     03094A94 (14) - (14)
+[0001]                   (null)     03094AC0 (14) - (14)
+[0001]                   (null)     03094AEC (14) - (14)
+[0001]                   (null)     03094B18 (14) - (14)
+[0001]                   (null)     03094B44 (14) - (14)
+[0001]                   (null)     03094B70 (14) - (14)
+[0001]                   (null)     03094B9C (14) - (14)
+[0001]                   (null)     03094BC8 (14) - (14)
+[0001]                   (null)     03094BF4 (14) - (14)
+[0001]                   (null)     03094C20 (14) - (14)
+
