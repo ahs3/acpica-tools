@@ -1,7 +1,7 @@
-Index: acpica-unix-20180508/generate/unix/Makefile.config
+Index: acpica-unix-20190816/generate/unix/Makefile.config
 ===================================================================
---- acpica-unix-20180508.orig/generate/unix/Makefile.config
-+++ acpica-unix-20180508/generate/unix/Makefile.config
+--- acpica-unix-20190816.orig/generate/unix/Makefile.config
++++ acpica-unix-20190816/generate/unix/Makefile.config
 @@ -23,6 +23,9 @@
  # OPT_CFLAGS can be overridden on the make command line by
  #   adding OPT_CFLAGS="..." to the invocation.
@@ -12,7 +12,7 @@ Index: acpica-unix-20180508/generate/unix/Makefile.config
  # Notes:
  #   gcc should be version 4 or greater, otherwise some of the options
  #     used will not be recognized.
-@@ -157,6 +160,11 @@ LDFLAGS +=-m32
+@@ -165,6 +168,11 @@ LDFLAGS +=-m32
  endif
  
  #
