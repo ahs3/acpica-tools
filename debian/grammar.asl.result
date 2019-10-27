@@ -37,6 +37,9 @@ Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
 
+grammar.asl    631:         Processor(CPU0,0x0,0xFFFFFFFF,0x0) {}
+Warning  3168 -                         ^ Legacy Processor() keyword detected. Use Device() keyword instead.
+
 grammar.asl    668:     Method(SMWE, 4)
 Remark   2146 -                  ^ Method Argument is never used (Arg0)
 
@@ -371,4 +374,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl -  323653 bytes   4818 keywords  10284 source lines
 AML Output:    grammar.aml -   43758 bytes   4148 opcodes     670 named objects
 
-Compilation successful. 6 Errors, 88 Warnings, 27 Remarks, 1106 Optimizations
+Compilation successful. 6 Errors, 89 Warnings, 27 Remarks, 1106 Optimizations
