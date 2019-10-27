@@ -8,11 +8,11 @@ From: Al Stone <ahs3@redhat.com>
  generate/unix/iasl/Makefile   |   13 +++++++------
  2 files changed, 9 insertions(+), 6 deletions(-)
 
-Index: acpica-unix-20180508/generate/unix/Makefile.config
+Index: acpica-unix-20190816/generate/unix/Makefile.config
 ===================================================================
---- acpica-unix-20180508.orig/generate/unix/Makefile.config
-+++ acpica-unix-20180508/generate/unix/Makefile.config
-@@ -182,6 +182,8 @@ ifneq ($(NOFORTIFY),TRUE)
+--- acpica-unix-20190816.orig/generate/unix/Makefile.config
++++ acpica-unix-20190816/generate/unix/Makefile.config
+@@ -190,6 +190,8 @@ ifneq ($(NOFORTIFY),TRUE)
  OPT_CFLAGS += -D_FORTIFY_SOURCE=2
  endif
  
@@ -21,11 +21,11 @@ Index: acpica-unix-20180508/generate/unix/Makefile.config
  CFLAGS += \
      -D$(HOST)\
      -D_GNU_SOURCE\
-Index: acpica-unix-20180508/generate/unix/iasl/Makefile
+Index: acpica-unix-20190816/generate/unix/iasl/Makefile
 ===================================================================
---- acpica-unix-20180508.orig/generate/unix/iasl/Makefile
-+++ acpica-unix-20180508/generate/unix/iasl/Makefile
-@@ -344,26 +344,27 @@ $(OBJDIR)/prparserparse.c $(OBJDIR)/prpa
+--- acpica-unix-20190816.orig/generate/unix/iasl/Makefile
++++ acpica-unix-20190816/generate/unix/iasl/Makefile
+@@ -358,34 +358,35 @@ $(OBJDIR)/prparserparse.c $(OBJDIR)/prpa
  # Cannot use the common compile warning flags since the C files are created
  # by the utilities above and they are not necessarily ANSI C, etc.
  #
@@ -36,6 +36,16 @@ Index: acpica-unix-20180508/generate/unix/iasl/Makefile
 +	@$(CC) -c $(CFLAGS) $(HARDENING_FLAGS) -Wall -Werror -o$@ $<
  
  $(OBJDIR)/aslcompilerparse.o : $(OBJDIR)/aslcompilerparse.c
+ 	@echo "- " "Intermediate" $<
+-	@$(CC) -c $(CFLAGS) -Wall -Werror -o$@ $<
++	@$(CC) -c $(CFLAGS) $(HARDENING_FLAGS) -Wall -Werror -o$@ $<
+ 
+ $(OBJDIR)/dtcompilerparserlex.o :      $(OBJDIR)/dtcompilerparserlex.c
+ 	@echo "- " "Intermediate" $<
+-	@$(CC) -c $(CFLAGS) -Wall -Werror -o$@ $<
++	@$(CC) -c $(CFLAGS) $(HARDENING_FLAGS) -Wall -Werror -o$@ $<
+ 
+ $(OBJDIR)/dtcompilerparserparse.o :    $(OBJDIR)/dtcompilerparserparse.c
  	@echo "- " "Intermediate" $<
 -	@$(CC) -c $(CFLAGS) -Wall -Werror -o$@ $<
 +	@$(CC) -c $(CFLAGS) $(HARDENING_FLAGS) -Wall -Werror -o$@ $<
