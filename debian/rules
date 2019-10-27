@@ -77,5 +77,5 @@ endif
 override_dh_auto_build:
 	dh_auto_build -- OPT_CFLAGS="$(CFLAGS)" CC=$(CC)
 
-override_dh_auto_install:
-	dh_auto_install -- INSTALL='install --strip-program=true'
+#override_dh_auto_install:
+#	dh_auto_install -- INSTALL='install --strip-program=true'
