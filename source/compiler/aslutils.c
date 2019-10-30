@@ -115,7 +115,7 @@ UtQueryForOverwrite (
     char                    *Pathname)
 {
     struct stat             StatInfo;
-    int                     InChar = 0x34;
+    int                     InChar;
 
 
     if (!stat (Pathname, &StatInfo))

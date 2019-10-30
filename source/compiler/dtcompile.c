@@ -168,7 +168,10 @@ DtDoCompile (
 
     if (ACPI_FAILURE (Status))
     {
-        FileNode->ParserErrorDetected = TRUE;
+        if (FileNode)
+        {
+            FileNode->ParserErrorDetected = TRUE;
+        }
 
         /* TBD: temporary error message. Msgs should come from function above */
 
@@ -464,7 +467,7 @@ DtCompileTable (
     ACPI_STATUS             Status = AE_OK;
 
 
-    if (!Field)
+    if (!Field || !Info)
     {
         return (AE_BAD_PARAMETER);
     }
@@ -534,6 +537,14 @@ DtCompileTable (
 
         FieldType = DtGetFieldType (Info);
         AslGbl_InputFieldCount++;
+
+        if (FieldType != DT_FIELD_TYPE_INLINE_SUBTABLE &&
+            strcmp (Info->Name, LocalField->Name))
+        {
+            sprintf (AslGbl_MsgBuffer, "found \"%s\" expected \"%s\"",
+                LocalField->Name, Info->Name);
+            DtError (ASL_ERROR, ASL_MSG_INVALID_LABEL, LocalField, AslGbl_MsgBuffer);
+        }
 
         switch (FieldType)
         {
