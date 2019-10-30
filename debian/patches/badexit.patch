@@ -1,0 +1,17 @@
+When iasl is invoked with 'iasl -T ALL', and everything works correctly,
+it still exits with a non-zero value.  Exit with zero if all is well.
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+
+diff -Naur acpica-unix2-20190816/source/compiler/asloptions.c acpica-unix2-20190816.fix/source/compiler/asloptions.c
+--- acpica-unix2-20190816/source/compiler/asloptions.c	2019-08-16 09:01:30.000000000 -0600
++++ acpica-unix2-20190816.fix/source/compiler/asloptions.c	2019-10-29 15:52:40.987156555 -0600
+@@ -111,7 +111,7 @@
+         {
+             exit (-1);
+         }
+-        exit (1);
++        exit (0);
+     }
+ 
+     /* Next parameter must be the input filename */

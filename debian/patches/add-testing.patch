@@ -2,7 +2,7 @@ Index: acpica-unix-20180508/Makefile
 ===================================================================
 --- acpica-unix-20180508.orig/Makefile
 +++ acpica-unix-20180508/Makefile
-@@ -20,3 +20,22 @@ else
+@@ -20,3 +20,11 @@ else
  	include generate/unix/Makefile.config
  	include generate/unix/Makefile.common
  endif
@@ -13,15 +13,4 @@ Index: acpica-unix-20180508/Makefile
 +
 +	# misc tests
 +	$(CURDIR)/debian/run-misc-tests.sh $(CURDIR) 20190816
-+
-+	# Template tests
-+	cd $(CURDIR)/tests/templates
-+	make
-+	if [ -f diff.log ] ; \
-+	then \
-+		if [ -s diff.log ] ; \
-+		then \
-+			exit 1		# implies errors occurred ; \
-+		fi ; \
-+	fi
 +

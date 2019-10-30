@@ -2,6 +2,9 @@ acpica-unix (20190816-1) UNRELEASED; urgency=medium
 
   * Upgrade to 20190816 upstream
   * Refresh patches as needed
+  * Add patch to fix incorrect exit from iasl
+  * The template tests have since been subsumed by aslts.sh, so remove
+    them as an independent test
 
  -- Al Stone <ahs3@debian.org>  Sat, 26 Oct 2019 17:09:09 -0600
 
