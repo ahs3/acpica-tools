@@ -1,9 +1,10 @@
-acpica-unix (20190816-1) unstable; urgency=medium
+acpica-unix (20191018-1) unstable; urgency=medium
 
   * Upgrade to 20191018 upstream
   * Refresh patches as needed
+  * Broke out some patches that tend to be more fragile than others
 
- -- Al Stone <ahs3@debian.org>  Wed, 30 Oct 2019 15:09:26 -0600
+ -- Al Stone <ahs3@debian.org>  Sat, 23 Nov 2019 12:12:21 -0700
 
 acpica-unix (20190816-1) UNRELEASED; urgency=medium
 

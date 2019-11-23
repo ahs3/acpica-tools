@@ -1,5 +1,9 @@
 fix_ftbfs_debian-kfreebsd.patch
 big-endian.patch
+big-endian-dmtbdump.patch
+big-endian-dmtbdump1.patch
+big-endian-dmtbdump2.patch
+big-endian-dmtbdump3.patch
 unaligned.patch
 fix_ftbfs_debian-hurd.patch
 add-testing.patch

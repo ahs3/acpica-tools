@@ -1,7 +1,7 @@
-Index: acpica-unix-20190703/source/compiler/aslanalyze.c
+Index: acpica-unix-20191018/source/compiler/aslanalyze.c
 ===================================================================
---- acpica-unix-20190703.orig/source/compiler/aslanalyze.c
-+++ acpica-unix-20190703/source/compiler/aslanalyze.c
+--- acpica-unix-20191018.orig/source/compiler/aslanalyze.c
++++ acpica-unix-20191018/source/compiler/aslanalyze.c
 @@ -355,11 +355,16 @@ AnCheckMethodReturnValue (
           */
          if (ThisNodeBtype != 0)
@@ -21,10 +21,10 @@ Index: acpica-unix-20190703/source/compiler/aslanalyze.c
          }
      }
  }
-Index: acpica-unix-20190703/source/compiler/aslpredef.c
+Index: acpica-unix-20191018/source/compiler/aslpredef.c
 ===================================================================
---- acpica-unix-20190703.orig/source/compiler/aslpredef.c
-+++ acpica-unix-20190703/source/compiler/aslpredef.c
+--- acpica-unix-20191018.orig/source/compiler/aslpredef.c
++++ acpica-unix-20191018/source/compiler/aslpredef.c
 @@ -159,14 +159,19 @@ ApCheckForPredefinedMethod (
          if (MethodInfo->NumReturnNoValue &&
              ThisName->Info.ExpectedBtypes)
@@ -84,10 +84,10 @@ Index: acpica-unix-20190703/source/compiler/aslpredef.c
      return (AE_TYPE);
  }
  
-Index: acpica-unix-20190703/source/compiler/aslwalks.c
+Index: acpica-unix-20191018/source/compiler/aslwalks.c
 ===================================================================
---- acpica-unix-20190703.orig/source/compiler/aslwalks.c
-+++ acpica-unix-20190703/source/compiler/aslwalks.c
+--- acpica-unix-20191018.orig/source/compiler/aslwalks.c
++++ acpica-unix-20191018/source/compiler/aslwalks.c
 @@ -515,15 +515,19 @@ AnOperandTypecheckWalkEnd (
              else if (!CommonBtypes)
              {

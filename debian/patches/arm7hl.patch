@@ -1,7 +1,7 @@
-Index: acpica-unix-20180508/source/include/acmacros.h
+Index: acpica-unix-20191018/source/include/acmacros.h
 ===================================================================
---- acpica-unix-20180508.orig/source/include/acmacros.h
-+++ acpica-unix-20180508/source/include/acmacros.h
+--- acpica-unix-20191018.orig/source/include/acmacros.h
++++ acpica-unix-20191018/source/include/acmacros.h
 @@ -178,6 +178,8 @@
  
  /* 16-bit source, 16/32/64 destination */

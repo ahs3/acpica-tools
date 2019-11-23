@@ -1,7 +1,7 @@
-Index: acpica-unix-20180508/Makefile
+Index: acpica-unix-20191018/Makefile
 ===================================================================
---- acpica-unix-20180508.orig/Makefile
-+++ acpica-unix-20180508/Makefile
+--- acpica-unix-20191018.orig/Makefile
++++ acpica-unix-20191018/Makefile
 @@ -20,3 +20,11 @@ else
  	include generate/unix/Makefile.config
  	include generate/unix/Makefile.common
