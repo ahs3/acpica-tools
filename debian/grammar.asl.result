@@ -67,6 +67,9 @@ Remark   2146 -                  ^ Method Argument is never used (Arg3)
 grammar.asl    701:             CreateField (\_SB_.SBUF, 148, 96, FLDV)
 Remark   2089 -                            Object is not referenced ^  (Name [FLDV] is within a method [_INI])
 
+grammar.asl    705:         Device(PCI0)
+Warning  3073 -       Multiple types ^  (Device object requires either a _HID or _ADR, but not both)
+
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
 
@@ -187,6 +190,9 @@ Warning  3144 -                                  ^ Method Local is set but never
 grammar.asl   2889:         Device (RTLV)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   2989:         Device (PCI1)
+Warning  3073 -        Multiple types ^  (Device object requires either a _HID or _ADR, but not both)
+
 grammar.asl   2993:             Name (_CRS,0)
 Error    6105 -                           ^ Invalid object type for reserved name (_CRS: found Integer, Buffer required)
 
@@ -301,6 +307,9 @@ Warning  3144 -          Method Local is set but never used ^  (Local6)
 grammar.asl   6393:     Device (IDX5)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6474:         Device (PCI2)
+Warning  3073 -        Multiple types ^  (Device object requires either a _HID or _ADR, but not both)
+
 grammar.asl   6478:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
 Warning  3046 -        Invalid or unknown escape sequence ^ 
 
@@ -374,4 +383,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl -  323653 bytes   4818 keywords  10284 source lines
 AML Output:    grammar.aml -   43758 bytes   4148 opcodes     670 named objects
 
-Compilation successful. 6 Errors, 89 Warnings, 27 Remarks, 1106 Optimizations
+Compilation successful. 6 Errors, 92 Warnings, 27 Remarks, 1106 Optimizations
