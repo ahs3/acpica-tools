@@ -699,7 +699,6 @@ AcpiDbWalkForFields (
 }
 
 
-
 /*******************************************************************************
  *
  * FUNCTION:    AcpiDbWalkForSpecificObjects

@@ -1554,6 +1554,7 @@ DtCompileSlit (
             "Found %u entries, must match LocalityCount: %u",
             LocalityListLength, Localities);
         DtError (ASL_ERROR, ASL_MSG_ENTRY_LIST, EndOfFieldList, AslGbl_MsgBuffer);
+        ACPI_FREE (LocalityBuffer);
         return (AE_LIMIT);
     }
 

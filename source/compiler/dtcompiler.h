@@ -351,7 +351,6 @@ DtCreateTableUnit (
     UINT32                  Column);
 
 
-
 /* dtparser - lex/yacc files */
 
 UINT64                      DtCompilerParserResult; /* Expression return value */
