@@ -1,24 +1,24 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190816 (32-bit version)
+ * AML/ASL+ Disassembler version 20191018 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of grammar.aml, Wed Aug 21 07:49:43 2019
+ * Disassembly of grammar.aml, Fri Nov 22 09:38:50 2019
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000AAEE (43758)
+ *     Length           0x0000AAD0 (43728)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x9A
+ *     Checksum         0x5D
  *     OEM ID           "Intel"
  *     OEM Table ID     "GRMTEST"
  *     OEM Revision     0x20090511 (537462033)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20190816 (538511382)
+ *     Compiler Version 0x20191018 (538513432)
  */
-DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
+DefinitionBlock ("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
 {
     External (ABCD, UnknownObj)
 
@@ -953,245 +953,245 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = \IFEL.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x040D)
+            ERR (One, 0x055E)
             Return (Local0)
         }
 
         Local0 = \NOSV.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0414)
+            ERR (One, 0x0565)
             Return (Local0)
         }
 
         Local0 = \IDXF.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x041B)
+            ERR (One, 0x056C)
             Return (Local0)
         }
 
         Local0 = \_SB.NSTL.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0422)
+            ERR (One, 0x0573)
             Return (Local0)
         }
 
         Local0 = \RTBF.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0429)
+            ERR (One, 0x057A)
             Return (Local0)
         }
 
         Local0 = \_SB.RTLV.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0430)
+            ERR (One, 0x0581)
             Return (Local0)
         }
 
         Local0 = \_SB.RETP.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0437)
+            ERR (One, 0x0588)
             Return (Local0)
         }
 
         Local0 = \WHLR.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x043E)
+            ERR (One, 0x058F)
             Return (Local0)
         }
 
         Local0 = \ANDO.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0445)
+            ERR (One, 0x0596)
             Return (Local0)
         }
 
         Local0 = \BRKP.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x044C)
+            ERR (One, 0x059D)
             Return (Local0)
         }
 
         Local0 = \ADSU.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0453)
+            ERR (One, 0x05A4)
             Return (Local0)
         }
 
         Local0 = \INDC.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x045A)
+            ERR (One, 0x05AB)
             Return (Local0)
         }
 
         Local0 = \LOPS.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0461)
+            ERR (One, 0x05B2)
             Return (Local0)
         }
 
         Local0 = \FDSO.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0468)
+            ERR (One, 0x05B9)
             Return (Local0)
         }
 
         Local0 = \MLDV.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x046F)
+            ERR (One, 0x05C0)
             Return (Local0)
         }
 
         Local0 = \NBIT.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0476)
+            ERR (One, 0x05C7)
             Return (Local0)
         }
 
         Local0 = \SHFT.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x047D)
+            ERR (One, 0x05CE)
             Return (Local0)
         }
 
         Local0 = \XORD.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0484)
+            ERR (One, 0x05D5)
             Return (Local0)
         }
 
         Local0 = \CRBF.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x048B)
+            ERR (One, 0x05DC)
             Return (Local0)
         }
 
         Local0 = \IDX4.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0492)
+            ERR (One, 0x05E3)
             Return (Local0)
         }
 
         Local0 = \EVNT.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x0499)
+            ERR (One, 0x05EA)
             Return (Local0)
         }
 
         Local0 = \SZLV.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04A0)
+            ERR (One, 0x05F1)
             Return (Local0)
         }
 
         Local0 = \_SB.BYTF.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04A7)
+            ERR (One, 0x05F8)
             Return (Local0)
         }
 
         Local0 = \DWDF.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04AE)
+            ERR (One, 0x05FF)
             Return (Local0)
         }
 
         Local0 = \DVAX.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04B5)
+            ERR (One, 0x0606)
             Return (Local0)
         }
 
         Local0 = \IDX6.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04BC)
+            ERR (One, 0x060D)
             Return (Local0)
         }
 
         Local0 = \IDX5.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04C3)
+            ERR (One, 0x0614)
             Return (Local0)
         }
 
         Local0 = \_SB.IDX0.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04CA)
+            ERR (One, 0x061B)
             Return (Local0)
         }
 
         Local0 = \_SB.IDX3.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04D1)
+            ERR (One, 0x0622)
             Return (Local0)
         }
 
         Local0 = \IDX7.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04D8)
+            ERR (One, 0x0629)
             Return (Local0)
         }
 
         Local0 = \MTCH.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04DF)
+            ERR (One, 0x0630)
             Return (Local0)
         }
 
         Local0 = \WHLB.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04E6)
+            ERR (One, 0x0637)
             Return (Local0)
         }
 
         Local0 = \_SB.IDX2.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04ED)
+            ERR (One, 0x063E)
             Return (Local0)
         }
 
         Local0 = \SIZO.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04F4)
+            ERR (One, 0x0645)
             Return (Local0)
         }
 
         Local0 = \_SB.SMIS.TEST ()
         If ((Local0 > Zero))
         {
-            ERR (One, 0x04FB)
+            ERR (One, 0x064C)
             Return (Local0)
         }
 
@@ -1235,14 +1235,14 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = BIT2 /* \FLDS.BIT2 */
         If ((Local0 != One))
         {
-            ERR (One, 0x0537)
+            ERR (One, 0x0688)
         }
         Else
         {
             Local0 = DerefOf (BUF2 [Zero])
             If ((Local0 != 0x08))
             {
-                ERR (One, 0x053E)
+                ERR (One, 0x068F)
             }
             Else
             {
@@ -1254,7 +1254,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = BYT2 /* \FLDS.BYT2 */
         If ((Local0 != 0x1A))
         {
-            ERR (One, 0x054A)
+            ERR (One, 0x069B)
         }
         Else
         {
@@ -1265,7 +1265,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = WRD2 /* \FLDS.WRD2 */
         If ((Local0 != 0x1234))
         {
-            ERR (One, 0x0555)
+            ERR (One, 0x06A6)
         }
         Else
         {
@@ -1276,7 +1276,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = FLD2 /* \FLDS.FLD2 */
         If ((Local0 != 0x0123))
         {
-            ERR (One, 0x0560)
+            ERR (One, 0x06B1)
         }
         Else
         {
@@ -1287,7 +1287,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = DWD2 /* \FLDS.DWD2 */
         If ((Local0 != 0x12345678))
         {
-            ERR (One, 0x056B)
+            ERR (One, 0x06BC)
         }
         Else
         {
@@ -1298,7 +1298,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local0 = QWD2 /* \FLDS.QWD2 */
         If ((Local0 != 0x1234567887654321))
         {
-            ERR (One, 0x0576)
+            ERR (One, 0x06C7)
         }
         Else
         {
@@ -1410,7 +1410,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking result from ADD"
         If ((Local0 != Local1))
         {
-            ERR (Zero, 0x060E)
+            ERR (Zero, 0x075F)
         }
 
         Debug = "++++++++ Subtract (0x87654321, 0x11111111, Local4)"
@@ -1420,7 +1420,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking result from SUBTRACT"
         If ((Local4 != Local5))
         {
-            ERR (Zero, 0x061D)
+            ERR (Zero, 0x076E)
         }
 
         Debug = "++++++++ Multiply (33, 10, Local6)"
@@ -1430,7 +1430,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking result from MULTIPLY"
         If ((Local6 != Local7))
         {
-            ERR (Zero, 0x062D)
+            ERR (Zero, 0x077E)
         }
 
         Debug = "++++++++ Divide (100, 9, Local1, Local2)"
@@ -1440,7 +1440,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking (quotient) result from DIVIDE"
         If ((Local2 != Local3))
         {
-            ERR (Zero, 0x063C)
+            ERR (Zero, 0x078D)
         }
 
         Debug = "++++++++ Increment (Local0)"
@@ -1450,7 +1450,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking result from INCREMENT"
         If ((Local0 != Local1))
         {
-            ERR (Zero, 0x064A)
+            ERR (Zero, 0x079B)
         }
 
         Debug = "++++++++ Decrement (Local0)"
@@ -1460,7 +1460,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Debug = "++++++++ Checking result from DECREMENT"
         If ((Local0 != Local1))
         {
-            ERR (Zero, 0x0658)
+            ERR (Zero, 0x07A9)
         }
 
         Debug = "++++++++ ToBCD (0x1234, Local5)"
@@ -1480,23 +1480,23 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         (Local0 + Local1)
         If ((Local0 != 0x03))
         {
-            ERR (0x02, 0x0675)
+            ERR (0x02, 0x07C6)
         }
 
         If ((Local1 != 0x07))
         {
-            ERR (0x02, 0x0679)
+            ERR (0x02, 0x07CA)
         }
 
         Local2 = (Local0 + Local1)
         If ((Local0 != 0x03))
         {
-            ERR (0x02, 0x0680)
+            ERR (0x02, 0x07D1)
         }
 
         If ((Local1 != 0x07))
         {
-            ERR (0x02, 0x0684)
+            ERR (0x02, 0x07D5)
         }
     }
 
@@ -1522,63 +1522,63 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         FindSetLeftBit (0x00100100, Local0)
         If ((Local0 != 0x15))
         {
-            ERR (One, 0x06A0)
+            ERR (One, 0x07F1)
         }
 
         Debug = "++++++++ FindSetRightBit (0x00100100, Local1)"
         FindSetRightBit (0x00100100, Local1)
         If ((Local1 != 0x09))
         {
-            ERR (One, 0x06A7)
+            ERR (One, 0x07F8)
         }
 
         Debug = "++++++++ And (0xF0F0F0F0, 0x11111111, Local2)"
         Local2 = (0xF0F0F0F0 & 0x11111111)
         If ((Local2 != 0x10101010))
         {
-            ERR (One, 0x06AE)
+            ERR (One, 0x07FF)
         }
 
         Debug = "++++++++ NAnd (0xF0F0F0F0, 0x11111111, Local3)"
         NAnd (0xF0F0F0F0, 0x11111111, Local3)
         If ((Local3 != 0xEFEFEFEF))
         {
-            ERR (One, 0x06B5)
+            ERR (One, 0x0806)
         }
 
         Debug = "++++++++ Or (0x11111111, 0x22222222, Local4)"
         Local4 = (0x11111111 | 0x22222222)
         If ((Local4 != 0x33333333))
         {
-            ERR (One, 0x06BC)
+            ERR (One, 0x080D)
         }
 
         Debug = "++++++++ NOr (0x11111111, 0x22222222, Local5)"
         NOr (0x11111111, 0x22222222, Local5)
         If ((Local5 != 0xCCCCCCCC))
         {
-            ERR (One, 0x06C3)
+            ERR (One, 0x0814)
         }
 
         Debug = "++++++++ XOr (0x11113333, 0x22222222, Local6)"
         Local6 = (0x11113333 ^ 0x22222222)
         If ((Local6 != 0x33331111))
         {
-            ERR (One, 0x06CA)
+            ERR (One, 0x081B)
         }
 
         Debug = "++++++++ ShiftLeft (0x11112222, 2, Local7)"
         Local7 = (0x11112222 << 0x02)
         If ((Local7 != 0x44448888))
         {
-            ERR (One, 0x06D1)
+            ERR (One, 0x0822)
         }
 
         Debug = "++++++++ ShiftRight (Local7, 2, Local7)"
         Local7 >>= 0x02
         If ((Local7 != 0x11112222))
         {
-            ERR (One, 0x06D8)
+            ERR (One, 0x0829)
         }
 
         Debug = "++++++++ Not (Local0, Local1)"
@@ -1586,12 +1586,12 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local1 = ~Local0
         If ((Local0 != 0x22224444))
         {
-            ERR (0x02, 0x06E1)
+            ERR (0x02, 0x0832)
         }
 
         If ((Local1 != 0xDDDDBBBB))
         {
-            ERR (One, 0x06E6)
+            ERR (One, 0x0837)
         }
 
         Return (Local7)
@@ -1616,12 +1616,12 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local7 = !Local6
         If ((Local6 != 0x1111))
         {
-            ERR (0x02, 0x0707)
+            ERR (0x02, 0x0858)
         }
 
         If ((Local7 != Zero))
         {
-            ERR (One, 0x070C)
+            ERR (One, 0x085D)
         }
 
         Debug = "++++++++ Store (LNotEqual (0xFFFFFFFF, 0x11111111), Local7)"
@@ -1749,25 +1749,25 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local1 = CondRefOf (ABCD, Local0)
         If ((Local1 != Zero))
         {
-            ERR (0x02, 0x0791)
+            ERR (0x02, 0x08E2)
         }
 
         Local1 = CondRefOf (BBUF, Local0)
         If ((Local1 != Ones))
         {
-            ERR (0x02, 0x0797)
+            ERR (0x02, 0x08E8)
         }
 
         Local6 = DerefOf (BBUF [0x03])
         If ((Local6 != 0xB3))
         {
-            ERR (0x02, 0x079D)
+            ERR (0x02, 0x08EE)
         }
 
         Local0 = DerefOf (DerefOf (NEST [One]) [0x03])
         If ((Local0 != 0x14))
         {
-            ERR (0x02, 0x07A3)
+            ERR (0x02, 0x08F4)
         }
 
         Local0 = 0x11223344
@@ -1775,7 +1775,7 @@ DefinitionBlock("", "DSDT", 1, "Intel", "GRMTEST", 0x20090511)
         Local2 = DerefOf (Local1)
         If ((Local2 != 0x11223344))
         {
-            ERR (0x02, 0x07AD)
+            ERR (0x02, 0x08FE)
         }
     }
 

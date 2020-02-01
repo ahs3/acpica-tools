@@ -736,8 +736,8 @@ Method(ms16, 1, Serialized)
 				if (LNotEqual(Local2, 2)) {
 					err(ts, z179, __LINE__, 0, 0, Local2, 2)
 				}
-			} elseif (LNotEqual(Local2, 0xE)) {
-				err(ts, z179, __LINE__, 0, 0, Local2, 0xE)
+			} elseif (LNotEqual(Local2, 0x3)) {
+				err(ts, z179, __LINE__, 0, 0, Local2, 0x3)
 			} elseif (y118) {
 				OUTP(Local1)
 				if (LNotEqual(Local1, 10)) {
@@ -773,12 +773,12 @@ Method(ms16, 1, Serialized)
 				if (LNotEqual(Local2, 3)) {
 					err(ts, z179, __LINE__, 0, 0, Local2, 3)
 				}
-			} elseif (LNotEqual(Local2, 1)) {
-				err(ts, z179, __LINE__, 0, 0, Local2, 1)
+			} elseif (LNotEqual(Local2, 0x3)) {
+				err(ts, z179, __LINE__, 0, 0, Local2, 0x3)
 			} else {
 				OUTP(Local1)
-				if (LNotEqual(Local1, 10)) {
-					err(ts, z179, __LINE__, 0, 0, Local1, 10)
+				if (LNotEqual(Local1, Buffer(){0xA})) {
+					err(ts, z179, __LINE__, 0, 0, Local1, Buffer(){0xA})
 				} else {
 					OUTP("Ok")
 				}
@@ -811,12 +811,12 @@ Method(ms16, 1, Serialized)
 				if (LNotEqual(Local2, 3)) {
 					err(ts, z179, __LINE__, 0, 0, Local2, 3)
 				}
-			} elseif (LNotEqual(Local2, 1)) {
-				err(ts, z179, __LINE__, 0, 0, Local2, 1)
+			} elseif (LNotEqual(Local2, 0x3)) {
+				err(ts, z179, __LINE__, 0, 0, Local2, 0x3)
 			} else {
 				OUTP(Local1)
-				if (LNotEqual(Local1, 10)) {
-					err(ts, z179, __LINE__, 0, 0, Local1, 10)
+				if (LNotEqual(Local1, Buffer(){0xA})) {
+					err(ts, z179, __LINE__, 0, 0, Local1, Buffer(){0xA})
 				} else {
 					OUTP("Ok")
 				}
@@ -1729,7 +1729,7 @@ Method(ms1d, 1, Serialized)
 		Method(m000, 7)
 		{
 			OUTP("LocalX case of Method started:")
-	
+
 			Store(RefOf(i000), Local0)
 			Store(Local0, Local1)
 			Store(Local1, Local2)
@@ -3265,7 +3265,7 @@ Method(ms27, 1, Serialized)
 		OUTP("Check IndexField ByteAcc Ones write Offset (0:7)1-(1:0)1-(2:0)4-4")
 
 		TRY0(0, 0, 0x80)
-		
+
 		Store(0x01, Local0)
 		if (LAnd(ABUU, LNot(q00a))) {
 			Store(0xff, Local0)

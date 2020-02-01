@@ -398,4 +398,3 @@ AcpiDsExecEndOp (
     return (AE_NOT_IMPLEMENTED);
 }
 #endif
-
