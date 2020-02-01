@@ -1,7 +1,7 @@
-Index: acpica-unix-20191018/source/common/dmtbdump1.c
+Index: acpica-unix-20191213/source/common/dmtbdump1.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmtbdump1.c
-+++ acpica-unix-20191018/source/common/dmtbdump1.c
+--- acpica-unix-20191213.orig/source/common/dmtbdump1.c
++++ acpica-unix-20191213/source/common/dmtbdump1.c
 @@ -79,17 +79,21 @@ AcpiDmDumpAsf (
      UINT32                  DataOffset = 0;
      UINT32                  i;

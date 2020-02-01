@@ -1,7 +1,7 @@
-Index: acpica-unix-20191018/source/common/dmtbdump2.c
+Index: acpica-unix-20191213/source/common/dmtbdump2.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmtbdump2.c
-+++ acpica-unix-20191018/source/common/dmtbdump2.c
+--- acpica-unix-20191213.orig/source/common/dmtbdump2.c
++++ acpica-unix-20191213/source/common/dmtbdump2.c
 @@ -75,16 +75,23 @@ AcpiDmDumpIort (
      ACPI_IORT_SMMU          *IortSmmu = NULL;
      UINT32                  Offset;

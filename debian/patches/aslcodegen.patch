@@ -4,10 +4,10 @@ support; this patch repairs that adaptation.
 
 Signed-off-by: Al Stone <ahs3@redhat.com>
 
-Index: acpica-unix-20191018/source/compiler/aslcodegen.c
+Index: acpica-unix-20191213/source/compiler/aslcodegen.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslcodegen.c
-+++ acpica-unix-20191018/source/compiler/aslcodegen.c
+--- acpica-unix-20191213.orig/source/compiler/aslcodegen.c
++++ acpica-unix-20191213/source/compiler/aslcodegen.c
 @@ -497,8 +497,7 @@ CgWriteTableHeader (
  
      /* Table length. Checksum zero for now, will rewrite later */

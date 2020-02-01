@@ -8,10 +8,10 @@ From: Al Stone <ahs3@redhat.com>
  generate/unix/iasl/Makefile   |   13 +++++++------
  2 files changed, 9 insertions(+), 6 deletions(-)
 
-Index: acpica-unix-20191018/generate/unix/Makefile.config
+Index: acpica-unix-20191213/generate/unix/Makefile.config
 ===================================================================
---- acpica-unix-20191018.orig/generate/unix/Makefile.config
-+++ acpica-unix-20191018/generate/unix/Makefile.config
+--- acpica-unix-20191213.orig/generate/unix/Makefile.config
++++ acpica-unix-20191213/generate/unix/Makefile.config
 @@ -190,6 +190,8 @@ ifneq ($(NOFORTIFY),TRUE)
  OPT_CFLAGS += -D_FORTIFY_SOURCE=2
  endif
@@ -21,10 +21,10 @@ Index: acpica-unix-20191018/generate/unix/Makefile.config
  CFLAGS += \
      -D$(HOST)\
      -D_GNU_SOURCE\
-Index: acpica-unix-20191018/generate/unix/iasl/Makefile
+Index: acpica-unix-20191213/generate/unix/iasl/Makefile
 ===================================================================
---- acpica-unix-20191018.orig/generate/unix/iasl/Makefile
-+++ acpica-unix-20191018/generate/unix/iasl/Makefile
+--- acpica-unix-20191213.orig/generate/unix/iasl/Makefile
++++ acpica-unix-20191213/generate/unix/iasl/Makefile
 @@ -358,34 +358,35 @@ $(OBJDIR)/prparserparse.c $(OBJDIR)/prpa
  # Cannot use the common compile warning flags since the C files are created
  # by the utilities above and they are not necessarily ANSI C, etc.

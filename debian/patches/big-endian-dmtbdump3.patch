@@ -1,7 +1,7 @@
-Index: acpica-unix-20191018/source/common/dmtbdump3.c
+Index: acpica-unix-20191213/source/common/dmtbdump3.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmtbdump3.c
-+++ acpica-unix-20191018/source/common/dmtbdump3.c
+--- acpica-unix-20191213.orig/source/common/dmtbdump3.c
++++ acpica-unix-20191213/source/common/dmtbdump3.c
 @@ -68,9 +68,11 @@ void
  AcpiDmDumpSlic (
      ACPI_TABLE_HEADER       *Table)

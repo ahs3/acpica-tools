@@ -1,3 +1,11 @@
+acpica-unix (20191213-1) UNRELEASED; urgency=medium
+
+  * Upgrade to 20191018 upstream
+  * Refresh patches as needed
+  * Remove one patch already pulled in by upstream
+
+ -- Al Stone <ahs3@debian.org>  Sat, 01 Feb 2020 15:43:26 -0700
+
 acpica-unix (20191018-1) unstable; urgency=medium
 
   * Upgrade to 20191018 upstream

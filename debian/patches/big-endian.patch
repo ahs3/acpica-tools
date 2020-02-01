@@ -8,10 +8,10 @@ To date, this has been critical for the s390x architecture only.
 
 Signed-off-by: Al Stone <ahs3@redhat.com>
 
-Index: acpica-unix-20191018/source/compiler/aslcodegen.c
+Index: acpica-unix-20191213/source/compiler/aslcodegen.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslcodegen.c
-+++ acpica-unix-20191018/source/compiler/aslcodegen.c
+--- acpica-unix-20191213.orig/source/compiler/aslcodegen.c
++++ acpica-unix-20191213/source/compiler/aslcodegen.c
 @@ -237,16 +237,12 @@ CgWriteAmlOpcode (
      ACPI_PARSE_OBJECT       *Op)
  {
@@ -253,10 +253,10 @@ Index: acpica-unix-20191018/source/compiler/aslcodegen.c
  
      case AML_RAW_DATA_BUFFER:
  
-Index: acpica-unix-20191018/source/compiler/aslopcodes.c
+Index: acpica-unix-20191213/source/compiler/aslopcodes.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslopcodes.c
-+++ acpica-unix-20191018/source/compiler/aslopcodes.c
+--- acpica-unix-20191213.orig/source/compiler/aslopcodes.c
++++ acpica-unix-20191213/source/compiler/aslopcodes.c
 @@ -485,6 +485,7 @@ OpcDoUnicode (
      UINT32                  i;
      UINT8                   *AsciiString;
@@ -275,10 +275,10 @@ Index: acpica-unix-20191018/source/compiler/aslopcodes.c
      }
  
      /*
-Index: acpica-unix-20191018/source/compiler/aslrestype1.c
+Index: acpica-unix-20191213/source/compiler/aslrestype1.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype1.c
-+++ acpica-unix-20191018/source/compiler/aslrestype1.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype1.c
++++ acpica-unix-20191213/source/compiler/aslrestype1.c
 @@ -142,6 +142,11 @@ RsDoMemory24Descriptor (
      ACPI_PARSE_OBJECT       *LengthOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -475,10 +475,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype1.c
              RsCreateDwordField (InitializerOp, ACPI_RESTAG_LENGTH,
                  CurrentByteOffset + ASL_RESDESC_OFFSET (FixedMemory32.AddressLength));
              break;
-Index: acpica-unix-20191018/source/compiler/aslrestype1i.c
+Index: acpica-unix-20191213/source/compiler/aslrestype1i.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype1i.c
-+++ acpica-unix-20191018/source/compiler/aslrestype1i.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype1i.c
++++ acpica-unix-20191213/source/compiler/aslrestype1i.c
 @@ -198,6 +198,8 @@ RsDoFixedDmaDescriptor (
      ACPI_PARSE_OBJECT       *InitializerOp;
      ASL_RESOURCE_NODE       *Rnode;
@@ -615,10 +615,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype1i.c
 +    ACPI_MOVE_16_TO_16(&Descriptor->Irq.IrqMask, &IrqMask);
      return (Rnode);
  }
-Index: acpica-unix-20191018/source/compiler/aslrestype2.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2.c
++++ acpica-unix-20191213/source/compiler/aslrestype2.c
 @@ -76,6 +76,7 @@ RsDoGeneralRegisterDescriptor (
      ACPI_PARSE_OBJECT       *InitializerOp;
      ASL_RESOURCE_NODE       *Rnode;
@@ -759,10 +759,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2.c
  
      /* Point to end-of-descriptor for vendor data */
  
-Index: acpica-unix-20191018/source/compiler/aslrestype2d.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2d.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2d.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2d.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2d.c
++++ acpica-unix-20191213/source/compiler/aslrestype2d.c
 @@ -79,7 +79,13 @@ RsDoDwordIoDescriptor (
      ACPI_PARSE_OBJECT       *GranOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -1118,10 +1118,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2d.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS32) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20191018/source/compiler/aslrestype2e.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2e.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2e.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2e.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2e.c
++++ acpica-unix-20191213/source/compiler/aslrestype2e.c
 @@ -78,6 +78,13 @@ RsDoExtendedIoDescriptor (
      ACPI_PARSE_OBJECT       *GranOp = NULL;
      ASL_RESOURCE_NODE       *Rnode;
@@ -1227,10 +1227,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2e.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_EXTENDED_ADDRESS64) +
          StringLength;
      return (Rnode);
-Index: acpica-unix-20191018/source/compiler/aslrestype2q.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2q.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2q.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2q.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2q.c
++++ acpica-unix-20191213/source/compiler/aslrestype2q.c
 @@ -80,7 +80,13 @@ RsDoQwordIoDescriptor (
      ASL_RESOURCE_NODE       *Rnode;
      UINT8                   *OptionalFields;
@@ -1569,10 +1569,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2q.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS64) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20191018/source/compiler/aslrestype2s.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2s.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2s.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2s.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2s.c
++++ acpica-unix-20191213/source/compiler/aslrestype2s.c
 @@ -340,9 +340,14 @@ RsDoGpioIntDescriptor (
      UINT16                  VendorLength;
      UINT16                  InterruptLength;
@@ -2038,10 +2038,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2s.c
      MpSaveSerialInfo (Info->MappingOp, Descriptor, ResourceSource);
      return (Rnode);
  }
-Index: acpica-unix-20191018/source/compiler/aslrestype2w.c
+Index: acpica-unix-20191213/source/compiler/aslrestype2w.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslrestype2w.c
-+++ acpica-unix-20191018/source/compiler/aslrestype2w.c
+--- acpica-unix-20191213.orig/source/compiler/aslrestype2w.c
++++ acpica-unix-20191213/source/compiler/aslrestype2w.c
 @@ -81,6 +81,12 @@ RsDoWordIoDescriptor (
      UINT8                   *OptionalFields;
      UINT16                  StringLength = 0;
@@ -2385,10 +2385,10 @@ Index: acpica-unix-20191018/source/compiler/aslrestype2w.c
      Rnode->BufferLength = sizeof (AML_RESOURCE_ADDRESS16) +
          OptionIndex + StringLength;
      return (Rnode);
-Index: acpica-unix-20191018/source/include/acmacros.h
+Index: acpica-unix-20191213/source/include/acmacros.h
 ===================================================================
---- acpica-unix-20191018.orig/source/include/acmacros.h
-+++ acpica-unix-20191018/source/include/acmacros.h
+--- acpica-unix-20191213.orig/source/include/acmacros.h
++++ acpica-unix-20191213/source/include/acmacros.h
 @@ -98,9 +98,12 @@
                                             ((UINT8 *)(void *)(d))[6] = ((UINT8 *)(void *)(s))[1];\
                                             ((UINT8 *)(void *)(d))[7] = ((UINT8 *)(void *)(s))[0];}
@@ -2467,10 +2467,10 @@ Index: acpica-unix-20191018/source/include/acmacros.h
  
  #define ACPI_MOVE_32_TO_16(d, s)        ACPI_MOVE_16_TO_16(d, s)    /* Truncate to 16 */
  
-Index: acpica-unix-20191018/source/include/platform/aclinux.h
+Index: acpica-unix-20191213/source/include/platform/aclinux.h
 ===================================================================
---- acpica-unix-20191018.orig/source/include/platform/aclinux.h
-+++ acpica-unix-20191018/source/include/platform/aclinux.h
+--- acpica-unix-20191213.orig/source/include/platform/aclinux.h
++++ acpica-unix-20191213/source/include/platform/aclinux.h
 @@ -198,6 +198,7 @@
  
  #ifdef ACPI_USE_STANDARD_HEADERS
@@ -2490,10 +2490,10 @@ Index: acpica-unix-20191018/source/include/platform/aclinux.h
  #endif /* __KERNEL__ */
  
  #endif /* __ACLINUX_H__ */
-Index: acpica-unix-20191018/source/compiler/aslanalyze.c
+Index: acpica-unix-20191213/source/compiler/aslanalyze.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslanalyze.c
-+++ acpica-unix-20191018/source/compiler/aslanalyze.c
+--- acpica-unix-20191213.orig/source/compiler/aslanalyze.c
++++ acpica-unix-20191213/source/compiler/aslanalyze.c
 @@ -461,7 +461,7 @@ ApCheckForGpeNameConflict (
  
      /* Need a null-terminated string version of NameSeg */
@@ -2512,10 +2512,10 @@ Index: acpica-unix-20191018/source/compiler/aslanalyze.c
  
      /* Inject opposite letter ("L" versus "E") */
  
-Index: acpica-unix-20191018/source/compiler/asllookup.c
+Index: acpica-unix-20191213/source/compiler/asllookup.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/asllookup.c
-+++ acpica-unix-20191018/source/compiler/asllookup.c
+--- acpica-unix-20191213.orig/source/compiler/asllookup.c
++++ acpica-unix-20191213/source/compiler/asllookup.c
 @@ -119,6 +119,7 @@ LkIsObjectUsed (
  {
      ACPI_NAMESPACE_NODE     *Node = ACPI_CAST_PTR (ACPI_NAMESPACE_NODE, ObjHandle);
@@ -2546,10 +2546,10 @@ Index: acpica-unix-20191018/source/compiler/asllookup.c
              AslError (ASL_REMARK, ASL_MSG_NOT_REFERENCED,
                  LkGetNameOp (Node->Op), AslGbl_MsgBuffer);
              return (AE_OK);
-Index: acpica-unix-20191018/source/compiler/aslmain.c
+Index: acpica-unix-20191213/source/compiler/aslmain.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/aslmain.c
-+++ acpica-unix-20191018/source/compiler/aslmain.c
+--- acpica-unix-20191213.orig/source/compiler/aslmain.c
++++ acpica-unix-20191213/source/compiler/aslmain.c
 @@ -101,18 +101,6 @@ main (
  
      signal (SIGINT, AslSignalHandler);
@@ -2569,10 +2569,10 @@ Index: acpica-unix-20191018/source/compiler/aslmain.c
      AcpiOsInitialize ();
      ACPI_DEBUG_INITIALIZE (); /* For debug version only */
  
-Index: acpica-unix-20191018/source/common/acfileio.c
+Index: acpica-unix-20191213/source/common/acfileio.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/acfileio.c
-+++ acpica-unix-20191018/source/common/acfileio.c
+--- acpica-unix-20191213.orig/source/common/acfileio.c
++++ acpica-unix-20191213/source/common/acfileio.c
 @@ -280,6 +280,7 @@ AcGetOneTableFromFile (
      ACPI_TABLE_HEADER       *Table;
      INT32                   Count;
@@ -2639,10 +2639,10 @@ Index: acpica-unix-20191018/source/common/acfileio.c
              (UINT32) (FileSize - TableOffset));
          return (AE_BAD_HEADER);
      }
-Index: acpica-unix-20191018/source/common/dmtable.c
+Index: acpica-unix-20191213/source/common/dmtable.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmtable.c
-+++ acpica-unix-20191018/source/common/dmtable.c
+--- acpica-unix-20191213.orig/source/common/dmtable.c
++++ acpica-unix-20191213/source/common/dmtable.c
 @@ -551,7 +551,7 @@ AcpiDmDumpDataTable (
       */
      if (ACPI_COMPARE_NAMESEG (Table->Signature, ACPI_SIG_FACS))
@@ -2741,10 +2741,10 @@ Index: acpica-unix-20191018/source/common/dmtable.c
                  AcpiDmNfitSubnames[Temp16]);
              break;
  
-Index: acpica-unix-20191018/source/common/dmtables.c
+Index: acpica-unix-20191213/source/common/dmtables.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmtables.c
-+++ acpica-unix-20191018/source/common/dmtables.c
+--- acpica-unix-20191213.orig/source/common/dmtables.c
++++ acpica-unix-20191213/source/common/dmtables.c
 @@ -142,7 +142,9 @@ AdCreateTableHeader (
      ACPI_TABLE_HEADER       *Table)
  {
@@ -2810,10 +2810,10 @@ Index: acpica-unix-20191018/source/common/dmtables.c
      AmlStart = ((UINT8 *) Table + sizeof (ACPI_TABLE_HEADER));
      ASL_CV_INIT_FILETREE(Table, AmlStart, AmlLength);
  
-Index: acpica-unix-20191018/source/compiler/dtfield.c
+Index: acpica-unix-20191213/source/compiler/dtfield.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/dtfield.c
-+++ acpica-unix-20191018/source/compiler/dtfield.c
+--- acpica-unix-20191213.orig/source/compiler/dtfield.c
++++ acpica-unix-20191213/source/compiler/dtfield.c
 @@ -361,7 +361,27 @@ DtCompileInteger (
          DtError (ASL_ERROR, ASL_MSG_INTEGER_SIZE, Field, AslGbl_MsgBuffer);
      }
@@ -2843,10 +2843,10 @@ Index: acpica-unix-20191018/source/compiler/dtfield.c
      return;
  }
  
-Index: acpica-unix-20191018/source/compiler/dtsubtable.c
+Index: acpica-unix-20191213/source/compiler/dtsubtable.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/dtsubtable.c
-+++ acpica-unix-20191018/source/compiler/dtsubtable.c
+--- acpica-unix-20191213.orig/source/compiler/dtsubtable.c
++++ acpica-unix-20191213/source/compiler/dtsubtable.c
 @@ -378,6 +378,21 @@ DtSetSubtableLength (
          return;
      }
@@ -2871,10 +2871,10 @@ Index: acpica-unix-20191018/source/compiler/dtsubtable.c
 +        	Subtable->SizeOfLengthField);
 +    }
  }
-Index: acpica-unix-20191018/source/compiler/dttable1.c
+Index: acpica-unix-20191213/source/compiler/dttable1.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/dttable1.c
-+++ acpica-unix-20191018/source/compiler/dttable1.c
+--- acpica-unix-20191213.orig/source/compiler/dttable1.c
++++ acpica-unix-20191213/source/compiler/dttable1.c
 @@ -281,6 +281,8 @@ DtCompileCsrt (
      DT_FIELD                **PFieldList = (DT_FIELD **) List;
      UINT32                  DescriptorCount;
@@ -3246,10 +3246,10 @@ Index: acpica-unix-20191018/source/compiler/dttable1.c
      return (AE_OK);
  }
  
-Index: acpica-unix-20191018/source/compiler/dttable2.c
+Index: acpica-unix-20191213/source/compiler/dttable2.c
 ===================================================================
---- acpica-unix-20191018.orig/source/compiler/dttable2.c
-+++ acpica-unix-20191018/source/compiler/dttable2.c
+--- acpica-unix-20191213.orig/source/compiler/dttable2.c
++++ acpica-unix-20191213/source/compiler/dttable2.c
 @@ -345,7 +345,7 @@ DtCompileMpst (
      DtPushSubtable (Subtable);
  
@@ -3360,7 +3360,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
      LocalityBuffer = UtLocalCalloc (Localities);
      LocalityListLength = 0;
  
-@@ -1740,6 +1746,7 @@ DtCompileTcpa (
+@@ -1741,6 +1747,7 @@ DtCompileTcpa (
      ACPI_TABLE_TCPA_HDR     *TcpaHeader;
      DT_SUBTABLE             *ParentTable;
      ACPI_STATUS             Status;
@@ -3368,7 +3368,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
  
  
      /* Compile the main table */
-@@ -1760,7 +1767,8 @@ DtCompileTcpa (
+@@ -1761,7 +1768,8 @@ DtCompileTcpa (
       */
      TcpaHeader = ACPI_CAST_PTR (ACPI_TABLE_TCPA_HDR, ParentTable->Buffer);
  
@@ -3378,7 +3378,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
      {
      case ACPI_TCPA_CLIENT_TABLE:
  
-@@ -1808,6 +1816,7 @@ DtCompileTpm2Rev3 (
+@@ -1809,6 +1817,7 @@ DtCompileTpm2Rev3 (
      ACPI_TABLE_TPM23        *Tpm23Header;
      DT_SUBTABLE             *ParentTable;
      ACPI_STATUS             Status = AE_OK;
@@ -3386,7 +3386,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
  
  
      Status = DtCompileTable (PFieldList, AcpiDmTableInfoTpm23,
-@@ -1819,7 +1828,8 @@ DtCompileTpm2Rev3 (
+@@ -1820,7 +1829,8 @@ DtCompileTpm2Rev3 (
  
      /* Subtable type depends on the StartMethod */
  
@@ -3396,7 +3396,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
      {
      case ACPI_TPM23_ACPI_START_METHOD:
  
-@@ -1866,6 +1876,7 @@ DtCompileTpm2 (
+@@ -1867,6 +1877,7 @@ DtCompileTpm2 (
      DT_SUBTABLE             *ParentTable;
      ACPI_STATUS             Status = AE_OK;
      ACPI_TABLE_HEADER       *Header;
@@ -3404,7 +3404,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
  
  
      ParentTable = DtPeekSubtable ();
-@@ -1909,7 +1920,8 @@ DtCompileTpm2 (
+@@ -1910,7 +1921,8 @@ DtCompileTpm2 (
  
      /* Subtable type depends on the StartMethod */
  
@@ -3414,7 +3414,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
      {
      case ACPI_TPM2_COMMAND_BUFFER_WITH_ARM_SMC:
  
-@@ -2125,6 +2137,9 @@ DtCompileWpbt (
+@@ -2126,6 +2138,9 @@ DtCompileWpbt (
      ACPI_TABLE_WPBT         *Table;
      ACPI_STATUS             Status;
      UINT16                  Length;
@@ -3424,7 +3424,7 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
  
  
      /* Compile the main table */
-@@ -2152,7 +2167,16 @@ DtCompileWpbt (
+@@ -2153,7 +2168,16 @@ DtCompileWpbt (
  
      Length = (UINT16) Subtable->TotalLength;
      Table = ACPI_CAST_PTR (ACPI_TABLE_WPBT, ParentTable->Buffer);
@@ -3442,10 +3442,10 @@ Index: acpica-unix-20191018/source/compiler/dttable2.c
  
      ParentTable = DtPeekSubtable ();
      DtInsertSubtable (ParentTable, Subtable);
-Index: acpica-unix-20191018/source/components/disassembler/dmbuffer.c
+Index: acpica-unix-20191213/source/components/disassembler/dmbuffer.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/disassembler/dmbuffer.c
-+++ acpica-unix-20191018/source/components/disassembler/dmbuffer.c
+--- acpica-unix-20191213.orig/source/components/disassembler/dmbuffer.c
++++ acpica-unix-20191213/source/components/disassembler/dmbuffer.c
 @@ -204,7 +204,7 @@ AcpiDmByteList (
  
  
@@ -3521,10 +3521,10 @@ Index: acpica-unix-20191018/source/components/disassembler/dmbuffer.c
  
      NextOp = AcpiPsGetDepthNext (NULL, Op);
      if (!NextOp)
-Index: acpica-unix-20191018/source/components/disassembler/dmopcode.c
+Index: acpica-unix-20191213/source/components/disassembler/dmopcode.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/disassembler/dmopcode.c
-+++ acpica-unix-20191018/source/components/disassembler/dmopcode.c
+--- acpica-unix-20191213.orig/source/components/disassembler/dmopcode.c
++++ acpica-unix-20191213/source/components/disassembler/dmopcode.c
 @@ -244,6 +244,7 @@ AcpiDmPredefinedDescription (
      char                        *NameString;
      int                         LastCharIsDigit;
@@ -3595,10 +3595,10 @@ Index: acpica-unix-20191018/source/components/disassembler/dmopcode.c
  
              Info->Level += 1;
              Info->MappingOp = Op;
-Index: acpica-unix-20191018/source/components/disassembler/dmresrcl.c
+Index: acpica-unix-20191213/source/components/disassembler/dmresrcl.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/disassembler/dmresrcl.c
-+++ acpica-unix-20191018/source/components/disassembler/dmresrcl.c
+--- acpica-unix-20191213.orig/source/components/disassembler/dmresrcl.c
++++ acpica-unix-20191213/source/components/disassembler/dmresrcl.c
 @@ -141,7 +141,8 @@ AcpiDmMemoryFields (
      UINT32                  Level)
  {
@@ -3747,10 +3747,10 @@ Index: acpica-unix-20191018/source/components/disassembler/dmresrcl.c
      }
  
      AcpiDmIndent (Level);
-Index: acpica-unix-20191018/source/components/disassembler/dmresrcl2.c
+Index: acpica-unix-20191213/source/components/disassembler/dmresrcl2.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/disassembler/dmresrcl2.c
-+++ acpica-unix-20191018/source/components/disassembler/dmresrcl2.c
+--- acpica-unix-20191213.orig/source/components/disassembler/dmresrcl2.c
++++ acpica-unix-20191213/source/components/disassembler/dmresrcl2.c
 @@ -191,22 +191,24 @@ AcpiDmGpioCommon (
      char                    *DeviceName = NULL;
      UINT32                  PinCount;
@@ -3974,10 +3974,10 @@ Index: acpica-unix-20191018/source/components/disassembler/dmresrcl2.c
  
      DeviceName = ACPI_ADD_PTR (char, Resource, ResourceSourceOffset);
      AcpiUtPrintString (DeviceName, ACPI_UINT16_MAX);
-Index: acpica-unix-20191018/source/components/disassembler/dmresrcs.c
+Index: acpica-unix-20191213/source/components/disassembler/dmresrcs.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/disassembler/dmresrcs.c
-+++ acpica-unix-20191018/source/components/disassembler/dmresrcs.c
+--- acpica-unix-20191213.orig/source/components/disassembler/dmresrcs.c
++++ acpica-unix-20191213/source/components/disassembler/dmresrcs.c
 @@ -72,6 +72,7 @@ AcpiDmIrqDescriptor (
      UINT32                  Length,
      UINT32                  Level)
@@ -4034,10 +4034,10 @@ Index: acpica-unix-20191018/source/components/disassembler/dmresrcs.c
  
      AcpiDmIndent (Level + 1);
      AcpiDmDumpInteger8 (Resource->FixedIo.AddressLength, "Length");
-Index: acpica-unix-20191018/source/components/dispatcher/dsfield.c
+Index: acpica-unix-20191213/source/components/dispatcher/dsfield.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/dispatcher/dsfield.c
-+++ acpica-unix-20191018/source/components/dispatcher/dsfield.c
+--- acpica-unix-20191213.orig/source/components/dispatcher/dsfield.c
++++ acpica-unix-20191213/source/components/dispatcher/dsfield.c
 @@ -324,6 +324,7 @@ AcpiDsGetFieldNames (
      ACPI_STATUS             Status;
      UINT64                  Position;
@@ -4082,10 +4082,10 @@ Index: acpica-unix-20191018/source/components/dispatcher/dsfield.c
              if (ACPI_FAILURE (Status))
              {
                  ACPI_ERROR_NAMESPACE (WalkState->ScopeInfo,
-Index: acpica-unix-20191018/source/components/events/evgpeblk.c
+Index: acpica-unix-20191213/source/components/events/evgpeblk.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/events/evgpeblk.c
-+++ acpica-unix-20191018/source/components/events/evgpeblk.c
+--- acpica-unix-20191213.orig/source/components/events/evgpeblk.c
++++ acpica-unix-20191213/source/components/events/evgpeblk.c
 @@ -380,6 +380,7 @@ AcpiEvCreateGpeBlock (
      ACPI_STATUS             Status;
      ACPI_GPE_BLOCK_INFO     *GpeBlock;
@@ -4118,10 +4118,10 @@ Index: acpica-unix-20191018/source/components/events/evgpeblk.c
          InterruptNumber == AcpiGbl_FADT.SciInterrupt ? " (SCI)" : ""));
  
      /* Update global count of currently available GPEs */
-Index: acpica-unix-20191018/source/components/hardware/hwregs.c
+Index: acpica-unix-20191213/source/components/hardware/hwregs.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/hardware/hwregs.c
-+++ acpica-unix-20191018/source/components/hardware/hwregs.c
+--- acpica-unix-20191213.orig/source/components/hardware/hwregs.c
++++ acpica-unix-20191213/source/components/hardware/hwregs.c
 @@ -197,7 +197,7 @@ AcpiHwValidateRegister (
       * Address must not be null. A null address also indicates an optional
       * ACPI register that is not supported, so no error message.
@@ -4131,10 +4131,10 @@ Index: acpica-unix-20191018/source/components/hardware/hwregs.c
      if (!(*Address))
      {
          return (AE_BAD_ADDRESS);
-Index: acpica-unix-20191018/source/components/hardware/hwvalid.c
+Index: acpica-unix-20191213/source/components/hardware/hwvalid.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/hardware/hwvalid.c
-+++ acpica-unix-20191018/source/components/hardware/hwvalid.c
+--- acpica-unix-20191213.orig/source/components/hardware/hwvalid.c
++++ acpica-unix-20191213/source/components/hardware/hwvalid.c
 @@ -135,6 +135,8 @@ AcpiHwValidateIoRequest (
      UINT32                  ByteWidth;
      ACPI_IO_ADDRESS         LastAddress;
@@ -4156,10 +4156,10 @@ Index: acpica-unix-20191018/source/components/hardware/hwvalid.c
      {
          ACPI_ERROR ((AE_INFO,
              "Illegal I/O port address/length above 64K: %8.8X%8.8X/0x%X",
-Index: acpica-unix-20191018/source/components/namespace/nsaccess.c
+Index: acpica-unix-20191213/source/components/namespace/nsaccess.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/namespace/nsaccess.c
-+++ acpica-unix-20191018/source/components/namespace/nsaccess.c
+--- acpica-unix-20191213.orig/source/components/namespace/nsaccess.c
++++ acpica-unix-20191213/source/components/namespace/nsaccess.c
 @@ -349,6 +349,7 @@ AcpiNsLookup (
      UINT32                  SearchParentFlag = ACPI_NS_SEARCH_PARENT;
      UINT32                  LocalFlags;
@@ -4180,10 +4180,10 @@ Index: acpica-unix-20191018/source/components/namespace/nsaccess.c
                      AcpiUtGetTypeName (ThisNode->Type),
                      AcpiUtGetTypeName (TypeToCheckFor)));
              }
-Index: acpica-unix-20191018/source/components/namespace/nsparse.c
+Index: acpica-unix-20191213/source/components/namespace/nsparse.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/namespace/nsparse.c
-+++ acpica-unix-20191018/source/components/namespace/nsparse.c
+--- acpica-unix-20191213.orig/source/components/namespace/nsparse.c
++++ acpica-unix-20191213/source/components/namespace/nsparse.c
 @@ -216,13 +216,14 @@ AcpiNsOneCompleteParse (
  
      /* Table must consist of at least a complete header */
@@ -4201,10 +4201,10 @@ Index: acpica-unix-20191018/source/components/namespace/nsparse.c
  
      Status = AcpiTbGetOwnerId (TableIndex, &OwnerId);
      if (ACPI_FAILURE (Status))
-Index: acpica-unix-20191018/source/components/tables/tbdata.c
+Index: acpica-unix-20191213/source/components/tables/tbdata.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbdata.c
-+++ acpica-unix-20191018/source/components/tables/tbdata.c
+--- acpica-unix-20191213.orig/source/components/tables/tbdata.c
++++ acpica-unix-20191213/source/components/tables/tbdata.c
 @@ -552,6 +552,7 @@ AcpiTbVerifyTempTable (
      UINT32                  *TableIndex)
  {
@@ -4223,10 +4223,10 @@ Index: acpica-unix-20191018/source/components/tables/tbdata.c
          if (ACPI_FAILURE (Status))
          {
              ACPI_EXCEPTION ((AE_INFO, AE_NO_MEMORY,
-Index: acpica-unix-20191018/source/components/tables/tbfadt.c
+Index: acpica-unix-20191213/source/components/tables/tbfadt.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbfadt.c
-+++ acpica-unix-20191018/source/components/tables/tbfadt.c
+--- acpica-unix-20191213.orig/source/components/tables/tbfadt.c
++++ acpica-unix-20191213/source/components/tables/tbfadt.c
 @@ -424,18 +424,20 @@ AcpiTbCreateLocalFadt (
      ACPI_TABLE_HEADER       *Table,
      UINT32                  Length)
@@ -4338,10 +4338,10 @@ Index: acpica-unix-20191018/source/components/tables/tbfadt.c
                  "PmRegisters", 0);
          }
      }
-Index: acpica-unix-20191018/source/components/tables/tbfind.c
+Index: acpica-unix-20191213/source/components/tables/tbfind.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbfind.c
-+++ acpica-unix-20191018/source/components/tables/tbfind.c
+--- acpica-unix-20191213.orig/source/components/tables/tbfind.c
++++ acpica-unix-20191213/source/components/tables/tbfind.c
 @@ -108,8 +108,11 @@ AcpiTbFindTable (
      (void) AcpiUtAcquireMutex (ACPI_MTX_TABLES);
      for (i = 0; i < AcpiGbl_RootTableList.CurrentTableCount; ++i)
@@ -4355,10 +4355,10 @@ Index: acpica-unix-20191018/source/components/tables/tbfind.c
          {
              /* Not the requested table */
  
-Index: acpica-unix-20191018/source/components/tables/tbprint.c
+Index: acpica-unix-20191213/source/components/tables/tbprint.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbprint.c
-+++ acpica-unix-20191018/source/components/tables/tbprint.c
+--- acpica-unix-20191213.orig/source/components/tables/tbprint.c
++++ acpica-unix-20191213/source/components/tables/tbprint.c
 @@ -143,15 +143,18 @@ AcpiTbPrintTableHeader (
      ACPI_TABLE_HEADER       *Header)
  {
@@ -4400,10 +4400,10 @@ Index: acpica-unix-20191018/source/components/tables/tbprint.c
      }
  }
  
-Index: acpica-unix-20191018/source/components/tables/tbutils.c
+Index: acpica-unix-20191213/source/components/tables/tbutils.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbutils.c
-+++ acpica-unix-20191018/source/components/tables/tbutils.c
+--- acpica-unix-20191213.orig/source/components/tables/tbutils.c
++++ acpica-unix-20191213/source/components/tables/tbutils.c
 @@ -238,7 +238,7 @@ AcpiTbGetRootTableEntry (
           * 64-bit platform, XSDT: Move (unaligned) 64-bit to local,
           *  return 64-bit
@@ -4463,10 +4463,10 @@ Index: acpica-unix-20191018/source/components/tables/tbutils.c
          {
              AcpiGbl_FadtIndex = TableIndex;
              AcpiTbParseFadt ();
-Index: acpica-unix-20191018/source/components/tables/tbxface.c
+Index: acpica-unix-20191213/source/components/tables/tbxface.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbxface.c
-+++ acpica-unix-20191018/source/components/tables/tbxface.c
+--- acpica-unix-20191213.orig/source/components/tables/tbxface.c
++++ acpica-unix-20191213/source/components/tables/tbxface.c
 @@ -293,8 +293,11 @@ AcpiGetTableHeader (
  
      for (i = 0, j = 0; i < AcpiGbl_RootTableList.CurrentTableCount; i++)
@@ -4480,10 +4480,10 @@ Index: acpica-unix-20191018/source/components/tables/tbxface.c
          {
              continue;
          }
-Index: acpica-unix-20191018/source/components/tables/tbxfload.c
+Index: acpica-unix-20191213/source/components/tables/tbxfload.c
 ===================================================================
---- acpica-unix-20191018.orig/source/components/tables/tbxfload.c
-+++ acpica-unix-20191018/source/components/tables/tbxfload.c
+--- acpica-unix-20191213.orig/source/components/tables/tbxfload.c
++++ acpica-unix-20191213/source/components/tables/tbxfload.c
 @@ -153,6 +153,7 @@ AcpiTbLoadNamespace (
      ACPI_TABLE_DESC         *Table;
      UINT32                  TablesLoaded = 0;
@@ -4503,10 +4503,10 @@ Index: acpica-unix-20191018/source/components/tables/tbxfload.c
           ACPI_FAILURE (AcpiTbValidateTable (Table)))
      {
          Status = AE_NO_ACPI_TABLES;
-Index: acpica-unix-20191018/source/tools/acpiexec/aetables.c
+Index: acpica-unix-20191213/source/tools/acpiexec/aetables.c
 ===================================================================
---- acpica-unix-20191018.orig/source/tools/acpiexec/aetables.c
-+++ acpica-unix-20191018/source/tools/acpiexec/aetables.c
+--- acpica-unix-20191213.orig/source/tools/acpiexec/aetables.c
++++ acpica-unix-20191213/source/tools/acpiexec/aetables.c
 @@ -146,21 +146,25 @@ AeInitializeTableHeader (
      char                    *Signature,
      UINT32                  Length)
@@ -4658,10 +4658,10 @@ Index: acpica-unix-20191018/source/tools/acpiexec/aetables.c
      }
  
      return (AE_OK);
-Index: acpica-unix-20191018/source/common/dmswitch.c
+Index: acpica-unix-20191213/source/common/dmswitch.c
 ===================================================================
---- acpica-unix-20191018.orig/source/common/dmswitch.c
-+++ acpica-unix-20191018/source/common/dmswitch.c
+--- acpica-unix-20191213.orig/source/common/dmswitch.c
++++ acpica-unix-20191213/source/common/dmswitch.c
 @@ -88,13 +88,15 @@ AcpiDmProcessSwitch (
      ACPI_PARSE_OBJECT_LIST  *Current;
      ACPI_PARSE_OBJECT_LIST  *Previous;
