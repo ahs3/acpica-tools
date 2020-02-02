@@ -260,7 +260,7 @@ Copyright (c) 2000 - 2019 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
-ASL Input:     badcode.asl -   11587 bytes     81 keywords    408 source lines
+ASL Input:     badcode.asl -   11588 bytes     81 keywords    408 source lines
 AML Output:    badcode.aml -    1195 bytes     20 opcodes      61 named objects
 
 Compilation successful. 45 Errors, 29 Warnings, 11 Remarks, 16 Optimizations, 1 Constants Folded
