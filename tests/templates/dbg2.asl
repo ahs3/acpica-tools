@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [DBG2] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -75,4 +75,4 @@
 [0004]                       Address Size : FEDCBA98
 
 [0017]                           Namepath : "\\_SB_.PCI0.DBGP"
-[0016]                           OEM Data : 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 
+[0016]                           OEM Data : 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56

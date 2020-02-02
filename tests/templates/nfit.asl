@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [NFIT] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -73,7 +73,7 @@
 [0004]                           Reserved : 00000000
 [0032]               SMBIOS Table Entries : \
     B4 13 5D 40 91 0B 29 93 67 E8 23 4C 00 00 00 88 \
-    00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF 
+    00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF
 
 [0002]                      Subtable Type : 0004 [NVDIMM Control Region]
 [0002]                             Length : 0050

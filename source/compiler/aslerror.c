@@ -5,7 +5,7 @@
  *****************************************************************************/
 
 /*
- * Copyright (C) 2000 - 2019, Intel Corp.
+ * Copyright (C) 2000 - 2020, Intel Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -643,7 +643,14 @@ AePrintSubError (
 
     MainMessage = AeDecodeMessageId (Enode->MessageId);
 
-    fprintf (OutputFile, "    %s%s", MainMessage, "\n    ");
+    fprintf (OutputFile, "    %s", MainMessage);
+
+    if (Enode->Message)
+    {
+        fprintf (OutputFile, "(%s)", Enode->Message);
+    }
+
+    fprintf (OutputFile, "\n    ");
     (void) AePrintErrorSourceLine (OutputFile, Enode, &PrematureEOF, &Total);
     fprintf (OutputFile, "\n");
 }

@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [SDEV] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -27,7 +27,7 @@
 [0002]                 Vendor Data Offset : 0022
 [0002]                 Vendor Data Length : 0008
 [0022]                           Namepath : "\\_SB_.PCI0.USB1.SUB1"
-[0008]                        Vendor Data : 00 11 22 33 44 55 66 77 
+[0008]                        Vendor Data : 00 11 22 33 44 55 66 77
 
 [0001]                      Subtable Type : 01 [PCIe Endpoint Device]
 [0001]              Flags (decoded below) : 01
@@ -44,4 +44,4 @@
 [0001]                           Function : 22
 [0001]                             Device : 33
 [0001]                           Function : 44
-[0016]                        Vendor Data : EE DD CC BB AA 55 66 77 88 99 AA BB CC DD EE FF 
+[0016]                        Vendor Data : EE DD CC BB AA 55 66 77 88 99 AA BB CC DD EE FF

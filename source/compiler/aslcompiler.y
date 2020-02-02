@@ -6,7 +6,7 @@
  *****************************************************************************/
 
 /*
- * Copyright (C) 2000 - 2019, Intel Corp.
+ * Copyright (C) 2000 - 2020, Intel Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -4735,6 +4735,7 @@ OptionalXferSize
 /* Local support functions in C */
 
 
+
 /******************************************************************************
  *
  * Local support functions
@@ -4809,3 +4810,4 @@ UtGetOpName (
     return ("[Unknown parser generator]");
 #endif
 }
+

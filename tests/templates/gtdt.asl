@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [GTDT] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
