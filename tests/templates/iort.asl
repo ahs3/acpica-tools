@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [IORT] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -19,7 +19,7 @@
 [0004]                         Node Count : 00000006
 [0004]                        Node Offset : 00000034
 [0004]                           Reserved : 00000000
-[0004]                   Optional Padding : 00 00 00 00 
+[0004]                   Optional Padding : 00 00 00 00
 
 [0001]                               Type : 00
 [0002]                             Length : 0018
@@ -58,7 +58,7 @@
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 \
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 \
     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 \
-    00 00 00 00 
+    00 00 00 00
 
 [0004]                         Input base : 00000000
 [0004]                           ID Count : 00000000

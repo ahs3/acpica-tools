@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [ASF!] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -75,5 +75,5 @@
 [0002]                             Length : 0007
 [0001]                      Eprom Address : 00
 [0001]                       Device Count : 01
-[0001]                          Addresses : 00 
+[0001]                          Addresses : 00
 

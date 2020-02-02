@@ -2,7 +2,7 @@
  * Intel ACPI Component Architecture
  * iASL Compiler/Disassembler version 20190703 (32-bit version)
  * Copyright (c) 2000 - 2019 Intel Corporation
- * 
+ *
  * Template for [MSDM] ACPI Table (static data table)
  * Format: [ByteLength]  FieldName : HexFieldValue
  */
@@ -20,4 +20,4 @@
     00 00 00 00 0A 10 16 17 18 19 1A 1B 1C 1D 1E 1F \
     20 21 22 23 24 25 26 27 10 0A 15 16 17 18 19 1A \
     1B 1C 1D 1E 1F 20 21 22 23 24 25 26 16 15 0A 10 \
-    16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22 23 24 25 
+    16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22 23 24 25
