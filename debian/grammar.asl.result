@@ -376,7 +376,7 @@ Warning  3141 -   Missing dependency ^  (Device object requires a _HID or _ADR i
 
 Intel ACPI Component Architecture
 ASL+ Optimizing Compiler/Disassembler version VVVVVVVV
-Copyright (c) 2000 - 2019 Intel Corporation
+Copyright (c) 2000 - 2020 Intel Corporation
 
 Ignoring all errors, forcing AML file generation
 
