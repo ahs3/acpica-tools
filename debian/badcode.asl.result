@@ -68,7 +68,7 @@ badcode.asl     97:     Method (MTH2)
 Remark   2119 -                   ^ Control Method marked Serialized (Due to use of Switch operator)
 
 badcode.asl     97:     Method (MTH2)
-Warning  3115 -                   ^ Not all control paths return a value (MTH2)
+Warning  3115 -                   ^ Not all control paths return a value (\MTH2)
 
 badcode.asl    101:         Switch (ToInteger (INT1))
 Error    6078 -                            ^ No Case statements under Switch
@@ -77,13 +77,13 @@ badcode.asl    120:         Store (MTH2 (), Local0)
 Warning  3144 -                                 ^ Method Local is set but never used (Local0)
 
 badcode.asl    120:         Store (MTH2 (), Local0)
-Warning  3122 -                      ^ Called method may not always return a value
+Warning  3122 -                      ^ Called method may not always return a value (\MTH2)
 
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
 Warning  3144 -        Method Local is set but never used ^  (Local0)
 
 badcode.asl    126:     Method (MTH5) {Store (MTH4(), Local0)}
-Error    6080 -  Called method returns no value ^ 
+Error    6080 -  Called method returns no value ^  (\MTH4)
 
 badcode.asl    132:         Name (_HID, "*PNP0C0A")     // Illegal leading asterisk
 Error    6061 -        Invalid leading asterisk ^  (*PNP0C0A)
