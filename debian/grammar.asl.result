@@ -19,8 +19,14 @@ Warning  3133 -                 ^ Unknown reserved name (_NPK)
 grammar.asl    208:     Device (RES)
 Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl    247:             Name (PRT0, ResourceTemplate ()
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\RES._CRS)
+
 grammar.asl    399:             CreateByteField (PRT0, R000._ASZ, RSIZ)
 Remark   2089 -                            Object is not referenced ^  (Name [RSIZ] is within a method [_CRS])
+
+grammar.asl    406:             Name (BUF0, ResourceTemplate ()
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\RES._PRS)
 
 grammar.asl    513:         Name (_STR, Unicode ("test"))
 Remark   2089 -                     ^ Object is not referenced (Name [_STR] is within a method [TCOP])
@@ -70,6 +76,9 @@ Remark   2089 -                            Object is not referenced ^  (Name [FL
 grammar.asl    705:         Device(PCI0)
 Warning  3073 -       Multiple types ^  (Device object requires either a _HID or _ADR, but not both)
 
+grammar.asl    712:                 Name(PRT0, ResourceTemplate() {
+Remark   2173 -                            ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.PCI0._CRS)
+
 grammar.asl    733:             Method(_SRS)
 Warning  3102 -                          ^ Reserved method has too few arguments (_SRS requires 1)
 
@@ -100,8 +109,20 @@ Remark   2146 -                   ^ Method Argument is never used (Arg0)
 grammar.asl   1300:         Name(BUFR, Buffer (Local0) {})
 Remark   2089 -                    ^ Object is not referenced (Name [BUFR] is within a method [OBJ1])
 
+grammar.asl   1300:         Name(BUFR, Buffer (Local0) {})
+Remark   2173 -                    ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ1)
+
+grammar.asl   1301:         Name(BUF1, Buffer (4) {1,2,3,4})
+Remark   2173 -                    ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ1)
+
+grammar.asl   1302:         Name(BUF2, Buffer (4) {})
+Remark   2173 -                    ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ1)
+
 grammar.asl   1307:         Alias (MTX1, MTX2)
 Remark   2089 -   Object is not referenced ^  (Name [MTX2] is within a method [OBJ1])
+
+grammar.asl   1321:         Name (BUF2, Buffer (128) {})
+Remark   2173 -                     ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\FLDS)
 
 grammar.asl   1329:         CreateField (BUF2, 148, 96, FLD3)
 Remark   2089 -                  Object is not referenced ^  (Name [FLD3] is within a method [FLDS])
@@ -112,8 +133,32 @@ Warning  3038 -                                    ^ Truncating 64-bit constant 
 grammar.asl   1396:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  3038 -   Truncating 64-bit constant found in 32-bit table ^ 
 
+grammar.asl   1411:         Field (\_SB_.MEM.SMEM, AnyAcc, NoLock, Preserve)
+Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\FLDX)
+
+grammar.asl   1418:         Field (\_SB_.MEM.SMEM, AnyAcc, NoLock, Preserve)
+Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\FLDX)
+
+grammar.asl   1445:         Name (BUFO, Buffer (32) {})
+Remark   2173 -                     ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
+
+grammar.asl   1448:         OperationRegion (OPR2, SystemMemory, Arg0, 256)
+Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
+
+grammar.asl   1451:         Field (OPR2, ByteAcc, NoLock, Preserve)
+Remark   2173 -                      ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
+
+grammar.asl   1462:         BankField (OPR2, BNK2, 0, ByteAcc, NoLock, Preserve)
+Remark   2173 -                          ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
+
+grammar.asl   1469:         IndexField (IDX2, DAT2, ByteAcc, NoLock, Preserve)
+Remark   2173 -                           ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
+
 grammar.asl   1476:         SizeOf (BUFO)
 Error    6114 -                       ^ Result is not used, operator has no effect
+
+grammar.asl   1490:         Event (EVT2)
+Remark   2173 -                      ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
 
 grammar.asl   1496:         Alias (MTX2, MTXA)
 Remark   2089 -   Object is not referenced ^  (Name [MTXA] is within a method [OBJ2])
@@ -146,7 +191,13 @@ grammar.asl   1792:         Store (LLessEqual (0xFFFFFFFF, 0x11111111), Local5)
 Warning  3144 -                          Method Local is set but never used ^  (Local5)
 
 grammar.asl   1821:     Method (COND)
-Warning  3115 -                   ^ Not all control paths return a value (COND)
+Warning  3115 -                   ^ Not all control paths return a value (\COND)
+
+grammar.asl   1916:         Name (BBUF, Buffer() {0xB0, 0xB1, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7})
+Remark   2173 -                     ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\REFS)
+
+grammar.asl   1918:         Name (NEST, Package ()
+Remark   2173 -                     ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\REFS)
 
 grammar.asl   1930:         Store (RefOf (MAIN), Local5)
 Warning  3144 -   Method Local is set but never used ^  (Local5)
@@ -156,6 +207,9 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 
 grammar.asl   2162:     Device (NOSV)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2168:             Name (WRD, 0x1234)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\NOSV.TEST)
 
 grammar.asl   2583:     Device (IDXF)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -174,6 +228,12 @@ Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR 
 
 grammar.asl   2658:     Device (RTBF)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   2667:             Name (ABUF, Buffer() {"ARBITRARY_BUFFER"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\RTBF.RBUF)
+
+grammar.asl   2695:             Name (BUFR, Buffer(Local1) {})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\RTBF.RBUF)
 
 grammar.asl   2756:     Device (GPE2)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -205,14 +265,35 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 grammar.asl   3109:     Device (ANDO)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   3343:             Name(RSLT,1)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\ANDO.TEST)
+
 grammar.asl   3383:     Device (BRKP)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   3420:     Device (ADSU)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   3435:             Name (DWRD, 0x12345678)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\ADSU.TEST)
+
+grammar.asl   3436:             Name (WRD, 0x1234)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\ADSU.TEST)
+
+grammar.asl   3437:             Name (BYT, 0x12)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\ADSU.TEST)
+
 grammar.asl   3513:     Device (INDC)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   3528:             Name (DWRD, 0x12345678)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\INDC.TEST)
+
+grammar.asl   3529:             Name (WRD, 0x1234)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\INDC.TEST)
+
+grammar.asl   3530:             Name (BYT, 0x12)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\INDC.TEST)
 
 grammar.asl   3611:     Device (LOPS)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -223,6 +304,18 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 grammar.asl   4120:     Device (MLDV)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   4135:             Name (RMDR, 0)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MLDV.TEST)
+
+grammar.asl   4136:             Name (DWRD, 0x12345678)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MLDV.TEST)
+
+grammar.asl   4137:             Name (WRD, 0x1234)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MLDV.TEST)
+
+grammar.asl   4138:             Name (BYT, 0x12)
+Remark   2173 -                        ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MLDV.TEST)
+
 grammar.asl   4253:     Device (NBIT)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
@@ -232,11 +325,32 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 grammar.asl   4685:     Device (XORD)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   4693:             OperationRegion (RAM, SystemMemory, 0x800000, 256)
+Warning  3175 -                                   ^ Static OperationRegion should be declared outside control method
+
+grammar.asl   4693:             OperationRegion (RAM, SystemMemory, 0x800000, 256)
+Remark   2173 -                                   ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\XORD.TEST)
+
+grammar.asl   4694:             Field (RAM, ByteAcc, NoLock, Preserve)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\XORD.TEST)
+
 grammar.asl   5022:     Device (CRBF)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
 grammar.asl   5100:     Device (IDX4)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   5117:             OperationRegion (RAM, SystemMemory, Arg0, 0x100)
+Remark   2173 -                                   ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
+
+grammar.asl   5118:             Field (RAM, DwordAcc, NoLock, Preserve)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
+
+grammar.asl   5123:             Field (RAM, ByteAcc, NoLock, Preserve)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
+
+grammar.asl   5159:             Field (RAM, ByteAcc, NoLock, Preserve)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
 
 grammar.asl   5639:     Device (EVNT)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -307,11 +421,29 @@ Warning  3144 -          Method Local is set but never used ^  (Local6)
 grammar.asl   6393:     Device (IDX5)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6416:             Name (BUF0, Buffer (Local0) {})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX5.MCTH)
+
+grammar.asl   6417:             Name (BUF1, Buffer (Local0) {})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX5.MCTH)
+
 grammar.asl   6474:         Device (PCI2)
 Warning  3073 -        Multiple types ^  (Device object requires either a _HID or _ADR, but not both)
 
 grammar.asl   6478:             Name (_CRS, Buffer(26)  {"\_SB_.PCI2._CRS..........."})
 Warning  3046 -        Invalid or unknown escape sequence ^ 
+
+grammar.asl   6554:                 Name (BUFR, Package(13) {})
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX0._BIF)
+
+grammar.asl   6578:                 Name (BUFR, Package(4) {1, 0x100, 0x76543210, 0x180})
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX0._BST)
+
+grammar.asl   6593:                 Name (PBUF, Package(4) {})  //  leave uninitialized
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX0.TEST)
+
+grammar.asl   6625:                 Name (BUFR, Buffer(16)
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX0.TEST)
 
 grammar.asl   6709:         Device (BITI)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
@@ -319,17 +451,68 @@ Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR 
 grammar.asl   6817:                 And (Local0, 1, Local0) //  Local0 &= 1
 Error    6066 -                              ^ Method local variable is not initialized (Local0)
 
+grammar.asl   6846:             Name (C17C, Package (13)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.C17B)
+
 grammar.asl   6903:             Name (_HID, "*PNP0C0A")     //  Control Method Battey ID
 Error    6061 -            Invalid leading asterisk ^  (*PNP0C0A)
 
 grammar.asl   6912:         Device (IDX3)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   6922:                 Name (BUFR, Buffer ()   {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX3.LCLB)
+
+grammar.asl   6974:                 Name (PKG, Package ()   {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+Remark   2173 -                            ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX3.LCLP)
+
 grammar.asl   7057:     Device(IDX7)
 Warning  3141 -                  ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   7074:             Name (DEST, Buffer ()                           //  62 characters plus NULL
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TST1)
+
+grammar.asl   7093:             Name (BUF0, Buffer() {0x1, 0x2, 0x3, 0x4, 0x5})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TST2)
+
+grammar.asl   7110:             Name (BUF1, Buffer() {0x1, 0x2, 0x3, 0x4, 0x5})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TST3)
+
+grammar.asl   7301:             Name (SRCB, Buffer (12) {}) //  12 characters
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTF)
+
+grammar.asl   7304:             Name (DEST, Buffer ()                       //  62 characters plus NULL
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTF)
+
+grammar.asl   7327:             Name (SRCB, Buffer (12) {}) //  12 characters
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTG)
+
+grammar.asl   7330:             Name (DEST, Buffer ()                       //  62 characters plus NULL
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTG)
+
+grammar.asl   7412:             Name (DBUF, Buffer () {"abcdefghijklmnopqrstuvwxyz"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTH)
+
+grammar.asl   7448:             Name (DBUF, Buffer () {"abcdefghijklmnopqrstuvwxyz"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTI)
+
+grammar.asl   7484:             Name (DBUF, Buffer () {"abcdefghijklmnopqrstuvwxyz"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTJ)
+
+grammar.asl   7520:             Name (DBUF, Buffer () {"abcdefghijklmnopqrstuvwxyz"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTK)
+
+grammar.asl   7556:             Name (DBUF, Buffer () {"abcdefghijklmnopqrstuvwxyz"})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX7.TSTL)
+
 grammar.asl   7736:     Device (MTCH)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   7743:             Name (TIM0, Package ()
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MTCH.TEST)
+
+grammar.asl   7755:             Name (TMD0, Buffer (20) {0xFF, 0xFF, 0xFF, 0xFF })
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\MTCH.TEST)
 
 grammar.asl   7757:             CreateDWordField (TMD0, 4, DMA0)
 Remark   2089 -                     Object is not referenced ^  (Name [DMA0] is within a method [TEST])
@@ -346,14 +529,50 @@ Remark   2089 -                      Object is not referenced ^  (Name [CHNF] is
 grammar.asl   7934:     Device (WHLB)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   8275:                 Name (BUFR, Package (13)    {})
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.BAT1._BIF)
+
 grammar.asl   8295:         Device (IDX2)
 Warning  3141 -    Missing dependency ^  (Device object requires a _HID or _ADR in same scope)
+
+grammar.asl   8300:                 Name (SRCB, Buffer ()   {"Short Buffer"})   //  12 characters plus NULL
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX2.B2IB)
+
+grammar.asl   8302:                 Name (DEST, Buffer ()                           //  62 characters plus NULL
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX2.B2IB)
+
+grammar.asl   8493:                 Name (DEST, Package (2) {})
+Remark   2173 -                             ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\_SB.IDX2.FB2P)
 
 grammar.asl   8678:     Device (SIZO)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
+grammar.asl   8708:             Name (BUFR, Buffer (12) {}) //  uninitialized Buffer
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SARG)
+
+grammar.asl   8709:             Name (BUF1, Buffer() {0x01, 0x02, 0x03, 0x04, 0x05})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SARG)
+
+grammar.asl   8710:             Name (PKG0, Package (4) {}) //  uninitialized Package
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SARG)
+
+grammar.asl   8712:             Name (PKG1, Package (4)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SARG)
+
 grammar.asl   8720:             Name (PKG2, Package (4)
 Remark   2063 -                                     ^ Initializer list shorter than declared package length
+
+grammar.asl   8720:             Name (PKG2, Package (4)
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SARG)
+
+grammar.asl   8973:             Name (BUFR, Buffer (12) {})
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SBUF)
+
+grammar.asl   9034:             Name (BUFR, Buffer (12) {}) //  uninitialized Buffer
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SLOC)
+
+grammar.asl   9036:             Name (PKG0, Package (4) {}) //  uninitialized Package
+Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\SIZO.SLOC)
 
 grammar.asl   9132:             Store (_OS, Local0)
 Warning  3144 -                                 ^ Method Local is set but never used (Local0)
@@ -383,4 +602,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl -  323653 bytes   4818 keywords  10284 source lines
 AML Output:    grammar.aml -   43758 bytes   4148 opcodes     670 named objects
 
-Compilation successful. 6 Errors, 92 Warnings, 27 Remarks, 1106 Optimizations
+Compilation successful. 6 Errors, 93 Warnings, 99 Remarks, 1106 Optimizations
