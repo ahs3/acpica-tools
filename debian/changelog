@@ -5,6 +5,9 @@ acpica-unix (20200214-2) unstable; urgency=medium
   * Add patches to work better with GCC being stricter about the use
     of strings and expecting null terminators
   * Add patch to properly allow a PCC Register() type
+  * Closes: #886753 -- bumping debhelper compat to 10 did not fix the
+    FTCBFS, so apply the patch provided so that strip is not done
+    during make install (thanks, Helmut!)
 
  -- Al Stone <ahs3@debian.org>  Tue, 25 Feb 2020 19:23:36 -0700
 
