@@ -1,3 +1,13 @@
+acpica-unix (20200214-2) unstable; urgency=medium
+
+  * Add patch for FACP defaults 
+  * Add patches to accommodate future use of -fno-common by default
+  * Add patches to work better with GCC being stricter about the use
+    of strings and expecting null terminators
+  * Add patch to properly allow a PCC Register() type
+
+ -- Al Stone <ahs3@debian.org>  Tue, 25 Feb 2020 19:23:36 -0700
+
 acpica-unix (20200214-1) unstable; urgency=medium
 
   * Upgrade to 20200214 upstream 
