@@ -23,8 +23,5 @@ str-trunc-warn.patch
 ptr-cast.patch
 aslcodegen.patch
 facp.patch
-dup-symbol.patch
-no-common.patch
 armv7-str-fixes.patch
 dbtest.patch
-pcc.patch

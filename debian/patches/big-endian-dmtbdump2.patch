@@ -1,7 +1,7 @@
-Index: acpica-unix-20191213/source/common/dmtbdump2.c
+Index: acpica-unix-20209326/source/common/dmtbdump2.c
 ===================================================================
---- acpica-unix-20191213.orig/source/common/dmtbdump2.c
-+++ acpica-unix-20191213/source/common/dmtbdump2.c
+--- acpica-unix-20209326.orig/source/common/dmtbdump2.c
++++ acpica-unix-20209326/source/common/dmtbdump2.c
 @@ -75,16 +75,23 @@ AcpiDmDumpIort (
      ACPI_IORT_SMMU          *IortSmmu = NULL;
      UINT32                  Offset;
@@ -223,7 +223,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -386,7 +407,7 @@ AcpiDmDumpIvrs (
+@@ -391,7 +412,7 @@ AcpiDmDumpIvrs (
  
              /* Attempt to continue */
  
@@ -232,7 +232,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              {
                  AcpiOsPrintf ("Invalid zero length subtable\n");
                  return;
-@@ -397,8 +418,8 @@ AcpiDmDumpIvrs (
+@@ -402,8 +423,8 @@ AcpiDmDumpIvrs (
          /* Dump the subtable */
  
          AcpiOsPrintf ("\n");
@@ -243,16 +243,16 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -412,7 +433,7 @@ AcpiDmDumpIvrs (
-             DeviceEntry = ACPI_ADD_PTR (ACPI_IVRS_DE_HEADER, Subtable,
-                 sizeof (ACPI_IVRS_HARDWARE));
+@@ -427,7 +448,7 @@ AcpiDmDumpIvrs (
+                     sizeof (ACPI_IVRS_HARDWARE2));
+             }
  
 -            while (EntryOffset < (Offset + Subtable->Length))
 +            while (EntryOffset < (Offset + SubLength))
              {
                  AcpiOsPrintf ("\n");
                  /*
-@@ -474,7 +495,7 @@ AcpiDmDumpIvrs (
+@@ -489,7 +510,7 @@ AcpiDmDumpIvrs (
  
                  /* Dump the Device Entry */
  
@@ -261,7 +261,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                      DeviceEntry, EntryLength, InfoTable);
                  if (ACPI_FAILURE (Status))
                  {
-@@ -490,8 +511,8 @@ AcpiDmDumpIvrs (
+@@ -505,8 +526,8 @@ AcpiDmDumpIvrs (
  NextSubtable:
          /* Point to next subtable */
  
@@ -272,7 +272,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      }
  }
  
-@@ -517,7 +538,7 @@ AcpiDmDumpLpit (
+@@ -532,7 +553,7 @@ AcpiDmDumpLpit (
  {
      ACPI_STATUS             Status;
      ACPI_LPIT_HEADER        *Subtable;
@@ -281,7 +281,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      UINT32                  Offset = sizeof (ACPI_TABLE_LPIT);
      ACPI_DMTABLE_INFO       *InfoTable;
      UINT32                  SubtableLength;
-@@ -525,8 +546,9 @@ AcpiDmDumpLpit (
+@@ -540,8 +561,9 @@ AcpiDmDumpLpit (
  
      /* Subtables */
  
@@ -292,7 +292,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      {
          /* Common subtable header */
  
-@@ -590,13 +612,14 @@ AcpiDmDumpMadt (
+@@ -605,13 +627,14 @@ AcpiDmDumpMadt (
  {
      ACPI_STATUS             Status;
      ACPI_SUBTABLE_HEADER    *Subtable;
@@ -308,7 +308,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoMadt);
      if (ACPI_FAILURE (Status))
      {
-@@ -606,7 +629,7 @@ AcpiDmDumpMadt (
+@@ -621,7 +644,7 @@ AcpiDmDumpMadt (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_SUBTABLE_HEADER, Table, Offset);
@@ -317,7 +317,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      {
          /* Common subtable header */
  
-@@ -752,11 +775,13 @@ AcpiDmDumpMcfg (
+@@ -767,11 +790,13 @@ AcpiDmDumpMcfg (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MCFG);
      ACPI_MCFG_ALLOCATION    *Subtable;
@@ -332,7 +332,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -765,17 +790,17 @@ AcpiDmDumpMcfg (
+@@ -780,17 +805,17 @@ AcpiDmDumpMcfg (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MCFG_ALLOCATION, Table, Offset);
@@ -354,7 +354,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              sizeof (ACPI_MCFG_ALLOCATION), AcpiDmTableInfoMcfg0);
          if (ACPI_FAILURE (Status))
          {
-@@ -809,6 +834,7 @@ AcpiDmDumpMpst (
+@@ -824,6 +849,7 @@ AcpiDmDumpMpst (
  {
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MPST);
@@ -362,7 +362,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      ACPI_MPST_POWER_NODE    *Subtable0;
      ACPI_MPST_POWER_STATE   *Subtable0A;
      ACPI_MPST_COMPONENT     *Subtable0B;
-@@ -817,11 +843,13 @@ AcpiDmDumpMpst (
+@@ -832,11 +858,13 @@ AcpiDmDumpMpst (
      UINT16                  SubtableCount;
      UINT32                  PowerStateCount;
      UINT32                  ComponentCount;
@@ -377,7 +377,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -829,13 +857,14 @@ AcpiDmDumpMpst (
+@@ -844,13 +872,14 @@ AcpiDmDumpMpst (
  
      /* Subtable: Memory Power Node(s) */
  
@@ -395,7 +395,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              sizeof (ACPI_MPST_POWER_NODE), AcpiDmTableInfoMpst0);
          if (ACPI_FAILURE (Status))
          {
-@@ -844,8 +873,8 @@ AcpiDmDumpMpst (
+@@ -859,8 +888,8 @@ AcpiDmDumpMpst (
  
          /* Extract the sub-subtable counts */
  
@@ -406,7 +406,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          Offset += sizeof (ACPI_MPST_POWER_NODE);
  
          /* Sub-subtables - Memory Power State Structure(s) */
-@@ -856,7 +885,7 @@ AcpiDmDumpMpst (
+@@ -871,7 +900,7 @@ AcpiDmDumpMpst (
          while (PowerStateCount)
          {
              AcpiOsPrintf ("\n");
@@ -415,7 +415,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                  sizeof (ACPI_MPST_POWER_STATE), AcpiDmTableInfoMpst0A);
              if (ACPI_FAILURE (Status))
              {
-@@ -866,7 +895,7 @@ AcpiDmDumpMpst (
+@@ -881,7 +910,7 @@ AcpiDmDumpMpst (
              Subtable0A++;
              PowerStateCount--;
              Offset += sizeof (ACPI_MPST_POWER_STATE);
@@ -424,7 +424,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
  
          /* Sub-subtables - Physical Component ID Structure(s) */
  
-@@ -879,7 +908,7 @@ AcpiDmDumpMpst (
+@@ -894,7 +923,7 @@ AcpiDmDumpMpst (
  
          while (ComponentCount)
          {
@@ -433,7 +433,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                  sizeof (ACPI_MPST_COMPONENT), AcpiDmTableInfoMpst0B);
              if (ACPI_FAILURE (Status))
              {
-@@ -894,17 +923,19 @@ AcpiDmDumpMpst (
+@@ -909,17 +938,19 @@ AcpiDmDumpMpst (
          /* Point to next Memory Power Node subtable */
  
          SubtableCount--;
@@ -456,7 +456,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          sizeof (ACPI_MPST_DATA_HDR), AcpiDmTableInfoMpst1);
      if (ACPI_FAILURE (Status))
      {
-@@ -919,10 +950,10 @@ AcpiDmDumpMpst (
+@@ -934,10 +965,10 @@ AcpiDmDumpMpst (
      Subtable2 = ACPI_ADD_PTR (ACPI_MPST_POWER_DATA, Subtable1,
          sizeof (ACPI_MPST_DATA_HDR));
  
@@ -469,7 +469,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              sizeof (ACPI_MPST_POWER_DATA), AcpiDmTableInfoMpst2);
          if (ACPI_FAILURE (Status))
          {
-@@ -955,11 +986,13 @@ AcpiDmDumpMsct (
+@@ -970,11 +1001,13 @@ AcpiDmDumpMsct (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MSCT);
      ACPI_MSCT_PROXIMITY     *Subtable;
@@ -484,7 +484,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -968,12 +1001,12 @@ AcpiDmDumpMsct (
+@@ -983,12 +1016,12 @@ AcpiDmDumpMsct (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MSCT_PROXIMITY, Table, Offset);
@@ -499,7 +499,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              sizeof (ACPI_MSCT_PROXIMITY), AcpiDmTableInfoMsct0);
          if (ACPI_FAILURE (Status))
          {
-@@ -1008,11 +1041,13 @@ AcpiDmDumpMtmr (
+@@ -1023,11 +1056,13 @@ AcpiDmDumpMtmr (
      ACPI_STATUS             Status;
      UINT32                  Offset = sizeof (ACPI_TABLE_MTMR);
      ACPI_MTMR_ENTRY         *Subtable;
@@ -514,7 +514,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -1021,12 +1056,12 @@ AcpiDmDumpMtmr (
+@@ -1036,12 +1071,12 @@ AcpiDmDumpMtmr (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_MTMR_ENTRY, Table, Offset);
@@ -529,7 +529,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              sizeof (ACPI_MTMR_ENTRY), AcpiDmTableInfoMtmr0);
          if (ACPI_FAILURE (Status))
          {
-@@ -1068,11 +1103,17 @@ AcpiDmDumpNfit (
+@@ -1083,11 +1118,17 @@ AcpiDmDumpNfit (
      ACPI_NFIT_SMBIOS        *SmbiosInfo = NULL;
      ACPI_NFIT_FLUSH_ADDRESS *Hint = NULL;
      UINT32                  i;
@@ -548,7 +548,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      if (ACPI_FAILURE (Status))
      {
          return;
-@@ -1081,19 +1122,21 @@ AcpiDmDumpNfit (
+@@ -1096,19 +1137,21 @@ AcpiDmDumpNfit (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_NFIT_HEADER, Table, Offset);
@@ -574,7 +574,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          {
          case ACPI_NFIT_TYPE_SYSTEM_ADDRESS:
  
-@@ -1148,7 +1191,7 @@ AcpiDmDumpNfit (
+@@ -1163,7 +1206,7 @@ AcpiDmDumpNfit (
  
              /* Attempt to continue */
  
@@ -583,7 +583,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              {
                  AcpiOsPrintf ("Invalid zero length subtable\n");
                  return;
-@@ -1157,8 +1200,8 @@ AcpiDmDumpNfit (
+@@ -1172,8 +1215,8 @@ AcpiDmDumpNfit (
          }
  
          AcpiOsPrintf ("\n");
@@ -594,7 +594,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1166,14 +1209,15 @@ AcpiDmDumpNfit (
+@@ -1181,14 +1224,15 @@ AcpiDmDumpNfit (
  
          /* Per-subtable variable-length fields */
  
@@ -613,7 +613,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                      &Interleave->LineOffset[i],
                      sizeof (UINT32), AcpiDmTableInfoNfit2a);
                  if (ACPI_FAILURE (Status))
-@@ -1187,12 +1231,11 @@ AcpiDmDumpNfit (
+@@ -1202,12 +1246,11 @@ AcpiDmDumpNfit (
  
          case ACPI_NFIT_TYPE_SMBIOS:
  
@@ -628,7 +628,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                      sizeof (ACPI_NFIT_SMBIOS) - sizeof (UINT8),
                      SmbiosInfo,
                      Length, AcpiDmTableInfoNfit3a);
-@@ -1207,9 +1250,10 @@ AcpiDmDumpNfit (
+@@ -1222,9 +1265,10 @@ AcpiDmDumpNfit (
          case ACPI_NFIT_TYPE_FLUSH_ADDRESS:
  
              Hint = ACPI_CAST_PTR (ACPI_NFIT_FLUSH_ADDRESS, Subtable);
@@ -641,7 +641,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                      &Hint->HintAddress[i],
                      sizeof (UINT64), AcpiDmTableInfoNfit6a);
                  if (ACPI_FAILURE (Status))
-@@ -1228,8 +1272,8 @@ AcpiDmDumpNfit (
+@@ -1243,8 +1287,8 @@ AcpiDmDumpNfit (
  NextSubtable:
          /* Point to next subtable */
  
@@ -652,7 +652,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      }
  }
  
-@@ -1254,12 +1298,13 @@ AcpiDmDumpPcct (
+@@ -1269,12 +1313,13 @@ AcpiDmDumpPcct (
      ACPI_STATUS             Status;
      ACPI_PCCT_SUBSPACE      *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
@@ -667,7 +667,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoPcct);
      if (ACPI_FAILURE (Status))
      {
-@@ -1269,7 +1314,7 @@ AcpiDmDumpPcct (
+@@ -1284,7 +1329,7 @@ AcpiDmDumpPcct (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_PCCT_SUBSPACE, Table, Offset);
@@ -676,7 +676,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      {
          /* Common subtable header */
  
-@@ -1409,16 +1454,21 @@ AcpiDmDumpPmtt (
+@@ -1424,16 +1469,21 @@ AcpiDmDumpPmtt (
      ACPI_PMTT_HEADER        *MemSubtable;
      ACPI_PMTT_HEADER        *DimmSubtable;
      ACPI_PMTT_DOMAIN        *DomainArray;
@@ -700,7 +700,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoPmtt);
      if (ACPI_FAILURE (Status))
      {
-@@ -1428,13 +1478,14 @@ AcpiDmDumpPmtt (
+@@ -1443,13 +1493,14 @@ AcpiDmDumpPmtt (
      /* Subtables */
  
      Subtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Table, Offset);
@@ -717,7 +717,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1453,7 +1504,7 @@ AcpiDmDumpPmtt (
+@@ -1468,7 +1519,7 @@ AcpiDmDumpPmtt (
          /* Dump the fixed-length portion of the subtable */
  
          Status = AcpiDmDumpTable (Length, Offset, Subtable,
@@ -726,7 +726,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          if (ACPI_FAILURE (Status))
          {
              return;
-@@ -1465,15 +1516,16 @@ AcpiDmDumpPmtt (
+@@ -1480,15 +1531,16 @@ AcpiDmDumpPmtt (
          MemSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Subtable,
              sizeof (ACPI_PMTT_SOCKET));
  
@@ -746,7 +746,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -1493,7 +1545,7 @@ AcpiDmDumpPmtt (
+@@ -1508,7 +1560,7 @@ AcpiDmDumpPmtt (
  
              Status = AcpiDmDumpTable (Length,
                  Offset + MemOffset, MemSubtable,
@@ -755,7 +755,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
              if (ACPI_FAILURE (Status))
              {
                  return;
-@@ -1501,13 +1553,14 @@ AcpiDmDumpPmtt (
+@@ -1516,13 +1568,14 @@ AcpiDmDumpPmtt (
  
              /* Walk the variable count of proximity domains */
  
@@ -773,7 +773,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                  DomainCount)
              {
                  Status = AcpiDmDumpTable (Length,
-@@ -1535,15 +1588,16 @@ AcpiDmDumpPmtt (
+@@ -1550,15 +1603,16 @@ AcpiDmDumpPmtt (
              DimmSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, MemSubtable,
                  DomainOffset);
  
@@ -793,7 +793,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                  if (ACPI_FAILURE (Status))
                  {
                      return;
-@@ -1563,7 +1617,7 @@ AcpiDmDumpPmtt (
+@@ -1578,7 +1632,7 @@ AcpiDmDumpPmtt (
  
                  Status = AcpiDmDumpTable (Length,
                      Offset + MemOffset + DimmOffset, DimmSubtable,
@@ -802,7 +802,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
                  if (ACPI_FAILURE (Status))
                  {
                      return;
-@@ -1571,23 +1625,22 @@ AcpiDmDumpPmtt (
+@@ -1586,23 +1640,22 @@ AcpiDmDumpPmtt (
  
                  /* Point to next DIMM subtable */
  
@@ -832,7 +832,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
      }
  }
  
-@@ -1748,6 +1801,8 @@ AcpiDmDumpS3pt (
+@@ -1763,6 +1816,8 @@ AcpiDmDumpS3pt (
      ACPI_FPDT_HEADER        *Subtable;
      ACPI_DMTABLE_INFO       *InfoTable;
      ACPI_TABLE_S3PT         *S3ptTable = ACPI_CAST_PTR (ACPI_TABLE_S3PT, Tables);
@@ -841,7 +841,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
  
  
      /* Main table */
-@@ -1758,20 +1813,22 @@ AcpiDmDumpS3pt (
+@@ -1773,20 +1828,22 @@ AcpiDmDumpS3pt (
          return 0;
      }
  
@@ -867,7 +867,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
          {
          case ACPI_S3PT_TYPE_RESUME:
  
-@@ -1786,7 +1843,7 @@ AcpiDmDumpS3pt (
+@@ -1801,7 +1858,7 @@ AcpiDmDumpS3pt (
          default:
  
              AcpiOsPrintf ("\n**** Unknown S3PT subtable type 0x%X\n",
@@ -876,7 +876,7 @@ Index: acpica-unix-20191213/source/common/dmtbdump2.c
  
              /* Attempt to continue */
  
-@@ -1799,7 +1856,7 @@ AcpiDmDumpS3pt (
+@@ -1814,7 +1871,7 @@ AcpiDmDumpS3pt (
          }
  
          AcpiOsPrintf ("\n");

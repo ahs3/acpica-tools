@@ -1,3 +1,10 @@
+acpica-unix (20200326-1) unstable; urgency=medium
+
+  * Upgrade to 20200326 upstream 
+  * Refresh patches as needed
+
+ -- Al Stone <ahs3@debian.org>  Tue, 31 Mar 2020 20:15:17 -0600
+
 acpica-unix (20200214-2) unstable; urgency=medium
 
   * Add patch for FACP defaults 
