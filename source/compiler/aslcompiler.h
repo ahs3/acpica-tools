@@ -380,7 +380,7 @@ AslCheckExpectedExceptions (
     void);
 
 ACPI_STATUS
-AslExpectException (
+AslLogExpectedException (
     char                    *MessageIdString);
 
 ACPI_STATUS
@@ -393,8 +393,14 @@ AslDisableException (
 
 BOOLEAN
 AslIsExceptionIgnored (
+    char                    *Filename,
+    UINT32                  LineNumber,
     UINT8                   Level,
     UINT16                  MessageId);
+
+void
+AslLogExpectedExceptionByLine (
+    char                    *MessageIdString);
 
 void
 AslCoreSubsystemError (
