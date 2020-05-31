@@ -2,6 +2,7 @@ acpica-unix (20200430-1) UNRELEASED; urgency=medium
 
   * Upgrade to 20200430 upstream 
   * Refresh patches as needed
+  * Add in dbtest.patch that fixes s390 build.  Closes: #958491 
 
  -- Al Stone <ahs3@debian.org>  Sun, 31 May 2020 15:42:02 -0600
 
