@@ -133,20 +133,11 @@ Warning  3038 -                                    ^ Truncating 64-bit constant 
 grammar.asl   1396:         if (LNotEqual (Local0, 0x1234567887654321))
 Warning  3038 -   Truncating 64-bit constant found in 32-bit table ^ 
 
-grammar.asl   1411:         Field (\_SB_.MEM.SMEM, AnyAcc, NoLock, Preserve)
-Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\FLDX)
-
-grammar.asl   1418:         Field (\_SB_.MEM.SMEM, AnyAcc, NoLock, Preserve)
-Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\FLDX)
-
 grammar.asl   1445:         Name (BUFO, Buffer (32) {})
 Remark   2173 -                     ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
 
 grammar.asl   1448:         OperationRegion (OPR2, SystemMemory, Arg0, 256)
 Remark   2173 -                                ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
-
-grammar.asl   1451:         Field (OPR2, ByteAcc, NoLock, Preserve)
-Remark   2173 -                      ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
 
 grammar.asl   1462:         BankField (OPR2, BNK2, 0, ByteAcc, NoLock, Preserve)
 Remark   2173 -                          ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\OBJ2)
@@ -331,9 +322,6 @@ Warning  3175 -                                   ^ Static OperationRegion shoul
 grammar.asl   4693:             OperationRegion (RAM, SystemMemory, 0x800000, 256)
 Remark   2173 -                                   ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\XORD.TEST)
 
-grammar.asl   4694:             Field (RAM, ByteAcc, NoLock, Preserve)
-Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\XORD.TEST)
-
 grammar.asl   5022:     Device (CRBF)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
 
@@ -342,15 +330,6 @@ Warning  3141 -                   ^ Missing dependency (Device object requires a
 
 grammar.asl   5117:             OperationRegion (RAM, SystemMemory, Arg0, 0x100)
 Remark   2173 -                                   ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
-
-grammar.asl   5118:             Field (RAM, DwordAcc, NoLock, Preserve)
-Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
-
-grammar.asl   5123:             Field (RAM, ByteAcc, NoLock, Preserve)
-Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
-
-grammar.asl   5159:             Field (RAM, ByteAcc, NoLock, Preserve)
-Remark   2173 -                         ^ Creation of named objects within a method is highly inefficient, use globals or method local variables instead (\IDX4.MADM)
 
 grammar.asl   5639:     Device (EVNT)
 Warning  3141 -                   ^ Missing dependency (Device object requires a _HID or _ADR in same scope)
@@ -602,4 +581,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl -  323653 bytes   4818 keywords  10284 source lines
 AML Output:    grammar.aml -   43758 bytes   4148 opcodes     670 named objects
 
-Compilation successful. 6 Errors, 93 Warnings, 99 Remarks, 1106 Optimizations
+Compilation successful. 6 Errors, 93 Warnings, 92 Remarks, 1106 Optimizations
