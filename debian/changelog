@@ -1,11 +1,11 @@
-acpica-unix (20200528-1) UNRELEASED; urgency=medium
+acpica-unix (20200528-1) unstable; urgency=medium
 
   * Upgrade to 20200528 upstream 
-  * Refresh patches as needed
+  * Refresh patches and test results as needed
   * Remove acpinames utility since upstream removed it as no longer needed
   * Update Standards-Version to 4.5.0
 
- -- Al Stone <ahs3@debian.org>  Sun, 31 May 2020 18:00:27 -0600
+ -- Al Stone <ahs3@debian.org>  Tue, 02 Jun 2020 20:15:49 -0600
 
 acpica-unix (20200430-1) unstable; urgency=medium
 
