@@ -52,7 +52,6 @@ override_dh_install:
 		       $(DESTDIR)/usr/bin/acpidump-acpica
 	install -m 755 generate/unix/bin/acpiexec $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpihelp $(DESTDIR)/usr/bin
-	install -m 755 generate/unix/bin/acpinames $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpisrc $(DESTDIR)/usr/bin
 	install -m 755 generate/unix/bin/acpixtract \
 	               $(DESTDIR)/usr/bin/acpixtract-acpica
@@ -64,7 +63,6 @@ override_dh_install:
 	install -m 0644 debian/acpiexamples.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpiexec.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpihelp.1 $(DESTDIR)/usr/share/man/man1
-	install -m 0644 debian/acpinames.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpisrc.1 $(DESTDIR)/usr/share/man/man1
 	install -m 0644 debian/acpixtract.1 \
 	                $(DESTDIR)/usr/share/man/man1/acpixtract-acpica.1
