@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Al Stone <ahs3@debian.org>
 Build-Depends: debhelper (>= 10~), flex, bison
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Vcs-Git: https://github.com/ahs3/acpica-tools.git
 Vcs-Browser: https://github.com/ahs3/acpica-tools
 Homepage: http://www.acpica.org
