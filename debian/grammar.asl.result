@@ -40,6 +40,12 @@ Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-
 grammar.asl    523:     NAME (ESC2, "abcdefg\000hijklmn")
 Warning  3055 -                                ^ Invalid Hex/Octal Escape - Non-ASCII or NULL
 
+grammar.asl    552:         IRQNoFlags(xxxt){3,4,10,11}
+Remark   2182 -                          ^ At least one lower case letter found in NameSeg, ASL is case insensitive - converting to upper case (XXXT)
+
+grammar.asl    566:         Name(Bxxx,0xFFFFFFFF)
+Remark   2182 -                    ^ At least one lower case letter found in NameSeg, ASL is case insensitive - converting to upper case (BXXX)
+
 grammar.asl    620:         RCIV (Subtract (Arg0, 1))
 Remark   2098 -               ^ Recursive method call (RCIV)
 
@@ -581,4 +587,4 @@ Ignoring all errors, forcing AML file generation
 ASL Input:     grammar.asl -  323653 bytes   4818 keywords  10284 source lines
 AML Output:    grammar.aml -   43758 bytes   4148 opcodes     670 named objects
 
-Compilation successful. 6 Errors, 93 Warnings, 92 Remarks, 1106 Optimizations
+Compilation successful. 6 Errors, 93 Warnings, 94 Remarks, 1106 Optimizations
