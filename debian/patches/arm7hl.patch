@@ -1,8 +1,8 @@
-Index: acpica-unix-20191213/source/include/acmacros.h
+Index: acpica-unix-20200925/source/include/acmacros.h
 ===================================================================
---- acpica-unix-20191213.orig/source/include/acmacros.h
-+++ acpica-unix-20191213/source/include/acmacros.h
-@@ -178,6 +178,8 @@
+--- acpica-unix-20200925.orig/source/include/acmacros.h
++++ acpica-unix-20200925/source/include/acmacros.h
+@@ -163,6 +163,8 @@
  
  /* 16-bit source, 16/32/64 destination */
  
@@ -11,7 +11,7 @@ Index: acpica-unix-20191213/source/include/acmacros.h
  #define ACPI_MOVE_16_TO_16(d, s)        {((  UINT8 *)(void *)(d))[0] = ((UINT8 *)(void *)(s))[0];\
                                           ((  UINT8 *)(void *)(d))[1] = ((UINT8 *)(void *)(s))[1];}
  
-@@ -199,6 +201,7 @@
+@@ -182,6 +184,7 @@
  
  /* 64-bit source, 16/32/64 destination */
  

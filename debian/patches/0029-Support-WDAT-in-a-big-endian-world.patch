@@ -1,0 +1,43 @@
+From 520e143b2bacb39032c06a33f61ae05583be6b2a Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Fri, 25 Sep 2020 18:13:20 -0600
+Subject: [PATCH 29/40] Support WDAT in a big-endian world
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/common/dmtbdump3.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+Index: acpica-unix2-20200925/source/common/dmtbdump3.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/common/dmtbdump3.c
++++ acpica-unix2-20200925/source/common/dmtbdump3.c
+@@ -568,11 +568,12 @@ AcpiDmDumpWdat (
+     ACPI_STATUS             Status;
+     UINT32                  Offset = sizeof (ACPI_TABLE_WDAT);
+     ACPI_WDAT_ENTRY         *Subtable;
++    UINT32                  TableLength = AcpiUtReadUint32(&Table->Length);
+ 
+ 
+     /* Main table */
+ 
+-    Status = AcpiDmDumpTable (Table->Length, 0, Table, 0, AcpiDmTableInfoWdat);
++    Status = AcpiDmDumpTable (TableLength, 0, Table, 0, AcpiDmTableInfoWdat);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+@@ -581,12 +582,12 @@ AcpiDmDumpWdat (
+     /* Subtables */
+ 
+     Subtable = ACPI_ADD_PTR (ACPI_WDAT_ENTRY, Table, Offset);
+-    while (Offset < Table->Length)
++    while (Offset < TableLength)
+     {
+         /* Common subtable header */
+ 
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Table->Length, Offset, Subtable,
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable,
+             sizeof (ACPI_WDAT_ENTRY), AcpiDmTableInfoWdat0);
+         if (ACPI_FAILURE (Status))
+         {

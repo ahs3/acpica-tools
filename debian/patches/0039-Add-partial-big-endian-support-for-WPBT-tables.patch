@@ -1,0 +1,61 @@
+From 9d7f9c8f4ecbee2e621d471a8c4944cebe62947d Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Wed, 30 Sep 2020 18:59:57 -0600
+Subject: [PATCH 1/5] Add partial big-endian support for WPBT tables
+
+There's some weirdness here that at present does not warrant
+further investigation; this is just a really low priority table.
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/common/dmtbdump3.c  | 8 ++++----
+ source/compiler/dttable2.c | 3 ++-
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+Index: acpica-unix2-20200925/source/common/dmtbdump3.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/common/dmtbdump3.c
++++ acpica-unix2-20200925/source/common/dmtbdump3.c
+@@ -628,13 +628,13 @@ AcpiDmDumpWpbt (
+ {
+     ACPI_STATUS             Status;
+     ACPI_TABLE_WPBT         *Subtable;
+-    UINT32                  Length = Table->Length;
++    UINT32                  TableLength = AcpiUtReadUint32(&Table->Length);
+     UINT16                  ArgumentsLength;
+ 
+ 
+     /* Dump the main table */
+ 
+-    Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoWpbt);
++    Status = AcpiDmDumpTable (TableLength, 0, Table, 0, AcpiDmTableInfoWpbt);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+@@ -643,10 +643,10 @@ AcpiDmDumpWpbt (
+     /* Extract the arguments buffer length from the main table */
+ 
+     Subtable = ACPI_CAST_PTR (ACPI_TABLE_WPBT, Table);
+-    ArgumentsLength = Subtable->ArgumentsLength;
++    ArgumentsLength = AcpiUtReadUint16(&Subtable->ArgumentsLength);
+ 
+     /* Dump the arguments buffer */
+ 
+-    (void) AcpiDmDumpTable (Table->Length, 0, Table, ArgumentsLength,
++    (void) AcpiDmDumpTable (TableLength, 0, Table, ArgumentsLength,
+         AcpiDmTableInfoWpbt0);
+ }
+Index: acpica-unix2-20200925/source/compiler/dttable2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/compiler/dttable2.c
++++ acpica-unix2-20200925/source/compiler/dttable2.c
+@@ -2190,7 +2190,8 @@ DtCompileWpbt (
+ 
+     /* Extract the length of the Arguments buffer, insert into main table */
+ 
+-    Length = (UINT16) Subtable->TotalLength;
++    AcpiUtWriteUint(&Length, sizeof(UINT16),
++		   &Subtable->TotalLength, sizeof(UINT32));
+     Table = ACPI_CAST_PTR (ACPI_TABLE_WPBT, ParentTable->Buffer);
+     Table->ArgumentsLength = Length;
+ 

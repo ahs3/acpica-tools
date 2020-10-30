@@ -1,0 +1,152 @@
+From dfe414b053fb9feb905271785b319afa7ba72932 Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Wed, 23 Sep 2020 16:08:24 -0600
+Subject: [PATCH 22/40] Support MPST in a big-endian world
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/common/dmtbdump2.c  | 33 +++++++++++++++++++--------------
+ source/compiler/dttable2.c |  8 ++++----
+ 2 files changed, 23 insertions(+), 18 deletions(-)
+
+Index: acpica-unix2-20200925/source/common/dmtbdump2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/common/dmtbdump2.c
++++ acpica-unix2-20200925/source/common/dmtbdump2.c
+@@ -834,11 +834,13 @@ AcpiDmDumpMpst (
+     UINT16                  SubtableCount;
+     UINT32                  PowerStateCount;
+     UINT32                  ComponentCount;
++    UINT32                  TableLength = AcpiUtReadUint32(&Table->Length);
++    UINT16                  Tmp16;
+ 
+ 
+     /* Main table */
+ 
+-    Status = AcpiDmDumpTable (Table->Length, 0, Table, 0, AcpiDmTableInfoMpst);
++    Status = AcpiDmDumpTable (TableLength, 0, Table, 0, AcpiDmTableInfoMpst);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+@@ -846,13 +848,14 @@ AcpiDmDumpMpst (
+ 
+     /* Subtable: Memory Power Node(s) */
+ 
+-    SubtableCount = (ACPI_CAST_PTR (ACPI_TABLE_MPST, Table))->PowerNodeCount;
++    Tmp16 = (ACPI_CAST_PTR (ACPI_TABLE_MPST, Table))->PowerNodeCount;
++    SubtableCount = AcpiUtReadUint16(&Tmp16);
+     Subtable0 = ACPI_ADD_PTR (ACPI_MPST_POWER_NODE, Table, Offset);
+ 
+-    while ((Offset < Table->Length) && SubtableCount)
++    while ((Offset < TableLength) && SubtableCount)
+     {
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Table->Length, Offset, Subtable0,
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable0,
+             sizeof (ACPI_MPST_POWER_NODE), AcpiDmTableInfoMpst0);
+         if (ACPI_FAILURE (Status))
+         {
+@@ -861,8 +864,8 @@ AcpiDmDumpMpst (
+ 
+         /* Extract the sub-subtable counts */
+ 
+-        PowerStateCount = Subtable0->NumPowerStates;
+-        ComponentCount = Subtable0->NumPhysicalComponents;
++        PowerStateCount = AcpiUtReadUint16(&Subtable0->NumPowerStates);
++        ComponentCount = AcpiUtReadUint16(&Subtable0->NumPhysicalComponents);
+         Offset += sizeof (ACPI_MPST_POWER_NODE);
+ 
+         /* Sub-subtables - Memory Power State Structure(s) */
+@@ -873,7 +876,7 @@ AcpiDmDumpMpst (
+         while (PowerStateCount)
+         {
+             AcpiOsPrintf ("\n");
+-            Status = AcpiDmDumpTable (Table->Length, Offset, Subtable0A,
++            Status = AcpiDmDumpTable (TableLength, Offset, Subtable0A,
+                 sizeof (ACPI_MPST_POWER_STATE), AcpiDmTableInfoMpst0A);
+             if (ACPI_FAILURE (Status))
+             {
+@@ -896,7 +899,7 @@ AcpiDmDumpMpst (
+ 
+         while (ComponentCount)
+         {
+-            Status = AcpiDmDumpTable (Table->Length, Offset, Subtable0B,
++            Status = AcpiDmDumpTable (TableLength, Offset, Subtable0B,
+                 sizeof (ACPI_MPST_COMPONENT), AcpiDmTableInfoMpst0B);
+             if (ACPI_FAILURE (Status))
+             {
+@@ -913,22 +916,24 @@ AcpiDmDumpMpst (
+         SubtableCount--;
+         Subtable0 = ACPI_ADD_PTR (ACPI_MPST_POWER_NODE, Subtable0,
+             sizeof (ACPI_MPST_POWER_NODE) +
+-            (sizeof (ACPI_MPST_POWER_STATE) * Subtable0->NumPowerStates) +
+-            (sizeof (ACPI_MPST_COMPONENT) * Subtable0->NumPhysicalComponents));
++            (sizeof (ACPI_MPST_POWER_STATE) * 
++	         AcpiUtReadUint16(&Subtable0->NumPowerStates)) +
++            (sizeof (ACPI_MPST_COMPONENT) * 
++	         AcpiUtReadUint16(&Subtable0->NumPhysicalComponents)));
+     }
+ 
+     /* Subtable: Count of Memory Power State Characteristic structures */
+ 
+     AcpiOsPrintf ("\n");
+     Subtable1 = ACPI_CAST_PTR (ACPI_MPST_DATA_HDR, Subtable0);
+-    Status = AcpiDmDumpTable (Table->Length, Offset, Subtable1,
++    Status = AcpiDmDumpTable (TableLength, Offset, Subtable1,
+         sizeof (ACPI_MPST_DATA_HDR), AcpiDmTableInfoMpst1);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+     }
+ 
+-    SubtableCount = Subtable1->CharacteristicsCount;
++    SubtableCount = AcpiUtReadUint16(&Subtable1->CharacteristicsCount);
+     Offset += sizeof (ACPI_MPST_DATA_HDR);
+ 
+     /* Subtable: Memory Power State Characteristics structure(s) */
+@@ -936,10 +941,10 @@ AcpiDmDumpMpst (
+     Subtable2 = ACPI_ADD_PTR (ACPI_MPST_POWER_DATA, Subtable1,
+         sizeof (ACPI_MPST_DATA_HDR));
+ 
+-    while ((Offset < Table->Length) && SubtableCount)
++    while ((Offset < TableLength) && SubtableCount)
+     {
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Table->Length, Offset, Subtable2,
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable2,
+             sizeof (ACPI_MPST_POWER_DATA), AcpiDmTableInfoMpst2);
+         if (ACPI_FAILURE (Status))
+         {
+Index: acpica-unix2-20200925/source/compiler/dttable2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/compiler/dttable2.c
++++ acpica-unix2-20200925/source/compiler/dttable2.c
+@@ -345,7 +345,7 @@ DtCompileMpst (
+     DtPushSubtable (Subtable);
+ 
+     MpstChannelInfo = ACPI_CAST_PTR (ACPI_MPST_CHANNEL, Subtable->Buffer);
+-    SubtableCount = MpstChannelInfo->PowerNodeCount;
++    SubtableCount = AcpiUtReadUint16(&MpstChannelInfo->PowerNodeCount);
+ 
+     while (*PFieldList && SubtableCount)
+     {
+@@ -363,8 +363,8 @@ DtCompileMpst (
+         DtPushSubtable (Subtable);
+ 
+         MpstPowerNode = ACPI_CAST_PTR (ACPI_MPST_POWER_NODE, Subtable->Buffer);
+-        PowerStateCount = MpstPowerNode->NumPowerStates;
+-        ComponentCount = MpstPowerNode->NumPhysicalComponents;
++        PowerStateCount = AcpiUtReadUint16(&MpstPowerNode->NumPowerStates);
++        ComponentCount = AcpiUtReadUint16(&MpstPowerNode->NumPhysicalComponents);
+ 
+         ParentTable = DtPeekSubtable ();
+ 
+@@ -417,7 +417,7 @@ DtCompileMpst (
+     DtPushSubtable (Subtable);
+ 
+     MpstDataHeader = ACPI_CAST_PTR (ACPI_MPST_DATA_HDR, Subtable->Buffer);
+-    SubtableCount = MpstDataHeader->CharacteristicsCount;
++    SubtableCount = AcpiUtReadUint16(&MpstDataHeader->CharacteristicsCount);
+ 
+     ParentTable = DtPeekSubtable ();
+ 
