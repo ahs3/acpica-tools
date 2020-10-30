@@ -1,4 +1,4 @@
-acpica-unix (20200925-1) UNRELEASED; urgency=medium
+acpica-unix (20200925-1) unstable; urgency=medium
 
   * Upgrade to 20200925 upstream 
   * Upgrade to 20200717 upstream (not released)
