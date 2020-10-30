@@ -1,0 +1,83 @@
+From e942e785b3ec47693029e3841075becba31f2635 Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Wed, 28 Oct 2020 12:53:34 -0600
+Subject: [PATCH] Correct a couple of endianness issues previously unseen
+
+Just odds and ends of some resource types and ASL analysis
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/compiler/aslanalyze.c   |  4 ++--
+ source/compiler/aslrestype1.c  | 16 ++++++++--------
+ source/compiler/aslrestype1i.c |  2 +-
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+Index: acpica-unix-20200925/source/compiler/aslanalyze.c
+===================================================================
+--- acpica-unix-20200925.orig/source/compiler/aslanalyze.c
++++ acpica-unix-20200925/source/compiler/aslanalyze.c
+@@ -469,7 +469,7 @@ ApCheckForGpeNameConflict (
+ 
+     /* Need a null-terminated string version of NameSeg */
+ 
+-    ACPI_MOVE_32_TO_32 (Name, Op->Asl.NameSeg);
++    ACPI_COPY_NAMESEG (Name, Op->Asl.NameSeg);
+     Name[ACPI_NAMESEG_SIZE] = 0;
+ 
+     /*
+@@ -496,7 +496,7 @@ ApCheckForGpeNameConflict (
+      * We are now sure we have an _Lxx or _Exx.
+      * Create the target name that would cause collision (Flip E/L)
+      */
+-    ACPI_MOVE_32_TO_32 (Target, Name);
++    ACPI_COPY_NAMESEG (Target, Name);
+ 
+     /* Inject opposite letter ("L" versus "E") */
+ 
+Index: acpica-unix-20200925/source/compiler/aslrestype1.c
+===================================================================
+--- acpica-unix-20200925.orig/source/compiler/aslrestype1.c
++++ acpica-unix-20200925/source/compiler/aslrestype1.c
+@@ -220,10 +220,10 @@ RsDoMemory24Descriptor (
+     /* Validate the Min/Max/Len/Align values (Alignment==0 means 64K) */
+ 
+     RsSmallAddressCheck (ACPI_RESOURCE_NAME_MEMORY24,
+-        Descriptor->Memory24.Minimum,
+-        Descriptor->Memory24.Maximum,
+-        Descriptor->Memory24.AddressLength,
+-        Descriptor->Memory24.Alignment,
++        (UINT32) AcpiUtReadUint16(&Descriptor->Memory24.Minimum),
++        (UINT32) AcpiUtReadUint16(&Descriptor->Memory24.Maximum),
++        (UINT32) AcpiUtReadUint16(&Descriptor->Memory24.AddressLength),
++        (UINT32) AcpiUtReadUint16(&Descriptor->Memory24.Alignment),
+         MinOp, MaxOp, LengthOp, NULL, Info->DescriptorTypeOp);
+ 
+     return (Rnode);
+@@ -334,10 +334,10 @@ RsDoMemory32Descriptor (
+     /* Validate the Min/Max/Len/Align values */
+ 
+     RsSmallAddressCheck (ACPI_RESOURCE_NAME_MEMORY32,
+-        Descriptor->Memory32.Minimum,
+-        Descriptor->Memory32.Maximum,
+-        Descriptor->Memory32.AddressLength,
+-        Descriptor->Memory32.Alignment,
++        AcpiUtReadUint32(&Descriptor->Memory32.Minimum),
++        AcpiUtReadUint32(&Descriptor->Memory32.Maximum),
++        AcpiUtReadUint32(&Descriptor->Memory32.AddressLength),
++        AcpiUtReadUint32(&Descriptor->Memory32.Alignment),
+         MinOp, MaxOp, LengthOp, AlignOp, Info->DescriptorTypeOp);
+ 
+     return (Rnode);
+Index: acpica-unix-20200925/source/compiler/aslrestype1i.c
+===================================================================
+--- acpica-unix-20200925.orig/source/compiler/aslrestype1i.c
++++ acpica-unix-20200925/source/compiler/aslrestype1i.c
+@@ -328,7 +328,7 @@ RsDoFixedIoDescriptor (
+ 
+     /* Error checks */
+ 
+-    if (Descriptor->FixedIo.Address > 0x03FF)
++    if (AcpiUtReadUint16(&Descriptor->FixedIo.Address) > 0x03FF)
+     {
+         AslError (ASL_WARNING, ASL_MSG_ISA_ADDRESS, AddressOp, NULL);
+     }

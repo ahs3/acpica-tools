@@ -1,0 +1,96 @@
+From 49b3d77990241c7216412d78e52cf15b3aa6d1ad Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Wed, 30 Sep 2020 18:18:07 -0600
+Subject: [PATCH 37/40] Support IVRS in a big-endian world
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/common/dmtbdump2.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
+
+Index: acpica-unix2-20200925/source/common/dmtbdump2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/common/dmtbdump2.c
++++ acpica-unix2-20200925/source/common/dmtbdump2.c
+@@ -353,11 +353,13 @@ AcpiDmDumpIvrs (
+     ACPI_IVRS_DE_HEADER     *DeviceEntry;
+     ACPI_IVRS_HEADER        *Subtable;
+     ACPI_DMTABLE_INFO       *InfoTable;
++    UINT32                  TableLength = AcpiUtReadUint32(&Table->Length);
++    UINT16                  SubtableLength;
+ 
+ 
+     /* Main table */
+ 
+-    Status = AcpiDmDumpTable (Table->Length, 0, Table, 0, AcpiDmTableInfoIvrs);
++    Status = AcpiDmDumpTable (TableLength, 0, Table, 0, AcpiDmTableInfoIvrs);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+@@ -366,13 +368,14 @@ AcpiDmDumpIvrs (
+     /* Subtables */
+ 
+     Subtable = ACPI_ADD_PTR (ACPI_IVRS_HEADER, Table, Offset);
+-    while (Offset < Table->Length)
++    while (Offset < TableLength)
+     {
+         /* Common subtable header */
+ 
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Table->Length, Offset, Subtable,
+-            Subtable->Length, AcpiDmTableInfoIvrsHdr);
++	SubtableLength = AcpiUtReadUint16(&Subtable->Length);
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable,
++            SubtableLength, AcpiDmTableInfoIvrsHdr);
+         if (ACPI_FAILURE (Status))
+         {
+             return;
+@@ -404,7 +407,7 @@ AcpiDmDumpIvrs (
+ 
+             /* Attempt to continue */
+ 
+-            if (!Subtable->Length)
++            if (!SubtableLength)
+             {
+                 AcpiOsPrintf ("Invalid zero length subtable\n");
+                 return;
+@@ -415,8 +418,8 @@ AcpiDmDumpIvrs (
+         /* Dump the subtable */
+ 
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Table->Length, Offset, Subtable,
+-            Subtable->Length, InfoTable);
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable,
++            SubtableLength, InfoTable);
+         if (ACPI_FAILURE (Status))
+         {
+             return;
+@@ -442,7 +445,7 @@ AcpiDmDumpIvrs (
+                     sizeof (ACPI_IVRS_HARDWARE2));
+             }
+ 
+-            while (EntryOffset < (Offset + Subtable->Length))
++            while (EntryOffset < (Offset + SubtableLength))
+             {
+                 AcpiOsPrintf ("\n");
+                 /*
+@@ -504,7 +507,7 @@ AcpiDmDumpIvrs (
+ 
+                 /* Dump the Device Entry */
+ 
+-                Status = AcpiDmDumpTable (Table->Length, EntryOffset,
++                Status = AcpiDmDumpTable (TableLength, EntryOffset,
+                     DeviceEntry, EntryLength, InfoTable);
+                 if (ACPI_FAILURE (Status))
+                 {
+@@ -520,8 +523,8 @@ AcpiDmDumpIvrs (
+ NextSubtable:
+         /* Point to next subtable */
+ 
+-        Offset += Subtable->Length;
+-        Subtable = ACPI_ADD_PTR (ACPI_IVRS_HEADER, Subtable, Subtable->Length);
++        Offset += SubtableLength;
++        Subtable = ACPI_ADD_PTR (ACPI_IVRS_HEADER, Subtable, SubtableLength);
+     }
+ }
+ 

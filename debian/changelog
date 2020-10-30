@@ -1,9 +1,13 @@
-acpica-unix (20200717-1) UNRELEASED; urgency=medium
+acpica-unix (20200925-1) UNRELEASED; urgency=medium
 
-  * Upgrade to 20200717 upstream 
+  * Upgrade to 20200925 upstream 
+  * Upgrade to 20200717 upstream (not released)
   * Refresh patches and test results as needed
+  * Big-endian (aka s390x) support has been completely revamped; if
+    upstream accepts the new version, this can go away; the result is
+    that all of the older big-endian patches have been replaced.
 
- -- Al Stone <ahs3@debian.org>  Sun, 13 Sep 2020 15:13:04 -0600
+ -- Al Stone <ahs3@debian.org>  Thu, 29 Oct 2020 19:15:48 -0600
 
 acpica-unix (20200528-1) unstable; urgency=medium
 

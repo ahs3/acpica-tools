@@ -1,0 +1,15 @@
+diff -Naur acpica-unix2-20200925.orig/source/common/dmtbdump.c acpica-unix2-20200925/source/common/dmtbdump.c
+--- acpica-unix2-20200925.orig/source/common/dmtbdump.c 2020-10-27 08:50:34.949398104 -0500
++++ acpica-unix2-20200925/source/common/dmtbdump.c      2020-10-27 08:54:27.609955141 -0500
+@@ -333,7 +333,11 @@
+     for (i = 0; i < Entries; i++)
+     {
+         AcpiDmLineHeader2 (Offset, sizeof (UINT64), "ACPI Table Address", i);
++#if ACPI_MACHINE_WIDTH == 32
++        AcpiOsPrintf ("%16.16llX\n", AcpiUtReadUint64(&Array[i]));
++#else
+         AcpiOsPrintf ("%16.16lX\n", AcpiUtReadUint64(&Array[i]));
++#endif
+         Offset += sizeof (UINT64);
+     }
+ }

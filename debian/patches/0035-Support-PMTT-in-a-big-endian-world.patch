@@ -1,0 +1,216 @@
+From b55af37d2419fc5ea630774f49b4ed9b724451b3 Mon Sep 17 00:00:00 2001
+From: Al Stone <ahs3@redhat.com>
+Date: Mon, 28 Sep 2020 18:37:04 -0600
+Subject: [PATCH 35/40] Support PMTT in a big-endian world
+
+Signed-off-by: Al Stone <ahs3@redhat.com>
+---
+ source/common/dmtbdump2.c  | 66 +++++++++++++++++++++-----------------
+ source/compiler/dttable2.c |  5 ++-
+ 2 files changed, 41 insertions(+), 30 deletions(-)
+
+Index: acpica-unix2-20200925/source/common/dmtbdump2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/common/dmtbdump2.c
++++ acpica-unix2-20200925/source/common/dmtbdump2.c
+@@ -1442,17 +1442,21 @@ AcpiDmDumpPmtt (
+     ACPI_PMTT_HEADER        *MemSubtable;
+     ACPI_PMTT_HEADER        *DimmSubtable;
+     ACPI_PMTT_DOMAIN        *DomainArray;
+-    UINT32                  Length = Table->Length;
++    UINT32                  TableLength = AcpiUtReadUint32(&Table->Length);
+     UINT32                  Offset = sizeof (ACPI_TABLE_PMTT);
+     UINT32                  MemOffset;
+     UINT32                  DimmOffset;
+     UINT32                  DomainOffset;
+     UINT32                  DomainCount;
++    UINT16                  SubtableLength;
++    UINT16                  MemSubtableLength;
++    UINT16                  DimmSubtableLength;
++    UINT16                  Tmp16;
+ 
+ 
+     /* Main table */
+ 
+-    Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoPmtt);
++    Status = AcpiDmDumpTable (TableLength, 0, Table, 0, AcpiDmTableInfoPmtt);
+     if (ACPI_FAILURE (Status))
+     {
+         return;
+@@ -1461,13 +1465,14 @@ AcpiDmDumpPmtt (
+     /* Subtables */
+ 
+     Subtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Table, Offset);
+-    while (Offset < Table->Length)
++    while (Offset < TableLength)
+     {
+         /* Common subtable header */
+ 
+         AcpiOsPrintf ("\n");
+-        Status = AcpiDmDumpTable (Length, Offset, Subtable,
+-            Subtable->Length, AcpiDmTableInfoPmttHdr);
++	SubtableLength = AcpiUtReadUint16(&Subtable->Length);
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable,
++            SubtableLength, AcpiDmTableInfoPmttHdr);
+         if (ACPI_FAILURE (Status))
+         {
+             return;
+@@ -1485,8 +1490,8 @@ AcpiDmDumpPmtt (
+ 
+         /* Dump the fixed-length portion of the subtable */
+ 
+-        Status = AcpiDmDumpTable (Length, Offset, Subtable,
+-            Subtable->Length, AcpiDmTableInfoPmtt0);
++        Status = AcpiDmDumpTable (TableLength, Offset, Subtable,
++            SubtableLength, AcpiDmTableInfoPmtt0);
+         if (ACPI_FAILURE (Status))
+         {
+             return;
+@@ -1498,15 +1503,16 @@ AcpiDmDumpPmtt (
+         MemSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, Subtable,
+             sizeof (ACPI_PMTT_SOCKET));
+ 
+-        while (((Offset + MemOffset) < Table->Length) &&
+-            (MemOffset < Subtable->Length))
++        while (((Offset + MemOffset) < TableLength) &&
++            (MemOffset < SubtableLength))
+         {
+             /* Common subtable header */
+ 
+             AcpiOsPrintf ("\n");
+-            Status = AcpiDmDumpTable (Length,
++	    MemSubtableLength = AcpiUtReadUint16(&MemSubtable->Length);
++            Status = AcpiDmDumpTable (TableLength,
+                 Offset + MemOffset, MemSubtable,
+-                MemSubtable->Length, AcpiDmTableInfoPmttHdr);
++                MemSubtableLength, AcpiDmTableInfoPmttHdr);
+             if (ACPI_FAILURE (Status))
+             {
+                 return;
+@@ -1524,9 +1530,9 @@ AcpiDmDumpPmtt (
+ 
+             /* Dump the fixed-length portion of the controller subtable */
+ 
+-            Status = AcpiDmDumpTable (Length,
++            Status = AcpiDmDumpTable (TableLength,
+                 Offset + MemOffset, MemSubtable,
+-                MemSubtable->Length, AcpiDmTableInfoPmtt1);
++                MemSubtableLength, AcpiDmTableInfoPmtt1);
+             if (ACPI_FAILURE (Status))
+             {
+                 return;
+@@ -1534,16 +1540,17 @@ AcpiDmDumpPmtt (
+ 
+             /* Walk the variable count of proximity domains */
+ 
+-            DomainCount = ((ACPI_PMTT_CONTROLLER *) MemSubtable)->DomainCount;
++            Tmp16 = ((ACPI_PMTT_CONTROLLER *) MemSubtable)->DomainCount;
++            DomainCount = AcpiUtReadUint16(&Tmp16);
+             DomainOffset = sizeof (ACPI_PMTT_CONTROLLER);
+             DomainArray = ACPI_ADD_PTR (ACPI_PMTT_DOMAIN, MemSubtable,
+                 sizeof (ACPI_PMTT_CONTROLLER));
+ 
+-            while (((Offset + MemOffset + DomainOffset) < Table->Length) &&
+-                ((MemOffset + DomainOffset) < Subtable->Length) &&
++            while (((Offset + MemOffset + DomainOffset) < TableLength) &&
++                ((MemOffset + DomainOffset) < SubtableLength) &&
+                 DomainCount)
+             {
+-                Status = AcpiDmDumpTable (Length,
++                Status = AcpiDmDumpTable (TableLength,
+                     Offset + MemOffset + DomainOffset, DomainArray,
+                     sizeof (ACPI_PMTT_DOMAIN), AcpiDmTableInfoPmtt1a);
+                 if (ACPI_FAILURE (Status))
+@@ -1568,15 +1575,16 @@ AcpiDmDumpPmtt (
+             DimmSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER, MemSubtable,
+                 DomainOffset);
+ 
+-            while (((Offset + MemOffset + DimmOffset) < Table->Length) &&
+-                (DimmOffset < MemSubtable->Length))
++            while (((Offset + MemOffset + DimmOffset) < TableLength) &&
++                (DimmOffset < MemSubtableLength))
+             {
+                 /* Common subtable header */
+ 
+                 AcpiOsPrintf ("\n");
+-                Status = AcpiDmDumpTable (Length,
++		DimmSubtableLength = AcpiUtReadUint16(&DimmSubtable->Length);
++                Status = AcpiDmDumpTable (TableLength,
+                     Offset + MemOffset + DimmOffset, DimmSubtable,
+-                    DimmSubtable->Length, AcpiDmTableInfoPmttHdr);
++                    DimmSubtableLength, AcpiDmTableInfoPmttHdr);
+                 if (ACPI_FAILURE (Status))
+                 {
+                     return;
+@@ -1594,9 +1602,9 @@ AcpiDmDumpPmtt (
+ 
+                 /* Dump the fixed-length DIMM subtable */
+ 
+-                Status = AcpiDmDumpTable (Length,
++                Status = AcpiDmDumpTable (TableLength,
+                     Offset + MemOffset + DimmOffset, DimmSubtable,
+-                    DimmSubtable->Length, AcpiDmTableInfoPmtt2);
++                    DimmSubtableLength, AcpiDmTableInfoPmtt2);
+                 if (ACPI_FAILURE (Status))
+                 {
+                     return;
+@@ -1604,23 +1612,23 @@ AcpiDmDumpPmtt (
+ 
+                 /* Point to next DIMM subtable */
+ 
+-                DimmOffset += DimmSubtable->Length;
++                DimmOffset += DimmSubtableLength;
+                 DimmSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER,
+-                    DimmSubtable, DimmSubtable->Length);
++                    DimmSubtable, DimmSubtableLength);
+             }
+ 
+             /* Point to next Controller subtable */
+ 
+-            MemOffset += MemSubtable->Length;
++            MemOffset += MemSubtableLength;
+             MemSubtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER,
+-                MemSubtable, MemSubtable->Length);
++                MemSubtable, MemSubtableLength);
+         }
+ 
+         /* Point to next Socket subtable */
+ 
+-        Offset += Subtable->Length;
++        Offset += SubtableLength;
+         Subtable = ACPI_ADD_PTR (ACPI_PMTT_HEADER,
+-            Subtable, Subtable->Length);
++            Subtable, SubtableLength);
+     }
+ }
+ 
+Index: acpica-unix2-20200925/source/compiler/dttable2.c
+===================================================================
+--- acpica-unix2-20200925.orig/source/compiler/dttable2.c
++++ acpica-unix2-20200925/source/compiler/dttable2.c
+@@ -885,6 +885,7 @@ DtCompilePmtt (
+     ACPI_PMTT_HEADER        *PmttHeader;
+     ACPI_PMTT_CONTROLLER    *PmttController;
+     UINT16                  DomainCount;
++    UINT16                  Length;
+     UINT8                   PrevType = ACPI_PMTT_TYPE_SOCKET;
+ 
+ 
+@@ -929,6 +930,8 @@ DtCompilePmtt (
+         DtInsertSubtable (ParentTable, Subtable);
+         DtPushSubtable (Subtable);
+ 
++	Length = AcpiUtReadUint16(&PmttHeader->Length);
++	PmttHeader->Length = Length;
+         switch (PmttHeader->Type)
+         {
+         case ACPI_PMTT_TYPE_SOCKET:
+@@ -962,7 +965,7 @@ DtCompilePmtt (
+ 
+             PmttController = ACPI_CAST_PTR (ACPI_PMTT_CONTROLLER,
+                 (Subtable->Buffer - sizeof (ACPI_PMTT_HEADER)));
+-            DomainCount = PmttController->DomainCount;
++            DomainCount = AcpiUtReadUint16(&PmttController->DomainCount);
+ 
+             while (DomainCount)
+             {
