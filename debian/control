@@ -1,7 +1,7 @@
 Source: acpica-unix
 Section: devel
 Priority: optional
-Maintainer: Al Stone <ahs3@debian.org>
+Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends: debhelper (>= 10~), flex, bison
 Standards-Version: 4.5.0
 Vcs-Git: https://github.com/ahs3/acpica-tools.git
