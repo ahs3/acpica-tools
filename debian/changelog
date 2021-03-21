@@ -1,3 +1,27 @@
+acpica-unix (20200925-2) unstable; urgency=medium
+
+  * ACK for the NMUs: thank you!
+  * Orphaning the package. 
+
+ -- Al Stone <ahs3@debian.org>  Sun, 21 Mar 2021 13:46:41 -0600
+
+acpica-unix (20200925-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Upload to unstable. (Closes: #982495, #982494)
+
+ -- Chris Hofstaedtler <zeha@debian.org>  Wed, 17 Feb 2021 09:45:22 +0000
+
+acpica-unix (20200925-1.1) experimental; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix FTBFS on mips64el by telling the build system about it.
+    Bug: #982495
+  * Maybe also fix FTBFS on armhf, due to aligned access in
+    AcpiUtReadUint64. Bug: #982494
+
+ -- Chris Hofstaedtler <zeha@debian.org>  Tue, 16 Feb 2021 23:24:40 +0000
+
 acpica-unix (20200925-1) unstable; urgency=medium
 
   * Upgrade to 20200925 upstream 
