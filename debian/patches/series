@@ -61,3 +61,4 @@ facp.patch
 armv7-str-fixes.patch
 dbtest.patch
 ull-32bit.patch
+fix_ftbfs_mips64el.patch
